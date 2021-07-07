@@ -1,0 +1,85 @@
+;buildInfoPackage: chisel3, version: 3.4.2, scalaVersion: 2.12.12, sbtVersion: 1.3.10
+circuit DotProductDoubleSync : 
+  module SynchronizedDotProductPE : 
+    input clock : Clock
+    input reset : Reset
+    output io : {flip x : SInt<32>, flip y : SInt<32>, flip reset : UInt<1>, out : SInt<32>}
+    
+    reg xReg : SInt, clock with : (reset => (reset, asSInt(UInt<1>("h00")))) @[DotProductDoubleSync.scala 70:21]
+    xReg <= io.x @[DotProductDoubleSync.scala 70:21]
+    reg yReg : SInt, clock with : (reset => (reset, asSInt(UInt<1>("h00")))) @[DotProductDoubleSync.scala 71:21]
+    yReg <= io.y @[DotProductDoubleSync.scala 71:21]
+    reg resetReg : UInt<1>, clock with : (reset => (reset, UInt<1>("h00"))) @[DotProductDoubleSync.scala 72:25]
+    resetReg <= io.reset @[DotProductDoubleSync.scala 72:25]
+    reg accReg : SInt<32>, clock with : (reset => (reset, asSInt(UInt<32>("h00")))) @[DotProductDoubleSync.scala 74:23]
+    io.out <= accReg @[DotProductDoubleSync.scala 75:10]
+    when resetReg : @[DotProductDoubleSync.scala 77:19]
+      accReg <= asSInt(UInt<1>("h00")) @[DotProductDoubleSync.scala 78:12]
+      skip @[DotProductDoubleSync.scala 77:19]
+    else : @[DotProductDoubleSync.scala 79:16]
+      node _T = mul(xReg, yReg) @[DotProductDoubleSync.scala 80:29]
+      node _T_1 = add(accReg, _T) @[DotProductDoubleSync.scala 80:22]
+      node _T_2 = tail(_T_1, 1) @[DotProductDoubleSync.scala 80:22]
+      node _T_3 = asSInt(_T_2) @[DotProductDoubleSync.scala 80:22]
+      accReg <= _T_3 @[DotProductDoubleSync.scala 80:12]
+      skip @[DotProductDoubleSync.scala 79:16]
+    
+  module DotProductDoubleSync : 
+    input clock : Clock
+    input reset : UInt<1>
+    output io : {flip in : {flip ready : UInt<1>, valid : UInt<1>, bits : {x : SInt<32>, y : SInt<32>}}, out : {flip ready : UInt<1>, valid : UInt<1>, bits : SInt<32>}}
+    
+    reg stateReg : UInt<2>, clock with : (reset => (reset, UInt<2>("h00"))) @[DotProductDoubleSync.scala 16:25]
+    reg xReg : SInt<32>, clock with : (reset => (reset, asSInt(UInt<32>("h00")))) @[DotProductDoubleSync.scala 17:21]
+    reg yReg : SInt<32>, clock with : (reset => (reset, asSInt(UInt<32>("h00")))) @[DotProductDoubleSync.scala 18:21]
+    reg cntReg : UInt<2>, clock with : (reset => (reset, UInt<2>("h01"))) @[DotProductDoubleSync.scala 19:23]
+    inst pe of SynchronizedDotProductPE @[DotProductDoubleSync.scala 21:18]
+    pe.clock <= clock
+    pe.reset <= reset
+    pe.io.x <= asSInt(UInt<1>("h00")) @[DotProductDoubleSync.scala 22:11]
+    pe.io.y <= asSInt(UInt<1>("h00")) @[DotProductDoubleSync.scala 23:11]
+    pe.io.reset <= UInt<1>("h00") @[DotProductDoubleSync.scala 24:15]
+    io.out.bits <= pe.io.out @[DotProductDoubleSync.scala 25:15]
+    node _T = eq(stateReg, UInt<2>("h00")) @[DotProductDoubleSync.scala 27:27]
+    io.in.ready <= _T @[DotProductDoubleSync.scala 27:15]
+    node _T_1 = eq(stateReg, UInt<2>("h03")) @[DotProductDoubleSync.scala 28:28]
+    io.out.valid <= _T_1 @[DotProductDoubleSync.scala 28:16]
+    node _T_2 = eq(UInt<2>("h00"), stateReg) @[Conditional.scala 37:30]
+    when _T_2 : @[Conditional.scala 40:58]
+      when io.in.valid : @[DotProductDoubleSync.scala 32:25]
+        xReg <= io.in.bits.x @[DotProductDoubleSync.scala 33:14]
+        yReg <= io.in.bits.y @[DotProductDoubleSync.scala 34:14]
+        stateReg <= UInt<2>("h01") @[DotProductDoubleSync.scala 35:18]
+        skip @[DotProductDoubleSync.scala 32:25]
+      skip @[Conditional.scala 40:58]
+    else : @[Conditional.scala 39:67]
+      node _T_3 = eq(UInt<2>("h01"), stateReg) @[Conditional.scala 37:30]
+      when _T_3 : @[Conditional.scala 39:67]
+        pe.io.x <= xReg @[DotProductDoubleSync.scala 39:15]
+        pe.io.y <= yReg @[DotProductDoubleSync.scala 40:15]
+        stateReg <= UInt<2>("h02") @[DotProductDoubleSync.scala 41:16]
+        skip @[Conditional.scala 39:67]
+      else : @[Conditional.scala 39:67]
+        node _T_4 = eq(UInt<2>("h02"), stateReg) @[Conditional.scala 37:30]
+        when _T_4 : @[Conditional.scala 39:67]
+          node _T_5 = add(cntReg, UInt<1>("h01")) @[DotProductDoubleSync.scala 44:24]
+          node _T_6 = tail(_T_5, 1) @[DotProductDoubleSync.scala 44:24]
+          cntReg <= _T_6 @[DotProductDoubleSync.scala 44:14]
+          node _T_7 = eq(cntReg, UInt<2>("h02")) @[DotProductDoubleSync.scala 46:19]
+          when _T_7 : @[DotProductDoubleSync.scala 46:28]
+            stateReg <= UInt<2>("h03") @[DotProductDoubleSync.scala 47:18]
+            skip @[DotProductDoubleSync.scala 46:28]
+          else : @[DotProductDoubleSync.scala 48:20]
+            stateReg <= UInt<2>("h00") @[DotProductDoubleSync.scala 49:18]
+            skip @[DotProductDoubleSync.scala 48:20]
+          skip @[Conditional.scala 39:67]
+        else : @[Conditional.scala 39:67]
+          node _T_8 = eq(UInt<2>("h03"), stateReg) @[Conditional.scala 37:30]
+          when _T_8 : @[Conditional.scala 39:67]
+            when io.out.ready : @[DotProductDoubleSync.scala 53:26]
+              cntReg <= UInt<1>("h01") @[DotProductDoubleSync.scala 54:16]
+              pe.io.reset <= UInt<1>("h01") @[DotProductDoubleSync.scala 55:21]
+              stateReg <= UInt<2>("h00") @[DotProductDoubleSync.scala 56:18]
+              skip @[DotProductDoubleSync.scala 53:26]
+            skip @[Conditional.scala 39:67]
+    

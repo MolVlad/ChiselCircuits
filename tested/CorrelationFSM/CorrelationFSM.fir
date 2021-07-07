@@ -1,0 +1,87 @@
+;buildInfoPackage: chisel3, version: 3.4.2, scalaVersion: 2.12.12, sbtVersion: 1.3.10
+circuit CorrelationFSM : 
+  module MultiplyAndAccumulate : 
+    input clock : Clock
+    input reset : Reset
+    output io : {flip x : SInt<32>, flip y : SInt<32>, flip reset : UInt<1>, out : SInt<32>}
+    
+    reg accReg : SInt<32>, clock with : (reset => (reset, asSInt(UInt<32>("h00")))) @[CorrelationFSM.scala 83:23]
+    io.out <= accReg @[CorrelationFSM.scala 84:10]
+    when io.reset : @[CorrelationFSM.scala 86:19]
+      accReg <= asSInt(UInt<1>("h00")) @[CorrelationFSM.scala 87:12]
+      skip @[CorrelationFSM.scala 86:19]
+    else : @[CorrelationFSM.scala 88:16]
+      node _T = mul(io.x, io.y) @[CorrelationFSM.scala 89:29]
+      node _T_1 = add(accReg, _T) @[CorrelationFSM.scala 89:22]
+      node _T_2 = tail(_T_1, 1) @[CorrelationFSM.scala 89:22]
+      node _T_3 = asSInt(_T_2) @[CorrelationFSM.scala 89:22]
+      accReg <= _T_3 @[CorrelationFSM.scala 89:12]
+      skip @[CorrelationFSM.scala 88:16]
+    
+  module CorrelationFSM : 
+    input clock : Clock
+    input reset : UInt<1>
+    output io : {flip in : {flip ready : UInt<1>, valid : UInt<1>, bits : SInt<32>}, out : {flip ready : UInt<1>, valid : UInt<1>, bits : SInt<32>}}
+    
+    reg stateReg : UInt<2>, clock with : (reset => (reset, UInt<2>("h00"))) @[CorrelationFSM.scala 14:25]
+    reg computingStageReg : UInt<2>, clock with : (reset => (reset, UInt<2>("h00"))) @[CorrelationFSM.scala 17:34]
+    reg x0Reg : SInt<32>, clock with : (reset => (reset, asSInt(UInt<32>("h00")))) @[CorrelationFSM.scala 19:22]
+    reg x1Reg : SInt<32>, clock with : (reset => (reset, asSInt(UInt<32>("h00")))) @[CorrelationFSM.scala 20:22]
+    reg x2Reg : SInt<32>, clock with : (reset => (reset, asSInt(UInt<32>("h00")))) @[CorrelationFSM.scala 21:22]
+    reg w0Reg : SInt, clock with : (reset => (reset, asSInt(UInt<2>("h01")))) @[CorrelationFSM.scala 23:22]
+    reg w1Reg : SInt, clock with : (reset => (reset, asSInt(UInt<3>("h02")))) @[CorrelationFSM.scala 24:22]
+    reg w2Reg : SInt, clock with : (reset => (reset, asSInt(UInt<3>("h03")))) @[CorrelationFSM.scala 25:22]
+    inst pe of MultiplyAndAccumulate @[CorrelationFSM.scala 27:18]
+    pe.clock <= clock
+    pe.reset <= reset
+    pe.io.x <= asSInt(UInt<1>("h00")) @[CorrelationFSM.scala 29:11]
+    pe.io.y <= asSInt(UInt<1>("h00")) @[CorrelationFSM.scala 30:11]
+    pe.io.reset <= UInt<1>("h00") @[CorrelationFSM.scala 31:15]
+    io.out.bits <= pe.io.out @[CorrelationFSM.scala 32:15]
+    node _T = eq(stateReg, UInt<2>("h00")) @[CorrelationFSM.scala 34:27]
+    io.in.ready <= _T @[CorrelationFSM.scala 34:15]
+    node _T_1 = eq(stateReg, UInt<2>("h02")) @[CorrelationFSM.scala 35:28]
+    io.out.valid <= _T_1 @[CorrelationFSM.scala 35:16]
+    node _T_2 = eq(UInt<2>("h00"), stateReg) @[Conditional.scala 37:30]
+    when _T_2 : @[Conditional.scala 40:58]
+      when io.in.valid : @[CorrelationFSM.scala 39:25]
+        x0Reg <= x1Reg @[CorrelationFSM.scala 40:15]
+        x1Reg <= x2Reg @[CorrelationFSM.scala 41:15]
+        x2Reg <= io.in.bits @[CorrelationFSM.scala 42:15]
+        stateReg <= UInt<2>("h01") @[CorrelationFSM.scala 43:18]
+        computingStageReg <= UInt<2>("h00") @[CorrelationFSM.scala 44:27]
+        skip @[CorrelationFSM.scala 39:25]
+      skip @[Conditional.scala 40:58]
+    else : @[Conditional.scala 39:67]
+      node _T_3 = eq(UInt<2>("h01"), stateReg) @[Conditional.scala 37:30]
+      when _T_3 : @[Conditional.scala 39:67]
+        node _T_4 = eq(UInt<2>("h00"), computingStageReg) @[Conditional.scala 37:30]
+        when _T_4 : @[Conditional.scala 40:58]
+          pe.io.x <= x0Reg @[CorrelationFSM.scala 50:19]
+          pe.io.y <= w0Reg @[CorrelationFSM.scala 51:19]
+          computingStageReg <= UInt<2>("h01") @[CorrelationFSM.scala 52:29]
+          skip @[Conditional.scala 40:58]
+        else : @[Conditional.scala 39:67]
+          node _T_5 = eq(UInt<2>("h01"), computingStageReg) @[Conditional.scala 37:30]
+          when _T_5 : @[Conditional.scala 39:67]
+            pe.io.x <= x1Reg @[CorrelationFSM.scala 55:19]
+            pe.io.y <= w1Reg @[CorrelationFSM.scala 56:19]
+            computingStageReg <= UInt<2>("h02") @[CorrelationFSM.scala 57:29]
+            skip @[Conditional.scala 39:67]
+          else : @[Conditional.scala 39:67]
+            node _T_6 = eq(UInt<2>("h02"), computingStageReg) @[Conditional.scala 37:30]
+            when _T_6 : @[Conditional.scala 39:67]
+              pe.io.x <= x2Reg @[CorrelationFSM.scala 60:19]
+              pe.io.y <= w2Reg @[CorrelationFSM.scala 61:19]
+              stateReg <= UInt<2>("h02") @[CorrelationFSM.scala 62:20]
+              skip @[Conditional.scala 39:67]
+        skip @[Conditional.scala 39:67]
+      else : @[Conditional.scala 39:67]
+        node _T_7 = eq(UInt<2>("h02"), stateReg) @[Conditional.scala 37:30]
+        when _T_7 : @[Conditional.scala 39:67]
+          when io.out.ready : @[CorrelationFSM.scala 67:26]
+            pe.io.reset <= UInt<1>("h01") @[CorrelationFSM.scala 68:21]
+            stateReg <= UInt<2>("h00") @[CorrelationFSM.scala 69:18]
+            skip @[CorrelationFSM.scala 67:26]
+          skip @[Conditional.scala 39:67]
+    

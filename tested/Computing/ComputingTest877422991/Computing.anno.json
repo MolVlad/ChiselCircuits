@@ -1,0 +1,20 @@
+[
+  {
+    "class":"firrtl.stage.FirrtlFileAnnotation",
+    "file":"tested/Computing/ComputingTest877422991/Computing.lo.fir"
+  },
+  {
+    "class":"firrtl.EmitCircuitAnnotation",
+    "emitter":"firrtl.LowFirrtlEmitter"
+  },
+  {
+    "class":"logger.LogLevelAnnotation",
+    "globalLogLevel":{
+      
+    }
+  },
+  {
+    "class":"firrtl.transforms.BlackBoxTargetDirAnno",
+    "targetDir":"tested/Computing/ComputingTest877422991"
+  }
+]

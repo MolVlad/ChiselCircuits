@@ -1,0 +1,27 @@
+[
+  {
+    "class":"firrtl.stage.FirrtlFileAnnotation",
+    "file":"tested/DotProduct/dotProduct.TestDotProduct1776237355/DotProduct.lo.fir"
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~DotProduct|DotProduct>io_in_ready",
+    "sources":[
+      "~DotProduct|DotProduct>io_out_ready"
+    ]
+  },
+  {
+    "class":"firrtl.EmitCircuitAnnotation",
+    "emitter":"firrtl.LowFirrtlEmitter"
+  },
+  {
+    "class":"logger.LogLevelAnnotation",
+    "globalLogLevel":{
+      
+    }
+  },
+  {
+    "class":"firrtl.transforms.BlackBoxTargetDirAnno",
+    "targetDir":"tested/DotProduct/dotProduct.TestDotProduct1776237355"
+  }
+]

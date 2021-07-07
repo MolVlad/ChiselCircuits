@@ -1,0 +1,17 @@
+[
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~DotProduct|DotProduct>io_in_ready",
+    "sources":[
+      "~DotProduct|DotProduct>io_out_ready"
+    ]
+  },
+  {
+    "class":"firrtl.EmitCircuitAnnotation",
+    "emitter":"firrtl.VerilogEmitter"
+  },
+  {
+    "class":"firrtl.transforms.BlackBoxTargetDirAnno",
+    "targetDir":"tested/DotProduct"
+  }
+]
