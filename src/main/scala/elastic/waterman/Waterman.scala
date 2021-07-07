@@ -1,8 +1,8 @@
-package elastic
+package elastic.waterman
 
 import chisel3._
 import chisel3.util._
-import DNA._
+import elastic.waterman.DNA._
 
 class Waterman extends Module {
   val io = IO(new Bundle {

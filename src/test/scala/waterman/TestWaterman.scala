@@ -1,9 +1,12 @@
+package waterman
+
 import chisel3._
 import chisel3.iotesters._
-import DNA._
+import elastic.waterman.DNA.Elements
+import elastic.waterman.Waterman
 
 object TestWaterman extends App {
-  def module = new elastic.Waterman
+  def module = new Waterman
   val name = "Waterman"
   val dirName = "tested/" + name
 
@@ -19,7 +22,7 @@ object TestWaterman extends App {
   )
 }
 
-class TestBenchWaterman(dut: elastic.Waterman) extends PeekPokeTester(dut) {
+class TestBenchWaterman(dut: Waterman) extends PeekPokeTester(dut) {
   poke(dut.io.out.ready, true.B)
 
   poke(dut.io.x.valid, true.B)

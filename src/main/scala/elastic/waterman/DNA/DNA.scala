@@ -1,4 +1,4 @@
-package DNA
+package elastic.waterman.DNA
 
 import chisel3._
 import chisel3.experimental.ChiselEnum
