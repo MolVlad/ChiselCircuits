@@ -5,7 +5,7 @@ import chisel3.iotesters._
 import elastic.dotProduct.DotProductDecoupled
 
 object TestDotProductDecoupled extends App {
-  def module = new DotProductDecoupled(N = 2)
+  def module = new DotProductDecoupled(N = 4)
   val name = "DotProductDecoupled"
   val dirName = "tested/" + name
 
@@ -25,15 +25,27 @@ class TestBenchDotProductDecoupled(dut: DotProductDecoupled) extends PeekPokeTes
   poke(dut.io.out.ready, true.B)
 
   poke(dut.io.in.valid, true.B)
-  poke(dut.io.in.bits.x, 10.S)
-  poke(dut.io.in.bits.y, 5.S)
+  poke(dut.io.in.bits.x(0), 10.S)
+  poke(dut.io.in.bits.y(0), 5.S)
+  poke(dut.io.in.bits.x(1), 10.S)
+  poke(dut.io.in.bits.y(1), 5.S)
+  poke(dut.io.in.bits.x(2), 1.S)
+  poke(dut.io.in.bits.y(2), 1.S)
+  poke(dut.io.in.bits.x(3), 2.S)
+  poke(dut.io.in.bits.y(3), 3.S)
   step(1)
   poke(dut.io.in.valid, false.B)
 
-  step(3)
+  step(30)
   poke(dut.io.in.valid, true.B)
-  poke(dut.io.in.bits.x, 10.S)
-  poke(dut.io.in.bits.y, -1.S)
+  poke(dut.io.in.bits.x(0), 10.S)
+  poke(dut.io.in.bits.y(0), -1.S)
+  poke(dut.io.in.bits.x(1), 10.S)
+  poke(dut.io.in.bits.y(1), -1.S)
+  poke(dut.io.in.bits.x(2), 10.S)
+  poke(dut.io.in.bits.y(2), 5.S)
+  poke(dut.io.in.bits.x(3), 10.S)
+  poke(dut.io.in.bits.y(3), 5.S)
   step(1)
   poke(dut.io.in.valid, false.B)
 
