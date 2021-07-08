@@ -20,18 +20,21 @@ class Multiplier(semiWidth: Int = 2) extends Module {
   io.in.ready := stateReg === waitingInput
   io.out.valid := stateReg === waitingOutput
 
+  val xReg = RegInit(io.in.bits.x)
+  val yReg = RegInit(io.in.bits.y)
+
   // n - semiWidth, N=2*n - width
   // x = x1 * 2^n + x0
   // y = y1 * 2^n + y0
   val N = semiWidth * 2; val n = semiWidth
   val x0 = Wire(UInt(n.W))
-  x0 := io.in.bits.x(n - 1, 0)
+  x0 := xReg(n - 1, 0)
   val x1 = Wire(UInt(n.W))
-  x1 := io.in.bits.x(N - 1, n)
+  x1 := xReg(N - 1, n)
   val y0 = Wire(UInt(n.W))
-  y0 := io.in.bits.y(n - 1, 0)
+  y0 := yReg(n - 1, 0)
   val y1 = Wire(UInt(n.W));
-  y1 := io.in.bits.y(N - 1, n)
+  y1 := yReg(N - 1, n)
 
   val xMul = Wire(UInt(n.W))
   val yMul = Wire(UInt(n.W))
@@ -48,6 +51,9 @@ class Multiplier(semiWidth: Int = 2) extends Module {
   switch(stateReg) {
     is(waitingInput) {
       when(io.in.valid) {
+        xReg := io.in.bits.x
+        yReg := io.in.bits.y
+
         stateReg := computing
       }
     }

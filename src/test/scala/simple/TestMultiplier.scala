@@ -30,6 +30,14 @@ class TestBenchMultiplier(dut: Multiplier) extends PeekPokeTester(dut) {
   step(1)
   poke(dut.io.in.valid, false.B)
 
+  step(5)
+
+  poke(dut.io.in.valid, true.B)
+  poke(dut.io.in.bits.x, "b0100".U)
+  poke(dut.io.in.bits.y, "b1011".U)
+  step(1)
+  poke(dut.io.in.valid, false.B)
+
   step(10)
 
   poke(dut.io.in.valid, true.B)
