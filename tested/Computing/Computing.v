@@ -19,7 +19,7 @@ module Computing(
   reg [1:0] stateReg; // @[Computing.scala 13:25]
   reg [31:0] xReg; // @[Computing.scala 14:21]
   reg [31:0] yReg; // @[Computing.scala 15:21]
-  reg [1:0] cntReg; // @[Computing.scala 16:23]
+  reg [3:0] cntReg; // @[Computing.scala 16:23]
   wire  _T_2 = 2'h0 == stateReg; // @[Conditional.scala 37:30]
   wire [31:0] _GEN_0 = io_in_valid ? $signed(io_in_bits_x) : $signed(xReg); // @[Computing.scala 25:25 Computing.scala 26:14 Computing.scala 14:21]
   wire [31:0] _GEN_1 = io_in_valid ? $signed(io_in_bits_y) : $signed(yReg); // @[Computing.scala 25:25 Computing.scala 27:14 Computing.scala 15:21]
@@ -31,7 +31,7 @@ module Computing(
   wire [34:0] _T_9 = $signed(xReg) * 3'sh3; // @[Computing.scala 34:20]
   wire [34:0] _T_10 = $signed(yReg) * 3'sh2; // @[Computing.scala 34:33]
   wire [34:0] _T_13 = $signed(_T_9) - $signed(_T_10); // @[Computing.scala 34:26]
-  wire [1:0] _T_16 = cntReg + 2'h1; // @[Computing.scala 39:26]
+  wire [3:0] _T_16 = cntReg + 4'h1; // @[Computing.scala 39:26]
   wire  _T_17 = 2'h2 == stateReg; // @[Conditional.scala 37:30]
   wire [1:0] _GEN_6 = io_out_ready ? 2'h0 : stateReg; // @[Computing.scala 43:26 Computing.scala 44:18 Computing.scala 13:25]
   wire [35:0] _GEN_8 = _T_3 ? $signed(_T_8) : $signed({{4{xReg[31]}},xReg}); // @[Conditional.scala 39:67 Computing.scala 33:12 Computing.scala 14:21]
@@ -50,7 +50,7 @@ module Computing(
         stateReg <= 2'h1; // @[Computing.scala 29:18]
       end
     end else if (_T_3) begin // @[Conditional.scala 39:67]
-      if (cntReg == 2'h2) begin // @[Computing.scala 36:28]
+      if (cntReg == 4'h8) begin // @[Computing.scala 36:28]
         stateReg <= 2'h2; // @[Computing.scala 37:18]
       end
     end else if (_T_17) begin // @[Conditional.scala 39:67]
@@ -67,13 +67,13 @@ module Computing(
       yReg <= _GEN_13[31:0];
     end
     if (reset) begin // @[Computing.scala 16:23]
-      cntReg <= 2'h0; // @[Computing.scala 16:23]
+      cntReg <= 4'h0; // @[Computing.scala 16:23]
     end else if (_T_2) begin // @[Conditional.scala 40:58]
       if (io_in_valid) begin // @[Computing.scala 25:25]
-        cntReg <= 2'h1; // @[Computing.scala 28:16]
+        cntReg <= 4'h1; // @[Computing.scala 28:16]
       end
     end else if (_T_3) begin // @[Conditional.scala 39:67]
-      if (!(cntReg == 2'h2)) begin // @[Computing.scala 36:28]
+      if (!(cntReg == 4'h8)) begin // @[Computing.scala 36:28]
         cntReg <= _T_16; // @[Computing.scala 39:16]
       end
     end
@@ -121,7 +121,7 @@ initial begin
   _RAND_2 = {1{`RANDOM}};
   yReg = _RAND_2[31:0];
   _RAND_3 = {1{`RANDOM}};
-  cntReg = _RAND_3[1:0];
+  cntReg = _RAND_3[3:0];
 `endif // RANDOMIZE_REG_INIT
   `endif // RANDOMIZE
 end // initial

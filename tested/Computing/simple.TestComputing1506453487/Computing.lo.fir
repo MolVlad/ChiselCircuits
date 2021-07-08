@@ -17,7 +17,7 @@ circuit Computing :
       reset => (UInt<1>("h0"), xReg) @[Computing.scala 14:21]
     reg yReg : SInt<32>, clock with :
       reset => (UInt<1>("h0"), yReg) @[Computing.scala 15:21]
-    reg cntReg : UInt<2>, clock with :
+    reg cntReg : UInt<4>, clock with :
       reset => (UInt<1>("h0"), cntReg) @[Computing.scala 16:23]
     node _T = eq(stateReg, UInt<2>("h0")) @[Computing.scala 18:27]
     node _T_1 = eq(stateReg, UInt<2>("h2")) @[Computing.scala 19:28]
@@ -37,7 +37,7 @@ circuit Computing :
     node _T_11 = sub(_T_9, _T_10) @[Computing.scala 34:26]
     node _T_12 = tail(_T_11, 1) @[Computing.scala 34:26]
     node _T_13 = asSInt(_T_12) @[Computing.scala 34:26]
-    node _T_14 = eq(cntReg, UInt<2>("h2")) @[Computing.scala 36:19]
+    node _T_14 = eq(cntReg, UInt<4>("h8")) @[Computing.scala 36:19]
     node _T_15 = add(cntReg, UInt<1>("h1")) @[Computing.scala 39:26]
     node _T_16 = tail(_T_15, 1) @[Computing.scala 39:26]
     node _GEN_4 = mux(_T_14, UInt<2>("h2"), stateReg) @[Computing.scala 36:28 Computing.scala 37:18 Computing.scala 13:25]
@@ -60,4 +60,4 @@ circuit Computing :
     stateReg <= mux(reset, UInt<2>("h0"), _GEN_15) @[Computing.scala 13:25 Computing.scala 13:25]
     xReg <= mux(reset, asSInt(UInt<32>("h0")), asSInt(bits(_GEN_12, 31, 0))) @[Computing.scala 14:21 Computing.scala 14:21]
     yReg <= mux(reset, asSInt(UInt<32>("h0")), asSInt(bits(_GEN_13, 31, 0))) @[Computing.scala 15:21 Computing.scala 15:21]
-    cntReg <= mux(reset, UInt<2>("h0"), _GEN_14) @[Computing.scala 16:23 Computing.scala 16:23]
+    cntReg <= mux(reset, UInt<4>("h0"), _GEN_14) @[Computing.scala 16:23 Computing.scala 16:23]

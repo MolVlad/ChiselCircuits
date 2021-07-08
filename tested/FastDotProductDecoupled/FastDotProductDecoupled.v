@@ -10,16 +10,16 @@ module FastDecoupledMultiplyAndAccumulate(
 `ifdef RANDOMIZE_REG_INIT
   reg [31:0] _RAND_0;
 `endif // RANDOMIZE_REG_INIT
-  reg [31:0] accReg; // @[DotProductDecoupled.scala 137:23]
-  wire [63:0] _T = $signed(io_in_bits_x) * $signed(io_in_bits_y); // @[DotProductDecoupled.scala 147:39]
-  wire [63:0] _GEN_2 = {{32{accReg[31]}},accReg}; // @[DotProductDecoupled.scala 147:24]
-  wire [63:0] _T_3 = $signed(_GEN_2) + $signed(_T); // @[DotProductDecoupled.scala 147:24]
-  wire [63:0] _GEN_0 = io_in_bits_reset ? $signed(64'sh0) : $signed(_T_3); // @[DotProductDecoupled.scala 144:29 DotProductDecoupled.scala 145:14 DotProductDecoupled.scala 147:14]
-  wire [63:0] _GEN_1 = io_in_valid ? $signed(_GEN_0) : $signed({{32{accReg[31]}},accReg}); // @[DotProductDecoupled.scala 143:21 DotProductDecoupled.scala 137:23]
-  assign io_out_bits = accReg; // @[DotProductDecoupled.scala 139:15]
+  reg [31:0] accReg; // @[DotProductDecoupled.scala 135:23]
+  wire [63:0] _T = $signed(io_in_bits_x) * $signed(io_in_bits_y); // @[DotProductDecoupled.scala 145:39]
+  wire [63:0] _GEN_2 = {{32{accReg[31]}},accReg}; // @[DotProductDecoupled.scala 145:24]
+  wire [63:0] _T_3 = $signed(_GEN_2) + $signed(_T); // @[DotProductDecoupled.scala 145:24]
+  wire [63:0] _GEN_0 = io_in_bits_reset ? $signed(64'sh0) : $signed(_T_3); // @[DotProductDecoupled.scala 142:29 DotProductDecoupled.scala 143:14 DotProductDecoupled.scala 145:14]
+  wire [63:0] _GEN_1 = io_in_valid ? $signed(_GEN_0) : $signed({{32{accReg[31]}},accReg}); // @[DotProductDecoupled.scala 141:21 DotProductDecoupled.scala 135:23]
+  assign io_out_bits = accReg; // @[DotProductDecoupled.scala 137:15]
   always @(posedge clock) begin
-    if (reset) begin // @[DotProductDecoupled.scala 137:23]
-      accReg <= 32'sh0; // @[DotProductDecoupled.scala 137:23]
+    if (reset) begin // @[DotProductDecoupled.scala 135:23]
+      accReg <= 32'sh0; // @[DotProductDecoupled.scala 135:23]
     end else begin
       accReg <= _GEN_1[31:0];
     end
@@ -98,15 +98,14 @@ module DotProductDecoupled(
   reg [31:0] _RAND_7;
   reg [31:0] _RAND_8;
   reg [31:0] _RAND_9;
-  reg [31:0] _RAND_10;
 `endif // RANDOMIZE_REG_INIT
-  wire  pe_clock; // @[DotProductDecoupled.scala 23:18]
-  wire  pe_reset; // @[DotProductDecoupled.scala 23:18]
-  wire  pe_io_in_valid; // @[DotProductDecoupled.scala 23:18]
-  wire [31:0] pe_io_in_bits_x; // @[DotProductDecoupled.scala 23:18]
-  wire [31:0] pe_io_in_bits_y; // @[DotProductDecoupled.scala 23:18]
-  wire  pe_io_in_bits_reset; // @[DotProductDecoupled.scala 23:18]
-  wire [31:0] pe_io_out_bits; // @[DotProductDecoupled.scala 23:18]
+  wire  pe_clock; // @[DotProductDecoupled.scala 22:18]
+  wire  pe_reset; // @[DotProductDecoupled.scala 22:18]
+  wire  pe_io_in_valid; // @[DotProductDecoupled.scala 22:18]
+  wire [31:0] pe_io_in_bits_x; // @[DotProductDecoupled.scala 22:18]
+  wire [31:0] pe_io_in_bits_y; // @[DotProductDecoupled.scala 22:18]
+  wire  pe_io_in_bits_reset; // @[DotProductDecoupled.scala 22:18]
+  wire [31:0] pe_io_out_bits; // @[DotProductDecoupled.scala 22:18]
   reg [31:0] xRegs_0; // @[DotProductDecoupled.scala 15:22]
   reg [31:0] xRegs_1; // @[DotProductDecoupled.scala 15:22]
   reg [31:0] xRegs_2; // @[DotProductDecoupled.scala 15:22]
@@ -116,31 +115,29 @@ module DotProductDecoupled(
   reg [31:0] yRegs_2; // @[DotProductDecoupled.scala 16:22]
   reg [31:0] yRegs_3; // @[DotProductDecoupled.scala 16:22]
   reg [2:0] stateReg; // @[DotProductDecoupled.scala 19:25]
-  reg [31:0] resReg; // @[DotProductDecoupled.scala 20:23]
-  reg [2:0] cntReg; // @[DotProductDecoupled.scala 21:23]
+  reg [2:0] cntReg; // @[DotProductDecoupled.scala 20:23]
   wire  _T_6 = 3'h0 == stateReg; // @[Conditional.scala 37:30]
   wire  _T_7 = 3'h1 == stateReg; // @[Conditional.scala 37:30]
-  wire [31:0] _GEN_11 = 2'h1 == cntReg[1:0] ? $signed(xRegs_1) : $signed(xRegs_0); // @[DotProductDecoupled.scala 52:25 DotProductDecoupled.scala 52:25]
-  wire [31:0] _GEN_12 = 2'h2 == cntReg[1:0] ? $signed(xRegs_2) : $signed(_GEN_11); // @[DotProductDecoupled.scala 52:25 DotProductDecoupled.scala 52:25]
-  wire [31:0] _GEN_13 = 2'h3 == cntReg[1:0] ? $signed(xRegs_3) : $signed(_GEN_12); // @[DotProductDecoupled.scala 52:25 DotProductDecoupled.scala 52:25]
-  wire [31:0] _GEN_15 = 2'h1 == cntReg[1:0] ? $signed(yRegs_1) : $signed(yRegs_0); // @[DotProductDecoupled.scala 53:25 DotProductDecoupled.scala 53:25]
-  wire [31:0] _GEN_16 = 2'h2 == cntReg[1:0] ? $signed(yRegs_2) : $signed(_GEN_15); // @[DotProductDecoupled.scala 53:25 DotProductDecoupled.scala 53:25]
-  wire [31:0] _GEN_17 = 2'h3 == cntReg[1:0] ? $signed(yRegs_3) : $signed(_GEN_16); // @[DotProductDecoupled.scala 53:25 DotProductDecoupled.scala 53:25]
+  wire [31:0] _GEN_11 = 2'h1 == cntReg[1:0] ? $signed(xRegs_1) : $signed(xRegs_0); // @[DotProductDecoupled.scala 51:25 DotProductDecoupled.scala 51:25]
+  wire [31:0] _GEN_12 = 2'h2 == cntReg[1:0] ? $signed(xRegs_2) : $signed(_GEN_11); // @[DotProductDecoupled.scala 51:25 DotProductDecoupled.scala 51:25]
+  wire [31:0] _GEN_13 = 2'h3 == cntReg[1:0] ? $signed(xRegs_3) : $signed(_GEN_12); // @[DotProductDecoupled.scala 51:25 DotProductDecoupled.scala 51:25]
+  wire [31:0] _GEN_15 = 2'h1 == cntReg[1:0] ? $signed(yRegs_1) : $signed(yRegs_0); // @[DotProductDecoupled.scala 52:25 DotProductDecoupled.scala 52:25]
+  wire [31:0] _GEN_16 = 2'h2 == cntReg[1:0] ? $signed(yRegs_2) : $signed(_GEN_15); // @[DotProductDecoupled.scala 52:25 DotProductDecoupled.scala 52:25]
+  wire [31:0] _GEN_17 = 2'h3 == cntReg[1:0] ? $signed(yRegs_3) : $signed(_GEN_16); // @[DotProductDecoupled.scala 52:25 DotProductDecoupled.scala 52:25]
   wire  _T_10 = 3'h2 == stateReg; // @[Conditional.scala 37:30]
-  wire [2:0] _T_12 = cntReg + 3'h1; // @[DotProductDecoupled.scala 61:26]
-  wire [2:0] _GEN_21 = cntReg == 3'h3 ? 3'h3 : 3'h1; // @[DotProductDecoupled.scala 63:34 DotProductDecoupled.scala 64:20 DotProductDecoupled.scala 66:20]
-  wire [31:0] _GEN_22 = pe_io_out_bits; // @[DotProductDecoupled.scala 59:29 DotProductDecoupled.scala 60:16 DotProductDecoupled.scala 20:23]
+  wire [2:0] _T_12 = cntReg + 3'h1; // @[DotProductDecoupled.scala 59:26]
+  wire [2:0] _GEN_21 = cntReg == 3'h3 ? 3'h3 : 3'h1; // @[DotProductDecoupled.scala 61:34 DotProductDecoupled.scala 62:20 DotProductDecoupled.scala 64:20]
   wire  _T_14 = 3'h3 == stateReg; // @[Conditional.scala 37:30]
-  wire [2:0] _GEN_25 = io_out_ready ? 3'h4 : stateReg; // @[DotProductDecoupled.scala 71:26 DotProductDecoupled.scala 72:18 DotProductDecoupled.scala 19:25]
+  wire [2:0] _GEN_24 = io_out_ready ? 3'h4 : stateReg; // @[DotProductDecoupled.scala 69:26 DotProductDecoupled.scala 70:18 DotProductDecoupled.scala 19:25]
   wire  _T_15 = 3'h4 == stateReg; // @[Conditional.scala 37:30]
-  wire [2:0] _GEN_29 = _T_15 ? 3'h0 : stateReg; // @[Conditional.scala 39:67 DotProductDecoupled.scala 19:25]
-  wire [2:0] _GEN_30 = _T_14 ? _GEN_25 : _GEN_29; // @[Conditional.scala 39:67]
-  wire  _GEN_31 = _T_14 ? 1'h0 : _T_15; // @[Conditional.scala 39:67 DotProductDecoupled.scala 28:23]
-  wire  _GEN_35 = _T_10 ? 1'h0 : _GEN_31; // @[Conditional.scala 39:67 DotProductDecoupled.scala 28:23]
-  wire [31:0] _GEN_36 = _T_7 ? $signed(_GEN_13) : $signed(32'sh0); // @[Conditional.scala 39:67 DotProductDecoupled.scala 26:19]
-  wire [31:0] _GEN_37 = _T_7 ? $signed(_GEN_17) : $signed(32'sh0); // @[Conditional.scala 39:67 DotProductDecoupled.scala 27:19]
-  wire  _GEN_41 = _T_7 ? 1'h0 : _GEN_35; // @[Conditional.scala 39:67 DotProductDecoupled.scala 28:23]
-  FastDecoupledMultiplyAndAccumulate pe ( // @[DotProductDecoupled.scala 23:18]
+  wire [2:0] _GEN_28 = _T_15 ? 3'h0 : stateReg; // @[Conditional.scala 39:67 DotProductDecoupled.scala 19:25]
+  wire [2:0] _GEN_29 = _T_14 ? _GEN_24 : _GEN_28; // @[Conditional.scala 39:67]
+  wire  _GEN_30 = _T_14 ? 1'h0 : _T_15; // @[Conditional.scala 39:67 DotProductDecoupled.scala 27:23]
+  wire  _GEN_33 = _T_10 ? 1'h0 : _GEN_30; // @[Conditional.scala 39:67 DotProductDecoupled.scala 27:23]
+  wire [31:0] _GEN_34 = _T_7 ? $signed(_GEN_13) : $signed(32'sh0); // @[Conditional.scala 39:67 DotProductDecoupled.scala 25:19]
+  wire [31:0] _GEN_35 = _T_7 ? $signed(_GEN_17) : $signed(32'sh0); // @[Conditional.scala 39:67 DotProductDecoupled.scala 26:19]
+  wire  _GEN_38 = _T_7 ? 1'h0 : _GEN_33; // @[Conditional.scala 39:67 DotProductDecoupled.scala 27:23]
+  FastDecoupledMultiplyAndAccumulate pe ( // @[DotProductDecoupled.scala 22:18]
     .clock(pe_clock),
     .reset(pe_reset),
     .io_in_valid(pe_io_in_valid),
@@ -149,99 +146,90 @@ module DotProductDecoupled(
     .io_in_bits_reset(pe_io_in_bits_reset),
     .io_out_bits(pe_io_out_bits)
   );
-  assign io_in_ready = stateReg == 3'h0; // @[DotProductDecoupled.scala 33:27]
-  assign io_out_valid = stateReg == 3'h3; // @[DotProductDecoupled.scala 34:28]
-  assign io_out_bits = resReg; // @[DotProductDecoupled.scala 32:15]
+  assign io_in_ready = stateReg == 3'h0; // @[DotProductDecoupled.scala 32:27]
+  assign io_out_valid = stateReg == 3'h3; // @[DotProductDecoupled.scala 33:28]
+  assign io_out_bits = pe_io_out_bits; // @[DotProductDecoupled.scala 31:15]
   assign pe_clock = clock;
   assign pe_reset = reset;
-  assign pe_io_in_valid = stateReg == 3'h1 | stateReg == 3'h4; // @[DotProductDecoupled.scala 29:44]
-  assign pe_io_in_bits_x = _T_6 ? $signed(32'sh0) : $signed(_GEN_36); // @[Conditional.scala 40:58 DotProductDecoupled.scala 26:19]
-  assign pe_io_in_bits_y = _T_6 ? $signed(32'sh0) : $signed(_GEN_37); // @[Conditional.scala 40:58 DotProductDecoupled.scala 27:19]
-  assign pe_io_in_bits_reset = _T_6 ? 1'h0 : _GEN_41; // @[Conditional.scala 40:58 DotProductDecoupled.scala 28:23]
+  assign pe_io_in_valid = stateReg == 3'h1 | stateReg == 3'h4; // @[DotProductDecoupled.scala 28:44]
+  assign pe_io_in_bits_x = _T_6 ? $signed(32'sh0) : $signed(_GEN_34); // @[Conditional.scala 40:58 DotProductDecoupled.scala 25:19]
+  assign pe_io_in_bits_y = _T_6 ? $signed(32'sh0) : $signed(_GEN_35); // @[Conditional.scala 40:58 DotProductDecoupled.scala 26:19]
+  assign pe_io_in_bits_reset = _T_6 ? 1'h0 : _GEN_38; // @[Conditional.scala 40:58 DotProductDecoupled.scala 27:23]
   always @(posedge clock) begin
     if (reset) begin // @[DotProductDecoupled.scala 15:22]
       xRegs_0 <= 32'sh0; // @[DotProductDecoupled.scala 15:22]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_in_valid) begin // @[DotProductDecoupled.scala 38:25]
-        xRegs_0 <= io_in_bits_x_0; // @[DotProductDecoupled.scala 40:20]
+      if (io_in_valid) begin // @[DotProductDecoupled.scala 37:25]
+        xRegs_0 <= io_in_bits_x_0; // @[DotProductDecoupled.scala 39:20]
       end
     end
     if (reset) begin // @[DotProductDecoupled.scala 15:22]
       xRegs_1 <= 32'sh0; // @[DotProductDecoupled.scala 15:22]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_in_valid) begin // @[DotProductDecoupled.scala 38:25]
-        xRegs_1 <= io_in_bits_x_1; // @[DotProductDecoupled.scala 40:20]
+      if (io_in_valid) begin // @[DotProductDecoupled.scala 37:25]
+        xRegs_1 <= io_in_bits_x_1; // @[DotProductDecoupled.scala 39:20]
       end
     end
     if (reset) begin // @[DotProductDecoupled.scala 15:22]
       xRegs_2 <= 32'sh0; // @[DotProductDecoupled.scala 15:22]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_in_valid) begin // @[DotProductDecoupled.scala 38:25]
-        xRegs_2 <= io_in_bits_x_2; // @[DotProductDecoupled.scala 40:20]
+      if (io_in_valid) begin // @[DotProductDecoupled.scala 37:25]
+        xRegs_2 <= io_in_bits_x_2; // @[DotProductDecoupled.scala 39:20]
       end
     end
     if (reset) begin // @[DotProductDecoupled.scala 15:22]
       xRegs_3 <= 32'sh0; // @[DotProductDecoupled.scala 15:22]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_in_valid) begin // @[DotProductDecoupled.scala 38:25]
-        xRegs_3 <= io_in_bits_x_3; // @[DotProductDecoupled.scala 40:20]
+      if (io_in_valid) begin // @[DotProductDecoupled.scala 37:25]
+        xRegs_3 <= io_in_bits_x_3; // @[DotProductDecoupled.scala 39:20]
       end
     end
     if (reset) begin // @[DotProductDecoupled.scala 16:22]
       yRegs_0 <= 32'sh0; // @[DotProductDecoupled.scala 16:22]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_in_valid) begin // @[DotProductDecoupled.scala 38:25]
-        yRegs_0 <= io_in_bits_y_0; // @[DotProductDecoupled.scala 43:20]
+      if (io_in_valid) begin // @[DotProductDecoupled.scala 37:25]
+        yRegs_0 <= io_in_bits_y_0; // @[DotProductDecoupled.scala 42:20]
       end
     end
     if (reset) begin // @[DotProductDecoupled.scala 16:22]
       yRegs_1 <= 32'sh0; // @[DotProductDecoupled.scala 16:22]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_in_valid) begin // @[DotProductDecoupled.scala 38:25]
-        yRegs_1 <= io_in_bits_y_1; // @[DotProductDecoupled.scala 43:20]
+      if (io_in_valid) begin // @[DotProductDecoupled.scala 37:25]
+        yRegs_1 <= io_in_bits_y_1; // @[DotProductDecoupled.scala 42:20]
       end
     end
     if (reset) begin // @[DotProductDecoupled.scala 16:22]
       yRegs_2 <= 32'sh0; // @[DotProductDecoupled.scala 16:22]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_in_valid) begin // @[DotProductDecoupled.scala 38:25]
-        yRegs_2 <= io_in_bits_y_2; // @[DotProductDecoupled.scala 43:20]
+      if (io_in_valid) begin // @[DotProductDecoupled.scala 37:25]
+        yRegs_2 <= io_in_bits_y_2; // @[DotProductDecoupled.scala 42:20]
       end
     end
     if (reset) begin // @[DotProductDecoupled.scala 16:22]
       yRegs_3 <= 32'sh0; // @[DotProductDecoupled.scala 16:22]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_in_valid) begin // @[DotProductDecoupled.scala 38:25]
-        yRegs_3 <= io_in_bits_y_3; // @[DotProductDecoupled.scala 43:20]
+      if (io_in_valid) begin // @[DotProductDecoupled.scala 37:25]
+        yRegs_3 <= io_in_bits_y_3; // @[DotProductDecoupled.scala 42:20]
       end
     end
     if (reset) begin // @[DotProductDecoupled.scala 19:25]
       stateReg <= 3'h0; // @[DotProductDecoupled.scala 19:25]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_in_valid) begin // @[DotProductDecoupled.scala 38:25]
-        stateReg <= 3'h1; // @[DotProductDecoupled.scala 46:18]
+      if (io_in_valid) begin // @[DotProductDecoupled.scala 37:25]
+        stateReg <= 3'h1; // @[DotProductDecoupled.scala 45:18]
       end
     end else if (_T_7) begin // @[Conditional.scala 39:67]
       stateReg <= 3'h2;
     end else if (_T_10) begin // @[Conditional.scala 39:67]
       stateReg <= _GEN_21;
     end else begin
-      stateReg <= _GEN_30;
+      stateReg <= _GEN_29;
     end
     if (reset) begin // @[DotProductDecoupled.scala 20:23]
-      resReg <= 32'sh0; // @[DotProductDecoupled.scala 20:23]
-    end else if (!(_T_6)) begin // @[Conditional.scala 40:58]
-      if (!(_T_7)) begin // @[Conditional.scala 39:67]
-        if (_T_10) begin // @[Conditional.scala 39:67]
-          resReg <= _GEN_22;
-        end
-      end
-    end
-    if (reset) begin // @[DotProductDecoupled.scala 21:23]
-      cntReg <= 3'h0; // @[DotProductDecoupled.scala 21:23]
+      cntReg <= 3'h0; // @[DotProductDecoupled.scala 20:23]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_in_valid) begin // @[DotProductDecoupled.scala 38:25]
-        cntReg <= 3'h0; // @[DotProductDecoupled.scala 45:16]
+      if (io_in_valid) begin // @[DotProductDecoupled.scala 37:25]
+        cntReg <= 3'h0; // @[DotProductDecoupled.scala 44:16]
       end
     end else if (!(_T_7)) begin // @[Conditional.scala 39:67]
       if (_T_10) begin // @[Conditional.scala 39:67]
@@ -304,9 +292,7 @@ initial begin
   _RAND_8 = {1{`RANDOM}};
   stateReg = _RAND_8[2:0];
   _RAND_9 = {1{`RANDOM}};
-  resReg = _RAND_9[31:0];
-  _RAND_10 = {1{`RANDOM}};
-  cntReg = _RAND_10[2:0];
+  cntReg = _RAND_9[2:0];
 `endif // RANDOMIZE_REG_INIT
   `endif // RANDOMIZE
 end // initial
