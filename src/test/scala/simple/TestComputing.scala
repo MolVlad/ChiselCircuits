@@ -5,7 +5,7 @@ import chisel3.iotesters._
 import elastic.simple.Computing
 
 object TestComputing extends App {
-  def module = new Computing(N = 2)
+  def module = new Computing(N = 8)
   val name = "Computing"
   val dirName = "tested/" + name
 
@@ -30,7 +30,7 @@ class TestBenchComputing(dut: Computing) extends PeekPokeTester(dut) {
   step(1)
   poke(dut.io.in.valid, false.B)
 
-  step(10)
+  step(15)
 
   poke(dut.io.in.valid, true.B)
   poke(dut.io.in.bits.x, 1.S)

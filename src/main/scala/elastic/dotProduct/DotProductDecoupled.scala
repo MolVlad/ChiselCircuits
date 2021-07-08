@@ -15,9 +15,8 @@ class DotProductDecoupled(width: Int = 32, N: Int = 8) extends Module {
   val xRegs = RegInit(VecInit(Seq.fill(N)(0.S(width.W))))
   val yRegs = RegInit(VecInit(Seq.fill(N)(0.S(width.W))))
 
-  val waitingInput :: sending :: reading :: waitingOutput :: resetting :: Nil = Enum(5)
+  val waitingInput :: sending :: waitingComputation :: waitingOutput :: resetting :: Nil = Enum(5)
   val stateReg = RegInit(waitingInput)
-  val resReg = RegInit(0.S(width.W))
   val cntReg = RegInit(0.U((log2Ceil(N) + 1).W))
 
   val pe = Module(new FastDecoupledMultiplyAndAccumulate(width))
@@ -27,9 +26,9 @@ class DotProductDecoupled(width: Int = 32, N: Int = 8) extends Module {
   pe.io.in.bits.y := 0.S
   pe.io.in.bits.reset := false.B
   pe.io.in.valid := (stateReg === sending) || (stateReg === resetting)
-  pe.io.out.ready := stateReg === reading
+  pe.io.out.ready := stateReg === waitingComputation
 
-  io.out.bits := resReg
+  io.out.bits := pe.io.out.bits
   io.in.ready := stateReg === waitingInput
   io.out.valid := stateReg === waitingOutput
 
@@ -52,12 +51,11 @@ class DotProductDecoupled(width: Int = 32, N: Int = 8) extends Module {
         pe.io.in.bits.x := xRegs(cntReg)
         pe.io.in.bits.y := yRegs(cntReg)
 
-        stateReg := reading
+        stateReg := waitingComputation
       }
     }
-    is(reading) {
+    is(waitingComputation) {
       when(pe.io.out.valid) {
-        resReg := pe.io.out.bits
         cntReg := cntReg + 1.U
 
         when(cntReg === (N-1).U) {

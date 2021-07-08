@@ -36,7 +36,7 @@ class TestBenchDotProductDecoupled(dut: DotProductDecoupled) extends PeekPokeTes
   step(1)
   poke(dut.io.in.valid, false.B)
 
-  step(30)
+  step(10)
   poke(dut.io.in.valid, true.B)
   poke(dut.io.in.bits.x(0), 10.S)
   poke(dut.io.in.bits.y(0), -1.S)
