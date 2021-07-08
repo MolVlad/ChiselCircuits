@@ -37,15 +37,15 @@ class calculateCell(width: Int = Scores.width) extends Module {
     val upper = Input(SInt(width.W))
     val left = Input(SInt(width.W))
     val diagonal = Input(SInt(width.W))
-    val first = Input(Elements())
-    val second = Input(Elements())
+    val rowElement = Input(Elements())
+    val columnElement = Input(Elements())
 
     val out = Output(SInt(width.W))
   })
 
   val substituteElements = Module(new substituteElements)
-  substituteElements.io.first := io.first
-  substituteElements.io.second := io.second
+  substituteElements.io.first := io.rowElement
+  substituteElements.io.second := io.columnElement
 
   val upper, diag, left, diagUpper, diagLeft, max = Wire(SInt(width.W))
   diag := io.diagonal + substituteElements.io.out
@@ -69,13 +69,13 @@ class calculateCell(width: Int = Scores.width) extends Module {
   }
 
   if (Scores.useLowerBound) {
-    io.out := max
-  } else {
     when (max > Scores.lowerBound) {
       io.out := max
     } .otherwise {
       io.out := Scores.lowerBound
     }
+  } else {
+    io.out := max
   }
 }
 

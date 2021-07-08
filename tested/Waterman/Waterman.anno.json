@@ -1,34 +1,487 @@
 [
   {
-    "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~Waterman|Waterman>io_out_bits",
-    "sources":[
-      "~Waterman|Waterman>io_x_bits",
-      "~Waterman|Waterman>io_y_bits"
-    ]
-  },
-  {
     "class":"firrtl.EmitCircuitAnnotation",
     "emitter":"firrtl.VerilogEmitter"
   },
   {
     "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
     "target":"Waterman.substituteElements.io_first",
-    "enumTypeName":"DNA.Elements"
+    "enumTypeName":"elastic.waterman.DNA.Elements"
   },
   {
     "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
     "target":"Waterman.substituteElements.io_second",
-    "enumTypeName":"DNA.Elements"
+    "enumTypeName":"elastic.waterman.DNA.Elements"
   },
   {
     "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
-    "target":"Waterman.Waterman.io_x_bits",
-    "enumTypeName":"DNA.Elements"
+    "target":"Waterman.calculateCell.io_rowElement",
+    "enumTypeName":"elastic.waterman.DNA.Elements"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"Waterman.calculateCell.io_columnElement",
+    "enumTypeName":"elastic.waterman.DNA.Elements"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.TReg_0",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.TReg_1",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.TReg_2",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.TReg_3",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.TReg_4",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.TReg_5",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.TReg_6",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.TReg_7",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.TReg_8",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.TReg_9",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.TReg_10",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.TReg_11",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.TReg_12",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.TReg_13",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.TReg_14",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_0",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_1",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_2",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_3",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_4",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_5",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_6",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_7",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_8",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_9",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_10",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_11",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_12",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_13",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_14",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_15",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_16",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_17",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_18",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_19",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.SReg_20",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_0",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_1",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_2",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_3",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_4",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_5",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_6",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_7",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_8",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_9",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_10",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_11",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_12",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_13",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_14",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_15",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_16",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_17",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_18",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_19",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_S_20",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
   },
   {
     "class":"chisel3.experimental.EnumAnnotations$EnumDefAnnotation",
-    "typeName":"DNA.Elements",
+    "typeName":"elastic.waterman.DNA.Elements",
     "definition":{
       "A":0,
       "G":1,
@@ -37,9 +490,124 @@
     }
   },
   {
-    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
-    "target":"Waterman.Waterman.io_y_bits",
-    "enumTypeName":"DNA.Elements"
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_T_0",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_T_1",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_T_2",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_T_3",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_T_4",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_T_5",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_T_6",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_T_7",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_T_8",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_T_9",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_T_10",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_T_11",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_T_12",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_T_13",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"Waterman.Waterman.io_in_bits_T_14",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
   },
   {
     "class":"firrtl.transforms.BlackBoxTargetDirAnno",
