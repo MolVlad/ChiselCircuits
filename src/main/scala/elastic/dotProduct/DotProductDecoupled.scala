@@ -19,8 +19,8 @@ class DotProductDecoupled(width: Int = 32, N: Int = 8) extends Module {
   val stateReg = RegInit(waitingInput)
   val cntReg = RegInit(0.U((log2Ceil(N) + 1).W))
 
-  val pe = Module(new FastDecoupledMultiplyAndAccumulate(width))
-//  val pe = Module(new DecoupledMultiplyAndAccumulate(width))
+//  val pe = Module(new FastDecoupledMultiplyAndAccumulate(width))
+  val pe = Module(new DecoupledMultiplyAndAccumulate(width))
 
   pe.io.in.bits.x := 0.S
   pe.io.in.bits.y := 0.S

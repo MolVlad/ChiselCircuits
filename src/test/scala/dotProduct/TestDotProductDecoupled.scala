@@ -6,7 +6,7 @@ import elastic.dotProduct.DotProductDecoupled
 
 object TestDotProductDecoupled extends App {
   def module = new DotProductDecoupled(N = 4)
-  val name = "FastDotProductDecoupled"
+  val name = "DotProductDecoupled"
   val dirName = "tested/" + name
 
   println("[{(Running test bench "+name+")}]")
@@ -25,27 +25,27 @@ class TestBenchDotProductDecoupled(dut: DotProductDecoupled) extends PeekPokeTes
   poke(dut.io.out.ready, true.B)
 
   poke(dut.io.in.valid, true.B)
-  poke(dut.io.in.bits.x(0), 10.S)
-  poke(dut.io.in.bits.y(0), 5.S)
-  poke(dut.io.in.bits.x(1), 10.S)
-  poke(dut.io.in.bits.y(1), 5.S)
-  poke(dut.io.in.bits.x(2), 1.S)
-  poke(dut.io.in.bits.y(2), 1.S)
-  poke(dut.io.in.bits.x(3), 2.S)
-  poke(dut.io.in.bits.y(3), 3.S)
+  poke(dut.io.in.bits.x(0), 1.S)
+  poke(dut.io.in.bits.y(0), 2.S)
+  poke(dut.io.in.bits.x(1), 3.S)
+  poke(dut.io.in.bits.y(1), 4.S)
+  poke(dut.io.in.bits.x(2), 5.S)
+  poke(dut.io.in.bits.y(2), 6.S)
+  poke(dut.io.in.bits.x(3), 7.S)
+  poke(dut.io.in.bits.y(3), 8.S)
   step(1)
   poke(dut.io.in.valid, false.B)
 
-  step(10)
+  step(15)
   poke(dut.io.in.valid, true.B)
-  poke(dut.io.in.bits.x(0), 10.S)
+  poke(dut.io.in.bits.x(0), 1.S)
   poke(dut.io.in.bits.y(0), -1.S)
-  poke(dut.io.in.bits.x(1), 10.S)
+  poke(dut.io.in.bits.x(1), 2.S)
   poke(dut.io.in.bits.y(1), -1.S)
-  poke(dut.io.in.bits.x(2), 10.S)
-  poke(dut.io.in.bits.y(2), 5.S)
-  poke(dut.io.in.bits.x(3), 10.S)
-  poke(dut.io.in.bits.y(3), 5.S)
+  poke(dut.io.in.bits.x(2), 3.S)
+  poke(dut.io.in.bits.y(2), -1.S)
+  poke(dut.io.in.bits.x(3), 4.S)
+  poke(dut.io.in.bits.y(3), -1.S)
   step(1)
   poke(dut.io.in.valid, false.B)
 
