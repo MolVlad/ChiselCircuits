@@ -1,26 +1,44 @@
 ;buildInfoPackage: chisel3, version: 3.4.2, scalaVersion: 2.12.12, sbtVersion: 1.3.10
 circuit DotProductDecoupled : 
-  module FastDecoupledMultiplyAndAccumulate : 
+  module DecoupledMultiplyAndAccumulate : 
     input clock : Clock
     input reset : Reset
     output io : {flip in : {flip ready : UInt<1>, valid : UInt<1>, bits : {x : SInt<32>, y : SInt<32>, reset : UInt<1>}}, out : {flip ready : UInt<1>, valid : UInt<1>, bits : SInt<32>}}
     
-    reg accReg : SInt<32>, clock with : (reset => (reset, asSInt(UInt<32>("h00")))) @[DotProductDecoupled.scala 137:23]
-    io.out.bits <= accReg @[DotProductDecoupled.scala 139:15]
-    io.in.ready <= UInt<1>("h01") @[DotProductDecoupled.scala 140:15]
-    io.out.valid <= UInt<1>("h01") @[DotProductDecoupled.scala 141:16]
-    when io.in.valid : @[DotProductDecoupled.scala 143:21]
-      when io.in.bits.reset : @[DotProductDecoupled.scala 144:29]
-        accReg <= asSInt(UInt<1>("h00")) @[DotProductDecoupled.scala 145:14]
-        skip @[DotProductDecoupled.scala 144:29]
-      else : @[DotProductDecoupled.scala 146:18]
-        node _T = mul(io.in.bits.x, io.in.bits.y) @[DotProductDecoupled.scala 147:39]
-        node _T_1 = add(accReg, _T) @[DotProductDecoupled.scala 147:24]
-        node _T_2 = tail(_T_1, 1) @[DotProductDecoupled.scala 147:24]
-        node _T_3 = asSInt(_T_2) @[DotProductDecoupled.scala 147:24]
-        accReg <= _T_3 @[DotProductDecoupled.scala 147:14]
-        skip @[DotProductDecoupled.scala 146:18]
-      skip @[DotProductDecoupled.scala 143:21]
+    reg stateReg : UInt<1>, clock with : (reset => (reset, UInt<1>("h00"))) @[DotProductDecoupled.scala 95:25]
+    reg xReg : SInt<32>, clock with : (reset => (reset, asSInt(UInt<32>("h00")))) @[DotProductDecoupled.scala 96:21]
+    reg yReg : SInt<32>, clock with : (reset => (reset, asSInt(UInt<32>("h00")))) @[DotProductDecoupled.scala 97:21]
+    reg resetReg : UInt<1>, clock with : (reset => (reset, UInt<1>("h00"))) @[DotProductDecoupled.scala 98:25]
+    reg accReg : SInt<32>, clock with : (reset => (reset, asSInt(UInt<32>("h00")))) @[DotProductDecoupled.scala 99:23]
+    io.out.bits <= accReg @[DotProductDecoupled.scala 101:15]
+    node _T = eq(stateReg, UInt<1>("h00")) @[DotProductDecoupled.scala 102:27]
+    io.in.ready <= _T @[DotProductDecoupled.scala 102:15]
+    node _T_1 = eq(stateReg, UInt<1>("h00")) @[DotProductDecoupled.scala 103:28]
+    io.out.valid <= _T_1 @[DotProductDecoupled.scala 103:16]
+    node _T_2 = eq(UInt<1>("h00"), stateReg) @[Conditional.scala 37:30]
+    when _T_2 : @[Conditional.scala 40:58]
+      when io.in.valid : @[DotProductDecoupled.scala 107:25]
+        xReg <= io.in.bits.x @[DotProductDecoupled.scala 108:14]
+        yReg <= io.in.bits.y @[DotProductDecoupled.scala 109:14]
+        resetReg <= io.in.bits.reset @[DotProductDecoupled.scala 110:18]
+        stateReg <= UInt<1>("h01") @[DotProductDecoupled.scala 112:18]
+        skip @[DotProductDecoupled.scala 107:25]
+      skip @[Conditional.scala 40:58]
+    else : @[Conditional.scala 39:67]
+      node _T_3 = eq(UInt<1>("h01"), stateReg) @[Conditional.scala 37:30]
+      when _T_3 : @[Conditional.scala 39:67]
+        stateReg <= UInt<1>("h00") @[DotProductDecoupled.scala 116:16]
+        when resetReg : @[DotProductDecoupled.scala 118:23]
+          accReg <= asSInt(UInt<1>("h00")) @[DotProductDecoupled.scala 119:16]
+          skip @[DotProductDecoupled.scala 118:23]
+        else : @[DotProductDecoupled.scala 120:20]
+          node _T_4 = mul(xReg, yReg) @[DotProductDecoupled.scala 121:33]
+          node _T_5 = add(accReg, _T_4) @[DotProductDecoupled.scala 121:26]
+          node _T_6 = tail(_T_5, 1) @[DotProductDecoupled.scala 121:26]
+          node _T_7 = asSInt(_T_6) @[DotProductDecoupled.scala 121:26]
+          accReg <= _T_7 @[DotProductDecoupled.scala 121:16]
+          skip @[DotProductDecoupled.scala 120:20]
+        skip @[Conditional.scala 39:67]
     
   module DotProductDecoupled : 
     input clock : Clock
@@ -42,7 +60,7 @@ circuit DotProductDecoupled :
     reg stateReg : UInt<3>, clock with : (reset => (reset, UInt<3>("h00"))) @[DotProductDecoupled.scala 19:25]
     reg resReg : SInt<32>, clock with : (reset => (reset, asSInt(UInt<32>("h00")))) @[DotProductDecoupled.scala 20:23]
     reg cntReg : UInt<3>, clock with : (reset => (reset, UInt<3>("h00"))) @[DotProductDecoupled.scala 21:23]
-    inst pe of FastDecoupledMultiplyAndAccumulate @[DotProductDecoupled.scala 23:18]
+    inst pe of DecoupledMultiplyAndAccumulate @[DotProductDecoupled.scala 24:18]
     pe.clock <= clock
     pe.reset <= reset
     pe.io.in.bits.x <= asSInt(UInt<1>("h00")) @[DotProductDecoupled.scala 26:19]

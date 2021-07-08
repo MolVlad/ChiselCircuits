@@ -6,7 +6,7 @@ import elastic.dotProduct.DotProductDecoupled
 
 object TestDotProductDecoupled extends App {
   def module = new DotProductDecoupled(N = 4)
-  val name = "DotProductDecoupled"
+  val name = "FastDotProductDecoupled"
   val dirName = "tested/" + name
 
   println("[{(Running test bench "+name+")}]")

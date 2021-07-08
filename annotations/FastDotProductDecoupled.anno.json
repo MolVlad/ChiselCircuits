@@ -1,7 +1,7 @@
 [
   {
     "class":"firrtl.stage.FirrtlFileAnnotation",
-    "file":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/tested/DotProductDecoupled/dotProduct.TestDotProductDecoupled1092090094/DotProductDecoupled.lo.fir"
+    "file":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/tested/FastDotProductDecoupled/dotProduct.TestDotProductDecoupled1092090094/FastDotProductDecoupled.lo.fir"
   },
   {
     "class":"firrtl.EmitCircuitAnnotation",
@@ -9,18 +9,18 @@
   },
   {
     "class":"firrtl.transforms.BlackBoxTargetDirAnno",
-    "targetDir":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/tested/DotProductDecoupled/dotProduct.TestDotProductDecoupled1092090094"
+    "targetDir":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/tested/FastDotProductDecoupled/dotProduct.TestDotProductDecoupled1092090094"
   },
   {
     "class":"firrtl.transforms.generator.RandomSimulationAnnotation",
     "randomSeed":123451,
     "numberOfTests":3,
-    "inputDataCSVFileOutputPath":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/simulation/DotProductDecoupled/rand/in/",
-    "outputDataCSVFileOutputPath":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/simulation/DotProductDecoupled/rand/out/"
+    "inputDataCSVFileOutputPath":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/simulation/FastDotProductDecoupled/rand/in/",
+    "outputDataCSVFileOutputPath":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/simulation/FastDotProductDecoupled/rand/out/"
   },
   {
     "class":"firrtl.transforms.generator.ConstrainedSimulationAnnotation",
-    "outputDataCSVFileOutputPath":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/simulation/DotProductDecoupled/cons/out/",
+    "outputDataCSVFileOutputPath":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/simulation/FastDotProductDecoupled/cons/out/",
     "numberOfStepsToReachTimeout":100
   },
   {
@@ -37,11 +37,11 @@
       "io_in_bits_x_3",
       "io_in_bits_y_3"
     ],
-    "csvFileDriveBits":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/simulation/DotProductDecoupled/cons/in/test.csv"
+    "csvFileDriveBits":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/simulation/FastDotProductDecoupled/cons/in/test.csv"
   },
   {
     "class":"firrtl.transforms.generator.DecoupledOutputAnnotation",
-    "outputFileName":"DotProductDecoupled",
+    "outputFileName":"FastDotProductDecoupled",
     "valid":"io_out_valid",
     "ready":"io_out_ready",
     "bits":[

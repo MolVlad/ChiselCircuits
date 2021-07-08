@@ -1,5 +1,5 @@
 circuit DotProductDecoupled :
-  module DecoupledMultiplyAndAccumulate :
+  module FastDecoupledMultiplyAndAccumulate :
     input clock : Clock
     input reset : UInt<1>
     output io_in_ready : UInt<1>
@@ -11,44 +11,18 @@ circuit DotProductDecoupled :
     output io_out_valid : UInt<1>
     output io_out_bits : SInt<32>
 
-    reg stateReg : UInt<1>, clock with :
-      reset => (UInt<1>("h0"), stateReg) @[DotProductDecoupled.scala 95:25]
-    reg xReg : SInt<32>, clock with :
-      reset => (UInt<1>("h0"), xReg) @[DotProductDecoupled.scala 96:21]
-    reg yReg : SInt<32>, clock with :
-      reset => (UInt<1>("h0"), yReg) @[DotProductDecoupled.scala 97:21]
-    reg resetReg : UInt<1>, clock with :
-      reset => (UInt<1>("h0"), resetReg) @[DotProductDecoupled.scala 98:25]
     reg accReg : SInt<32>, clock with :
-      reset => (UInt<1>("h0"), accReg) @[DotProductDecoupled.scala 99:23]
-    node _T = eq(stateReg, UInt<1>("h0")) @[DotProductDecoupled.scala 102:27]
-    node _T_1 = eq(stateReg, UInt<1>("h0")) @[DotProductDecoupled.scala 103:28]
-    node _T_2 = eq(UInt<1>("h0"), stateReg) @[Conditional.scala 37:30]
-    node _GEN_0 = mux(io_in_valid, io_in_bits_x, xReg) @[DotProductDecoupled.scala 107:25 DotProductDecoupled.scala 108:14 DotProductDecoupled.scala 96:21]
-    node _GEN_1 = mux(io_in_valid, io_in_bits_y, yReg) @[DotProductDecoupled.scala 107:25 DotProductDecoupled.scala 109:14 DotProductDecoupled.scala 97:21]
-    node _GEN_2 = mux(io_in_valid, io_in_bits_reset, resetReg) @[DotProductDecoupled.scala 107:25 DotProductDecoupled.scala 110:18 DotProductDecoupled.scala 98:25]
-    node _GEN_3 = mux(io_in_valid, UInt<1>("h1"), stateReg) @[DotProductDecoupled.scala 107:25 DotProductDecoupled.scala 112:18 DotProductDecoupled.scala 95:25]
-    node _T_3 = eq(UInt<1>("h1"), stateReg) @[Conditional.scala 37:30]
-    node _T_4 = mul(xReg, yReg) @[DotProductDecoupled.scala 121:33]
-    node _T_5 = add(accReg, _T_4) @[DotProductDecoupled.scala 121:26]
-    node _T_6 = tail(_T_5, 1) @[DotProductDecoupled.scala 121:26]
-    node _T_7 = asSInt(_T_6) @[DotProductDecoupled.scala 121:26]
-    node _GEN_4 = mux(resetReg, asSInt(UInt<1>("h0")), _T_7) @[DotProductDecoupled.scala 118:23 DotProductDecoupled.scala 119:16 DotProductDecoupled.scala 121:16]
-    node _GEN_5 = mux(_T_3, UInt<1>("h0"), stateReg) @[Conditional.scala 39:67 DotProductDecoupled.scala 116:16 DotProductDecoupled.scala 95:25]
-    node _GEN_6 = mux(_T_3, _GEN_4, accReg) @[Conditional.scala 39:67 DotProductDecoupled.scala 99:23]
-    node _GEN_7 = mux(_T_2, _GEN_0, xReg) @[Conditional.scala 40:58 DotProductDecoupled.scala 96:21]
-    node _GEN_8 = mux(_T_2, _GEN_1, yReg) @[Conditional.scala 40:58 DotProductDecoupled.scala 97:21]
-    node _GEN_9 = mux(_T_2, _GEN_2, resetReg) @[Conditional.scala 40:58 DotProductDecoupled.scala 98:25]
-    node _GEN_10 = mux(_T_2, _GEN_3, _GEN_5) @[Conditional.scala 40:58]
-    node _GEN_11 = mux(_T_2, accReg, _GEN_6) @[Conditional.scala 40:58 DotProductDecoupled.scala 99:23]
-    io_in_ready <= _T @[DotProductDecoupled.scala 102:15]
-    io_out_valid <= _T_1 @[DotProductDecoupled.scala 103:16]
-    io_out_bits <= accReg @[DotProductDecoupled.scala 101:15]
-    stateReg <= mux(reset, UInt<1>("h0"), _GEN_10) @[DotProductDecoupled.scala 95:25 DotProductDecoupled.scala 95:25]
-    xReg <= mux(reset, asSInt(UInt<32>("h0")), _GEN_7) @[DotProductDecoupled.scala 96:21 DotProductDecoupled.scala 96:21]
-    yReg <= mux(reset, asSInt(UInt<32>("h0")), _GEN_8) @[DotProductDecoupled.scala 97:21 DotProductDecoupled.scala 97:21]
-    resetReg <= mux(reset, UInt<1>("h0"), _GEN_9) @[DotProductDecoupled.scala 98:25 DotProductDecoupled.scala 98:25]
-    accReg <= mux(reset, asSInt(UInt<32>("h0")), asSInt(bits(_GEN_11, 31, 0))) @[DotProductDecoupled.scala 99:23 DotProductDecoupled.scala 99:23]
+      reset => (UInt<1>("h0"), accReg) @[DotProductDecoupled.scala 137:23]
+    node _T = mul(io_in_bits_x, io_in_bits_y) @[DotProductDecoupled.scala 147:39]
+    node _T_1 = add(accReg, _T) @[DotProductDecoupled.scala 147:24]
+    node _T_2 = tail(_T_1, 1) @[DotProductDecoupled.scala 147:24]
+    node _T_3 = asSInt(_T_2) @[DotProductDecoupled.scala 147:24]
+    node _GEN_0 = mux(io_in_bits_reset, asSInt(UInt<1>("h0")), _T_3) @[DotProductDecoupled.scala 144:29 DotProductDecoupled.scala 145:14 DotProductDecoupled.scala 147:14]
+    node _GEN_1 = mux(io_in_valid, _GEN_0, accReg) @[DotProductDecoupled.scala 143:21 DotProductDecoupled.scala 137:23]
+    io_in_ready <= UInt<1>("h1") @[DotProductDecoupled.scala 140:15]
+    io_out_valid <= UInt<1>("h1") @[DotProductDecoupled.scala 141:16]
+    io_out_bits <= accReg @[DotProductDecoupled.scala 139:15]
+    accReg <= mux(reset, asSInt(UInt<32>("h0")), asSInt(bits(_GEN_1, 31, 0))) @[DotProductDecoupled.scala 137:23 DotProductDecoupled.scala 137:23]
 
   module DotProductDecoupled :
     input clock : Clock
@@ -67,7 +41,7 @@ circuit DotProductDecoupled :
     output io_out_valid : UInt<1>
     output io_out_bits : SInt<32>
 
-    inst pe of DecoupledMultiplyAndAccumulate @[DotProductDecoupled.scala 24:18]
+    inst pe of FastDecoupledMultiplyAndAccumulate @[DotProductDecoupled.scala 23:18]
     reg xRegs_0 : SInt<32>, clock with :
       reset => (UInt<1>("h0"), xRegs_0) @[DotProductDecoupled.scala 15:22]
     reg xRegs_1 : SInt<32>, clock with :
