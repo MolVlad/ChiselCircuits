@@ -4,7 +4,8 @@ import chisel3._
 import chisel3.util._
 import elastic.waterman.DNA._
 
-class Waterman(rowsNumber: Int = 4, columnsNumber: Int = 4) extends Module {
+class WatermanSystolicDecoupled(rowsNumber: Int = 4, columnsNumber: Int = 4) extends Module {
+  require(rowsNumber <= columnsNumber)
   val io = IO(new Bundle {
     val in = Flipped(new DecoupledIO(new Bundle {
       val S = Vec(columnsNumber, Elements())
@@ -19,9 +20,9 @@ class Waterman(rowsNumber: Int = 4, columnsNumber: Int = 4) extends Module {
 
   val SReg = RegInit(VecInit(Seq.fill(columnsNumber)(Elements.A)))
   val TReg = RegInit(VecInit(Seq.fill(rowsNumber)(Elements.A)))
-  val rowsReg = RegInit(VecInit(Seq.fill(rowsNumber)(0.S(Scores.width.W))))
-  val columnsReg = RegInit(VecInit(Seq.fill(columnsNumber + 1)(0.S(Scores.width.W))))
-  val resultingColumnsReg = RegInit(VecInit(Seq.fill(columnsNumber)(0.S(Scores.width.W))))
+  val rows = RegInit(VecInit(Seq.fill(rowsNumber)(0.S(Scores.width.W))))
+  val columns = RegInit(VecInit(Seq.fill(columnsNumber + 1)(0.S(Scores.width.W))))
+  val resultingColumns = RegInit(VecInit(Seq.fill(columnsNumber)(0.S(Scores.width.W))))
 
   val waitingInput :: computing :: update :: waitingOutput :: Nil = Enum(4)
   val stateReg = RegInit(waitingInput)
@@ -53,13 +54,13 @@ class Waterman(rowsNumber: Int = 4, columnsNumber: Int = 4) extends Module {
           TReg(i) := io.in.bits.T(i)
         }
         for (i <- 0 until (columnsNumber + 1)) {
-          columnsReg(i) := 0.S
+          columns(i) := 0.S
         }
         for (i <- 0 until rowsNumber) {
-          rowsReg(i) := 0.S
+          rows(i) := 0.S
         }
         for (i <- 0 until columnsNumber) {
-          resultingColumnsReg(i) := 0.S
+          resultingColumns(i) := 0.S
         }
 
         cntColumnReg := 0.U
@@ -68,9 +69,9 @@ class Waterman(rowsNumber: Int = 4, columnsNumber: Int = 4) extends Module {
       }
     }
     is(computing) {
-      pe.io.upper := columnsReg(cntColumnReg + 1.U)
-      pe.io.diagonal := columnsReg(cntColumnReg)
-      pe.io.left := rowsReg(cntRowReg)
+      pe.io.upper := columns(cntColumnReg + 1.U)
+      pe.io.diagonal := columns(cntColumnReg)
+      pe.io.left := rows(cntRowReg)
       pe.io.rowElement := TReg(cntRowReg)
       pe.io.columnElement := SReg(cntColumnReg)
 
@@ -79,8 +80,8 @@ class Waterman(rowsNumber: Int = 4, columnsNumber: Int = 4) extends Module {
     }
     is(waitingOutput) {
       when(io.out.ready) {
-        resultingColumnsReg(cntColumnReg) := resReg
-        rowsReg(cntRowReg) := resReg
+        resultingColumns(cntColumnReg) := resReg
+        rows(cntRowReg) := resReg
         printf("%d ", resReg)
 
         when((cntColumnReg === (columnsNumber - 1).U) && (cntRowReg === (rowsNumber - 1).U)) {
@@ -99,7 +100,7 @@ class Waterman(rowsNumber: Int = 4, columnsNumber: Int = 4) extends Module {
     }
     is(update) {
       for (i <- 0 until columnsNumber) {
-        columnsReg(i + 1) := resultingColumnsReg(i)
+        columns(i + 1) := resultingColumns(i)
       }
       stateReg := computing
     }
