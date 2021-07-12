@@ -31,7 +31,6 @@ class substituteElements(width: Int = Scores.width) extends Module {
   }
 }
 
-// it's necessary to check it with simulation
 class calculateCell(width: Int = Scores.width) extends Module {
   val io = IO(new Bundle {
     val upper = Input(SInt(width.W))
