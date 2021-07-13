@@ -2,6 +2,7 @@ package elastic.waterman.DNA
 
 import chisel3._
 import chisel3.experimental.ChiselEnum
+import chisel3.util.log2Ceil
 
 object Scores {
   val width = 32
@@ -78,3 +79,8 @@ class calculateCell(width: Int = Scores.width) extends Module {
   }
 }
 
+class OutputData(val rowsNumber: Int, val columnsNumber: Int) extends  Bundle {
+  val score = Output(SInt(Scores.width.W))
+  val x = Output(UInt(log2Ceil(columnsNumber).W))
+  val y = Output(UInt(log2Ceil(rowsNumber).W))
+}

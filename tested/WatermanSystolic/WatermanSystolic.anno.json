@@ -2,182 +2,182 @@
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~WatermanSystolic|substituteElements",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell:calculateCell/substituteElements:substituteElements",
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled:processingElementDecoupled/substituteElements:substituteElements",
     "index":0.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~WatermanSystolic|calculateCell",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell:calculateCell",
-    "index":0.03225806451612903
+    "original":"~WatermanSystolic|processingElementDecoupled",
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled:processingElementDecoupled",
+    "index":0.03333333333333333
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~WatermanSystolic|substituteElements_1",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_1:calculateCell/substituteElements:substituteElements",
-    "index":0.06451612903225806
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_1:processingElementDecoupled/substituteElements:substituteElements",
+    "index":0.06666666666666667
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~WatermanSystolic|calculateCell_1",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_1:calculateCell",
-    "index":0.0967741935483871
+    "original":"~WatermanSystolic|processingElementDecoupled_1",
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_1:processingElementDecoupled",
+    "index":0.1
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~WatermanSystolic|substituteElements_2",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_2:calculateCell/substituteElements:substituteElements",
-    "index":0.12903225806451613
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_2:processingElementDecoupled/substituteElements:substituteElements",
+    "index":0.13333333333333333
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~WatermanSystolic|calculateCell_2",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_2:calculateCell",
-    "index":0.16129032258064516
+    "original":"~WatermanSystolic|processingElementDecoupled_2",
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_2:processingElementDecoupled",
+    "index":0.16666666666666666
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~WatermanSystolic|substituteElements_3",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_3:calculateCell/substituteElements:substituteElements",
-    "index":0.1935483870967742
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_3:processingElementDecoupled/substituteElements:substituteElements",
+    "index":0.2
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~WatermanSystolic|calculateCell_3",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_3:calculateCell",
-    "index":0.22580645161290322
+    "original":"~WatermanSystolic|processingElementDecoupled_3",
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_3:processingElementDecoupled",
+    "index":0.23333333333333334
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~WatermanSystolic|substituteElements_4",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_4:calculateCell/substituteElements:substituteElements",
-    "index":0.25806451612903225
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_4:processingElementDecoupled/substituteElements:substituteElements",
+    "index":0.26666666666666666
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~WatermanSystolic|calculateCell_4",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_4:calculateCell",
-    "index":0.2903225806451613
+    "original":"~WatermanSystolic|processingElementDecoupled_4",
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_4:processingElementDecoupled",
+    "index":0.3
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~WatermanSystolic|substituteElements_5",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_5:calculateCell/substituteElements:substituteElements",
-    "index":0.3225806451612903
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_5:processingElementDecoupled/substituteElements:substituteElements",
+    "index":0.3333333333333333
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~WatermanSystolic|calculateCell_5",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_5:calculateCell",
-    "index":0.3548387096774194
+    "original":"~WatermanSystolic|processingElementDecoupled_5",
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_5:processingElementDecoupled",
+    "index":0.36666666666666664
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~WatermanSystolic|substituteElements_6",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_6:calculateCell/substituteElements:substituteElements",
-    "index":0.3870967741935484
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_6:processingElementDecoupled/substituteElements:substituteElements",
+    "index":0.4
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~WatermanSystolic|calculateCell_6",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_6:calculateCell",
-    "index":0.41935483870967744
+    "original":"~WatermanSystolic|processingElementDecoupled_6",
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_6:processingElementDecoupled",
+    "index":0.43333333333333335
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~WatermanSystolic|substituteElements_7",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_7:calculateCell/substituteElements:substituteElements",
-    "index":0.45161290322580644
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_7:processingElementDecoupled/substituteElements:substituteElements",
+    "index":0.4666666666666667
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~WatermanSystolic|calculateCell_7",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_7:calculateCell",
-    "index":0.4838709677419355
+    "original":"~WatermanSystolic|processingElementDecoupled_7",
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_7:processingElementDecoupled",
+    "index":0.5
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~WatermanSystolic|substituteElements_8",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_8:calculateCell/substituteElements:substituteElements",
-    "index":0.5161290322580645
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_8:processingElementDecoupled/substituteElements:substituteElements",
+    "index":0.5333333333333333
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~WatermanSystolic|calculateCell_8",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_8:calculateCell",
-    "index":0.5483870967741935
+    "original":"~WatermanSystolic|processingElementDecoupled_8",
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_8:processingElementDecoupled",
+    "index":0.5666666666666667
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~WatermanSystolic|substituteElements_9",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_9:calculateCell/substituteElements:substituteElements",
-    "index":0.5806451612903226
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_9:processingElementDecoupled/substituteElements:substituteElements",
+    "index":0.6
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~WatermanSystolic|calculateCell_9",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_9:calculateCell",
-    "index":0.6129032258064516
+    "original":"~WatermanSystolic|processingElementDecoupled_9",
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_9:processingElementDecoupled",
+    "index":0.6333333333333333
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~WatermanSystolic|substituteElements_10",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_10:calculateCell/substituteElements:substituteElements",
-    "index":0.6451612903225806
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_10:processingElementDecoupled/substituteElements:substituteElements",
+    "index":0.6666666666666666
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~WatermanSystolic|calculateCell_10",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_10:calculateCell",
-    "index":0.6774193548387096
+    "original":"~WatermanSystolic|processingElementDecoupled_10",
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_10:processingElementDecoupled",
+    "index":0.7
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~WatermanSystolic|substituteElements_11",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_11:calculateCell/substituteElements:substituteElements",
-    "index":0.7096774193548387
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_11:processingElementDecoupled/substituteElements:substituteElements",
+    "index":0.7333333333333333
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~WatermanSystolic|calculateCell_11",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_11:calculateCell",
-    "index":0.7419354838709677
+    "original":"~WatermanSystolic|processingElementDecoupled_11",
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_11:processingElementDecoupled",
+    "index":0.7666666666666667
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~WatermanSystolic|substituteElements_12",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_12:calculateCell/substituteElements:substituteElements",
-    "index":0.7741935483870968
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_12:processingElementDecoupled/substituteElements:substituteElements",
+    "index":0.8
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~WatermanSystolic|calculateCell_12",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_12:calculateCell",
-    "index":0.8064516129032258
+    "original":"~WatermanSystolic|processingElementDecoupled_12",
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_12:processingElementDecoupled",
+    "index":0.8333333333333334
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~WatermanSystolic|substituteElements_13",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_13:calculateCell/substituteElements:substituteElements",
-    "index":0.8387096774193549
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_13:processingElementDecoupled/substituteElements:substituteElements",
+    "index":0.8666666666666667
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~WatermanSystolic|calculateCell_13",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_13:calculateCell",
-    "index":0.8709677419354839
+    "original":"~WatermanSystolic|processingElementDecoupled_13",
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_13:processingElementDecoupled",
+    "index":0.9
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~WatermanSystolic|substituteElements_14",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_14:calculateCell/substituteElements:substituteElements",
-    "index":0.9032258064516129
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_14:processingElementDecoupled/substituteElements:substituteElements",
+    "index":0.9333333333333333
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~WatermanSystolic|calculateCell_14",
-    "duplicate":"~WatermanSystolic|WatermanSystolic/calculateCell_14:calculateCell",
-    "index":0.9354838709677419
+    "original":"~WatermanSystolic|processingElementDecoupled_14",
+    "duplicate":"~WatermanSystolic|WatermanSystolic/processingElementDecoupled_14:processingElementDecoupled",
+    "index":0.9666666666666667
   },
   {
     "class":"firrtl.EmitCircuitAnnotation",
@@ -185,196 +185,61 @@
   },
   {
     "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.PEs_0_out",
+    "target":"WatermanSystolic.WatermanSystolic.PEs_0_fromPreviousPE_ready",
     "typeName":"elastic.waterman.DNA.Elements",
     "fields":[
       [
+        "toNextPE",
+        "bits",
         "columnElement"
       ],
       [
         "rowElement"
+      ],
+      [
+        "fromPreviousPE",
+        "bits",
+        "columnElement"
       ]
     ]
   },
   {
     "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.PEs_1_out",
+    "target":"WatermanSystolic.WatermanSystolic.PEs_14_out_valid",
     "typeName":"elastic.waterman.DNA.Elements",
     "fields":[
       [
+        "toNextPE",
+        "bits",
         "columnElement"
       ],
       [
         "rowElement"
+      ],
+      [
+        "fromPreviousPE",
+        "bits",
+        "columnElement"
       ]
     ]
   },
   {
     "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.PEs_2_out",
+    "target":"WatermanSystolic.WatermanSystolic.PEs_14_out_bits_x",
     "typeName":"elastic.waterman.DNA.Elements",
     "fields":[
       [
+        "toNextPE",
+        "bits",
         "columnElement"
       ],
       [
         "rowElement"
-      ]
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.PEs_3_out",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      [
-        "columnElement"
       ],
       [
-        "rowElement"
-      ]
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.PEs_4_out",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      [
+        "fromPreviousPE",
+        "bits",
         "columnElement"
-      ],
-      [
-        "rowElement"
-      ]
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.PEs_5_out",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      [
-        "columnElement"
-      ],
-      [
-        "rowElement"
-      ]
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.PEs_6_out",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      [
-        "columnElement"
-      ],
-      [
-        "rowElement"
-      ]
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.PEs_7_out",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      [
-        "columnElement"
-      ],
-      [
-        "rowElement"
-      ]
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.PEs_8_out",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      [
-        "columnElement"
-      ],
-      [
-        "rowElement"
-      ]
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.PEs_9_out",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      [
-        "columnElement"
-      ],
-      [
-        "rowElement"
-      ]
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.PEs_10_out",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      [
-        "columnElement"
-      ],
-      [
-        "rowElement"
-      ]
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.PEs_11_out",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      [
-        "columnElement"
-      ],
-      [
-        "rowElement"
-      ]
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.PEs_12_out",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      [
-        "columnElement"
-      ],
-      [
-        "rowElement"
-      ]
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.PEs_13_out",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      [
-        "columnElement"
-      ],
-      [
-        "rowElement"
-      ]
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.PEs_14_out",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      [
-        "columnElement"
-      ],
-      [
-        "rowElement"
       ]
     ]
   },
@@ -390,133 +255,23 @@
   },
   {
     "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
-    "target":"WatermanSystolic.calculateCell.io_rowElement",
+    "target":"WatermanSystolic.processingElementDecoupled.columnElementReg",
     "enumTypeName":"elastic.waterman.DNA.Elements"
   },
   {
     "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
-    "target":"WatermanSystolic.calculateCell.io_columnElement",
+    "target":"WatermanSystolic.processingElementDecoupled.io_fromPreviousPE_bits_columnElement",
     "enumTypeName":"elastic.waterman.DNA.Elements"
   },
   {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.TReg_0",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      
-    ]
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"WatermanSystolic.processingElementDecoupled.io_rowElement",
+    "enumTypeName":"elastic.waterman.DNA.Elements"
   },
   {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.TReg_1",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.TReg_2",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.TReg_3",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.TReg_4",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.TReg_5",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.TReg_6",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.TReg_7",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.TReg_8",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.TReg_9",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.TReg_10",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.TReg_11",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.TReg_12",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.TReg_13",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      
-    ]
-  },
-  {
-    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
-    "target":"WatermanSystolic.WatermanSystolic.TReg_14",
-    "typeName":"elastic.waterman.DNA.Elements",
-    "fields":[
-      
-    ]
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"WatermanSystolic.processingElementDecoupled.io_toNextPE_bits_columnElement",
+    "enumTypeName":"elastic.waterman.DNA.Elements"
   },
   {
     "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
@@ -681,6 +436,126 @@
   {
     "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
     "target":"WatermanSystolic.WatermanSystolic.SReg_20",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"WatermanSystolic.WatermanSystolic.TReg_0",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"WatermanSystolic.WatermanSystolic.TReg_1",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"WatermanSystolic.WatermanSystolic.TReg_2",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"WatermanSystolic.WatermanSystolic.TReg_3",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"WatermanSystolic.WatermanSystolic.TReg_4",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"WatermanSystolic.WatermanSystolic.TReg_5",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"WatermanSystolic.WatermanSystolic.TReg_6",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"WatermanSystolic.WatermanSystolic.TReg_7",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"WatermanSystolic.WatermanSystolic.TReg_8",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"WatermanSystolic.WatermanSystolic.TReg_9",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"WatermanSystolic.WatermanSystolic.TReg_10",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"WatermanSystolic.WatermanSystolic.TReg_11",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"WatermanSystolic.WatermanSystolic.TReg_12",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"WatermanSystolic.WatermanSystolic.TReg_13",
+    "typeName":"elastic.waterman.DNA.Elements",
+    "fields":[
+      
+    ]
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumVecAnnotation",
+    "target":"WatermanSystolic.WatermanSystolic.TReg_14",
     "typeName":"elastic.waterman.DNA.Elements",
     "fields":[
       
