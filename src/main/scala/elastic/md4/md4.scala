@@ -2,7 +2,6 @@ package elastic.md4
 
 import chisel3._
 import chisel3.util._
-import elastic.waterman.DNA._
 
 class md4(width: Int = 2) extends Module {
   val io = IO(new Bundle {
@@ -49,13 +48,25 @@ class md4(width: Int = 2) extends Module {
   switch(stateReg) {
     is(waitingLength) {
       when(io.dataPieces.valid) {
-        dataPiecesReg := io.dataPieces.bits
-        A := "h67452301".U
-        B := "hEFCDAB89".U
-        C := "h98BADCFE".U
-        D := "h10325476".U
         when(io.dataPieces.bits > 0.U) {
-          stateReg := waitingData
+          A := "h67452301".U
+          B := "hEFCDAB89".U
+          C := "h98BADCFE".U
+          D := "h10325476".U
+          when(io.data.valid) {
+            roundReg := 0.U
+            operReg := 0.U
+            dataPiecesReg := io.dataPieces.bits - 1.U
+            X := change1.io.out
+            AA := "h67452301".U
+            BB := "hEFCDAB89".U
+            CC := "h98BADCFE".U
+            DD := "h10325476".U
+            stateReg := computing
+          } .otherwise {
+            dataPiecesReg := io.dataPieces.bits
+            stateReg := waitingData
+          }
         }
       }
     }
@@ -167,7 +178,7 @@ class Operation extends Module {
   val const = Wire(Bits(32.W))
   val sum = Wire(Bits(32.W))
 
-  F := (io.b & io.c) | (~io.b & io.d)
+  F := (io.b & io.c) | ((~io.b).asUInt & io.d)
   G := (io.b & io.c) | (io.b & io.d) | (io.c & io.d)
   H := io.b ^ io.c ^ io.d
 
@@ -384,21 +395,6 @@ class MappingX extends Module {
   }
 }
 
-class changeWordOrder extends Module {
-  val io = IO(new Bundle {
-    val in = Input(UInt(32.W))
-    val out = Output(UInt(32.W))
-  })
-
-  val byte0, byte1, byte2, byte3 = Wire(UInt(8.W))
-  byte0 := io.in(7,0)
-  byte1 := io.in(15,8)
-  byte2 := io.in(23,16)
-  byte3 := io.in(31,24)
-
-  io.out := Cat(byte0, byte1, byte2, byte3)
-}
-
 class changeWordsOrder extends Module {
   val io = IO(new Bundle {
     val in = Input(UInt(512.W))
@@ -414,7 +410,4 @@ class changeWordsOrder extends Module {
   io.out := Cat(PEs(15).out, PEs(14).out, PEs(13).out, PEs(12).out, PEs(11).out,
     PEs(10).out, PEs(9).out, PEs(8).out, PEs(7).out, PEs(6).out, PEs(5).out,
     PEs(4).out, PEs(3).out, PEs(2).out, PEs(1).out, PEs(0).out)
-//  io.out := Cat(PEs(0).out, PEs(1).out, PEs(2).out, PEs(3).out, PEs(4).out,
-//    PEs(5).out, PEs(6).out, PEs(7).out, PEs(8).out, PEs(9).out, PEs(10).out,
-//    PEs(11).out, PEs(12).out, PEs(13).out, PEs(14).out, PEs(15).out)
 }

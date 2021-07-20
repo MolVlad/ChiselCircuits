@@ -72,5 +72,16 @@ class TestBenchMD4(dut: md4) extends PeekPokeTester(dut) {
   step(1)
   poke(dut.io.dataPieces.valid, false.B)
 
+  step(100)
+
+  poke(dut.io.dataPieces.valid, true.B)
+  poke(dut.io.dataPieces.bits, 1.U)
+  poke(dut.io.data.valid, true.B)
+  poke(dut.io.data.bits, "h6173646b62686f7065716867703b6b6c6a73646667696f68675b65726a673b6b6173646a64666764647364666f6968656673646c6b5d5d80b801000000000000".U)
+  step(1)
+  poke(dut.io.dataPieces.valid, false.B)
+  poke(dut.io.data.valid, false.B)
+
+
   step(1000)
 }
