@@ -16,7 +16,7 @@
     "randomSeed":123451,
     "numberOfTests":3,
     "inputDataCSVFileOutputPath":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/simulation/Computing/rand/in/",
-    "outputDataCSVFileOutputPath":"/scratch/molodtsov/simulation/Computing/rand/out/"
+    "outputDataCSVFileOutputPath":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/simulation/Computing/rand/out/"
   },
   {
     "class":"firrtl.transforms.generator.ConstrainedSimulationAnnotation",

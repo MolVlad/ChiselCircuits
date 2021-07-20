@@ -6,15 +6,15 @@ import elastic.waterman.DNA.Elements
 import elastic.waterman._
 
 object TestWatermanSystolic extends App {
-//  def module = new WatermanSystolic(rowsNumber = 4, columnsNumber = 4)
-  def module = new WatermanSystolic(rowsNumber = 15, columnsNumber = 21)
+  def module = new WatermanSystolic(rowsNumber = 4, columnsNumber = 4)
+//  def module = new WatermanSystolic(rowsNumber = 15, columnsNumber = 21)
   val name = "WatermanSystolic"
   val dirName = "tested/" + name
 
   println("[{(Running test bench)}]")
   chisel3.iotesters.Driver.execute(
     Array("-o", name, "--generate-vcd-output", "on", "--target-dir", dirName),
-    () => module) { c => new TestBenchWatermanSystolicHard(c)}
+    () => module) { c => new TestBenchWatermanSystolicSimple(c)}
 
   println("[{(Generating Verilog file)}]")
   (new chisel3.stage.ChiselStage).emitVerilog(
@@ -41,7 +41,7 @@ class TestBenchWatermanSystolicSimple(dut: WatermanSystolic) extends PeekPokeTes
   step(1)
   poke(dut.io.in.valid, false.B)
 
-  step(50)
+  step(15)
 
   poke(dut.io.in.valid, true.B)
   poke(dut.io.in.bits.S(0), Elements.A)
