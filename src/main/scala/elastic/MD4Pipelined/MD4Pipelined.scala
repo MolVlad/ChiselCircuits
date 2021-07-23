@@ -3,7 +3,7 @@ package elastic.MD4Pipelined
 import chisel3._
 import chisel3.util._
 
-class MD4Pipelined(width: Int = 2) extends Module {
+class MD4Pipelined extends Module {
   val io = IO(new Bundle {
     val in = Flipped(new DecoupledIO(new MD4OutputData))
     val hash = new DecoupledIO(UInt(128.W))
@@ -110,29 +110,20 @@ class MD4ChangeOrderInput extends Module {
     val in = Flipped(out)
   })
 
-  val input, result = Wire(new MD4OutputData)
-  val data = RegInit(VecInit(Seq.fill(2)(0.U.asTypeOf(new MD4OutputData))))
-  val head = RegInit(false.B)
-  val tail = RegInit(false.B)
-  val full = RegInit(VecInit(Seq.fill(2)(false.B)))
+  val empty = RegInit(true.B)
+  val enable = Wire(Bool())
+  enable := io.out.ready || empty
 
-  io.in.ready := !(full(0) && full(1))
-  io.out.valid := full(0) || full(1)
+  when(enable) {
+    empty := !io.in.valid
+  }
+
+  val result = Wire(new MD4OutputData)
+  val input = RegEnable(io.in.bits, enable)
+  val valid = RegEnable(io.in.valid, enable)
+  io.out.valid := valid
+  io.in.ready := enable
   io.out.bits := result
-  input := data(head)
-
-  // write
-  when(io.in.valid && !full(tail)) {
-    full(tail) := true.B
-    data(tail) := io.in.bits
-    tail := !tail
-  }
-
-  // read
-  when(io.out.ready && full(head)) {
-    full(head) := false.B
-    head := !head
-  }
 
   // processing
   val PEs = VecInit(Seq.fill(16) {
@@ -168,29 +159,20 @@ class MD4ProcessingElement(round: Int = 1, operation: Int = 1) extends Module {
     val in = Flipped(out)
   })
 
-  val input, result = Wire(new MD4DataInterPE)
-  val data = RegInit(VecInit(Seq.fill(2)(0.U.asTypeOf(new MD4DataInterPE))))
-  val head = RegInit(false.B)
-  val tail = RegInit(false.B)
-  val full = RegInit(VecInit(Seq.fill(2)(false.B)))
+  val empty = RegInit(true.B)
+  val enable = Wire(Bool())
+  enable := io.out.ready || empty
 
-  io.in.ready := !(full(0) && full(1))
-  io.out.valid := full(0) || full(1)
+  when(enable) {
+    empty := !io.in.valid
+  }
+
+  val result = Wire(new MD4DataInterPE)
+  val input = RegEnable(io.in.bits, enable)
+  val valid = RegEnable(io.in.valid, enable)
+  io.out.valid := valid
+  io.in.ready := enable
   io.out.bits := result
-  input := data(head)
-
-  // write
-  when(io.in.valid && !full(tail)) {
-    full(tail) := true.B
-    data(tail) := io.in.bits
-    tail := !tail
-  }
-
-  // read
-  when(io.out.ready && full(head)) {
-    full(head) := false.B
-    head := !head
-  }
 
   // computations
   result.A0 := input.A0
@@ -324,32 +306,22 @@ class MD4FinalAddition extends Module {
     })
   })
 
-  val input = Wire(new MD4DataInterPE)
+  val empty = RegInit(true.B)
+  val enable = Wire(Bool())
+  enable := io.out.ready || empty
+
+  when(enable) {
+    empty := !io.in.valid
+  }
+
   val result = Wire(new Bundle {
     val A = UInt(32.W); val B = UInt(32.W); val C = UInt(32.W); val D = UInt(32.W)
   })
-  val data = RegInit(VecInit(Seq.fill(2)(0.U.asTypeOf(new MD4DataInterPE))))
-  val head = RegInit(false.B)
-  val tail = RegInit(false.B)
-  val full = RegInit(VecInit(Seq.fill(2)(false.B)))
-
-  io.in.ready := !(full(0) && full(1))
-  io.out.valid := full(0) || full(1)
+  val input = RegEnable(io.in.bits, enable)
+  val valid = RegEnable(io.in.valid, enable)
+  io.out.valid := valid
+  io.in.ready := enable
   io.out.bits := result
-  input := data(head)
-
-  // write
-  when(io.in.valid && !full(tail)) {
-    full(tail) := true.B
-    data(tail) := io.in.bits
-    tail := !tail
-  }
-
-  // read
-  when(io.out.ready && full(head)) {
-    full(head) := false.B
-    head := !head
-  }
 
   // processing
   result.A := input.A + input.A0
@@ -364,29 +336,20 @@ class MD4ChangeOrderOutput extends Module {
     val in = Flipped(out)
   })
 
-  val input, result = Wire(UInt(128.W))
-  val data = RegInit(VecInit(Seq.fill(2)(0.U(128.W))))
-  val head = RegInit(false.B)
-  val tail = RegInit(false.B)
-  val full = RegInit(VecInit(Seq.fill(2)(false.B)))
+  val empty = RegInit(true.B)
+  val enable = Wire(Bool())
+  enable := io.out.ready || empty
 
-  io.in.ready := !(full(0) && full(1))
-  io.out.valid := full(0) || full(1)
+  when(enable) {
+    empty := !io.in.valid
+  }
+
+  val result = Wire(UInt(128.W))
+  val input = RegEnable(io.in.bits, enable)
+  val valid = RegEnable(io.in.valid, enable)
+  io.out.valid := valid
+  io.in.ready := enable
   io.out.bits := result
-  input := data(head)
-
-  // write
-  when(io.in.valid && !full(tail)) {
-    full(tail) := true.B
-    data(tail) := io.in.bits
-    tail := !tail
-  }
-
-  // read
-  when(io.out.ready && full(head)) {
-    full(head) := false.B
-    head := !head
-  }
 
   // processing
   val PEs = VecInit(Seq.fill(4) {

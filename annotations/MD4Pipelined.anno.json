@@ -38,13 +38,13 @@
   },
   {
     "class":"firrtl.transforms.generator.DecoupledOutputAnnotation",
-    "outputFileName":"MD4FSM",
+    "outputFileName":"MD4Pipelined",
     "valid":"io_hash_valid",
     "ready":"io_hash_ready",
     "outputRadix": 16,
     "bits":[
       "io_hash_bits"
     ],
-    "expectedNumberOfOutputs":5
+    "expectedNumberOfOutputs":0
   }
 ]

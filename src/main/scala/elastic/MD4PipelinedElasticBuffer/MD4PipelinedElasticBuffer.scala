@@ -3,7 +3,7 @@ package elastic.MD4PipelinedElasticBuffer
 import chisel3._
 import chisel3.util._
 
-class MD4PipelinedElasticBuffer(width: Int = 2) extends Module {
+class MD4PipelinedElasticBuffer extends Module {
   val io = IO(new Bundle {
     val in = Flipped(new DecoupledIO(new MD4OutputData))
     val hash = new DecoupledIO(UInt(128.W))

@@ -22,9 +22,9 @@ object TestMD4Pipelined extends App {
 }
 
 class TestBenchMD4Pipelined(dut: MD4Pipelined) extends PeekPokeTester(dut) {
-  step(10)
-  poke(dut.io.hash.ready, true.B)
+  poke(dut.io.hash.ready, false.B)
 
+  step(10)
   poke(dut.io.in.valid, true.B)
 
   poke(dut.io.in.bits.A0, "h01234567".U)
@@ -69,8 +69,12 @@ class TestBenchMD4Pipelined(dut: MD4Pipelined) extends PeekPokeTester(dut) {
   poke(dut.io.in.bits.D0, "h76543210".U)
   poke(dut.io.in.bits.X, "h776567687577697270676873646a6765726b6c676a696577686765726a6572678000000000000000000000000000000000000000000000000001000000000000".U)
 
-  step(10)
+  step(1)
   poke(dut.io.in.valid, false.B)
 
   step(100)
+
+  poke(dut.io.hash.ready, true.B)
+
+  step(500)
 }
