@@ -88,12 +88,12 @@ class DES_InitialPermutation extends Module {
 
   // processing
   val ip = Module(new IP).io
-  ip.text := Reverse(input.text)
+  ip.text := input.text
   result.L := ip.L
   result.R := ip.R
 
   val pc_1 = Module(new PC_1).io
-  pc_1.key := Reverse(input.key)
+  pc_1.key := input.key
   result.C := pc_1.C
   result.D := pc_1.D
 }
@@ -199,15 +199,18 @@ class IP extends Module {
     val R = Output(UInt(32.W))
   })
 
-  io.L := Cat(io.text(57),io.text(49),io.text(41),io.text(33),io.text(25),io.text(17),io.text(9),io.text(1),
-    io.text(59),io.text(51),io.text(43),io.text(35),io.text(27),io.text(19),io.text(11),io.text(3),
-    io.text(61),io.text(53),io.text(45),io.text(37),io.text(29),io.text(21),io.text(13),io.text(5),
-    io.text(63),io.text(55),io.text(47),io.text(39),io.text(31),io.text(23),io.text(15),io.text(7))
+  val reversed = Wire(UInt(64.W))
+  reversed := Reverse(io.text)
 
-  io.R := Cat(io.text(56),io.text(48),io.text(40),io.text(32),io.text(24),io.text(16),io.text(8),io.text(0),
-    io.text(58),io.text(50),io.text(42),io.text(34),io.text(26),io.text(18),io.text(10),io.text(2),
-    io.text(60),io.text(52),io.text(44),io.text(36),io.text(28),io.text(20),io.text(12),io.text(4),
-    io.text(62),io.text(54),io.text(46),io.text(38),io.text(30),io.text(22),io.text(14),io.text(6))
+  io.L := Cat(reversed(57),reversed(49),reversed(41),reversed(33),reversed(25),reversed(17),reversed(9),reversed(1),
+    reversed(59),reversed(51),reversed(43),reversed(35),reversed(27),reversed(19),reversed(11),reversed(3),
+    reversed(61),reversed(53),reversed(45),reversed(37),reversed(29),reversed(21),reversed(13),reversed(5),
+    reversed(63),reversed(55),reversed(47),reversed(39),reversed(31),reversed(23),reversed(15),reversed(7))
+
+  io.R := Cat(reversed(56),reversed(48),reversed(40),reversed(32),reversed(24),reversed(16),reversed(8),reversed(0),
+    reversed(58),reversed(50),reversed(42),reversed(34),reversed(26),reversed(18),reversed(10),reversed(2),
+    reversed(60),reversed(52),reversed(44),reversed(36),reversed(28),reversed(20),reversed(12),reversed(4),
+    reversed(62),reversed(54),reversed(46),reversed(38),reversed(30),reversed(22),reversed(14),reversed(6))
 }
 
 class PC_1 extends Module {
@@ -217,15 +220,18 @@ class PC_1 extends Module {
     val D = Output(UInt(28.W))
   })
 
-  io.C := Cat(io.key(56),io.key(48),io.key(40),io.key(32),io.key(24),io.key(16),io.key(8),
-    io.key(0),io.key(57),io.key(49),io.key(41),io.key(33),io.key(25),io.key(17),
-    io.key(9),io.key(1),io.key(58),io.key(50),io.key(42),io.key(34),io.key(26),
-    io.key(18),io.key(10),io.key(2),io.key(59),io.key(51),io.key(43),io.key(35))
+  val reversed = Wire(UInt(64.W))
+  reversed := Reverse(io.key)
 
-  io.D := Cat(io.key(62),io.key(54),io.key(46),io.key(38),io.key(30),io.key(22),io.key(14),
-    io.key(6),io.key(61),io.key(53),io.key(45),io.key(37),io.key(29),io.key(21),
-    io.key(13),io.key(5),io.key(60),io.key(52),io.key(44),io.key(36),io.key(28),
-    io.key(20),io.key(12),io.key(4),io.key(27),io.key(19),io.key(11),io.key(3))
+  io.C := Cat(reversed(56),reversed(48),reversed(40),reversed(32),reversed(24),reversed(16),reversed(8),
+    reversed(0),reversed(57),reversed(49),reversed(41),reversed(33),reversed(25),reversed(17),
+    reversed(9),reversed(1),reversed(58),reversed(50),reversed(42),reversed(34),reversed(26),
+    reversed(18),reversed(10),reversed(2),reversed(59),reversed(51),reversed(43),reversed(35))
+
+  io.D := Cat(reversed(62),reversed(54),reversed(46),reversed(38),reversed(30),reversed(22),reversed(14),
+    reversed(6),reversed(61),reversed(53),reversed(45),reversed(37),reversed(29),reversed(21),
+    reversed(13),reversed(5),reversed(60),reversed(52),reversed(44),reversed(36),reversed(28),
+    reversed(20),reversed(12),reversed(4),reversed(27),reversed(19),reversed(11),reversed(3))
 }
 
 class DES_keys(round: Int) extends Module {
@@ -290,13 +296,13 @@ class DES_f extends Module {
   })
 
   val E = Module(new DES_E)
-  E.io.R := Reverse(io.R)
+  E.io.R := io.R
 
   val S = Module(new DES_S)
   S.io.in := E.io.E ^ io.K
 
   val P = Module(new DES_P)
-  P.io.in := Reverse(S.io.out)
+  P.io.in := S.io.out
   io.out := P.io.out
 }
 
@@ -461,14 +467,17 @@ class DES_P extends Module {
     val out = Output(UInt(32.W))
   })
 
-  io.out := Cat(io.in(15),io.in(6),io.in(19),io.in(20),
-    io.in(28),io.in(11),io.in(27),io.in(16),
-    io.in(0),io.in(14),io.in(22),io.in(25),
-    io.in(4),io.in(17),io.in(30),io.in(9),
-    io.in(1),io.in(7),io.in(23),io.in(13),
-    io.in(31),io.in(26),io.in(2),io.in(8),
-    io.in(18),io.in(12),io.in(29),io.in(5),
-    io.in(21),io.in(10),io.in(3),io.in(24))
+  val reversed = Wire(UInt(32.W))
+  reversed := Reverse(io.in)
+
+  io.out := Cat(reversed(15),reversed(6),reversed(19),reversed(20),
+    reversed(28),reversed(11),reversed(27),reversed(16),
+    reversed(0),reversed(14),reversed(22),reversed(25),
+    reversed(4),reversed(17),reversed(30),reversed(9),
+    reversed(1),reversed(7),reversed(23),reversed(13),
+    reversed(31),reversed(26),reversed(2),reversed(8),
+    reversed(18),reversed(12),reversed(29),reversed(5),
+    reversed(21),reversed(10),reversed(3),reversed(24))
 }
 
 class DES_E extends Module {
@@ -477,14 +486,17 @@ class DES_E extends Module {
     val E = Output(UInt(48.W))
   })
 
-  io.E := Cat(io.R(31),io.R(0),io.R(1),io.R(2),io.R(3),io.R(4),
-    io.R(3),io.R(4),io.R(5),io.R(6),io.R(7),io.R(8),
-    io.R(7),io.R(8),io.R(9),io.R(10),io.R(11),io.R(12),
-    io.R(11),io.R(12),io.R(13),io.R(14),io.R(15),io.R(16),
-    io.R(15),io.R(16),io.R(17),io.R(18),io.R(19),io.R(20),
-    io.R(19),io.R(20),io.R(21),io.R(22),io.R(23),io.R(24),
-    io.R(23),io.R(24),io.R(25),io.R(26),io.R(27),io.R(28),
-    io.R(27),io.R(28),io.R(29),io.R(30),io.R(31),io.R(0))
+  val reversed = Wire(UInt(32.W))
+  reversed := Reverse(io.R)
+
+  io.E := Cat(reversed(31),reversed(0),reversed(1),reversed(2),reversed(3),reversed(4),
+    reversed(3),reversed(4),reversed(5),reversed(6),reversed(7),reversed(8),
+    reversed(7),reversed(8),reversed(9),reversed(10),reversed(11),reversed(12),
+    reversed(11),reversed(12),reversed(13),reversed(14),reversed(15),reversed(16),
+    reversed(15),reversed(16),reversed(17),reversed(18),reversed(19),reversed(20),
+    reversed(19),reversed(20),reversed(21),reversed(22),reversed(23),reversed(24),
+    reversed(23),reversed(24),reversed(25),reversed(26),reversed(27),reversed(28),
+    reversed(27),reversed(28),reversed(29),reversed(30),reversed(31),reversed(0))
 }
 
 class DES_DataInterPE extends Bundle {
