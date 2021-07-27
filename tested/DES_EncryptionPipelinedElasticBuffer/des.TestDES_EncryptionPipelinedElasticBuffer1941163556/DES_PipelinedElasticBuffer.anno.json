@@ -1,5 +1,9 @@
 [
   {
+    "class":"firrtl.stage.FirrtlFileAnnotation",
+    "file":"tested/DES_EncryptionPipelinedElasticBuffer/des.TestDES_EncryptionPipelinedElasticBuffer1941163556/DES_EncryptionPipelinedElasticBuffer.lo.fir"
+  },
+  {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~DES_PipelinedElasticBuffer|DES_keys",
     "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_0:DES_ProcessingElement/keys:DES_keys",
@@ -577,10 +581,16 @@
   },
   {
     "class":"firrtl.EmitCircuitAnnotation",
-    "emitter":"firrtl.VerilogEmitter"
+    "emitter":"firrtl.LowFirrtlEmitter"
+  },
+  {
+    "class":"logger.LogLevelAnnotation",
+    "globalLogLevel":{
+      
+    }
   },
   {
     "class":"firrtl.transforms.BlackBoxTargetDirAnno",
-    "targetDir":"tested/DES_EncryptionPipelinedElasticBuffer"
+    "targetDir":"tested/DES_EncryptionPipelinedElasticBuffer/des.TestDES_EncryptionPipelinedElasticBuffer1941163556"
   }
 ]

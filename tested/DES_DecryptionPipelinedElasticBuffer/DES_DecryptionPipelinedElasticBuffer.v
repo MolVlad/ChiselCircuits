@@ -689,69 +689,65 @@ module DES_keys(
   output [27:0] io_D_next,
   output [47:0] io_K
 );
-  wire [26:0] hi = io_C[26:0]; // @[DES_EncryptionPipelinedElasticBuffer.scala 277:28]
-  wire  lo = io_C[27]; // @[DES_EncryptionPipelinedElasticBuffer.scala 277:39]
-  wire [26:0] hi_1 = io_D[26:0]; // @[DES_EncryptionPipelinedElasticBuffer.scala 278:28]
-  wire  lo_1 = io_D[27]; // @[DES_EncryptionPipelinedElasticBuffer.scala 278:39]
-  wire [55:0] _T_2 = {hi,lo,hi_1,lo_1}; // @[Cat.scala 30:58]
-  wire [31:0] _T_7 = {{16'd0}, _T_2[31:16]}; // @[Bitwise.scala 103:31]
-  wire [31:0] _T_9 = {_T_2[15:0], 16'h0}; // @[Bitwise.scala 103:65]
-  wire [31:0] _T_11 = _T_9 & 32'hffff0000; // @[Bitwise.scala 103:75]
-  wire [31:0] _T_12 = _T_7 | _T_11; // @[Bitwise.scala 103:39]
-  wire [31:0] _GEN_0 = {{8'd0}, _T_12[31:8]}; // @[Bitwise.scala 103:31]
-  wire [31:0] _T_17 = _GEN_0 & 32'hff00ff; // @[Bitwise.scala 103:31]
-  wire [31:0] _T_19 = {_T_12[23:0], 8'h0}; // @[Bitwise.scala 103:65]
-  wire [31:0] _T_21 = _T_19 & 32'hff00ff00; // @[Bitwise.scala 103:75]
-  wire [31:0] _T_22 = _T_17 | _T_21; // @[Bitwise.scala 103:39]
-  wire [31:0] _GEN_1 = {{4'd0}, _T_22[31:4]}; // @[Bitwise.scala 103:31]
-  wire [31:0] _T_27 = _GEN_1 & 32'hf0f0f0f; // @[Bitwise.scala 103:31]
-  wire [31:0] _T_29 = {_T_22[27:0], 4'h0}; // @[Bitwise.scala 103:65]
-  wire [31:0] _T_31 = _T_29 & 32'hf0f0f0f0; // @[Bitwise.scala 103:75]
-  wire [31:0] _T_32 = _T_27 | _T_31; // @[Bitwise.scala 103:39]
-  wire [31:0] _GEN_2 = {{2'd0}, _T_32[31:2]}; // @[Bitwise.scala 103:31]
-  wire [31:0] _T_37 = _GEN_2 & 32'h33333333; // @[Bitwise.scala 103:31]
-  wire [31:0] _T_39 = {_T_32[29:0], 2'h0}; // @[Bitwise.scala 103:65]
-  wire [31:0] _T_41 = _T_39 & 32'hcccccccc; // @[Bitwise.scala 103:75]
-  wire [31:0] _T_42 = _T_37 | _T_41; // @[Bitwise.scala 103:39]
-  wire [31:0] _GEN_3 = {{1'd0}, _T_42[31:1]}; // @[Bitwise.scala 103:31]
-  wire [31:0] _T_47 = _GEN_3 & 32'h55555555; // @[Bitwise.scala 103:31]
-  wire [31:0] _T_49 = {_T_42[30:0], 1'h0}; // @[Bitwise.scala 103:65]
-  wire [31:0] _T_51 = _T_49 & 32'haaaaaaaa; // @[Bitwise.scala 103:75]
-  wire [31:0] hi_2 = _T_47 | _T_51; // @[Bitwise.scala 103:39]
-  wire [15:0] _T_57 = {{8'd0}, _T_2[47:40]}; // @[Bitwise.scala 103:31]
-  wire [15:0] _T_59 = {_T_2[39:32], 8'h0}; // @[Bitwise.scala 103:65]
-  wire [15:0] _T_61 = _T_59 & 16'hff00; // @[Bitwise.scala 103:75]
-  wire [15:0] _T_62 = _T_57 | _T_61; // @[Bitwise.scala 103:39]
-  wire [15:0] _GEN_4 = {{4'd0}, _T_62[15:4]}; // @[Bitwise.scala 103:31]
-  wire [15:0] _T_67 = _GEN_4 & 16'hf0f; // @[Bitwise.scala 103:31]
-  wire [15:0] _T_69 = {_T_62[11:0], 4'h0}; // @[Bitwise.scala 103:65]
-  wire [15:0] _T_71 = _T_69 & 16'hf0f0; // @[Bitwise.scala 103:75]
-  wire [15:0] _T_72 = _T_67 | _T_71; // @[Bitwise.scala 103:39]
-  wire [15:0] _GEN_5 = {{2'd0}, _T_72[15:2]}; // @[Bitwise.scala 103:31]
-  wire [15:0] _T_77 = _GEN_5 & 16'h3333; // @[Bitwise.scala 103:31]
-  wire [15:0] _T_79 = {_T_72[13:0], 2'h0}; // @[Bitwise.scala 103:65]
-  wire [15:0] _T_81 = _T_79 & 16'hcccc; // @[Bitwise.scala 103:75]
-  wire [15:0] _T_82 = _T_77 | _T_81; // @[Bitwise.scala 103:39]
-  wire [15:0] _GEN_6 = {{1'd0}, _T_82[15:1]}; // @[Bitwise.scala 103:31]
-  wire [15:0] _T_87 = _GEN_6 & 16'h5555; // @[Bitwise.scala 103:31]
-  wire [15:0] _T_89 = {_T_82[14:0], 1'h0}; // @[Bitwise.scala 103:65]
-  wire [15:0] _T_91 = _T_89 & 16'haaaa; // @[Bitwise.scala 103:75]
-  wire [15:0] hi_3 = _T_87 | _T_91; // @[Bitwise.scala 103:39]
-  wire [7:0] _T_96 = {{4'd0}, _T_2[55:52]}; // @[Bitwise.scala 103:31]
-  wire [7:0] _T_98 = {_T_2[51:48], 4'h0}; // @[Bitwise.scala 103:65]
-  wire [7:0] _T_100 = _T_98 & 8'hf0; // @[Bitwise.scala 103:75]
-  wire [7:0] _T_101 = _T_96 | _T_100; // @[Bitwise.scala 103:39]
-  wire [7:0] _GEN_7 = {{2'd0}, _T_101[7:2]}; // @[Bitwise.scala 103:31]
-  wire [7:0] _T_106 = _GEN_7 & 8'h33; // @[Bitwise.scala 103:31]
-  wire [7:0] _T_108 = {_T_101[5:0], 2'h0}; // @[Bitwise.scala 103:65]
-  wire [7:0] _T_110 = _T_108 & 8'hcc; // @[Bitwise.scala 103:75]
-  wire [7:0] _T_111 = _T_106 | _T_110; // @[Bitwise.scala 103:39]
-  wire [7:0] _GEN_8 = {{1'd0}, _T_111[7:1]}; // @[Bitwise.scala 103:31]
-  wire [7:0] _T_116 = _GEN_8 & 8'h55; // @[Bitwise.scala 103:31]
-  wire [7:0] _T_118 = {_T_111[6:0], 1'h0}; // @[Bitwise.scala 103:65]
-  wire [7:0] _T_120 = _T_118 & 8'haa; // @[Bitwise.scala 103:75]
-  wire [7:0] lo_2 = _T_116 | _T_120; // @[Bitwise.scala 103:39]
-  wire [55:0] concat = {hi_2,hi_3,lo_2}; // @[Cat.scala 30:58]
+  wire [55:0] _T = {io_C,io_D}; // @[Cat.scala 30:58]
+  wire [31:0] _T_5 = {{16'd0}, _T[31:16]}; // @[Bitwise.scala 103:31]
+  wire [31:0] _T_7 = {_T[15:0], 16'h0}; // @[Bitwise.scala 103:65]
+  wire [31:0] _T_9 = _T_7 & 32'hffff0000; // @[Bitwise.scala 103:75]
+  wire [31:0] _T_10 = _T_5 | _T_9; // @[Bitwise.scala 103:39]
+  wire [31:0] _GEN_0 = {{8'd0}, _T_10[31:8]}; // @[Bitwise.scala 103:31]
+  wire [31:0] _T_15 = _GEN_0 & 32'hff00ff; // @[Bitwise.scala 103:31]
+  wire [31:0] _T_17 = {_T_10[23:0], 8'h0}; // @[Bitwise.scala 103:65]
+  wire [31:0] _T_19 = _T_17 & 32'hff00ff00; // @[Bitwise.scala 103:75]
+  wire [31:0] _T_20 = _T_15 | _T_19; // @[Bitwise.scala 103:39]
+  wire [31:0] _GEN_1 = {{4'd0}, _T_20[31:4]}; // @[Bitwise.scala 103:31]
+  wire [31:0] _T_25 = _GEN_1 & 32'hf0f0f0f; // @[Bitwise.scala 103:31]
+  wire [31:0] _T_27 = {_T_20[27:0], 4'h0}; // @[Bitwise.scala 103:65]
+  wire [31:0] _T_29 = _T_27 & 32'hf0f0f0f0; // @[Bitwise.scala 103:75]
+  wire [31:0] _T_30 = _T_25 | _T_29; // @[Bitwise.scala 103:39]
+  wire [31:0] _GEN_2 = {{2'd0}, _T_30[31:2]}; // @[Bitwise.scala 103:31]
+  wire [31:0] _T_35 = _GEN_2 & 32'h33333333; // @[Bitwise.scala 103:31]
+  wire [31:0] _T_37 = {_T_30[29:0], 2'h0}; // @[Bitwise.scala 103:65]
+  wire [31:0] _T_39 = _T_37 & 32'hcccccccc; // @[Bitwise.scala 103:75]
+  wire [31:0] _T_40 = _T_35 | _T_39; // @[Bitwise.scala 103:39]
+  wire [31:0] _GEN_3 = {{1'd0}, _T_40[31:1]}; // @[Bitwise.scala 103:31]
+  wire [31:0] _T_45 = _GEN_3 & 32'h55555555; // @[Bitwise.scala 103:31]
+  wire [31:0] _T_47 = {_T_40[30:0], 1'h0}; // @[Bitwise.scala 103:65]
+  wire [31:0] _T_49 = _T_47 & 32'haaaaaaaa; // @[Bitwise.scala 103:75]
+  wire [31:0] hi = _T_45 | _T_49; // @[Bitwise.scala 103:39]
+  wire [15:0] _T_55 = {{8'd0}, _T[47:40]}; // @[Bitwise.scala 103:31]
+  wire [15:0] _T_57 = {_T[39:32], 8'h0}; // @[Bitwise.scala 103:65]
+  wire [15:0] _T_59 = _T_57 & 16'hff00; // @[Bitwise.scala 103:75]
+  wire [15:0] _T_60 = _T_55 | _T_59; // @[Bitwise.scala 103:39]
+  wire [15:0] _GEN_4 = {{4'd0}, _T_60[15:4]}; // @[Bitwise.scala 103:31]
+  wire [15:0] _T_65 = _GEN_4 & 16'hf0f; // @[Bitwise.scala 103:31]
+  wire [15:0] _T_67 = {_T_60[11:0], 4'h0}; // @[Bitwise.scala 103:65]
+  wire [15:0] _T_69 = _T_67 & 16'hf0f0; // @[Bitwise.scala 103:75]
+  wire [15:0] _T_70 = _T_65 | _T_69; // @[Bitwise.scala 103:39]
+  wire [15:0] _GEN_5 = {{2'd0}, _T_70[15:2]}; // @[Bitwise.scala 103:31]
+  wire [15:0] _T_75 = _GEN_5 & 16'h3333; // @[Bitwise.scala 103:31]
+  wire [15:0] _T_77 = {_T_70[13:0], 2'h0}; // @[Bitwise.scala 103:65]
+  wire [15:0] _T_79 = _T_77 & 16'hcccc; // @[Bitwise.scala 103:75]
+  wire [15:0] _T_80 = _T_75 | _T_79; // @[Bitwise.scala 103:39]
+  wire [15:0] _GEN_6 = {{1'd0}, _T_80[15:1]}; // @[Bitwise.scala 103:31]
+  wire [15:0] _T_85 = _GEN_6 & 16'h5555; // @[Bitwise.scala 103:31]
+  wire [15:0] _T_87 = {_T_80[14:0], 1'h0}; // @[Bitwise.scala 103:65]
+  wire [15:0] _T_89 = _T_87 & 16'haaaa; // @[Bitwise.scala 103:75]
+  wire [15:0] hi_1 = _T_85 | _T_89; // @[Bitwise.scala 103:39]
+  wire [7:0] _T_94 = {{4'd0}, _T[55:52]}; // @[Bitwise.scala 103:31]
+  wire [7:0] _T_96 = {_T[51:48], 4'h0}; // @[Bitwise.scala 103:65]
+  wire [7:0] _T_98 = _T_96 & 8'hf0; // @[Bitwise.scala 103:75]
+  wire [7:0] _T_99 = _T_94 | _T_98; // @[Bitwise.scala 103:39]
+  wire [7:0] _GEN_7 = {{2'd0}, _T_99[7:2]}; // @[Bitwise.scala 103:31]
+  wire [7:0] _T_104 = _GEN_7 & 8'h33; // @[Bitwise.scala 103:31]
+  wire [7:0] _T_106 = {_T_99[5:0], 2'h0}; // @[Bitwise.scala 103:65]
+  wire [7:0] _T_108 = _T_106 & 8'hcc; // @[Bitwise.scala 103:75]
+  wire [7:0] _T_109 = _T_104 | _T_108; // @[Bitwise.scala 103:39]
+  wire [7:0] _GEN_8 = {{1'd0}, _T_109[7:1]}; // @[Bitwise.scala 103:31]
+  wire [7:0] _T_114 = _GEN_8 & 8'h55; // @[Bitwise.scala 103:31]
+  wire [7:0] _T_116 = {_T_109[6:0], 1'h0}; // @[Bitwise.scala 103:65]
+  wire [7:0] _T_118 = _T_116 & 8'haa; // @[Bitwise.scala 103:75]
+  wire [7:0] lo = _T_114 | _T_118; // @[Bitwise.scala 103:39]
+  wire [55:0] concat = {hi,hi_1,lo}; // @[Cat.scala 30:58]
   wire  hi_hi_hi_hi_hi_hi = concat[13]; // @[DES_EncryptionPipelinedElasticBuffer.scala 301:21]
   wire  hi_hi_hi_hi_hi_lo = concat[16]; // @[DES_EncryptionPipelinedElasticBuffer.scala 301:32]
   wire  hi_hi_hi_hi_lo = concat[10]; // @[DES_EncryptionPipelinedElasticBuffer.scala 301:43]
@@ -806,7 +802,7 @@ module DES_keys(
     lo_lo_hi_lo_lo,lo_lo_lo}; // @[Cat.scala 30:58]
   wire [5:0] lo_hi_lo = {lo_hi_lo_hi_hi_hi,lo_hi_lo_hi_hi_lo,lo_hi_lo_hi_lo,lo_hi_lo_lo_hi_hi,lo_hi_lo_lo_hi_lo,
     lo_hi_lo_lo_lo}; // @[Cat.scala 30:58]
-  wire [23:0] lo_4 = {lo_hi_hi_hi_hi_hi,lo_hi_hi_hi_hi_lo,lo_hi_hi_hi_lo,lo_hi_hi_lo_hi_hi,lo_hi_hi_lo_hi_lo,
+  wire [23:0] lo_2 = {lo_hi_hi_hi_hi_hi,lo_hi_hi_hi_hi_lo,lo_hi_hi_hi_lo,lo_hi_hi_lo_hi_hi,lo_hi_hi_lo_hi_lo,
     lo_hi_hi_lo_lo,lo_hi_lo,lo_lo}; // @[Cat.scala 30:58]
   wire [5:0] hi_lo_lo = {hi_lo_lo_hi_hi_hi,hi_lo_lo_hi_hi_lo,hi_lo_lo_hi_lo,hi_lo_lo_lo_hi_hi,hi_lo_lo_lo_hi_lo,
     hi_lo_lo_lo_lo}; // @[Cat.scala 30:58]
@@ -814,11 +810,11 @@ module DES_keys(
     hi_lo_hi_lo_lo,hi_lo_lo}; // @[Cat.scala 30:58]
   wire [5:0] hi_hi_lo = {hi_hi_lo_hi_hi_hi,hi_hi_lo_hi_hi_lo,hi_hi_lo_hi_lo,hi_hi_lo_lo_hi_hi,hi_hi_lo_lo_hi_lo,
     hi_hi_lo_lo_lo}; // @[Cat.scala 30:58]
-  wire [23:0] hi_4 = {hi_hi_hi_hi_hi_hi,hi_hi_hi_hi_hi_lo,hi_hi_hi_hi_lo,hi_hi_hi_lo_hi_hi,hi_hi_hi_lo_hi_lo,
+  wire [23:0] hi_2 = {hi_hi_hi_hi_hi_hi,hi_hi_hi_hi_hi_lo,hi_hi_hi_hi_lo,hi_hi_hi_lo_hi_hi,hi_hi_hi_lo_hi_lo,
     hi_hi_hi_lo_lo,hi_hi_lo,hi_lo}; // @[Cat.scala 30:58]
-  assign io_C_next = {hi,lo}; // @[Cat.scala 30:58]
-  assign io_D_next = {hi_1,lo_1}; // @[Cat.scala 30:58]
-  assign io_K = {hi_4,lo_4}; // @[Cat.scala 30:58]
+  assign io_C_next = io_C; // @[DES_EncryptionPipelinedElasticBuffer.scala 271:23 DES_EncryptionPipelinedElasticBuffer.scala 288:17]
+  assign io_D_next = io_D; // @[DES_EncryptionPipelinedElasticBuffer.scala 272:23 DES_EncryptionPipelinedElasticBuffer.scala 289:17]
+  assign io_K = {hi_2,lo_2}; // @[Cat.scala 30:58]
 endmodule
 module DES_E(
   input  [31:0] io_R,
@@ -1786,6 +1782,382 @@ end // initial
 `endif
 `endif // SYNTHESIS
 endmodule
+module DES_keys_1(
+  input  [27:0] io_C,
+  input  [27:0] io_D,
+  output [27:0] io_C_next,
+  output [27:0] io_D_next,
+  output [47:0] io_K
+);
+  wire  hi = io_C[0]; // @[DES_EncryptionPipelinedElasticBuffer.scala 285:28]
+  wire [26:0] lo = io_C[27:1]; // @[DES_EncryptionPipelinedElasticBuffer.scala 285:36]
+  wire  hi_1 = io_D[0]; // @[DES_EncryptionPipelinedElasticBuffer.scala 286:28]
+  wire [26:0] lo_1 = io_D[27:1]; // @[DES_EncryptionPipelinedElasticBuffer.scala 286:36]
+  wire [55:0] _T_2 = {hi,lo,hi_1,lo_1}; // @[Cat.scala 30:58]
+  wire [31:0] _T_7 = {{16'd0}, _T_2[31:16]}; // @[Bitwise.scala 103:31]
+  wire [31:0] _T_9 = {_T_2[15:0], 16'h0}; // @[Bitwise.scala 103:65]
+  wire [31:0] _T_11 = _T_9 & 32'hffff0000; // @[Bitwise.scala 103:75]
+  wire [31:0] _T_12 = _T_7 | _T_11; // @[Bitwise.scala 103:39]
+  wire [31:0] _GEN_0 = {{8'd0}, _T_12[31:8]}; // @[Bitwise.scala 103:31]
+  wire [31:0] _T_17 = _GEN_0 & 32'hff00ff; // @[Bitwise.scala 103:31]
+  wire [31:0] _T_19 = {_T_12[23:0], 8'h0}; // @[Bitwise.scala 103:65]
+  wire [31:0] _T_21 = _T_19 & 32'hff00ff00; // @[Bitwise.scala 103:75]
+  wire [31:0] _T_22 = _T_17 | _T_21; // @[Bitwise.scala 103:39]
+  wire [31:0] _GEN_1 = {{4'd0}, _T_22[31:4]}; // @[Bitwise.scala 103:31]
+  wire [31:0] _T_27 = _GEN_1 & 32'hf0f0f0f; // @[Bitwise.scala 103:31]
+  wire [31:0] _T_29 = {_T_22[27:0], 4'h0}; // @[Bitwise.scala 103:65]
+  wire [31:0] _T_31 = _T_29 & 32'hf0f0f0f0; // @[Bitwise.scala 103:75]
+  wire [31:0] _T_32 = _T_27 | _T_31; // @[Bitwise.scala 103:39]
+  wire [31:0] _GEN_2 = {{2'd0}, _T_32[31:2]}; // @[Bitwise.scala 103:31]
+  wire [31:0] _T_37 = _GEN_2 & 32'h33333333; // @[Bitwise.scala 103:31]
+  wire [31:0] _T_39 = {_T_32[29:0], 2'h0}; // @[Bitwise.scala 103:65]
+  wire [31:0] _T_41 = _T_39 & 32'hcccccccc; // @[Bitwise.scala 103:75]
+  wire [31:0] _T_42 = _T_37 | _T_41; // @[Bitwise.scala 103:39]
+  wire [31:0] _GEN_3 = {{1'd0}, _T_42[31:1]}; // @[Bitwise.scala 103:31]
+  wire [31:0] _T_47 = _GEN_3 & 32'h55555555; // @[Bitwise.scala 103:31]
+  wire [31:0] _T_49 = {_T_42[30:0], 1'h0}; // @[Bitwise.scala 103:65]
+  wire [31:0] _T_51 = _T_49 & 32'haaaaaaaa; // @[Bitwise.scala 103:75]
+  wire [31:0] hi_2 = _T_47 | _T_51; // @[Bitwise.scala 103:39]
+  wire [15:0] _T_57 = {{8'd0}, _T_2[47:40]}; // @[Bitwise.scala 103:31]
+  wire [15:0] _T_59 = {_T_2[39:32], 8'h0}; // @[Bitwise.scala 103:65]
+  wire [15:0] _T_61 = _T_59 & 16'hff00; // @[Bitwise.scala 103:75]
+  wire [15:0] _T_62 = _T_57 | _T_61; // @[Bitwise.scala 103:39]
+  wire [15:0] _GEN_4 = {{4'd0}, _T_62[15:4]}; // @[Bitwise.scala 103:31]
+  wire [15:0] _T_67 = _GEN_4 & 16'hf0f; // @[Bitwise.scala 103:31]
+  wire [15:0] _T_69 = {_T_62[11:0], 4'h0}; // @[Bitwise.scala 103:65]
+  wire [15:0] _T_71 = _T_69 & 16'hf0f0; // @[Bitwise.scala 103:75]
+  wire [15:0] _T_72 = _T_67 | _T_71; // @[Bitwise.scala 103:39]
+  wire [15:0] _GEN_5 = {{2'd0}, _T_72[15:2]}; // @[Bitwise.scala 103:31]
+  wire [15:0] _T_77 = _GEN_5 & 16'h3333; // @[Bitwise.scala 103:31]
+  wire [15:0] _T_79 = {_T_72[13:0], 2'h0}; // @[Bitwise.scala 103:65]
+  wire [15:0] _T_81 = _T_79 & 16'hcccc; // @[Bitwise.scala 103:75]
+  wire [15:0] _T_82 = _T_77 | _T_81; // @[Bitwise.scala 103:39]
+  wire [15:0] _GEN_6 = {{1'd0}, _T_82[15:1]}; // @[Bitwise.scala 103:31]
+  wire [15:0] _T_87 = _GEN_6 & 16'h5555; // @[Bitwise.scala 103:31]
+  wire [15:0] _T_89 = {_T_82[14:0], 1'h0}; // @[Bitwise.scala 103:65]
+  wire [15:0] _T_91 = _T_89 & 16'haaaa; // @[Bitwise.scala 103:75]
+  wire [15:0] hi_3 = _T_87 | _T_91; // @[Bitwise.scala 103:39]
+  wire [7:0] _T_96 = {{4'd0}, _T_2[55:52]}; // @[Bitwise.scala 103:31]
+  wire [7:0] _T_98 = {_T_2[51:48], 4'h0}; // @[Bitwise.scala 103:65]
+  wire [7:0] _T_100 = _T_98 & 8'hf0; // @[Bitwise.scala 103:75]
+  wire [7:0] _T_101 = _T_96 | _T_100; // @[Bitwise.scala 103:39]
+  wire [7:0] _GEN_7 = {{2'd0}, _T_101[7:2]}; // @[Bitwise.scala 103:31]
+  wire [7:0] _T_106 = _GEN_7 & 8'h33; // @[Bitwise.scala 103:31]
+  wire [7:0] _T_108 = {_T_101[5:0], 2'h0}; // @[Bitwise.scala 103:65]
+  wire [7:0] _T_110 = _T_108 & 8'hcc; // @[Bitwise.scala 103:75]
+  wire [7:0] _T_111 = _T_106 | _T_110; // @[Bitwise.scala 103:39]
+  wire [7:0] _GEN_8 = {{1'd0}, _T_111[7:1]}; // @[Bitwise.scala 103:31]
+  wire [7:0] _T_116 = _GEN_8 & 8'h55; // @[Bitwise.scala 103:31]
+  wire [7:0] _T_118 = {_T_111[6:0], 1'h0}; // @[Bitwise.scala 103:65]
+  wire [7:0] _T_120 = _T_118 & 8'haa; // @[Bitwise.scala 103:75]
+  wire [7:0] lo_2 = _T_116 | _T_120; // @[Bitwise.scala 103:39]
+  wire [55:0] concat = {hi_2,hi_3,lo_2}; // @[Cat.scala 30:58]
+  wire  hi_hi_hi_hi_hi_hi = concat[13]; // @[DES_EncryptionPipelinedElasticBuffer.scala 301:21]
+  wire  hi_hi_hi_hi_hi_lo = concat[16]; // @[DES_EncryptionPipelinedElasticBuffer.scala 301:32]
+  wire  hi_hi_hi_hi_lo = concat[10]; // @[DES_EncryptionPipelinedElasticBuffer.scala 301:43]
+  wire  hi_hi_hi_lo_hi_hi = concat[23]; // @[DES_EncryptionPipelinedElasticBuffer.scala 301:54]
+  wire  hi_hi_hi_lo_hi_lo = concat[0]; // @[DES_EncryptionPipelinedElasticBuffer.scala 301:65]
+  wire  hi_hi_hi_lo_lo = concat[4]; // @[DES_EncryptionPipelinedElasticBuffer.scala 301:75]
+  wire  hi_hi_lo_hi_hi_hi = concat[2]; // @[DES_EncryptionPipelinedElasticBuffer.scala 302:11]
+  wire  hi_hi_lo_hi_hi_lo = concat[27]; // @[DES_EncryptionPipelinedElasticBuffer.scala 302:21]
+  wire  hi_hi_lo_hi_lo = concat[14]; // @[DES_EncryptionPipelinedElasticBuffer.scala 302:32]
+  wire  hi_hi_lo_lo_hi_hi = concat[5]; // @[DES_EncryptionPipelinedElasticBuffer.scala 302:43]
+  wire  hi_hi_lo_lo_hi_lo = concat[20]; // @[DES_EncryptionPipelinedElasticBuffer.scala 302:53]
+  wire  hi_hi_lo_lo_lo = concat[9]; // @[DES_EncryptionPipelinedElasticBuffer.scala 302:64]
+  wire  hi_lo_hi_hi_hi_hi = concat[22]; // @[DES_EncryptionPipelinedElasticBuffer.scala 303:11]
+  wire  hi_lo_hi_hi_hi_lo = concat[18]; // @[DES_EncryptionPipelinedElasticBuffer.scala 303:22]
+  wire  hi_lo_hi_hi_lo = concat[11]; // @[DES_EncryptionPipelinedElasticBuffer.scala 303:33]
+  wire  hi_lo_hi_lo_hi_hi = concat[3]; // @[DES_EncryptionPipelinedElasticBuffer.scala 303:44]
+  wire  hi_lo_hi_lo_hi_lo = concat[25]; // @[DES_EncryptionPipelinedElasticBuffer.scala 303:54]
+  wire  hi_lo_hi_lo_lo = concat[7]; // @[DES_EncryptionPipelinedElasticBuffer.scala 303:65]
+  wire  hi_lo_lo_hi_hi_hi = concat[15]; // @[DES_EncryptionPipelinedElasticBuffer.scala 304:11]
+  wire  hi_lo_lo_hi_hi_lo = concat[6]; // @[DES_EncryptionPipelinedElasticBuffer.scala 304:22]
+  wire  hi_lo_lo_hi_lo = concat[26]; // @[DES_EncryptionPipelinedElasticBuffer.scala 304:32]
+  wire  hi_lo_lo_lo_hi_hi = concat[19]; // @[DES_EncryptionPipelinedElasticBuffer.scala 304:43]
+  wire  hi_lo_lo_lo_hi_lo = concat[12]; // @[DES_EncryptionPipelinedElasticBuffer.scala 304:54]
+  wire  hi_lo_lo_lo_lo = concat[1]; // @[DES_EncryptionPipelinedElasticBuffer.scala 304:65]
+  wire  lo_hi_hi_hi_hi_hi = concat[40]; // @[DES_EncryptionPipelinedElasticBuffer.scala 305:11]
+  wire  lo_hi_hi_hi_hi_lo = concat[51]; // @[DES_EncryptionPipelinedElasticBuffer.scala 305:22]
+  wire  lo_hi_hi_hi_lo = concat[30]; // @[DES_EncryptionPipelinedElasticBuffer.scala 305:33]
+  wire  lo_hi_hi_lo_hi_hi = concat[36]; // @[DES_EncryptionPipelinedElasticBuffer.scala 305:44]
+  wire  lo_hi_hi_lo_hi_lo = concat[46]; // @[DES_EncryptionPipelinedElasticBuffer.scala 305:55]
+  wire  lo_hi_hi_lo_lo = concat[54]; // @[DES_EncryptionPipelinedElasticBuffer.scala 305:66]
+  wire  lo_hi_lo_hi_hi_hi = concat[29]; // @[DES_EncryptionPipelinedElasticBuffer.scala 306:11]
+  wire  lo_hi_lo_hi_hi_lo = concat[39]; // @[DES_EncryptionPipelinedElasticBuffer.scala 306:22]
+  wire  lo_hi_lo_hi_lo = concat[50]; // @[DES_EncryptionPipelinedElasticBuffer.scala 306:33]
+  wire  lo_hi_lo_lo_hi_hi = concat[44]; // @[DES_EncryptionPipelinedElasticBuffer.scala 306:44]
+  wire  lo_hi_lo_lo_hi_lo = concat[32]; // @[DES_EncryptionPipelinedElasticBuffer.scala 306:55]
+  wire  lo_hi_lo_lo_lo = concat[47]; // @[DES_EncryptionPipelinedElasticBuffer.scala 306:66]
+  wire  lo_lo_hi_hi_hi_hi = concat[43]; // @[DES_EncryptionPipelinedElasticBuffer.scala 307:11]
+  wire  lo_lo_hi_hi_hi_lo = concat[48]; // @[DES_EncryptionPipelinedElasticBuffer.scala 307:22]
+  wire  lo_lo_hi_hi_lo = concat[38]; // @[DES_EncryptionPipelinedElasticBuffer.scala 307:33]
+  wire  lo_lo_hi_lo_hi_hi = concat[55]; // @[DES_EncryptionPipelinedElasticBuffer.scala 307:44]
+  wire  lo_lo_hi_lo_hi_lo = concat[33]; // @[DES_EncryptionPipelinedElasticBuffer.scala 307:55]
+  wire  lo_lo_hi_lo_lo = concat[52]; // @[DES_EncryptionPipelinedElasticBuffer.scala 307:66]
+  wire  lo_lo_lo_hi_hi_hi = concat[45]; // @[DES_EncryptionPipelinedElasticBuffer.scala 308:11]
+  wire  lo_lo_lo_hi_hi_lo = concat[41]; // @[DES_EncryptionPipelinedElasticBuffer.scala 308:22]
+  wire  lo_lo_lo_hi_lo = concat[49]; // @[DES_EncryptionPipelinedElasticBuffer.scala 308:33]
+  wire  lo_lo_lo_lo_hi_hi = concat[35]; // @[DES_EncryptionPipelinedElasticBuffer.scala 308:44]
+  wire  lo_lo_lo_lo_hi_lo = concat[28]; // @[DES_EncryptionPipelinedElasticBuffer.scala 308:55]
+  wire  lo_lo_lo_lo_lo = concat[31]; // @[DES_EncryptionPipelinedElasticBuffer.scala 308:66]
+  wire [5:0] lo_lo_lo = {lo_lo_lo_hi_hi_hi,lo_lo_lo_hi_hi_lo,lo_lo_lo_hi_lo,lo_lo_lo_lo_hi_hi,lo_lo_lo_lo_hi_lo,
+    lo_lo_lo_lo_lo}; // @[Cat.scala 30:58]
+  wire [11:0] lo_lo = {lo_lo_hi_hi_hi_hi,lo_lo_hi_hi_hi_lo,lo_lo_hi_hi_lo,lo_lo_hi_lo_hi_hi,lo_lo_hi_lo_hi_lo,
+    lo_lo_hi_lo_lo,lo_lo_lo}; // @[Cat.scala 30:58]
+  wire [5:0] lo_hi_lo = {lo_hi_lo_hi_hi_hi,lo_hi_lo_hi_hi_lo,lo_hi_lo_hi_lo,lo_hi_lo_lo_hi_hi,lo_hi_lo_lo_hi_lo,
+    lo_hi_lo_lo_lo}; // @[Cat.scala 30:58]
+  wire [23:0] lo_4 = {lo_hi_hi_hi_hi_hi,lo_hi_hi_hi_hi_lo,lo_hi_hi_hi_lo,lo_hi_hi_lo_hi_hi,lo_hi_hi_lo_hi_lo,
+    lo_hi_hi_lo_lo,lo_hi_lo,lo_lo}; // @[Cat.scala 30:58]
+  wire [5:0] hi_lo_lo = {hi_lo_lo_hi_hi_hi,hi_lo_lo_hi_hi_lo,hi_lo_lo_hi_lo,hi_lo_lo_lo_hi_hi,hi_lo_lo_lo_hi_lo,
+    hi_lo_lo_lo_lo}; // @[Cat.scala 30:58]
+  wire [11:0] hi_lo = {hi_lo_hi_hi_hi_hi,hi_lo_hi_hi_hi_lo,hi_lo_hi_hi_lo,hi_lo_hi_lo_hi_hi,hi_lo_hi_lo_hi_lo,
+    hi_lo_hi_lo_lo,hi_lo_lo}; // @[Cat.scala 30:58]
+  wire [5:0] hi_hi_lo = {hi_hi_lo_hi_hi_hi,hi_hi_lo_hi_hi_lo,hi_hi_lo_hi_lo,hi_hi_lo_lo_hi_hi,hi_hi_lo_lo_hi_lo,
+    hi_hi_lo_lo_lo}; // @[Cat.scala 30:58]
+  wire [23:0] hi_4 = {hi_hi_hi_hi_hi_hi,hi_hi_hi_hi_hi_lo,hi_hi_hi_hi_lo,hi_hi_hi_lo_hi_hi,hi_hi_hi_lo_hi_lo,
+    hi_hi_hi_lo_lo,hi_hi_lo,hi_lo}; // @[Cat.scala 30:58]
+  assign io_C_next = {hi,lo}; // @[Cat.scala 30:58]
+  assign io_D_next = {hi_1,lo_1}; // @[Cat.scala 30:58]
+  assign io_K = {hi_4,lo_4}; // @[Cat.scala 30:58]
+endmodule
+module DES_ProcessingElement_1(
+  input         clock,
+  input         reset,
+  input         io_out_ready,
+  output        io_out_valid,
+  output [31:0] io_out_bits_L,
+  output [31:0] io_out_bits_R,
+  output [27:0] io_out_bits_C,
+  output [27:0] io_out_bits_D,
+  output        io_in_ready,
+  input         io_in_valid,
+  input  [31:0] io_in_bits_L,
+  input  [31:0] io_in_bits_R,
+  input  [27:0] io_in_bits_C,
+  input  [27:0] io_in_bits_D
+);
+`ifdef RANDOMIZE_REG_INIT
+  reg [31:0] _RAND_0;
+  reg [31:0] _RAND_1;
+  reg [31:0] _RAND_2;
+  reg [31:0] _RAND_3;
+  reg [31:0] _RAND_4;
+  reg [31:0] _RAND_5;
+  reg [31:0] _RAND_6;
+  reg [31:0] _RAND_7;
+  reg [31:0] _RAND_8;
+  reg [31:0] _RAND_9;
+  reg [31:0] _RAND_10;
+  reg [31:0] _RAND_11;
+`endif // RANDOMIZE_REG_INIT
+  wire [27:0] keys_io_C; // @[DES_EncryptionPipelinedElasticBuffer.scala 132:20]
+  wire [27:0] keys_io_D; // @[DES_EncryptionPipelinedElasticBuffer.scala 132:20]
+  wire [27:0] keys_io_C_next; // @[DES_EncryptionPipelinedElasticBuffer.scala 132:20]
+  wire [27:0] keys_io_D_next; // @[DES_EncryptionPipelinedElasticBuffer.scala 132:20]
+  wire [47:0] keys_io_K; // @[DES_EncryptionPipelinedElasticBuffer.scala 132:20]
+  wire [31:0] f_io_R; // @[DES_EncryptionPipelinedElasticBuffer.scala 136:17]
+  wire [47:0] f_io_K; // @[DES_EncryptionPipelinedElasticBuffer.scala 136:17]
+  wire [31:0] f_io_out; // @[DES_EncryptionPipelinedElasticBuffer.scala 136:17]
+  reg [31:0] data_0_L; // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+  reg [31:0] data_0_R; // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+  reg [27:0] data_0_C; // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+  reg [27:0] data_0_D; // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+  reg [31:0] data_1_L; // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+  reg [31:0] data_1_R; // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+  reg [27:0] data_1_C; // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+  reg [27:0] data_1_D; // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+  reg  head; // @[DES_EncryptionPipelinedElasticBuffer.scala 109:21]
+  reg  tail; // @[DES_EncryptionPipelinedElasticBuffer.scala 110:21]
+  reg  full_0; // @[DES_EncryptionPipelinedElasticBuffer.scala 111:21]
+  reg  full_1; // @[DES_EncryptionPipelinedElasticBuffer.scala 111:21]
+  wire [31:0] input_L = head ? data_1_L : data_0_L; // @[DES_EncryptionPipelinedElasticBuffer.scala 116:9 DES_EncryptionPipelinedElasticBuffer.scala 116:9]
+  wire  _GEN_9 = tail ? full_1 : full_0; // @[DES_EncryptionPipelinedElasticBuffer.scala 119:23 DES_EncryptionPipelinedElasticBuffer.scala 119:23]
+  wire  _GEN_38 = ~tail; // @[DES_EncryptionPipelinedElasticBuffer.scala 120:16 DES_EncryptionPipelinedElasticBuffer.scala 120:16 DES_EncryptionPipelinedElasticBuffer.scala 111:21]
+  wire  _GEN_10 = ~tail | full_0; // @[DES_EncryptionPipelinedElasticBuffer.scala 120:16 DES_EncryptionPipelinedElasticBuffer.scala 120:16 DES_EncryptionPipelinedElasticBuffer.scala 111:21]
+  wire  _GEN_11 = tail | full_1; // @[DES_EncryptionPipelinedElasticBuffer.scala 120:16 DES_EncryptionPipelinedElasticBuffer.scala 120:16 DES_EncryptionPipelinedElasticBuffer.scala 111:21]
+  wire  _GEN_20 = io_in_valid & ~_GEN_9 ? _GEN_10 : full_0; // @[DES_EncryptionPipelinedElasticBuffer.scala 119:36 DES_EncryptionPipelinedElasticBuffer.scala 111:21]
+  wire  _GEN_21 = io_in_valid & ~_GEN_9 ? _GEN_11 : full_1; // @[DES_EncryptionPipelinedElasticBuffer.scala 119:36 DES_EncryptionPipelinedElasticBuffer.scala 111:21]
+  wire  _GEN_32 = head ? full_1 : full_0; // @[DES_EncryptionPipelinedElasticBuffer.scala 126:21 DES_EncryptionPipelinedElasticBuffer.scala 126:21]
+  DES_keys_1 keys ( // @[DES_EncryptionPipelinedElasticBuffer.scala 132:20]
+    .io_C(keys_io_C),
+    .io_D(keys_io_D),
+    .io_C_next(keys_io_C_next),
+    .io_D_next(keys_io_D_next),
+    .io_K(keys_io_K)
+  );
+  DES_f f ( // @[DES_EncryptionPipelinedElasticBuffer.scala 136:17]
+    .io_R(f_io_R),
+    .io_K(f_io_K),
+    .io_out(f_io_out)
+  );
+  assign io_out_valid = full_0 | full_1; // @[DES_EncryptionPipelinedElasticBuffer.scala 114:27]
+  assign io_out_bits_L = head ? data_1_R : data_0_R; // @[DES_EncryptionPipelinedElasticBuffer.scala 116:9 DES_EncryptionPipelinedElasticBuffer.scala 116:9]
+  assign io_out_bits_R = input_L ^ f_io_out; // @[DES_EncryptionPipelinedElasticBuffer.scala 141:23]
+  assign io_out_bits_C = keys_io_C_next; // @[DES_EncryptionPipelinedElasticBuffer.scala 107:27 DES_EncryptionPipelinedElasticBuffer.scala 142:12]
+  assign io_out_bits_D = keys_io_D_next; // @[DES_EncryptionPipelinedElasticBuffer.scala 107:27 DES_EncryptionPipelinedElasticBuffer.scala 143:12]
+  assign io_in_ready = ~(full_0 & full_1); // @[DES_EncryptionPipelinedElasticBuffer.scala 113:18]
+  assign keys_io_C = head ? data_1_C : data_0_C; // @[DES_EncryptionPipelinedElasticBuffer.scala 116:9 DES_EncryptionPipelinedElasticBuffer.scala 116:9]
+  assign keys_io_D = head ? data_1_D : data_0_D; // @[DES_EncryptionPipelinedElasticBuffer.scala 116:9 DES_EncryptionPipelinedElasticBuffer.scala 116:9]
+  assign f_io_R = head ? data_1_R : data_0_R; // @[DES_EncryptionPipelinedElasticBuffer.scala 116:9 DES_EncryptionPipelinedElasticBuffer.scala 116:9]
+  assign f_io_K = keys_io_K; // @[DES_EncryptionPipelinedElasticBuffer.scala 138:10]
+  always @(posedge clock) begin
+    if (reset) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+      data_0_L <= 32'h0; // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+    end else if (io_in_valid & ~_GEN_9) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 119:36]
+      if (~tail) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 121:16]
+        data_0_L <= io_in_bits_L; // @[DES_EncryptionPipelinedElasticBuffer.scala 121:16]
+      end
+    end
+    if (reset) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+      data_0_R <= 32'h0; // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+    end else if (io_in_valid & ~_GEN_9) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 119:36]
+      if (~tail) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 121:16]
+        data_0_R <= io_in_bits_R; // @[DES_EncryptionPipelinedElasticBuffer.scala 121:16]
+      end
+    end
+    if (reset) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+      data_0_C <= 28'h0; // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+    end else if (io_in_valid & ~_GEN_9) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 119:36]
+      if (~tail) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 121:16]
+        data_0_C <= io_in_bits_C; // @[DES_EncryptionPipelinedElasticBuffer.scala 121:16]
+      end
+    end
+    if (reset) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+      data_0_D <= 28'h0; // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+    end else if (io_in_valid & ~_GEN_9) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 119:36]
+      if (~tail) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 121:16]
+        data_0_D <= io_in_bits_D; // @[DES_EncryptionPipelinedElasticBuffer.scala 121:16]
+      end
+    end
+    if (reset) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+      data_1_L <= 32'h0; // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+    end else if (io_in_valid & ~_GEN_9) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 119:36]
+      if (tail) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 121:16]
+        data_1_L <= io_in_bits_L; // @[DES_EncryptionPipelinedElasticBuffer.scala 121:16]
+      end
+    end
+    if (reset) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+      data_1_R <= 32'h0; // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+    end else if (io_in_valid & ~_GEN_9) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 119:36]
+      if (tail) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 121:16]
+        data_1_R <= io_in_bits_R; // @[DES_EncryptionPipelinedElasticBuffer.scala 121:16]
+      end
+    end
+    if (reset) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+      data_1_C <= 28'h0; // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+    end else if (io_in_valid & ~_GEN_9) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 119:36]
+      if (tail) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 121:16]
+        data_1_C <= io_in_bits_C; // @[DES_EncryptionPipelinedElasticBuffer.scala 121:16]
+      end
+    end
+    if (reset) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+      data_1_D <= 28'h0; // @[DES_EncryptionPipelinedElasticBuffer.scala 108:21]
+    end else if (io_in_valid & ~_GEN_9) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 119:36]
+      if (tail) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 121:16]
+        data_1_D <= io_in_bits_D; // @[DES_EncryptionPipelinedElasticBuffer.scala 121:16]
+      end
+    end
+    if (reset) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 109:21]
+      head <= 1'h0; // @[DES_EncryptionPipelinedElasticBuffer.scala 109:21]
+    end else if (io_out_ready & _GEN_32) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 126:36]
+      head <= ~head; // @[DES_EncryptionPipelinedElasticBuffer.scala 128:10]
+    end
+    if (reset) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 110:21]
+      tail <= 1'h0; // @[DES_EncryptionPipelinedElasticBuffer.scala 110:21]
+    end else if (io_in_valid & ~_GEN_9) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 119:36]
+      tail <= _GEN_38; // @[DES_EncryptionPipelinedElasticBuffer.scala 122:10]
+    end
+    if (reset) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 111:21]
+      full_0 <= 1'h0; // @[DES_EncryptionPipelinedElasticBuffer.scala 111:21]
+    end else if (io_out_ready & _GEN_32) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 126:36]
+      if (~head) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 127:16]
+        full_0 <= 1'h0; // @[DES_EncryptionPipelinedElasticBuffer.scala 127:16]
+      end else begin
+        full_0 <= _GEN_20;
+      end
+    end else begin
+      full_0 <= _GEN_20;
+    end
+    if (reset) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 111:21]
+      full_1 <= 1'h0; // @[DES_EncryptionPipelinedElasticBuffer.scala 111:21]
+    end else if (io_out_ready & _GEN_32) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 126:36]
+      if (head) begin // @[DES_EncryptionPipelinedElasticBuffer.scala 127:16]
+        full_1 <= 1'h0; // @[DES_EncryptionPipelinedElasticBuffer.scala 127:16]
+      end else begin
+        full_1 <= _GEN_21;
+      end
+    end else begin
+      full_1 <= _GEN_21;
+    end
+  end
+// Register and memory initialization
+`ifdef RANDOMIZE_GARBAGE_ASSIGN
+`define RANDOMIZE
+`endif
+`ifdef RANDOMIZE_INVALID_ASSIGN
+`define RANDOMIZE
+`endif
+`ifdef RANDOMIZE_REG_INIT
+`define RANDOMIZE
+`endif
+`ifdef RANDOMIZE_MEM_INIT
+`define RANDOMIZE
+`endif
+`ifndef RANDOM
+`define RANDOM $random
+`endif
+`ifdef RANDOMIZE_MEM_INIT
+  integer initvar;
+`endif
+`ifndef SYNTHESIS
+`ifdef FIRRTL_BEFORE_INITIAL
+`FIRRTL_BEFORE_INITIAL
+`endif
+initial begin
+  `ifdef RANDOMIZE
+    `ifdef INIT_RANDOM
+      `INIT_RANDOM
+    `endif
+    `ifndef VERILATOR
+      `ifdef RANDOMIZE_DELAY
+        #`RANDOMIZE_DELAY begin end
+      `else
+        #0.002 begin end
+      `endif
+    `endif
+`ifdef RANDOMIZE_REG_INIT
+  _RAND_0 = {1{`RANDOM}};
+  data_0_L = _RAND_0[31:0];
+  _RAND_1 = {1{`RANDOM}};
+  data_0_R = _RAND_1[31:0];
+  _RAND_2 = {1{`RANDOM}};
+  data_0_C = _RAND_2[27:0];
+  _RAND_3 = {1{`RANDOM}};
+  data_0_D = _RAND_3[27:0];
+  _RAND_4 = {1{`RANDOM}};
+  data_1_L = _RAND_4[31:0];
+  _RAND_5 = {1{`RANDOM}};
+  data_1_R = _RAND_5[31:0];
+  _RAND_6 = {1{`RANDOM}};
+  data_1_C = _RAND_6[27:0];
+  _RAND_7 = {1{`RANDOM}};
+  data_1_D = _RAND_7[27:0];
+  _RAND_8 = {1{`RANDOM}};
+  head = _RAND_8[0:0];
+  _RAND_9 = {1{`RANDOM}};
+  tail = _RAND_9[0:0];
+  _RAND_10 = {1{`RANDOM}};
+  full_0 = _RAND_10[0:0];
+  _RAND_11 = {1{`RANDOM}};
+  full_1 = _RAND_11[0:0];
+`endif // RANDOMIZE_REG_INIT
+  `endif // RANDOMIZE
+end // initial
+`ifdef FIRRTL_AFTER_INITIAL
+`FIRRTL_AFTER_INITIAL
+`endif
+`endif // SYNTHESIS
+endmodule
 module DES_keys_2(
   input  [27:0] io_C,
   input  [27:0] io_D,
@@ -1793,10 +2165,10 @@ module DES_keys_2(
   output [27:0] io_D_next,
   output [47:0] io_K
 );
-  wire [25:0] hi = io_C[25:0]; // @[DES_EncryptionPipelinedElasticBuffer.scala 280:28]
-  wire [1:0] lo = io_C[27:26]; // @[DES_EncryptionPipelinedElasticBuffer.scala 280:39]
-  wire [25:0] hi_1 = io_D[25:0]; // @[DES_EncryptionPipelinedElasticBuffer.scala 281:28]
-  wire [1:0] lo_1 = io_D[27:26]; // @[DES_EncryptionPipelinedElasticBuffer.scala 281:39]
+  wire [1:0] hi = io_C[1:0]; // @[DES_EncryptionPipelinedElasticBuffer.scala 291:28]
+  wire [25:0] lo = io_C[27:2]; // @[DES_EncryptionPipelinedElasticBuffer.scala 291:38]
+  wire [1:0] hi_1 = io_D[1:0]; // @[DES_EncryptionPipelinedElasticBuffer.scala 292:28]
+  wire [25:0] lo_1 = io_D[27:2]; // @[DES_EncryptionPipelinedElasticBuffer.scala 292:38]
   wire [55:0] _T_2 = {hi,lo,hi_1,lo_1}; // @[Cat.scala 30:58]
   wire [31:0] _T_7 = {{16'd0}, _T_2[31:16]}; // @[Bitwise.scala 103:31]
   wire [31:0] _T_9 = {_T_2[15:0], 16'h0}; // @[Bitwise.scala 103:65]
@@ -2459,7 +2831,7 @@ module DES_PipelinedElasticBuffer(
     .io_in_bits_C(PEs_0_io_in_bits_C),
     .io_in_bits_D(PEs_0_io_in_bits_D)
   );
-  DES_ProcessingElement PEs_1 ( // @[DES_EncryptionPipelinedElasticBuffer.scala 27:20]
+  DES_ProcessingElement_1 PEs_1 ( // @[DES_EncryptionPipelinedElasticBuffer.scala 27:20]
     .clock(PEs_1_clock),
     .reset(PEs_1_reset),
     .io_out_ready(PEs_1_io_out_ready),
@@ -2571,7 +2943,7 @@ module DES_PipelinedElasticBuffer(
     .io_in_bits_C(PEs_7_io_in_bits_C),
     .io_in_bits_D(PEs_7_io_in_bits_D)
   );
-  DES_ProcessingElement PEs_8 ( // @[DES_EncryptionPipelinedElasticBuffer.scala 27:20]
+  DES_ProcessingElement_1 PEs_8 ( // @[DES_EncryptionPipelinedElasticBuffer.scala 27:20]
     .clock(PEs_8_clock),
     .reset(PEs_8_reset),
     .io_out_ready(PEs_8_io_out_ready),
@@ -2683,7 +3055,7 @@ module DES_PipelinedElasticBuffer(
     .io_in_bits_C(PEs_14_io_in_bits_C),
     .io_in_bits_D(PEs_14_io_in_bits_D)
   );
-  DES_ProcessingElement PEs_15 ( // @[DES_EncryptionPipelinedElasticBuffer.scala 27:20]
+  DES_ProcessingElement_1 PEs_15 ( // @[DES_EncryptionPipelinedElasticBuffer.scala 27:20]
     .clock(PEs_15_clock),
     .reset(PEs_15_reset),
     .io_out_ready(PEs_15_io_out_ready),

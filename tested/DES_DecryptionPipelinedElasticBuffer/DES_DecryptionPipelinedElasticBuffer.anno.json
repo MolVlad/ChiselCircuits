@@ -1,12 +1,6 @@
 [
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~DES_PipelinedElasticBuffer|DES_keys",
-    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_0:DES_ProcessingElement/keys:DES_keys",
-    "index":0.04
-  },
-  {
-    "class":"firrtl.transforms.DedupedResult",
     "original":"~DES_PipelinedElasticBuffer|DES_E",
     "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_0:DES_ProcessingElement/f:DES_f/E:DES_E",
     "index":0.05
@@ -31,44 +25,38 @@
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~DES_PipelinedElasticBuffer|DES_ProcessingElement",
-    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_0:DES_ProcessingElement",
-    "index":0.09
-  },
-  {
-    "class":"firrtl.transforms.DedupedResult",
     "original":"~DES_PipelinedElasticBuffer|DES_keys_1",
-    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_1:DES_ProcessingElement/keys:DES_keys",
+    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_1:DES_ProcessingElement_1/keys:DES_keys_1",
     "index":0.1
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~DES_PipelinedElasticBuffer|DES_E_1",
-    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_1:DES_ProcessingElement/f:DES_f/E:DES_E",
+    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_1:DES_ProcessingElement_1/f:DES_f/E:DES_E",
     "index":0.11
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~DES_PipelinedElasticBuffer|DES_S_1",
-    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_1:DES_ProcessingElement/f:DES_f/S:DES_S",
+    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_1:DES_ProcessingElement_1/f:DES_f/S:DES_S",
     "index":0.12
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~DES_PipelinedElasticBuffer|DES_P_1",
-    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_1:DES_ProcessingElement/f:DES_f/P:DES_P",
+    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_1:DES_ProcessingElement_1/f:DES_f/P:DES_P",
     "index":0.13
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~DES_PipelinedElasticBuffer|DES_f_1",
-    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_1:DES_ProcessingElement/f:DES_f",
+    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_1:DES_ProcessingElement_1/f:DES_f",
     "index":0.14
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~DES_PipelinedElasticBuffer|DES_ProcessingElement_1",
-    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_1:DES_ProcessingElement",
+    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_1:DES_ProcessingElement_1",
     "index":0.15
   },
   {
@@ -290,37 +278,37 @@
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~DES_PipelinedElasticBuffer|DES_keys_8",
-    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_8:DES_ProcessingElement/keys:DES_keys",
+    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_8:DES_ProcessingElement_1/keys:DES_keys_1",
     "index":0.52
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~DES_PipelinedElasticBuffer|DES_E_8",
-    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_8:DES_ProcessingElement/f:DES_f/E:DES_E",
+    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_8:DES_ProcessingElement_1/f:DES_f/E:DES_E",
     "index":0.53
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~DES_PipelinedElasticBuffer|DES_S_8",
-    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_8:DES_ProcessingElement/f:DES_f/S:DES_S",
+    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_8:DES_ProcessingElement_1/f:DES_f/S:DES_S",
     "index":0.54
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~DES_PipelinedElasticBuffer|DES_P_8",
-    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_8:DES_ProcessingElement/f:DES_f/P:DES_P",
+    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_8:DES_ProcessingElement_1/f:DES_f/P:DES_P",
     "index":0.55
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~DES_PipelinedElasticBuffer|DES_f_8",
-    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_8:DES_ProcessingElement/f:DES_f",
+    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_8:DES_ProcessingElement_1/f:DES_f",
     "index":0.56
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~DES_PipelinedElasticBuffer|DES_ProcessingElement_8",
-    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_8:DES_ProcessingElement",
+    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_8:DES_ProcessingElement_1",
     "index":0.57
   },
   {
@@ -542,37 +530,37 @@
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~DES_PipelinedElasticBuffer|DES_keys_15",
-    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_15:DES_ProcessingElement/keys:DES_keys",
+    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_15:DES_ProcessingElement_1/keys:DES_keys_1",
     "index":0.94
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~DES_PipelinedElasticBuffer|DES_E_15",
-    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_15:DES_ProcessingElement/f:DES_f/E:DES_E",
+    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_15:DES_ProcessingElement_1/f:DES_f/E:DES_E",
     "index":0.95
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~DES_PipelinedElasticBuffer|DES_S_15",
-    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_15:DES_ProcessingElement/f:DES_f/S:DES_S",
+    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_15:DES_ProcessingElement_1/f:DES_f/S:DES_S",
     "index":0.96
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~DES_PipelinedElasticBuffer|DES_P_15",
-    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_15:DES_ProcessingElement/f:DES_f/P:DES_P",
+    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_15:DES_ProcessingElement_1/f:DES_f/P:DES_P",
     "index":0.97
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~DES_PipelinedElasticBuffer|DES_f_15",
-    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_15:DES_ProcessingElement/f:DES_f",
+    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_15:DES_ProcessingElement_1/f:DES_f",
     "index":0.98
   },
   {
     "class":"firrtl.transforms.DedupedResult",
     "original":"~DES_PipelinedElasticBuffer|DES_ProcessingElement_15",
-    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_15:DES_ProcessingElement",
+    "duplicate":"~DES_PipelinedElasticBuffer|DES_PipelinedElasticBuffer/PEs_15:DES_ProcessingElement_1",
     "index":0.99
   },
   {
@@ -581,6 +569,6 @@
   },
   {
     "class":"firrtl.transforms.BlackBoxTargetDirAnno",
-    "targetDir":"tested/DES_EncryptionPipelinedElasticBuffer"
+    "targetDir":"tested/DES_DecryptionPipelinedElasticBuffer"
   }
 ]

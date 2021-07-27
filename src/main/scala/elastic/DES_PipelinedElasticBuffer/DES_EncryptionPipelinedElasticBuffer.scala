@@ -3,13 +3,13 @@ package elastic.DES_PipelinedElasticBuffer
 import chisel3._
 import chisel3.util._
 
-class DES_EncryptionPipelinedElasticBuffer extends Module {
+class DES_PipelinedElasticBuffer(encrypt: Boolean) extends Module {
   val io = IO(new Bundle {
     val in = Flipped(new DecoupledIO(new Bundle {
       val text = UInt(64.W)
       val key = UInt(64.W)
     }))
-    val encrypted = new DecoupledIO(UInt(64.W))
+    val result = new DecoupledIO(UInt(64.W))
   })
 
   val initialPermutation = Module(new DES_InitialPermutation)
@@ -19,12 +19,12 @@ class DES_EncryptionPipelinedElasticBuffer extends Module {
   io.in.ready := initialPermutation.io.in.ready
 
   val finalPermutation = Module(new DES_FinalPermutation)
-  io.encrypted.bits := finalPermutation.io.out.bits
-  io.encrypted.valid := finalPermutation.io.out.valid
-  finalPermutation.io.out.ready := io.encrypted.ready
+  io.result.bits := finalPermutation.io.out.bits
+  io.result.valid := finalPermutation.io.out.valid
+  finalPermutation.io.out.ready := io.result.ready
 
   val PEs = for (i <- 0 until 16) yield {
-    val pe = Module(new DES_ProcessingElement(round = i))
+    val pe = Module(new DES_ProcessingElement(round = i, encrypt = encrypt))
     pe.io := DontCare
     pe
   }
@@ -98,7 +98,7 @@ class DES_InitialPermutation extends Module {
   result.D := pc_1.D
 }
 
-class DES_ProcessingElement(round: Int) extends Module {
+class DES_ProcessingElement(round: Int, encrypt: Boolean) extends Module {
   val io = IO(new Bundle {
     val out = new DecoupledIO(new DES_DataInterPE)
     val in = Flipped(out)
@@ -129,7 +129,7 @@ class DES_ProcessingElement(round: Int) extends Module {
   }
 
   // computations
-  val keys = Module(new DES_keys(round))
+  val keys = Module(new DES_keys(round, encrypt))
   keys.io.C := input.C
   keys.io.D := input.D
 
@@ -234,7 +234,7 @@ class PC_1 extends Module {
     reversed(20),reversed(12),reversed(4),reversed(27),reversed(19),reversed(11),reversed(3))
 }
 
-class DES_keys(round: Int) extends Module {
+class DES_keys(round: Int, encrypt: Boolean) extends Module {
   val io = IO(new Bundle {
     val C = Input(UInt(28.W))
     val D = Input(UInt(28.W))
@@ -243,7 +243,12 @@ class DES_keys(round: Int) extends Module {
     val K = Output(UInt(48.W))
   })
 
-  val s = round match {
+  var r = round
+  if (!encrypt) {
+    r = 16 - r
+  }
+
+  val s = r match {
     case 0 => 1
     case 1 => 1
     case 2 => 2
@@ -260,19 +265,34 @@ class DES_keys(round: Int) extends Module {
     case 13 => 2
     case 14 => 2
     case 15 => 1
+    case 16 => 0
   }
 
   val C_rotated = Wire(UInt(28.W))
   val D_rotated = Wire(UInt(28.W))
   val concat = Wire(UInt(56.W))
 
-  if(s == 1) {
-    C_rotated := Cat(io.C(26,0),io.C(27))
-    D_rotated := Cat(io.D(26,0),io.D(27))
-  } else if(s == 2) {
-    C_rotated := Cat(io.C(25,0),io.C(27,26))
-    D_rotated := Cat(io.D(25,0),io.D(27,26))
+  if (encrypt) {
+    if(s == 1) {
+      C_rotated := Cat(io.C(26,0),io.C(27))
+      D_rotated := Cat(io.D(26,0),io.D(27))
+    } else if(s == 2) {
+      C_rotated := Cat(io.C(25,0),io.C(27,26))
+      D_rotated := Cat(io.D(25,0),io.D(27,26))
+    }
+  } else {
+    if(s == 1) {
+      C_rotated := Cat(io.C(0),io.C(27,1))
+      D_rotated := Cat(io.D(0),io.D(27,1))
+    } else if(s == 0) {
+      C_rotated := io.C
+      D_rotated := io.D
+    } else if(s == 2) {
+      C_rotated := Cat(io.C(1,0),io.C(27,2))
+      D_rotated := Cat(io.D(1,0),io.D(27,2))
+    }
   }
+
 
   io.C_next := C_rotated
   io.D_next := D_rotated
