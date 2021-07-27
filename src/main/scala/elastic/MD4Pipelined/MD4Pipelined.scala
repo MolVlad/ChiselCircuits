@@ -121,9 +121,16 @@ class MD4ChangeOrderInput extends Module {
   val result = Wire(new MD4OutputData)
   val input = RegEnable(io.in.bits, enable)
   val valid = RegEnable(io.in.valid, enable)
-  io.out.valid := valid
-  io.in.ready := enable
-  io.out.bits := result
+
+  when(empty) {
+    io.out.valid := false.B
+    io.in.ready := true.B
+    io.out.bits := 0.U.asTypeOf(io.out.bits)
+  } .otherwise {
+    io.out.valid := valid
+    io.in.ready := enable
+    io.out.bits := result
+  }
 
   // processing
   val PEs = VecInit(Seq.fill(16) {
@@ -170,9 +177,16 @@ class MD4ProcessingElement(round: Int = 1, operation: Int = 1) extends Module {
   val result = Wire(new MD4DataInterPE)
   val input = RegEnable(io.in.bits, enable)
   val valid = RegEnable(io.in.valid, enable)
-  io.out.valid := valid
-  io.in.ready := enable
-  io.out.bits := result
+
+  when(empty) {
+    io.out.valid := false.B
+    io.in.ready := true.B
+    io.out.bits := 0.U.asTypeOf(io.out.bits)
+  } .otherwise {
+    io.out.valid := valid
+    io.in.ready := enable
+    io.out.bits := result
+  }
 
   // computations
   result.A0 := input.A0
@@ -319,9 +333,16 @@ class MD4FinalAddition extends Module {
   })
   val input = RegEnable(io.in.bits, enable)
   val valid = RegEnable(io.in.valid, enable)
-  io.out.valid := valid
-  io.in.ready := enable
-  io.out.bits := result
+
+  when(empty) {
+    io.out.valid := false.B
+    io.in.ready := true.B
+    io.out.bits := 0.U.asTypeOf(io.out.bits)
+  } .otherwise {
+    io.out.valid := valid
+    io.in.ready := enable
+    io.out.bits := result
+  }
 
   // processing
   result.A := input.A + input.A0
@@ -347,9 +368,16 @@ class MD4ChangeOrderOutput extends Module {
   val result = Wire(UInt(128.W))
   val input = RegEnable(io.in.bits, enable)
   val valid = RegEnable(io.in.valid, enable)
-  io.out.valid := valid
-  io.in.ready := enable
-  io.out.bits := result
+
+  when(empty) {
+    io.out.valid := false.B
+    io.in.ready := true.B
+    io.out.bits := 0.U.asTypeOf(io.out.bits)
+  } .otherwise {
+    io.out.valid := valid
+    io.in.ready := enable
+    io.out.bits := result
+  }
 
   // processing
   val PEs = VecInit(Seq.fill(4) {
