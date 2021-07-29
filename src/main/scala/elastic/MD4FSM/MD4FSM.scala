@@ -6,7 +6,7 @@ import chisel3.util._
 class MD4FSM(width: Int = 2) extends Module {
   val io = IO(new Bundle {
     val data = Flipped(new DecoupledIO(UInt(512.W)))
-    val extraDataPieces = Flipped(new DecoupledIO(UInt(width.W)))
+    val extraDataNum = Flipped(new DecoupledIO(UInt(width.W)))
     val hash = new DecoupledIO(UInt(128.W))
   })
 
@@ -17,7 +17,7 @@ class MD4FSM(width: Int = 2) extends Module {
   val A, B, C, D, AA, BB, CC, DD = RegInit(0.U(32.W))
   val X = RegInit(0.U(512.W))
 
-  val extraDataPiecesReg = RegInit(0.U(width.W))
+  val extraDataNumReg = RegInit(0.U(width.W))
 
   val m = Module(new Operation)
   m.io.a := DontCare
@@ -42,12 +42,12 @@ class MD4FSM(width: Int = 2) extends Module {
 
   io.hash.valid := stateReg === waitingOutput
   io.hash.bits :=  change2.io.out
-  io.extraDataPieces.ready := stateReg === waitingLength
+  io.extraDataNum.ready := stateReg === waitingLength
   io.data.ready := (stateReg === waitingLength) || (stateReg === waitingData)
 
   switch(stateReg) {
     is(waitingLength) {
-      when(io.extraDataPieces.valid) {
+      when(io.extraDataNum.valid) {
         A := "h67452301".U
         B := "hEFCDAB89".U
         C := "h98BADCFE".U
@@ -55,7 +55,7 @@ class MD4FSM(width: Int = 2) extends Module {
         when(io.data.valid) {
           roundReg := 0.U
           operReg := 0.U
-          extraDataPiecesReg := io.extraDataPieces.bits
+          extraDataNumReg := io.extraDataNum.bits
           X := change1.io.out
           AA := "h67452301".U
           BB := "hEFCDAB89".U
@@ -63,7 +63,7 @@ class MD4FSM(width: Int = 2) extends Module {
           DD := "h10325476".U
           stateReg := computing
         } .otherwise {
-          extraDataPiecesReg := io.extraDataPieces.bits + 1.U
+          extraDataNumReg := io.extraDataNum.bits + 1.U
           stateReg := waitingData
         }
       }
@@ -72,7 +72,7 @@ class MD4FSM(width: Int = 2) extends Module {
       when(io.data.valid) {
         roundReg := 0.U
         operReg := 0.U
-        extraDataPiecesReg := extraDataPiecesReg - 1.U
+        extraDataNumReg := extraDataNumReg - 1.U
         X := change1.io.out
         AA := A
         BB := B
@@ -142,7 +142,7 @@ class MD4FSM(width: Int = 2) extends Module {
       B := B + BB
       C := C + CC
       D := D + DD
-      when(extraDataPiecesReg === 0.U) {
+      when(extraDataNumReg === 0.U) {
         stateReg := waitingOutput
       } otherwise {
         stateReg := waitingData

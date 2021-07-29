@@ -32,38 +32,38 @@ module IP(
   wire [63:0] _T_55 = {_T_48[62:0], 1'h0}; // @[Bitwise.scala 103:65]
   wire [63:0] _T_57 = _T_55 & 64'haaaaaaaaaaaaaaaa; // @[Bitwise.scala 103:75]
   wire [63:0] reversed = _T_53 | _T_57; // @[Bitwise.scala 103:39]
-  wire  hi_hi_hi_hi_hi = reversed[57]; // @[DES_Pipelined.scala 195:23]
-  wire  hi_hi_hi_hi_lo = reversed[49]; // @[DES_Pipelined.scala 195:36]
-  wire  hi_hi_hi_lo_hi = reversed[41]; // @[DES_Pipelined.scala 195:49]
-  wire  hi_hi_hi_lo_lo = reversed[33]; // @[DES_Pipelined.scala 195:62]
-  wire  hi_hi_lo_hi_hi = reversed[25]; // @[DES_Pipelined.scala 195:75]
-  wire  hi_hi_lo_hi_lo = reversed[17]; // @[DES_Pipelined.scala 195:88]
-  wire  hi_hi_lo_lo_hi = reversed[9]; // @[DES_Pipelined.scala 195:101]
-  wire  hi_hi_lo_lo_lo = reversed[1]; // @[DES_Pipelined.scala 195:113]
-  wire  hi_lo_hi_hi_hi = reversed[59]; // @[DES_Pipelined.scala 196:13]
-  wire  hi_lo_hi_hi_lo = reversed[51]; // @[DES_Pipelined.scala 196:26]
-  wire  hi_lo_hi_lo_hi = reversed[43]; // @[DES_Pipelined.scala 196:39]
-  wire  hi_lo_hi_lo_lo = reversed[35]; // @[DES_Pipelined.scala 196:52]
-  wire  hi_lo_lo_hi_hi = reversed[27]; // @[DES_Pipelined.scala 196:65]
-  wire  hi_lo_lo_hi_lo = reversed[19]; // @[DES_Pipelined.scala 196:78]
-  wire  hi_lo_lo_lo_hi = reversed[11]; // @[DES_Pipelined.scala 196:91]
-  wire  hi_lo_lo_lo_lo = reversed[3]; // @[DES_Pipelined.scala 196:104]
-  wire  lo_hi_hi_hi_hi = reversed[61]; // @[DES_Pipelined.scala 197:13]
-  wire  lo_hi_hi_hi_lo = reversed[53]; // @[DES_Pipelined.scala 197:26]
-  wire  lo_hi_hi_lo_hi = reversed[45]; // @[DES_Pipelined.scala 197:39]
-  wire  lo_hi_hi_lo_lo = reversed[37]; // @[DES_Pipelined.scala 197:52]
-  wire  lo_hi_lo_hi_hi = reversed[29]; // @[DES_Pipelined.scala 197:65]
-  wire  lo_hi_lo_hi_lo = reversed[21]; // @[DES_Pipelined.scala 197:78]
-  wire  lo_hi_lo_lo_hi = reversed[13]; // @[DES_Pipelined.scala 197:91]
-  wire  lo_hi_lo_lo_lo = reversed[5]; // @[DES_Pipelined.scala 197:104]
-  wire  lo_lo_hi_hi_hi = reversed[63]; // @[DES_Pipelined.scala 198:13]
-  wire  lo_lo_hi_hi_lo = reversed[55]; // @[DES_Pipelined.scala 198:26]
-  wire  lo_lo_hi_lo_hi = reversed[47]; // @[DES_Pipelined.scala 198:39]
-  wire  lo_lo_hi_lo_lo = reversed[39]; // @[DES_Pipelined.scala 198:52]
-  wire  lo_lo_lo_hi_hi = reversed[31]; // @[DES_Pipelined.scala 198:65]
-  wire  lo_lo_lo_hi_lo = reversed[23]; // @[DES_Pipelined.scala 198:78]
-  wire  lo_lo_lo_lo_hi = reversed[15]; // @[DES_Pipelined.scala 198:91]
-  wire  lo_lo_lo_lo_lo = reversed[7]; // @[DES_Pipelined.scala 198:104]
+  wire  hi_hi_hi_hi_hi = reversed[57]; // @[DES_Pipelined.scala 177:23]
+  wire  hi_hi_hi_hi_lo = reversed[49]; // @[DES_Pipelined.scala 177:36]
+  wire  hi_hi_hi_lo_hi = reversed[41]; // @[DES_Pipelined.scala 177:49]
+  wire  hi_hi_hi_lo_lo = reversed[33]; // @[DES_Pipelined.scala 177:62]
+  wire  hi_hi_lo_hi_hi = reversed[25]; // @[DES_Pipelined.scala 177:75]
+  wire  hi_hi_lo_hi_lo = reversed[17]; // @[DES_Pipelined.scala 177:88]
+  wire  hi_hi_lo_lo_hi = reversed[9]; // @[DES_Pipelined.scala 177:101]
+  wire  hi_hi_lo_lo_lo = reversed[1]; // @[DES_Pipelined.scala 177:113]
+  wire  hi_lo_hi_hi_hi = reversed[59]; // @[DES_Pipelined.scala 178:13]
+  wire  hi_lo_hi_hi_lo = reversed[51]; // @[DES_Pipelined.scala 178:26]
+  wire  hi_lo_hi_lo_hi = reversed[43]; // @[DES_Pipelined.scala 178:39]
+  wire  hi_lo_hi_lo_lo = reversed[35]; // @[DES_Pipelined.scala 178:52]
+  wire  hi_lo_lo_hi_hi = reversed[27]; // @[DES_Pipelined.scala 178:65]
+  wire  hi_lo_lo_hi_lo = reversed[19]; // @[DES_Pipelined.scala 178:78]
+  wire  hi_lo_lo_lo_hi = reversed[11]; // @[DES_Pipelined.scala 178:91]
+  wire  hi_lo_lo_lo_lo = reversed[3]; // @[DES_Pipelined.scala 178:104]
+  wire  lo_hi_hi_hi_hi = reversed[61]; // @[DES_Pipelined.scala 179:13]
+  wire  lo_hi_hi_hi_lo = reversed[53]; // @[DES_Pipelined.scala 179:26]
+  wire  lo_hi_hi_lo_hi = reversed[45]; // @[DES_Pipelined.scala 179:39]
+  wire  lo_hi_hi_lo_lo = reversed[37]; // @[DES_Pipelined.scala 179:52]
+  wire  lo_hi_lo_hi_hi = reversed[29]; // @[DES_Pipelined.scala 179:65]
+  wire  lo_hi_lo_hi_lo = reversed[21]; // @[DES_Pipelined.scala 179:78]
+  wire  lo_hi_lo_lo_hi = reversed[13]; // @[DES_Pipelined.scala 179:91]
+  wire  lo_hi_lo_lo_lo = reversed[5]; // @[DES_Pipelined.scala 179:104]
+  wire  lo_lo_hi_hi_hi = reversed[63]; // @[DES_Pipelined.scala 180:13]
+  wire  lo_lo_hi_hi_lo = reversed[55]; // @[DES_Pipelined.scala 180:26]
+  wire  lo_lo_hi_lo_hi = reversed[47]; // @[DES_Pipelined.scala 180:39]
+  wire  lo_lo_hi_lo_lo = reversed[39]; // @[DES_Pipelined.scala 180:52]
+  wire  lo_lo_lo_hi_hi = reversed[31]; // @[DES_Pipelined.scala 180:65]
+  wire  lo_lo_lo_hi_lo = reversed[23]; // @[DES_Pipelined.scala 180:78]
+  wire  lo_lo_lo_lo_hi = reversed[15]; // @[DES_Pipelined.scala 180:91]
+  wire  lo_lo_lo_lo_lo = reversed[7]; // @[DES_Pipelined.scala 180:104]
   wire [7:0] lo_lo = {lo_lo_hi_hi_hi,lo_lo_hi_hi_lo,lo_lo_hi_lo_hi,lo_lo_hi_lo_lo,lo_lo_lo_hi_hi,lo_lo_lo_hi_lo,
     lo_lo_lo_lo_hi,lo_lo_lo_lo_lo}; // @[Cat.scala 30:58]
   wire [15:0] lo = {lo_hi_hi_hi_hi,lo_hi_hi_hi_lo,lo_hi_hi_lo_hi,lo_hi_hi_lo_lo,lo_hi_lo_hi_hi,lo_hi_lo_hi_lo,
@@ -72,38 +72,38 @@ module IP(
     hi_lo_lo_lo_hi,hi_lo_lo_lo_lo}; // @[Cat.scala 30:58]
   wire [15:0] hi = {hi_hi_hi_hi_hi,hi_hi_hi_hi_lo,hi_hi_hi_lo_hi,hi_hi_hi_lo_lo,hi_hi_lo_hi_hi,hi_hi_lo_hi_lo,
     hi_hi_lo_lo_hi,hi_hi_lo_lo_lo,hi_lo}; // @[Cat.scala 30:58]
-  wire  hi_hi_hi_hi_hi_1 = reversed[56]; // @[DES_Pipelined.scala 200:23]
-  wire  hi_hi_hi_hi_lo_1 = reversed[48]; // @[DES_Pipelined.scala 200:36]
-  wire  hi_hi_hi_lo_hi_1 = reversed[40]; // @[DES_Pipelined.scala 200:49]
-  wire  hi_hi_hi_lo_lo_1 = reversed[32]; // @[DES_Pipelined.scala 200:62]
-  wire  hi_hi_lo_hi_hi_1 = reversed[24]; // @[DES_Pipelined.scala 200:75]
-  wire  hi_hi_lo_hi_lo_1 = reversed[16]; // @[DES_Pipelined.scala 200:88]
-  wire  hi_hi_lo_lo_hi_1 = reversed[8]; // @[DES_Pipelined.scala 200:101]
-  wire  hi_hi_lo_lo_lo_1 = reversed[0]; // @[DES_Pipelined.scala 200:113]
-  wire  hi_lo_hi_hi_hi_1 = reversed[58]; // @[DES_Pipelined.scala 201:13]
-  wire  hi_lo_hi_hi_lo_1 = reversed[50]; // @[DES_Pipelined.scala 201:26]
-  wire  hi_lo_hi_lo_hi_1 = reversed[42]; // @[DES_Pipelined.scala 201:39]
-  wire  hi_lo_hi_lo_lo_1 = reversed[34]; // @[DES_Pipelined.scala 201:52]
-  wire  hi_lo_lo_hi_hi_1 = reversed[26]; // @[DES_Pipelined.scala 201:65]
-  wire  hi_lo_lo_hi_lo_1 = reversed[18]; // @[DES_Pipelined.scala 201:78]
-  wire  hi_lo_lo_lo_hi_1 = reversed[10]; // @[DES_Pipelined.scala 201:91]
-  wire  hi_lo_lo_lo_lo_1 = reversed[2]; // @[DES_Pipelined.scala 201:104]
-  wire  lo_hi_hi_hi_hi_1 = reversed[60]; // @[DES_Pipelined.scala 202:13]
-  wire  lo_hi_hi_hi_lo_1 = reversed[52]; // @[DES_Pipelined.scala 202:26]
-  wire  lo_hi_hi_lo_hi_1 = reversed[44]; // @[DES_Pipelined.scala 202:39]
-  wire  lo_hi_hi_lo_lo_1 = reversed[36]; // @[DES_Pipelined.scala 202:52]
-  wire  lo_hi_lo_hi_hi_1 = reversed[28]; // @[DES_Pipelined.scala 202:65]
-  wire  lo_hi_lo_hi_lo_1 = reversed[20]; // @[DES_Pipelined.scala 202:78]
-  wire  lo_hi_lo_lo_hi_1 = reversed[12]; // @[DES_Pipelined.scala 202:91]
-  wire  lo_hi_lo_lo_lo_1 = reversed[4]; // @[DES_Pipelined.scala 202:104]
-  wire  lo_lo_hi_hi_hi_1 = reversed[62]; // @[DES_Pipelined.scala 203:13]
-  wire  lo_lo_hi_hi_lo_1 = reversed[54]; // @[DES_Pipelined.scala 203:26]
-  wire  lo_lo_hi_lo_hi_1 = reversed[46]; // @[DES_Pipelined.scala 203:39]
-  wire  lo_lo_hi_lo_lo_1 = reversed[38]; // @[DES_Pipelined.scala 203:52]
-  wire  lo_lo_lo_hi_hi_1 = reversed[30]; // @[DES_Pipelined.scala 203:65]
-  wire  lo_lo_lo_hi_lo_1 = reversed[22]; // @[DES_Pipelined.scala 203:78]
-  wire  lo_lo_lo_lo_hi_1 = reversed[14]; // @[DES_Pipelined.scala 203:91]
-  wire  lo_lo_lo_lo_lo_1 = reversed[6]; // @[DES_Pipelined.scala 203:104]
+  wire  hi_hi_hi_hi_hi_1 = reversed[56]; // @[DES_Pipelined.scala 182:23]
+  wire  hi_hi_hi_hi_lo_1 = reversed[48]; // @[DES_Pipelined.scala 182:36]
+  wire  hi_hi_hi_lo_hi_1 = reversed[40]; // @[DES_Pipelined.scala 182:49]
+  wire  hi_hi_hi_lo_lo_1 = reversed[32]; // @[DES_Pipelined.scala 182:62]
+  wire  hi_hi_lo_hi_hi_1 = reversed[24]; // @[DES_Pipelined.scala 182:75]
+  wire  hi_hi_lo_hi_lo_1 = reversed[16]; // @[DES_Pipelined.scala 182:88]
+  wire  hi_hi_lo_lo_hi_1 = reversed[8]; // @[DES_Pipelined.scala 182:101]
+  wire  hi_hi_lo_lo_lo_1 = reversed[0]; // @[DES_Pipelined.scala 182:113]
+  wire  hi_lo_hi_hi_hi_1 = reversed[58]; // @[DES_Pipelined.scala 183:13]
+  wire  hi_lo_hi_hi_lo_1 = reversed[50]; // @[DES_Pipelined.scala 183:26]
+  wire  hi_lo_hi_lo_hi_1 = reversed[42]; // @[DES_Pipelined.scala 183:39]
+  wire  hi_lo_hi_lo_lo_1 = reversed[34]; // @[DES_Pipelined.scala 183:52]
+  wire  hi_lo_lo_hi_hi_1 = reversed[26]; // @[DES_Pipelined.scala 183:65]
+  wire  hi_lo_lo_hi_lo_1 = reversed[18]; // @[DES_Pipelined.scala 183:78]
+  wire  hi_lo_lo_lo_hi_1 = reversed[10]; // @[DES_Pipelined.scala 183:91]
+  wire  hi_lo_lo_lo_lo_1 = reversed[2]; // @[DES_Pipelined.scala 183:104]
+  wire  lo_hi_hi_hi_hi_1 = reversed[60]; // @[DES_Pipelined.scala 184:13]
+  wire  lo_hi_hi_hi_lo_1 = reversed[52]; // @[DES_Pipelined.scala 184:26]
+  wire  lo_hi_hi_lo_hi_1 = reversed[44]; // @[DES_Pipelined.scala 184:39]
+  wire  lo_hi_hi_lo_lo_1 = reversed[36]; // @[DES_Pipelined.scala 184:52]
+  wire  lo_hi_lo_hi_hi_1 = reversed[28]; // @[DES_Pipelined.scala 184:65]
+  wire  lo_hi_lo_hi_lo_1 = reversed[20]; // @[DES_Pipelined.scala 184:78]
+  wire  lo_hi_lo_lo_hi_1 = reversed[12]; // @[DES_Pipelined.scala 184:91]
+  wire  lo_hi_lo_lo_lo_1 = reversed[4]; // @[DES_Pipelined.scala 184:104]
+  wire  lo_lo_hi_hi_hi_1 = reversed[62]; // @[DES_Pipelined.scala 185:13]
+  wire  lo_lo_hi_hi_lo_1 = reversed[54]; // @[DES_Pipelined.scala 185:26]
+  wire  lo_lo_hi_lo_hi_1 = reversed[46]; // @[DES_Pipelined.scala 185:39]
+  wire  lo_lo_hi_lo_lo_1 = reversed[38]; // @[DES_Pipelined.scala 185:52]
+  wire  lo_lo_lo_hi_hi_1 = reversed[30]; // @[DES_Pipelined.scala 185:65]
+  wire  lo_lo_lo_hi_lo_1 = reversed[22]; // @[DES_Pipelined.scala 185:78]
+  wire  lo_lo_lo_lo_hi_1 = reversed[14]; // @[DES_Pipelined.scala 185:91]
+  wire  lo_lo_lo_lo_lo_1 = reversed[6]; // @[DES_Pipelined.scala 185:104]
   wire [7:0] lo_lo_1 = {lo_lo_hi_hi_hi_1,lo_lo_hi_hi_lo_1,lo_lo_hi_lo_hi_1,lo_lo_hi_lo_lo_1,lo_lo_lo_hi_hi_1,
     lo_lo_lo_hi_lo_1,lo_lo_lo_lo_hi_1,lo_lo_lo_lo_lo_1}; // @[Cat.scala 30:58]
   wire [15:0] lo_1 = {lo_hi_hi_hi_hi_1,lo_hi_hi_hi_lo_1,lo_hi_hi_lo_hi_1,lo_hi_hi_lo_lo_1,lo_hi_lo_hi_hi_1,
@@ -149,34 +149,34 @@ module PC_1(
   wire [63:0] _T_55 = {_T_48[62:0], 1'h0}; // @[Bitwise.scala 103:65]
   wire [63:0] _T_57 = _T_55 & 64'haaaaaaaaaaaaaaaa; // @[Bitwise.scala 103:75]
   wire [63:0] reversed = _T_53 | _T_57; // @[Bitwise.scala 103:39]
-  wire  hi_hi_hi_hi_hi = reversed[56]; // @[DES_Pipelined.scala 216:23]
-  wire  hi_hi_hi_hi_lo = reversed[48]; // @[DES_Pipelined.scala 216:36]
-  wire  hi_hi_hi_lo_hi = reversed[40]; // @[DES_Pipelined.scala 216:49]
-  wire  hi_hi_hi_lo_lo = reversed[32]; // @[DES_Pipelined.scala 216:62]
-  wire  hi_hi_lo_hi_hi = reversed[24]; // @[DES_Pipelined.scala 216:75]
-  wire  hi_hi_lo_hi_lo = reversed[16]; // @[DES_Pipelined.scala 216:88]
-  wire  hi_hi_lo_lo = reversed[8]; // @[DES_Pipelined.scala 216:101]
-  wire  hi_lo_hi_hi_hi = reversed[0]; // @[DES_Pipelined.scala 217:13]
-  wire  hi_lo_hi_hi_lo = reversed[57]; // @[DES_Pipelined.scala 217:25]
-  wire  hi_lo_hi_lo_hi = reversed[49]; // @[DES_Pipelined.scala 217:38]
-  wire  hi_lo_hi_lo_lo = reversed[41]; // @[DES_Pipelined.scala 217:51]
-  wire  hi_lo_lo_hi_hi = reversed[33]; // @[DES_Pipelined.scala 217:64]
-  wire  hi_lo_lo_hi_lo = reversed[25]; // @[DES_Pipelined.scala 217:77]
-  wire  hi_lo_lo_lo = reversed[17]; // @[DES_Pipelined.scala 217:90]
-  wire  lo_hi_hi_hi_hi = reversed[9]; // @[DES_Pipelined.scala 218:13]
-  wire  lo_hi_hi_hi_lo = reversed[1]; // @[DES_Pipelined.scala 218:25]
-  wire  lo_hi_hi_lo_hi = reversed[58]; // @[DES_Pipelined.scala 218:37]
-  wire  lo_hi_hi_lo_lo = reversed[50]; // @[DES_Pipelined.scala 218:50]
-  wire  lo_hi_lo_hi_hi = reversed[42]; // @[DES_Pipelined.scala 218:63]
-  wire  lo_hi_lo_hi_lo = reversed[34]; // @[DES_Pipelined.scala 218:76]
-  wire  lo_hi_lo_lo = reversed[26]; // @[DES_Pipelined.scala 218:89]
-  wire  lo_lo_hi_hi_hi = reversed[18]; // @[DES_Pipelined.scala 219:13]
-  wire  lo_lo_hi_hi_lo = reversed[10]; // @[DES_Pipelined.scala 219:26]
-  wire  lo_lo_hi_lo_hi = reversed[2]; // @[DES_Pipelined.scala 219:39]
-  wire  lo_lo_hi_lo_lo = reversed[59]; // @[DES_Pipelined.scala 219:51]
-  wire  lo_lo_lo_hi_hi = reversed[51]; // @[DES_Pipelined.scala 219:64]
-  wire  lo_lo_lo_hi_lo = reversed[43]; // @[DES_Pipelined.scala 219:77]
-  wire  lo_lo_lo_lo = reversed[35]; // @[DES_Pipelined.scala 219:90]
+  wire  hi_hi_hi_hi_hi = reversed[56]; // @[DES_Pipelined.scala 198:23]
+  wire  hi_hi_hi_hi_lo = reversed[48]; // @[DES_Pipelined.scala 198:36]
+  wire  hi_hi_hi_lo_hi = reversed[40]; // @[DES_Pipelined.scala 198:49]
+  wire  hi_hi_hi_lo_lo = reversed[32]; // @[DES_Pipelined.scala 198:62]
+  wire  hi_hi_lo_hi_hi = reversed[24]; // @[DES_Pipelined.scala 198:75]
+  wire  hi_hi_lo_hi_lo = reversed[16]; // @[DES_Pipelined.scala 198:88]
+  wire  hi_hi_lo_lo = reversed[8]; // @[DES_Pipelined.scala 198:101]
+  wire  hi_lo_hi_hi_hi = reversed[0]; // @[DES_Pipelined.scala 199:13]
+  wire  hi_lo_hi_hi_lo = reversed[57]; // @[DES_Pipelined.scala 199:25]
+  wire  hi_lo_hi_lo_hi = reversed[49]; // @[DES_Pipelined.scala 199:38]
+  wire  hi_lo_hi_lo_lo = reversed[41]; // @[DES_Pipelined.scala 199:51]
+  wire  hi_lo_lo_hi_hi = reversed[33]; // @[DES_Pipelined.scala 199:64]
+  wire  hi_lo_lo_hi_lo = reversed[25]; // @[DES_Pipelined.scala 199:77]
+  wire  hi_lo_lo_lo = reversed[17]; // @[DES_Pipelined.scala 199:90]
+  wire  lo_hi_hi_hi_hi = reversed[9]; // @[DES_Pipelined.scala 200:13]
+  wire  lo_hi_hi_hi_lo = reversed[1]; // @[DES_Pipelined.scala 200:25]
+  wire  lo_hi_hi_lo_hi = reversed[58]; // @[DES_Pipelined.scala 200:37]
+  wire  lo_hi_hi_lo_lo = reversed[50]; // @[DES_Pipelined.scala 200:50]
+  wire  lo_hi_lo_hi_hi = reversed[42]; // @[DES_Pipelined.scala 200:63]
+  wire  lo_hi_lo_hi_lo = reversed[34]; // @[DES_Pipelined.scala 200:76]
+  wire  lo_hi_lo_lo = reversed[26]; // @[DES_Pipelined.scala 200:89]
+  wire  lo_lo_hi_hi_hi = reversed[18]; // @[DES_Pipelined.scala 201:13]
+  wire  lo_lo_hi_hi_lo = reversed[10]; // @[DES_Pipelined.scala 201:26]
+  wire  lo_lo_hi_lo_hi = reversed[2]; // @[DES_Pipelined.scala 201:39]
+  wire  lo_lo_hi_lo_lo = reversed[59]; // @[DES_Pipelined.scala 201:51]
+  wire  lo_lo_lo_hi_hi = reversed[51]; // @[DES_Pipelined.scala 201:64]
+  wire  lo_lo_lo_hi_lo = reversed[43]; // @[DES_Pipelined.scala 201:77]
+  wire  lo_lo_lo_lo = reversed[35]; // @[DES_Pipelined.scala 201:90]
   wire [6:0] lo_lo = {lo_lo_hi_hi_hi,lo_lo_hi_hi_lo,lo_lo_hi_lo_hi,lo_lo_hi_lo_lo,lo_lo_lo_hi_hi,lo_lo_lo_hi_lo,
     lo_lo_lo_lo}; // @[Cat.scala 30:58]
   wire [13:0] lo = {lo_hi_hi_hi_hi,lo_hi_hi_hi_lo,lo_hi_hi_lo_hi,lo_hi_hi_lo_lo,lo_hi_lo_hi_hi,lo_hi_lo_hi_lo,
@@ -185,34 +185,34 @@ module PC_1(
     hi_lo_lo_lo}; // @[Cat.scala 30:58]
   wire [13:0] hi = {hi_hi_hi_hi_hi,hi_hi_hi_hi_lo,hi_hi_hi_lo_hi,hi_hi_hi_lo_lo,hi_hi_lo_hi_hi,hi_hi_lo_hi_lo,
     hi_hi_lo_lo,hi_lo}; // @[Cat.scala 30:58]
-  wire  hi_hi_hi_hi_hi_1 = reversed[62]; // @[DES_Pipelined.scala 221:23]
-  wire  hi_hi_hi_hi_lo_1 = reversed[54]; // @[DES_Pipelined.scala 221:36]
-  wire  hi_hi_hi_lo_hi_1 = reversed[46]; // @[DES_Pipelined.scala 221:49]
-  wire  hi_hi_hi_lo_lo_1 = reversed[38]; // @[DES_Pipelined.scala 221:62]
-  wire  hi_hi_lo_hi_hi_1 = reversed[30]; // @[DES_Pipelined.scala 221:75]
-  wire  hi_hi_lo_hi_lo_1 = reversed[22]; // @[DES_Pipelined.scala 221:88]
-  wire  hi_hi_lo_lo_1 = reversed[14]; // @[DES_Pipelined.scala 221:101]
-  wire  hi_lo_hi_hi_hi_1 = reversed[6]; // @[DES_Pipelined.scala 222:13]
-  wire  hi_lo_hi_hi_lo_1 = reversed[61]; // @[DES_Pipelined.scala 222:25]
-  wire  hi_lo_hi_lo_hi_1 = reversed[53]; // @[DES_Pipelined.scala 222:38]
-  wire  hi_lo_hi_lo_lo_1 = reversed[45]; // @[DES_Pipelined.scala 222:51]
-  wire  hi_lo_lo_hi_hi_1 = reversed[37]; // @[DES_Pipelined.scala 222:64]
-  wire  hi_lo_lo_hi_lo_1 = reversed[29]; // @[DES_Pipelined.scala 222:77]
-  wire  hi_lo_lo_lo_1 = reversed[21]; // @[DES_Pipelined.scala 222:90]
-  wire  lo_hi_hi_hi_hi_1 = reversed[13]; // @[DES_Pipelined.scala 223:13]
-  wire  lo_hi_hi_hi_lo_1 = reversed[5]; // @[DES_Pipelined.scala 223:26]
-  wire  lo_hi_hi_lo_hi_1 = reversed[60]; // @[DES_Pipelined.scala 223:38]
-  wire  lo_hi_hi_lo_lo_1 = reversed[52]; // @[DES_Pipelined.scala 223:51]
-  wire  lo_hi_lo_hi_hi_1 = reversed[44]; // @[DES_Pipelined.scala 223:64]
-  wire  lo_hi_lo_hi_lo_1 = reversed[36]; // @[DES_Pipelined.scala 223:77]
-  wire  lo_hi_lo_lo_1 = reversed[28]; // @[DES_Pipelined.scala 223:90]
-  wire  lo_lo_hi_hi_hi_1 = reversed[20]; // @[DES_Pipelined.scala 224:13]
-  wire  lo_lo_hi_hi_lo_1 = reversed[12]; // @[DES_Pipelined.scala 224:26]
-  wire  lo_lo_hi_lo_hi_1 = reversed[4]; // @[DES_Pipelined.scala 224:39]
-  wire  lo_lo_hi_lo_lo_1 = reversed[27]; // @[DES_Pipelined.scala 224:51]
-  wire  lo_lo_lo_hi_hi_1 = reversed[19]; // @[DES_Pipelined.scala 224:64]
-  wire  lo_lo_lo_hi_lo_1 = reversed[11]; // @[DES_Pipelined.scala 224:77]
-  wire  lo_lo_lo_lo_1 = reversed[3]; // @[DES_Pipelined.scala 224:90]
+  wire  hi_hi_hi_hi_hi_1 = reversed[62]; // @[DES_Pipelined.scala 203:23]
+  wire  hi_hi_hi_hi_lo_1 = reversed[54]; // @[DES_Pipelined.scala 203:36]
+  wire  hi_hi_hi_lo_hi_1 = reversed[46]; // @[DES_Pipelined.scala 203:49]
+  wire  hi_hi_hi_lo_lo_1 = reversed[38]; // @[DES_Pipelined.scala 203:62]
+  wire  hi_hi_lo_hi_hi_1 = reversed[30]; // @[DES_Pipelined.scala 203:75]
+  wire  hi_hi_lo_hi_lo_1 = reversed[22]; // @[DES_Pipelined.scala 203:88]
+  wire  hi_hi_lo_lo_1 = reversed[14]; // @[DES_Pipelined.scala 203:101]
+  wire  hi_lo_hi_hi_hi_1 = reversed[6]; // @[DES_Pipelined.scala 204:13]
+  wire  hi_lo_hi_hi_lo_1 = reversed[61]; // @[DES_Pipelined.scala 204:25]
+  wire  hi_lo_hi_lo_hi_1 = reversed[53]; // @[DES_Pipelined.scala 204:38]
+  wire  hi_lo_hi_lo_lo_1 = reversed[45]; // @[DES_Pipelined.scala 204:51]
+  wire  hi_lo_lo_hi_hi_1 = reversed[37]; // @[DES_Pipelined.scala 204:64]
+  wire  hi_lo_lo_hi_lo_1 = reversed[29]; // @[DES_Pipelined.scala 204:77]
+  wire  hi_lo_lo_lo_1 = reversed[21]; // @[DES_Pipelined.scala 204:90]
+  wire  lo_hi_hi_hi_hi_1 = reversed[13]; // @[DES_Pipelined.scala 205:13]
+  wire  lo_hi_hi_hi_lo_1 = reversed[5]; // @[DES_Pipelined.scala 205:26]
+  wire  lo_hi_hi_lo_hi_1 = reversed[60]; // @[DES_Pipelined.scala 205:38]
+  wire  lo_hi_hi_lo_lo_1 = reversed[52]; // @[DES_Pipelined.scala 205:51]
+  wire  lo_hi_lo_hi_hi_1 = reversed[44]; // @[DES_Pipelined.scala 205:64]
+  wire  lo_hi_lo_hi_lo_1 = reversed[36]; // @[DES_Pipelined.scala 205:77]
+  wire  lo_hi_lo_lo_1 = reversed[28]; // @[DES_Pipelined.scala 205:90]
+  wire  lo_lo_hi_hi_hi_1 = reversed[20]; // @[DES_Pipelined.scala 206:13]
+  wire  lo_lo_hi_hi_lo_1 = reversed[12]; // @[DES_Pipelined.scala 206:26]
+  wire  lo_lo_hi_lo_hi_1 = reversed[4]; // @[DES_Pipelined.scala 206:39]
+  wire  lo_lo_hi_lo_lo_1 = reversed[27]; // @[DES_Pipelined.scala 206:51]
+  wire  lo_lo_lo_hi_hi_1 = reversed[19]; // @[DES_Pipelined.scala 206:64]
+  wire  lo_lo_lo_hi_lo_1 = reversed[11]; // @[DES_Pipelined.scala 206:77]
+  wire  lo_lo_lo_lo_1 = reversed[3]; // @[DES_Pipelined.scala 206:90]
   wire [6:0] lo_lo_1 = {lo_lo_hi_hi_hi_1,lo_lo_hi_hi_lo_1,lo_lo_hi_lo_hi_1,lo_lo_hi_lo_lo_1,lo_lo_lo_hi_hi_1,
     lo_lo_lo_hi_lo_1,lo_lo_lo_lo_1}; // @[Cat.scala 30:58]
   wire [13:0] lo_1 = {lo_hi_hi_hi_hi_1,lo_hi_hi_hi_lo_1,lo_hi_hi_lo_hi_1,lo_hi_hi_lo_lo_1,lo_hi_lo_hi_hi_1,
@@ -226,7 +226,6 @@ module PC_1(
 endmodule
 module DES_InitialPermutation(
   input         clock,
-  input         reset,
   output        io_in_ready,
   input         io_in_valid,
   input  [63:0] io_in_bits_text,
@@ -239,47 +238,43 @@ module DES_InitialPermutation(
   output [27:0] io_out_bits_D
 );
 `ifdef RANDOMIZE_REG_INIT
-  reg [31:0] _RAND_0;
+  reg [63:0] _RAND_0;
   reg [63:0] _RAND_1;
-  reg [63:0] _RAND_2;
-  reg [31:0] _RAND_3;
+  reg [31:0] _RAND_2;
 `endif // RANDOMIZE_REG_INIT
-  wire [63:0] IP_io_text; // @[DES_Pipelined.scala 86:18]
-  wire [31:0] IP_io_L; // @[DES_Pipelined.scala 86:18]
-  wire [31:0] IP_io_R; // @[DES_Pipelined.scala 86:18]
-  wire [63:0] PC_1_io_key; // @[DES_Pipelined.scala 91:20]
-  wire [27:0] PC_1_io_C; // @[DES_Pipelined.scala 91:20]
-  wire [27:0] PC_1_io_D; // @[DES_Pipelined.scala 91:20]
-  reg  empty; // @[DES_Pipelined.scala 63:22]
-  wire  enable = io_out_ready | empty; // @[DES_Pipelined.scala 65:26]
-  wire  _GEN_0 = enable ? ~io_in_valid : empty; // @[DES_Pipelined.scala 67:16 DES_Pipelined.scala 68:11 DES_Pipelined.scala 63:22]
+  wire [63:0] IP_io_text; // @[DES_Pipelined.scala 80:18]
+  wire [31:0] IP_io_L; // @[DES_Pipelined.scala 80:18]
+  wire [31:0] IP_io_R; // @[DES_Pipelined.scala 80:18]
+  wire [63:0] PC_1_io_key; // @[DES_Pipelined.scala 85:20]
+  wire [27:0] PC_1_io_C; // @[DES_Pipelined.scala 85:20]
+  wire [27:0] PC_1_io_D; // @[DES_Pipelined.scala 85:20]
   reg [63:0] input_text; // @[Reg.scala 15:16]
   reg [63:0] input_key; // @[Reg.scala 15:16]
   reg  valid; // @[Reg.scala 15:16]
-  wire [27:0] result_D = PC_1_io_D; // @[DES_Pipelined.scala 71:20 DES_Pipelined.scala 94:12]
-  wire [27:0] result_C = PC_1_io_C; // @[DES_Pipelined.scala 71:20 DES_Pipelined.scala 93:12]
-  wire [31:0] result_R = IP_io_R; // @[DES_Pipelined.scala 71:20 DES_Pipelined.scala 89:12]
-  wire [31:0] result_L = IP_io_L; // @[DES_Pipelined.scala 71:20 DES_Pipelined.scala 88:12]
-  IP IP ( // @[DES_Pipelined.scala 86:18]
+  wire  enable = io_out_ready | ~valid; // @[DES_Pipelined.scala 68:26]
+  wire [27:0] result_D = PC_1_io_D;
+  wire [27:0] result_C = PC_1_io_C;
+  wire [31:0] result_R = IP_io_R;
+  wire [31:0] result_L = IP_io_L;
+  IP IP ( // @[DES_Pipelined.scala 80:18]
     .io_text(IP_io_text),
     .io_L(IP_io_L),
     .io_R(IP_io_R)
   );
-  PC_1 PC_1 ( // @[DES_Pipelined.scala 91:20]
+  PC_1 PC_1 ( // @[DES_Pipelined.scala 85:20]
     .io_key(PC_1_io_key),
     .io_C(PC_1_io_C),
     .io_D(PC_1_io_D)
   );
-  assign io_in_ready = empty | enable; // @[DES_Pipelined.scala 75:15 DES_Pipelined.scala 77:17 DES_Pipelined.scala 81:17]
-  assign io_out_valid = empty ? 1'h0 : valid; // @[DES_Pipelined.scala 75:15 DES_Pipelined.scala 76:18 DES_Pipelined.scala 80:18]
-  assign io_out_bits_L = empty ? 32'h0 : result_L; // @[DES_Pipelined.scala 75:15 DES_Pipelined.scala 78:17 DES_Pipelined.scala 82:17]
-  assign io_out_bits_R = empty ? 32'h0 : result_R; // @[DES_Pipelined.scala 75:15 DES_Pipelined.scala 78:17 DES_Pipelined.scala 82:17]
-  assign io_out_bits_C = empty ? 28'h0 : result_C; // @[DES_Pipelined.scala 75:15 DES_Pipelined.scala 78:17 DES_Pipelined.scala 82:17]
-  assign io_out_bits_D = empty ? 28'h0 : result_D; // @[DES_Pipelined.scala 75:15 DES_Pipelined.scala 78:17 DES_Pipelined.scala 82:17]
-  assign IP_io_text = input_text; // @[DES_Pipelined.scala 87:11]
-  assign PC_1_io_key = input_key; // @[DES_Pipelined.scala 92:12]
+  assign io_in_ready = valid ? enable : 1'h1; // @[DES_Pipelined.scala 71:15 DES_Pipelined.scala 72:17 DES_Pipelined.scala 75:17]
+  assign io_out_valid = valid; // @[DES_Pipelined.scala 69:16]
+  assign io_out_bits_L = valid ? result_L : 32'h0; // @[DES_Pipelined.scala 71:15 DES_Pipelined.scala 73:17 DES_Pipelined.scala 76:17]
+  assign io_out_bits_R = valid ? result_R : 32'h0; // @[DES_Pipelined.scala 71:15 DES_Pipelined.scala 73:17 DES_Pipelined.scala 76:17]
+  assign io_out_bits_C = valid ? result_C : 28'h0; // @[DES_Pipelined.scala 71:15 DES_Pipelined.scala 73:17 DES_Pipelined.scala 76:17]
+  assign io_out_bits_D = valid ? result_D : 28'h0; // @[DES_Pipelined.scala 71:15 DES_Pipelined.scala 73:17 DES_Pipelined.scala 76:17]
+  assign IP_io_text = input_text; // @[DES_Pipelined.scala 81:11]
+  assign PC_1_io_key = input_key; // @[DES_Pipelined.scala 86:12]
   always @(posedge clock) begin
-    empty <= reset | _GEN_0; // @[DES_Pipelined.scala 63:22 DES_Pipelined.scala 63:22]
     if (enable) begin // @[Reg.scala 16:19]
       input_text <= io_in_bits_text; // @[Reg.scala 16:23]
     end
@@ -326,14 +321,12 @@ initial begin
       `endif
     `endif
 `ifdef RANDOMIZE_REG_INIT
-  _RAND_0 = {1{`RANDOM}};
-  empty = _RAND_0[0:0];
+  _RAND_0 = {2{`RANDOM}};
+  input_text = _RAND_0[63:0];
   _RAND_1 = {2{`RANDOM}};
-  input_text = _RAND_1[63:0];
-  _RAND_2 = {2{`RANDOM}};
-  input_key = _RAND_2[63:0];
-  _RAND_3 = {1{`RANDOM}};
-  valid = _RAND_3[0:0];
+  input_key = _RAND_1[63:0];
+  _RAND_2 = {1{`RANDOM}};
+  valid = _RAND_2[0:0];
 `endif // RANDOMIZE_REG_INIT
   `endif // RANDOMIZE
 end // initial
@@ -344,7 +337,6 @@ end // initial
 endmodule
 module DES_FinalPermutation(
   input         clock,
-  input         reset,
   input         io_out_ready,
   output        io_out_valid,
   output [63:0] io_out_bits,
@@ -357,118 +349,115 @@ module DES_FinalPermutation(
   reg [31:0] _RAND_0;
   reg [31:0] _RAND_1;
   reg [31:0] _RAND_2;
-  reg [31:0] _RAND_3;
 `endif // RANDOMIZE_REG_INIT
-  reg  empty; // @[DES_Pipelined.scala 149:22]
-  wire  enable = io_out_ready | empty; // @[DES_Pipelined.scala 151:26]
-  wire  _GEN_0 = enable ? ~io_in_valid : empty; // @[DES_Pipelined.scala 153:16 DES_Pipelined.scala 154:11 DES_Pipelined.scala 149:22]
   reg [31:0] input_L; // @[Reg.scala 15:16]
   reg [31:0] input_R; // @[Reg.scala 15:16]
   reg  valid; // @[Reg.scala 15:16]
+  wire  enable = io_out_ready | ~valid; // @[DES_Pipelined.scala 142:26]
   wire [63:0] _T_2 = {input_R,input_L}; // @[Cat.scala 30:58]
   wire [63:0] _T_6 = {{32'd0}, _T_2[63:32]}; // @[Bitwise.scala 103:31]
   wire [63:0] _T_8 = {_T_2[31:0], 32'h0}; // @[Bitwise.scala 103:65]
   wire [63:0] _T_10 = _T_8 & 64'hffffffff00000000; // @[Bitwise.scala 103:75]
   wire [63:0] _T_11 = _T_6 | _T_10; // @[Bitwise.scala 103:39]
-  wire [63:0] _GEN_7 = {{16'd0}, _T_11[63:16]}; // @[Bitwise.scala 103:31]
-  wire [63:0] _T_16 = _GEN_7 & 64'hffff0000ffff; // @[Bitwise.scala 103:31]
+  wire [63:0] _GEN_5 = {{16'd0}, _T_11[63:16]}; // @[Bitwise.scala 103:31]
+  wire [63:0] _T_16 = _GEN_5 & 64'hffff0000ffff; // @[Bitwise.scala 103:31]
   wire [63:0] _T_18 = {_T_11[47:0], 16'h0}; // @[Bitwise.scala 103:65]
   wire [63:0] _T_20 = _T_18 & 64'hffff0000ffff0000; // @[Bitwise.scala 103:75]
   wire [63:0] _T_21 = _T_16 | _T_20; // @[Bitwise.scala 103:39]
-  wire [63:0] _GEN_8 = {{8'd0}, _T_21[63:8]}; // @[Bitwise.scala 103:31]
-  wire [63:0] _T_26 = _GEN_8 & 64'hff00ff00ff00ff; // @[Bitwise.scala 103:31]
+  wire [63:0] _GEN_6 = {{8'd0}, _T_21[63:8]}; // @[Bitwise.scala 103:31]
+  wire [63:0] _T_26 = _GEN_6 & 64'hff00ff00ff00ff; // @[Bitwise.scala 103:31]
   wire [63:0] _T_28 = {_T_21[55:0], 8'h0}; // @[Bitwise.scala 103:65]
   wire [63:0] _T_30 = _T_28 & 64'hff00ff00ff00ff00; // @[Bitwise.scala 103:75]
   wire [63:0] _T_31 = _T_26 | _T_30; // @[Bitwise.scala 103:39]
-  wire [63:0] _GEN_9 = {{4'd0}, _T_31[63:4]}; // @[Bitwise.scala 103:31]
-  wire [63:0] _T_36 = _GEN_9 & 64'hf0f0f0f0f0f0f0f; // @[Bitwise.scala 103:31]
+  wire [63:0] _GEN_7 = {{4'd0}, _T_31[63:4]}; // @[Bitwise.scala 103:31]
+  wire [63:0] _T_36 = _GEN_7 & 64'hf0f0f0f0f0f0f0f; // @[Bitwise.scala 103:31]
   wire [63:0] _T_38 = {_T_31[59:0], 4'h0}; // @[Bitwise.scala 103:65]
   wire [63:0] _T_40 = _T_38 & 64'hf0f0f0f0f0f0f0f0; // @[Bitwise.scala 103:75]
   wire [63:0] _T_41 = _T_36 | _T_40; // @[Bitwise.scala 103:39]
-  wire [63:0] _GEN_10 = {{2'd0}, _T_41[63:2]}; // @[Bitwise.scala 103:31]
-  wire [63:0] _T_46 = _GEN_10 & 64'h3333333333333333; // @[Bitwise.scala 103:31]
+  wire [63:0] _GEN_8 = {{2'd0}, _T_41[63:2]}; // @[Bitwise.scala 103:31]
+  wire [63:0] _T_46 = _GEN_8 & 64'h3333333333333333; // @[Bitwise.scala 103:31]
   wire [63:0] _T_48 = {_T_41[61:0], 2'h0}; // @[Bitwise.scala 103:65]
   wire [63:0] _T_50 = _T_48 & 64'hcccccccccccccccc; // @[Bitwise.scala 103:75]
   wire [63:0] _T_51 = _T_46 | _T_50; // @[Bitwise.scala 103:39]
-  wire [63:0] _GEN_11 = {{1'd0}, _T_51[63:1]}; // @[Bitwise.scala 103:31]
-  wire [63:0] _T_56 = _GEN_11 & 64'h5555555555555555; // @[Bitwise.scala 103:31]
+  wire [63:0] _GEN_9 = {{1'd0}, _T_51[63:1]}; // @[Bitwise.scala 103:31]
+  wire [63:0] _T_56 = _GEN_9 & 64'h5555555555555555; // @[Bitwise.scala 103:31]
   wire [63:0] _T_58 = {_T_51[62:0], 1'h0}; // @[Bitwise.scala 103:65]
   wire [63:0] _T_60 = _T_58 & 64'haaaaaaaaaaaaaaaa; // @[Bitwise.scala 103:75]
   wire [63:0] concat = _T_56 | _T_60; // @[Bitwise.scala 103:39]
-  wire  hi_hi_hi_hi_hi_hi = concat[39]; // @[DES_Pipelined.scala 175:23]
-  wire  hi_hi_hi_hi_hi_lo = concat[7]; // @[DES_Pipelined.scala 175:34]
-  wire  hi_hi_hi_hi_lo_hi = concat[47]; // @[DES_Pipelined.scala 175:44]
-  wire  hi_hi_hi_hi_lo_lo = concat[15]; // @[DES_Pipelined.scala 175:55]
-  wire  hi_hi_hi_lo_hi_hi = concat[55]; // @[DES_Pipelined.scala 175:66]
-  wire  hi_hi_hi_lo_hi_lo = concat[23]; // @[DES_Pipelined.scala 175:77]
-  wire  hi_hi_hi_lo_lo_hi = concat[63]; // @[DES_Pipelined.scala 175:88]
-  wire  hi_hi_hi_lo_lo_lo = concat[31]; // @[DES_Pipelined.scala 175:99]
-  wire  hi_hi_lo_hi_hi_hi = concat[38]; // @[DES_Pipelined.scala 176:11]
-  wire  hi_hi_lo_hi_hi_lo = concat[6]; // @[DES_Pipelined.scala 176:22]
-  wire  hi_hi_lo_hi_lo_hi = concat[46]; // @[DES_Pipelined.scala 176:32]
-  wire  hi_hi_lo_hi_lo_lo = concat[14]; // @[DES_Pipelined.scala 176:43]
-  wire  hi_hi_lo_lo_hi_hi = concat[54]; // @[DES_Pipelined.scala 176:54]
-  wire  hi_hi_lo_lo_hi_lo = concat[22]; // @[DES_Pipelined.scala 176:65]
-  wire  hi_hi_lo_lo_lo_hi = concat[62]; // @[DES_Pipelined.scala 176:76]
-  wire  hi_hi_lo_lo_lo_lo = concat[30]; // @[DES_Pipelined.scala 176:87]
+  wire  hi_hi_hi_hi_hi_hi = concat[39]; // @[DES_Pipelined.scala 157:23]
+  wire  hi_hi_hi_hi_hi_lo = concat[7]; // @[DES_Pipelined.scala 157:34]
+  wire  hi_hi_hi_hi_lo_hi = concat[47]; // @[DES_Pipelined.scala 157:44]
+  wire  hi_hi_hi_hi_lo_lo = concat[15]; // @[DES_Pipelined.scala 157:55]
+  wire  hi_hi_hi_lo_hi_hi = concat[55]; // @[DES_Pipelined.scala 157:66]
+  wire  hi_hi_hi_lo_hi_lo = concat[23]; // @[DES_Pipelined.scala 157:77]
+  wire  hi_hi_hi_lo_lo_hi = concat[63]; // @[DES_Pipelined.scala 157:88]
+  wire  hi_hi_hi_lo_lo_lo = concat[31]; // @[DES_Pipelined.scala 157:99]
+  wire  hi_hi_lo_hi_hi_hi = concat[38]; // @[DES_Pipelined.scala 158:11]
+  wire  hi_hi_lo_hi_hi_lo = concat[6]; // @[DES_Pipelined.scala 158:22]
+  wire  hi_hi_lo_hi_lo_hi = concat[46]; // @[DES_Pipelined.scala 158:32]
+  wire  hi_hi_lo_hi_lo_lo = concat[14]; // @[DES_Pipelined.scala 158:43]
+  wire  hi_hi_lo_lo_hi_hi = concat[54]; // @[DES_Pipelined.scala 158:54]
+  wire  hi_hi_lo_lo_hi_lo = concat[22]; // @[DES_Pipelined.scala 158:65]
+  wire  hi_hi_lo_lo_lo_hi = concat[62]; // @[DES_Pipelined.scala 158:76]
+  wire  hi_hi_lo_lo_lo_lo = concat[30]; // @[DES_Pipelined.scala 158:87]
   wire [7:0] hi_hi_lo = {hi_hi_lo_hi_hi_hi,hi_hi_lo_hi_hi_lo,hi_hi_lo_hi_lo_hi,hi_hi_lo_hi_lo_lo,hi_hi_lo_lo_hi_hi,
     hi_hi_lo_lo_hi_lo,hi_hi_lo_lo_lo_hi,hi_hi_lo_lo_lo_lo}; // @[Cat.scala 30:58]
-  wire  hi_lo_hi_hi_hi_hi = concat[37]; // @[DES_Pipelined.scala 177:11]
-  wire  hi_lo_hi_hi_hi_lo = concat[5]; // @[DES_Pipelined.scala 177:22]
-  wire  hi_lo_hi_hi_lo_hi = concat[45]; // @[DES_Pipelined.scala 177:32]
-  wire  hi_lo_hi_hi_lo_lo = concat[13]; // @[DES_Pipelined.scala 177:43]
-  wire  hi_lo_hi_lo_hi_hi = concat[53]; // @[DES_Pipelined.scala 177:54]
-  wire  hi_lo_hi_lo_hi_lo = concat[21]; // @[DES_Pipelined.scala 177:65]
-  wire  hi_lo_hi_lo_lo_hi = concat[61]; // @[DES_Pipelined.scala 177:76]
-  wire  hi_lo_hi_lo_lo_lo = concat[29]; // @[DES_Pipelined.scala 177:87]
-  wire  hi_lo_lo_hi_hi_hi = concat[36]; // @[DES_Pipelined.scala 178:11]
-  wire  hi_lo_lo_hi_hi_lo = concat[4]; // @[DES_Pipelined.scala 178:22]
-  wire  hi_lo_lo_hi_lo_hi = concat[44]; // @[DES_Pipelined.scala 178:32]
-  wire  hi_lo_lo_hi_lo_lo = concat[12]; // @[DES_Pipelined.scala 178:43]
-  wire  hi_lo_lo_lo_hi_hi = concat[52]; // @[DES_Pipelined.scala 178:54]
-  wire  hi_lo_lo_lo_hi_lo = concat[20]; // @[DES_Pipelined.scala 178:65]
-  wire  hi_lo_lo_lo_lo_hi = concat[60]; // @[DES_Pipelined.scala 178:76]
-  wire  hi_lo_lo_lo_lo_lo = concat[28]; // @[DES_Pipelined.scala 178:87]
+  wire  hi_lo_hi_hi_hi_hi = concat[37]; // @[DES_Pipelined.scala 159:11]
+  wire  hi_lo_hi_hi_hi_lo = concat[5]; // @[DES_Pipelined.scala 159:22]
+  wire  hi_lo_hi_hi_lo_hi = concat[45]; // @[DES_Pipelined.scala 159:32]
+  wire  hi_lo_hi_hi_lo_lo = concat[13]; // @[DES_Pipelined.scala 159:43]
+  wire  hi_lo_hi_lo_hi_hi = concat[53]; // @[DES_Pipelined.scala 159:54]
+  wire  hi_lo_hi_lo_hi_lo = concat[21]; // @[DES_Pipelined.scala 159:65]
+  wire  hi_lo_hi_lo_lo_hi = concat[61]; // @[DES_Pipelined.scala 159:76]
+  wire  hi_lo_hi_lo_lo_lo = concat[29]; // @[DES_Pipelined.scala 159:87]
+  wire  hi_lo_lo_hi_hi_hi = concat[36]; // @[DES_Pipelined.scala 160:11]
+  wire  hi_lo_lo_hi_hi_lo = concat[4]; // @[DES_Pipelined.scala 160:22]
+  wire  hi_lo_lo_hi_lo_hi = concat[44]; // @[DES_Pipelined.scala 160:32]
+  wire  hi_lo_lo_hi_lo_lo = concat[12]; // @[DES_Pipelined.scala 160:43]
+  wire  hi_lo_lo_lo_hi_hi = concat[52]; // @[DES_Pipelined.scala 160:54]
+  wire  hi_lo_lo_lo_hi_lo = concat[20]; // @[DES_Pipelined.scala 160:65]
+  wire  hi_lo_lo_lo_lo_hi = concat[60]; // @[DES_Pipelined.scala 160:76]
+  wire  hi_lo_lo_lo_lo_lo = concat[28]; // @[DES_Pipelined.scala 160:87]
   wire [7:0] hi_lo_lo = {hi_lo_lo_hi_hi_hi,hi_lo_lo_hi_hi_lo,hi_lo_lo_hi_lo_hi,hi_lo_lo_hi_lo_lo,hi_lo_lo_lo_hi_hi,
     hi_lo_lo_lo_hi_lo,hi_lo_lo_lo_lo_hi,hi_lo_lo_lo_lo_lo}; // @[Cat.scala 30:58]
   wire [15:0] hi_lo = {hi_lo_hi_hi_hi_hi,hi_lo_hi_hi_hi_lo,hi_lo_hi_hi_lo_hi,hi_lo_hi_hi_lo_lo,hi_lo_hi_lo_hi_hi,
     hi_lo_hi_lo_hi_lo,hi_lo_hi_lo_lo_hi,hi_lo_hi_lo_lo_lo,hi_lo_lo}; // @[Cat.scala 30:58]
   wire [31:0] hi = {hi_hi_hi_hi_hi_hi,hi_hi_hi_hi_hi_lo,hi_hi_hi_hi_lo_hi,hi_hi_hi_hi_lo_lo,hi_hi_hi_lo_hi_hi,
     hi_hi_hi_lo_hi_lo,hi_hi_hi_lo_lo_hi,hi_hi_hi_lo_lo_lo,hi_hi_lo,hi_lo}; // @[Cat.scala 30:58]
-  wire  lo_hi_hi_hi_hi_hi = concat[35]; // @[DES_Pipelined.scala 179:11]
-  wire  lo_hi_hi_hi_hi_lo = concat[3]; // @[DES_Pipelined.scala 179:22]
-  wire  lo_hi_hi_hi_lo_hi = concat[43]; // @[DES_Pipelined.scala 179:32]
-  wire  lo_hi_hi_hi_lo_lo = concat[11]; // @[DES_Pipelined.scala 179:43]
-  wire  lo_hi_hi_lo_hi_hi = concat[51]; // @[DES_Pipelined.scala 179:54]
-  wire  lo_hi_hi_lo_hi_lo = concat[19]; // @[DES_Pipelined.scala 179:65]
-  wire  lo_hi_hi_lo_lo_hi = concat[59]; // @[DES_Pipelined.scala 179:76]
-  wire  lo_hi_hi_lo_lo_lo = concat[27]; // @[DES_Pipelined.scala 179:87]
-  wire  lo_hi_lo_hi_hi_hi = concat[34]; // @[DES_Pipelined.scala 180:11]
-  wire  lo_hi_lo_hi_hi_lo = concat[2]; // @[DES_Pipelined.scala 180:22]
-  wire  lo_hi_lo_hi_lo_hi = concat[42]; // @[DES_Pipelined.scala 180:32]
-  wire  lo_hi_lo_hi_lo_lo = concat[10]; // @[DES_Pipelined.scala 180:43]
-  wire  lo_hi_lo_lo_hi_hi = concat[50]; // @[DES_Pipelined.scala 180:54]
-  wire  lo_hi_lo_lo_hi_lo = concat[18]; // @[DES_Pipelined.scala 180:65]
-  wire  lo_hi_lo_lo_lo_hi = concat[58]; // @[DES_Pipelined.scala 180:76]
-  wire  lo_hi_lo_lo_lo_lo = concat[26]; // @[DES_Pipelined.scala 180:87]
+  wire  lo_hi_hi_hi_hi_hi = concat[35]; // @[DES_Pipelined.scala 161:11]
+  wire  lo_hi_hi_hi_hi_lo = concat[3]; // @[DES_Pipelined.scala 161:22]
+  wire  lo_hi_hi_hi_lo_hi = concat[43]; // @[DES_Pipelined.scala 161:32]
+  wire  lo_hi_hi_hi_lo_lo = concat[11]; // @[DES_Pipelined.scala 161:43]
+  wire  lo_hi_hi_lo_hi_hi = concat[51]; // @[DES_Pipelined.scala 161:54]
+  wire  lo_hi_hi_lo_hi_lo = concat[19]; // @[DES_Pipelined.scala 161:65]
+  wire  lo_hi_hi_lo_lo_hi = concat[59]; // @[DES_Pipelined.scala 161:76]
+  wire  lo_hi_hi_lo_lo_lo = concat[27]; // @[DES_Pipelined.scala 161:87]
+  wire  lo_hi_lo_hi_hi_hi = concat[34]; // @[DES_Pipelined.scala 162:11]
+  wire  lo_hi_lo_hi_hi_lo = concat[2]; // @[DES_Pipelined.scala 162:22]
+  wire  lo_hi_lo_hi_lo_hi = concat[42]; // @[DES_Pipelined.scala 162:32]
+  wire  lo_hi_lo_hi_lo_lo = concat[10]; // @[DES_Pipelined.scala 162:43]
+  wire  lo_hi_lo_lo_hi_hi = concat[50]; // @[DES_Pipelined.scala 162:54]
+  wire  lo_hi_lo_lo_hi_lo = concat[18]; // @[DES_Pipelined.scala 162:65]
+  wire  lo_hi_lo_lo_lo_hi = concat[58]; // @[DES_Pipelined.scala 162:76]
+  wire  lo_hi_lo_lo_lo_lo = concat[26]; // @[DES_Pipelined.scala 162:87]
   wire [7:0] lo_hi_lo = {lo_hi_lo_hi_hi_hi,lo_hi_lo_hi_hi_lo,lo_hi_lo_hi_lo_hi,lo_hi_lo_hi_lo_lo,lo_hi_lo_lo_hi_hi,
     lo_hi_lo_lo_hi_lo,lo_hi_lo_lo_lo_hi,lo_hi_lo_lo_lo_lo}; // @[Cat.scala 30:58]
-  wire  lo_lo_hi_hi_hi_hi = concat[33]; // @[DES_Pipelined.scala 181:11]
-  wire  lo_lo_hi_hi_hi_lo = concat[1]; // @[DES_Pipelined.scala 181:22]
-  wire  lo_lo_hi_hi_lo_hi = concat[41]; // @[DES_Pipelined.scala 181:32]
-  wire  lo_lo_hi_hi_lo_lo = concat[9]; // @[DES_Pipelined.scala 181:43]
-  wire  lo_lo_hi_lo_hi_hi = concat[49]; // @[DES_Pipelined.scala 181:53]
-  wire  lo_lo_hi_lo_hi_lo = concat[17]; // @[DES_Pipelined.scala 181:64]
-  wire  lo_lo_hi_lo_lo_hi = concat[57]; // @[DES_Pipelined.scala 181:75]
-  wire  lo_lo_hi_lo_lo_lo = concat[25]; // @[DES_Pipelined.scala 181:86]
-  wire  lo_lo_lo_hi_hi_hi = concat[32]; // @[DES_Pipelined.scala 182:11]
-  wire  lo_lo_lo_hi_hi_lo = concat[0]; // @[DES_Pipelined.scala 182:22]
-  wire  lo_lo_lo_hi_lo_hi = concat[40]; // @[DES_Pipelined.scala 182:32]
-  wire  lo_lo_lo_hi_lo_lo = concat[8]; // @[DES_Pipelined.scala 182:43]
-  wire  lo_lo_lo_lo_hi_hi = concat[48]; // @[DES_Pipelined.scala 182:53]
-  wire  lo_lo_lo_lo_hi_lo = concat[16]; // @[DES_Pipelined.scala 182:64]
-  wire  lo_lo_lo_lo_lo_hi = concat[56]; // @[DES_Pipelined.scala 182:75]
-  wire  lo_lo_lo_lo_lo_lo = concat[24]; // @[DES_Pipelined.scala 182:86]
+  wire  lo_lo_hi_hi_hi_hi = concat[33]; // @[DES_Pipelined.scala 163:11]
+  wire  lo_lo_hi_hi_hi_lo = concat[1]; // @[DES_Pipelined.scala 163:22]
+  wire  lo_lo_hi_hi_lo_hi = concat[41]; // @[DES_Pipelined.scala 163:32]
+  wire  lo_lo_hi_hi_lo_lo = concat[9]; // @[DES_Pipelined.scala 163:43]
+  wire  lo_lo_hi_lo_hi_hi = concat[49]; // @[DES_Pipelined.scala 163:53]
+  wire  lo_lo_hi_lo_hi_lo = concat[17]; // @[DES_Pipelined.scala 163:64]
+  wire  lo_lo_hi_lo_lo_hi = concat[57]; // @[DES_Pipelined.scala 163:75]
+  wire  lo_lo_hi_lo_lo_lo = concat[25]; // @[DES_Pipelined.scala 163:86]
+  wire  lo_lo_lo_hi_hi_hi = concat[32]; // @[DES_Pipelined.scala 164:11]
+  wire  lo_lo_lo_hi_hi_lo = concat[0]; // @[DES_Pipelined.scala 164:22]
+  wire  lo_lo_lo_hi_lo_hi = concat[40]; // @[DES_Pipelined.scala 164:32]
+  wire  lo_lo_lo_hi_lo_lo = concat[8]; // @[DES_Pipelined.scala 164:43]
+  wire  lo_lo_lo_lo_hi_hi = concat[48]; // @[DES_Pipelined.scala 164:53]
+  wire  lo_lo_lo_lo_hi_lo = concat[16]; // @[DES_Pipelined.scala 164:64]
+  wire  lo_lo_lo_lo_lo_hi = concat[56]; // @[DES_Pipelined.scala 164:75]
+  wire  lo_lo_lo_lo_lo_lo = concat[24]; // @[DES_Pipelined.scala 164:86]
   wire [7:0] lo_lo_lo = {lo_lo_lo_hi_hi_hi,lo_lo_lo_hi_hi_lo,lo_lo_lo_hi_lo_hi,lo_lo_lo_hi_lo_lo,lo_lo_lo_lo_hi_hi,
     lo_lo_lo_lo_hi_lo,lo_lo_lo_lo_lo_hi,lo_lo_lo_lo_lo_lo}; // @[Cat.scala 30:58]
   wire [15:0] lo_lo = {lo_lo_hi_hi_hi_hi,lo_lo_hi_hi_hi_lo,lo_lo_hi_hi_lo_hi,lo_lo_hi_hi_lo_lo,lo_lo_hi_lo_hi_hi,
@@ -476,11 +465,10 @@ module DES_FinalPermutation(
   wire [31:0] lo = {lo_hi_hi_hi_hi_hi,lo_hi_hi_hi_hi_lo,lo_hi_hi_hi_lo_hi,lo_hi_hi_hi_lo_lo,lo_hi_hi_lo_hi_hi,
     lo_hi_hi_lo_hi_lo,lo_hi_hi_lo_lo_hi,lo_hi_hi_lo_lo_lo,lo_hi_lo,lo_lo}; // @[Cat.scala 30:58]
   wire [63:0] result = {hi,lo}; // @[Cat.scala 30:58]
-  assign io_out_valid = empty ? 1'h0 : valid; // @[DES_Pipelined.scala 161:15 DES_Pipelined.scala 162:18 DES_Pipelined.scala 166:18]
-  assign io_out_bits = empty ? 64'h0 : result; // @[DES_Pipelined.scala 161:15 DES_Pipelined.scala 164:17 DES_Pipelined.scala 168:17]
-  assign io_in_ready = empty | enable; // @[DES_Pipelined.scala 161:15 DES_Pipelined.scala 163:17 DES_Pipelined.scala 167:17]
+  assign io_out_valid = valid; // @[DES_Pipelined.scala 143:16]
+  assign io_out_bits = valid ? result : 64'h0; // @[DES_Pipelined.scala 145:15 DES_Pipelined.scala 147:17 DES_Pipelined.scala 150:17]
+  assign io_in_ready = valid ? enable : 1'h1; // @[DES_Pipelined.scala 145:15 DES_Pipelined.scala 146:17 DES_Pipelined.scala 149:17]
   always @(posedge clock) begin
-    empty <= reset | _GEN_0; // @[DES_Pipelined.scala 149:22 DES_Pipelined.scala 149:22]
     if (enable) begin // @[Reg.scala 16:19]
       input_L <= io_in_bits_L; // @[Reg.scala 16:23]
     end
@@ -528,13 +516,11 @@ initial begin
     `endif
 `ifdef RANDOMIZE_REG_INIT
   _RAND_0 = {1{`RANDOM}};
-  empty = _RAND_0[0:0];
+  input_L = _RAND_0[31:0];
   _RAND_1 = {1{`RANDOM}};
-  input_L = _RAND_1[31:0];
+  input_R = _RAND_1[31:0];
   _RAND_2 = {1{`RANDOM}};
-  input_R = _RAND_2[31:0];
-  _RAND_3 = {1{`RANDOM}};
-  valid = _RAND_3[0:0];
+  valid = _RAND_2[0:0];
 `endif // RANDOMIZE_REG_INIT
   `endif // RANDOMIZE
 end // initial
@@ -550,10 +536,10 @@ module DES_keys(
   output [27:0] io_D_next,
   output [47:0] io_K
 );
-  wire [26:0] hi = io_C[26:0]; // @[DES_Pipelined.scala 267:28]
-  wire  lo = io_C[27]; // @[DES_Pipelined.scala 267:39]
-  wire [26:0] hi_1 = io_D[26:0]; // @[DES_Pipelined.scala 268:28]
-  wire  lo_1 = io_D[27]; // @[DES_Pipelined.scala 268:39]
+  wire [26:0] hi = io_C[26:0]; // @[DES_Pipelined.scala 249:28]
+  wire  lo = io_C[27]; // @[DES_Pipelined.scala 249:39]
+  wire [26:0] hi_1 = io_D[26:0]; // @[DES_Pipelined.scala 250:28]
+  wire  lo_1 = io_D[27]; // @[DES_Pipelined.scala 250:39]
   wire [55:0] _T_2 = {hi,lo,hi_1,lo_1}; // @[Cat.scala 30:58]
   wire [31:0] _T_7 = {{16'd0}, _T_2[31:16]}; // @[Bitwise.scala 103:31]
   wire [31:0] _T_9 = {_T_2[15:0], 16'h0}; // @[Bitwise.scala 103:65]
@@ -613,54 +599,54 @@ module DES_keys(
   wire [7:0] _T_120 = _T_118 & 8'haa; // @[Bitwise.scala 103:75]
   wire [7:0] lo_2 = _T_116 | _T_120; // @[Bitwise.scala 103:39]
   wire [55:0] concat = {hi_2,hi_3,lo_2}; // @[Cat.scala 30:58]
-  wire  hi_hi_hi_hi_hi_hi = concat[13]; // @[DES_Pipelined.scala 291:21]
-  wire  hi_hi_hi_hi_hi_lo = concat[16]; // @[DES_Pipelined.scala 291:32]
-  wire  hi_hi_hi_hi_lo = concat[10]; // @[DES_Pipelined.scala 291:43]
-  wire  hi_hi_hi_lo_hi_hi = concat[23]; // @[DES_Pipelined.scala 291:54]
-  wire  hi_hi_hi_lo_hi_lo = concat[0]; // @[DES_Pipelined.scala 291:65]
-  wire  hi_hi_hi_lo_lo = concat[4]; // @[DES_Pipelined.scala 291:75]
-  wire  hi_hi_lo_hi_hi_hi = concat[2]; // @[DES_Pipelined.scala 292:11]
-  wire  hi_hi_lo_hi_hi_lo = concat[27]; // @[DES_Pipelined.scala 292:21]
-  wire  hi_hi_lo_hi_lo = concat[14]; // @[DES_Pipelined.scala 292:32]
-  wire  hi_hi_lo_lo_hi_hi = concat[5]; // @[DES_Pipelined.scala 292:43]
-  wire  hi_hi_lo_lo_hi_lo = concat[20]; // @[DES_Pipelined.scala 292:53]
-  wire  hi_hi_lo_lo_lo = concat[9]; // @[DES_Pipelined.scala 292:64]
-  wire  hi_lo_hi_hi_hi_hi = concat[22]; // @[DES_Pipelined.scala 293:11]
-  wire  hi_lo_hi_hi_hi_lo = concat[18]; // @[DES_Pipelined.scala 293:22]
-  wire  hi_lo_hi_hi_lo = concat[11]; // @[DES_Pipelined.scala 293:33]
-  wire  hi_lo_hi_lo_hi_hi = concat[3]; // @[DES_Pipelined.scala 293:44]
-  wire  hi_lo_hi_lo_hi_lo = concat[25]; // @[DES_Pipelined.scala 293:54]
-  wire  hi_lo_hi_lo_lo = concat[7]; // @[DES_Pipelined.scala 293:65]
-  wire  hi_lo_lo_hi_hi_hi = concat[15]; // @[DES_Pipelined.scala 294:11]
-  wire  hi_lo_lo_hi_hi_lo = concat[6]; // @[DES_Pipelined.scala 294:22]
-  wire  hi_lo_lo_hi_lo = concat[26]; // @[DES_Pipelined.scala 294:32]
-  wire  hi_lo_lo_lo_hi_hi = concat[19]; // @[DES_Pipelined.scala 294:43]
-  wire  hi_lo_lo_lo_hi_lo = concat[12]; // @[DES_Pipelined.scala 294:54]
-  wire  hi_lo_lo_lo_lo = concat[1]; // @[DES_Pipelined.scala 294:65]
-  wire  lo_hi_hi_hi_hi_hi = concat[40]; // @[DES_Pipelined.scala 295:11]
-  wire  lo_hi_hi_hi_hi_lo = concat[51]; // @[DES_Pipelined.scala 295:22]
-  wire  lo_hi_hi_hi_lo = concat[30]; // @[DES_Pipelined.scala 295:33]
-  wire  lo_hi_hi_lo_hi_hi = concat[36]; // @[DES_Pipelined.scala 295:44]
-  wire  lo_hi_hi_lo_hi_lo = concat[46]; // @[DES_Pipelined.scala 295:55]
-  wire  lo_hi_hi_lo_lo = concat[54]; // @[DES_Pipelined.scala 295:66]
-  wire  lo_hi_lo_hi_hi_hi = concat[29]; // @[DES_Pipelined.scala 296:11]
-  wire  lo_hi_lo_hi_hi_lo = concat[39]; // @[DES_Pipelined.scala 296:22]
-  wire  lo_hi_lo_hi_lo = concat[50]; // @[DES_Pipelined.scala 296:33]
-  wire  lo_hi_lo_lo_hi_hi = concat[44]; // @[DES_Pipelined.scala 296:44]
-  wire  lo_hi_lo_lo_hi_lo = concat[32]; // @[DES_Pipelined.scala 296:55]
-  wire  lo_hi_lo_lo_lo = concat[47]; // @[DES_Pipelined.scala 296:66]
-  wire  lo_lo_hi_hi_hi_hi = concat[43]; // @[DES_Pipelined.scala 297:11]
-  wire  lo_lo_hi_hi_hi_lo = concat[48]; // @[DES_Pipelined.scala 297:22]
-  wire  lo_lo_hi_hi_lo = concat[38]; // @[DES_Pipelined.scala 297:33]
-  wire  lo_lo_hi_lo_hi_hi = concat[55]; // @[DES_Pipelined.scala 297:44]
-  wire  lo_lo_hi_lo_hi_lo = concat[33]; // @[DES_Pipelined.scala 297:55]
-  wire  lo_lo_hi_lo_lo = concat[52]; // @[DES_Pipelined.scala 297:66]
-  wire  lo_lo_lo_hi_hi_hi = concat[45]; // @[DES_Pipelined.scala 298:11]
-  wire  lo_lo_lo_hi_hi_lo = concat[41]; // @[DES_Pipelined.scala 298:22]
-  wire  lo_lo_lo_hi_lo = concat[49]; // @[DES_Pipelined.scala 298:33]
-  wire  lo_lo_lo_lo_hi_hi = concat[35]; // @[DES_Pipelined.scala 298:44]
-  wire  lo_lo_lo_lo_hi_lo = concat[28]; // @[DES_Pipelined.scala 298:55]
-  wire  lo_lo_lo_lo_lo = concat[31]; // @[DES_Pipelined.scala 298:66]
+  wire  hi_hi_hi_hi_hi_hi = concat[13]; // @[DES_Pipelined.scala 273:21]
+  wire  hi_hi_hi_hi_hi_lo = concat[16]; // @[DES_Pipelined.scala 273:32]
+  wire  hi_hi_hi_hi_lo = concat[10]; // @[DES_Pipelined.scala 273:43]
+  wire  hi_hi_hi_lo_hi_hi = concat[23]; // @[DES_Pipelined.scala 273:54]
+  wire  hi_hi_hi_lo_hi_lo = concat[0]; // @[DES_Pipelined.scala 273:65]
+  wire  hi_hi_hi_lo_lo = concat[4]; // @[DES_Pipelined.scala 273:75]
+  wire  hi_hi_lo_hi_hi_hi = concat[2]; // @[DES_Pipelined.scala 274:11]
+  wire  hi_hi_lo_hi_hi_lo = concat[27]; // @[DES_Pipelined.scala 274:21]
+  wire  hi_hi_lo_hi_lo = concat[14]; // @[DES_Pipelined.scala 274:32]
+  wire  hi_hi_lo_lo_hi_hi = concat[5]; // @[DES_Pipelined.scala 274:43]
+  wire  hi_hi_lo_lo_hi_lo = concat[20]; // @[DES_Pipelined.scala 274:53]
+  wire  hi_hi_lo_lo_lo = concat[9]; // @[DES_Pipelined.scala 274:64]
+  wire  hi_lo_hi_hi_hi_hi = concat[22]; // @[DES_Pipelined.scala 275:11]
+  wire  hi_lo_hi_hi_hi_lo = concat[18]; // @[DES_Pipelined.scala 275:22]
+  wire  hi_lo_hi_hi_lo = concat[11]; // @[DES_Pipelined.scala 275:33]
+  wire  hi_lo_hi_lo_hi_hi = concat[3]; // @[DES_Pipelined.scala 275:44]
+  wire  hi_lo_hi_lo_hi_lo = concat[25]; // @[DES_Pipelined.scala 275:54]
+  wire  hi_lo_hi_lo_lo = concat[7]; // @[DES_Pipelined.scala 275:65]
+  wire  hi_lo_lo_hi_hi_hi = concat[15]; // @[DES_Pipelined.scala 276:11]
+  wire  hi_lo_lo_hi_hi_lo = concat[6]; // @[DES_Pipelined.scala 276:22]
+  wire  hi_lo_lo_hi_lo = concat[26]; // @[DES_Pipelined.scala 276:32]
+  wire  hi_lo_lo_lo_hi_hi = concat[19]; // @[DES_Pipelined.scala 276:43]
+  wire  hi_lo_lo_lo_hi_lo = concat[12]; // @[DES_Pipelined.scala 276:54]
+  wire  hi_lo_lo_lo_lo = concat[1]; // @[DES_Pipelined.scala 276:65]
+  wire  lo_hi_hi_hi_hi_hi = concat[40]; // @[DES_Pipelined.scala 277:11]
+  wire  lo_hi_hi_hi_hi_lo = concat[51]; // @[DES_Pipelined.scala 277:22]
+  wire  lo_hi_hi_hi_lo = concat[30]; // @[DES_Pipelined.scala 277:33]
+  wire  lo_hi_hi_lo_hi_hi = concat[36]; // @[DES_Pipelined.scala 277:44]
+  wire  lo_hi_hi_lo_hi_lo = concat[46]; // @[DES_Pipelined.scala 277:55]
+  wire  lo_hi_hi_lo_lo = concat[54]; // @[DES_Pipelined.scala 277:66]
+  wire  lo_hi_lo_hi_hi_hi = concat[29]; // @[DES_Pipelined.scala 278:11]
+  wire  lo_hi_lo_hi_hi_lo = concat[39]; // @[DES_Pipelined.scala 278:22]
+  wire  lo_hi_lo_hi_lo = concat[50]; // @[DES_Pipelined.scala 278:33]
+  wire  lo_hi_lo_lo_hi_hi = concat[44]; // @[DES_Pipelined.scala 278:44]
+  wire  lo_hi_lo_lo_hi_lo = concat[32]; // @[DES_Pipelined.scala 278:55]
+  wire  lo_hi_lo_lo_lo = concat[47]; // @[DES_Pipelined.scala 278:66]
+  wire  lo_lo_hi_hi_hi_hi = concat[43]; // @[DES_Pipelined.scala 279:11]
+  wire  lo_lo_hi_hi_hi_lo = concat[48]; // @[DES_Pipelined.scala 279:22]
+  wire  lo_lo_hi_hi_lo = concat[38]; // @[DES_Pipelined.scala 279:33]
+  wire  lo_lo_hi_lo_hi_hi = concat[55]; // @[DES_Pipelined.scala 279:44]
+  wire  lo_lo_hi_lo_hi_lo = concat[33]; // @[DES_Pipelined.scala 279:55]
+  wire  lo_lo_hi_lo_lo = concat[52]; // @[DES_Pipelined.scala 279:66]
+  wire  lo_lo_lo_hi_hi_hi = concat[45]; // @[DES_Pipelined.scala 280:11]
+  wire  lo_lo_lo_hi_hi_lo = concat[41]; // @[DES_Pipelined.scala 280:22]
+  wire  lo_lo_lo_hi_lo = concat[49]; // @[DES_Pipelined.scala 280:33]
+  wire  lo_lo_lo_lo_hi_hi = concat[35]; // @[DES_Pipelined.scala 280:44]
+  wire  lo_lo_lo_lo_hi_lo = concat[28]; // @[DES_Pipelined.scala 280:55]
+  wire  lo_lo_lo_lo_lo = concat[31]; // @[DES_Pipelined.scala 280:66]
   wire [5:0] lo_lo_lo = {lo_lo_lo_hi_hi_hi,lo_lo_lo_hi_hi_lo,lo_lo_lo_hi_lo,lo_lo_lo_lo_hi_hi,lo_lo_lo_lo_hi_lo,
     lo_lo_lo_lo_lo}; // @[Cat.scala 30:58]
   wire [11:0] lo_lo = {lo_lo_hi_hi_hi_hi,lo_lo_hi_hi_hi_lo,lo_lo_hi_hi_lo,lo_lo_hi_lo_hi_hi,lo_lo_hi_lo_hi_lo,
@@ -709,38 +695,38 @@ module DES_E(
   wire [31:0] _T_45 = {_T_38[30:0], 1'h0}; // @[Bitwise.scala 103:65]
   wire [31:0] _T_47 = _T_45 & 32'haaaaaaaa; // @[Bitwise.scala 103:75]
   wire [31:0] reversed = _T_43 | _T_47; // @[Bitwise.scala 103:39]
-  wire  hi_hi_hi_hi_hi_hi = reversed[31]; // @[DES_Pipelined.scala 502:23]
-  wire  hi_hi_hi_hi_hi_lo = reversed[0]; // @[DES_Pipelined.scala 502:36]
-  wire  hi_hi_hi_hi_lo = reversed[1]; // @[DES_Pipelined.scala 502:48]
-  wire  hi_hi_hi_lo_hi_hi = reversed[2]; // @[DES_Pipelined.scala 502:60]
-  wire  hi_hi_hi_lo_hi_lo = reversed[3]; // @[DES_Pipelined.scala 502:72]
-  wire  hi_hi_hi_lo_lo = reversed[4]; // @[DES_Pipelined.scala 502:84]
-  wire  hi_hi_lo_hi_lo = reversed[5]; // @[DES_Pipelined.scala 503:37]
-  wire  hi_hi_lo_lo_hi_hi = reversed[6]; // @[DES_Pipelined.scala 503:49]
-  wire  hi_hi_lo_lo_hi_lo = reversed[7]; // @[DES_Pipelined.scala 503:61]
-  wire  hi_hi_lo_lo_lo = reversed[8]; // @[DES_Pipelined.scala 503:73]
-  wire  hi_lo_hi_hi_lo = reversed[9]; // @[DES_Pipelined.scala 504:37]
-  wire  hi_lo_hi_lo_hi_hi = reversed[10]; // @[DES_Pipelined.scala 504:49]
-  wire  hi_lo_hi_lo_hi_lo = reversed[11]; // @[DES_Pipelined.scala 504:62]
-  wire  hi_lo_hi_lo_lo = reversed[12]; // @[DES_Pipelined.scala 504:75]
-  wire  hi_lo_lo_hi_lo = reversed[13]; // @[DES_Pipelined.scala 505:39]
-  wire  hi_lo_lo_lo_hi_hi = reversed[14]; // @[DES_Pipelined.scala 505:52]
-  wire  hi_lo_lo_lo_hi_lo = reversed[15]; // @[DES_Pipelined.scala 505:65]
-  wire  hi_lo_lo_lo_lo = reversed[16]; // @[DES_Pipelined.scala 505:78]
-  wire  lo_hi_hi_hi_lo = reversed[17]; // @[DES_Pipelined.scala 506:39]
-  wire  lo_hi_hi_lo_hi_hi = reversed[18]; // @[DES_Pipelined.scala 506:52]
-  wire  lo_hi_hi_lo_hi_lo = reversed[19]; // @[DES_Pipelined.scala 506:65]
-  wire  lo_hi_hi_lo_lo = reversed[20]; // @[DES_Pipelined.scala 506:78]
-  wire  lo_hi_lo_hi_lo = reversed[21]; // @[DES_Pipelined.scala 507:39]
-  wire  lo_hi_lo_lo_hi_hi = reversed[22]; // @[DES_Pipelined.scala 507:52]
-  wire  lo_hi_lo_lo_hi_lo = reversed[23]; // @[DES_Pipelined.scala 507:65]
-  wire  lo_hi_lo_lo_lo = reversed[24]; // @[DES_Pipelined.scala 507:78]
-  wire  lo_lo_hi_hi_lo = reversed[25]; // @[DES_Pipelined.scala 508:39]
-  wire  lo_lo_hi_lo_hi_hi = reversed[26]; // @[DES_Pipelined.scala 508:52]
-  wire  lo_lo_hi_lo_hi_lo = reversed[27]; // @[DES_Pipelined.scala 508:65]
-  wire  lo_lo_hi_lo_lo = reversed[28]; // @[DES_Pipelined.scala 508:78]
-  wire  lo_lo_lo_hi_lo = reversed[29]; // @[DES_Pipelined.scala 509:39]
-  wire  lo_lo_lo_lo_hi_hi = reversed[30]; // @[DES_Pipelined.scala 509:52]
+  wire  hi_hi_hi_hi_hi_hi = reversed[31]; // @[DES_Pipelined.scala 484:23]
+  wire  hi_hi_hi_hi_hi_lo = reversed[0]; // @[DES_Pipelined.scala 484:36]
+  wire  hi_hi_hi_hi_lo = reversed[1]; // @[DES_Pipelined.scala 484:48]
+  wire  hi_hi_hi_lo_hi_hi = reversed[2]; // @[DES_Pipelined.scala 484:60]
+  wire  hi_hi_hi_lo_hi_lo = reversed[3]; // @[DES_Pipelined.scala 484:72]
+  wire  hi_hi_hi_lo_lo = reversed[4]; // @[DES_Pipelined.scala 484:84]
+  wire  hi_hi_lo_hi_lo = reversed[5]; // @[DES_Pipelined.scala 485:37]
+  wire  hi_hi_lo_lo_hi_hi = reversed[6]; // @[DES_Pipelined.scala 485:49]
+  wire  hi_hi_lo_lo_hi_lo = reversed[7]; // @[DES_Pipelined.scala 485:61]
+  wire  hi_hi_lo_lo_lo = reversed[8]; // @[DES_Pipelined.scala 485:73]
+  wire  hi_lo_hi_hi_lo = reversed[9]; // @[DES_Pipelined.scala 486:37]
+  wire  hi_lo_hi_lo_hi_hi = reversed[10]; // @[DES_Pipelined.scala 486:49]
+  wire  hi_lo_hi_lo_hi_lo = reversed[11]; // @[DES_Pipelined.scala 486:62]
+  wire  hi_lo_hi_lo_lo = reversed[12]; // @[DES_Pipelined.scala 486:75]
+  wire  hi_lo_lo_hi_lo = reversed[13]; // @[DES_Pipelined.scala 487:39]
+  wire  hi_lo_lo_lo_hi_hi = reversed[14]; // @[DES_Pipelined.scala 487:52]
+  wire  hi_lo_lo_lo_hi_lo = reversed[15]; // @[DES_Pipelined.scala 487:65]
+  wire  hi_lo_lo_lo_lo = reversed[16]; // @[DES_Pipelined.scala 487:78]
+  wire  lo_hi_hi_hi_lo = reversed[17]; // @[DES_Pipelined.scala 488:39]
+  wire  lo_hi_hi_lo_hi_hi = reversed[18]; // @[DES_Pipelined.scala 488:52]
+  wire  lo_hi_hi_lo_hi_lo = reversed[19]; // @[DES_Pipelined.scala 488:65]
+  wire  lo_hi_hi_lo_lo = reversed[20]; // @[DES_Pipelined.scala 488:78]
+  wire  lo_hi_lo_hi_lo = reversed[21]; // @[DES_Pipelined.scala 489:39]
+  wire  lo_hi_lo_lo_hi_hi = reversed[22]; // @[DES_Pipelined.scala 489:52]
+  wire  lo_hi_lo_lo_hi_lo = reversed[23]; // @[DES_Pipelined.scala 489:65]
+  wire  lo_hi_lo_lo_lo = reversed[24]; // @[DES_Pipelined.scala 489:78]
+  wire  lo_lo_hi_hi_lo = reversed[25]; // @[DES_Pipelined.scala 490:39]
+  wire  lo_lo_hi_lo_hi_hi = reversed[26]; // @[DES_Pipelined.scala 490:52]
+  wire  lo_lo_hi_lo_hi_lo = reversed[27]; // @[DES_Pipelined.scala 490:65]
+  wire  lo_lo_hi_lo_lo = reversed[28]; // @[DES_Pipelined.scala 490:78]
+  wire  lo_lo_lo_hi_lo = reversed[29]; // @[DES_Pipelined.scala 491:39]
+  wire  lo_lo_lo_lo_hi_hi = reversed[30]; // @[DES_Pipelined.scala 491:52]
   wire [5:0] lo_lo_lo = {lo_lo_hi_lo_hi_lo,lo_lo_hi_lo_lo,lo_lo_lo_hi_lo,lo_lo_lo_lo_hi_hi,hi_hi_hi_hi_hi_hi,
     hi_hi_hi_hi_hi_lo}; // @[Cat.scala 30:58]
   wire [11:0] lo_lo = {lo_hi_lo_lo_hi_lo,lo_hi_lo_lo_lo,lo_lo_hi_hi_lo,lo_lo_hi_lo_hi_hi,lo_lo_hi_lo_hi_lo,
@@ -763,46 +749,46 @@ module DES_S(
   input  [47:0] io_in,
   output [31:0] io_out
 );
-  wire [5:0] B_7 = io_in[5:0]; // @[DES_Pipelined.scala 329:20]
-  wire  hi = B_7[5]; // @[DES_Pipelined.scala 330:27]
-  wire  lo = B_7[0]; // @[DES_Pipelined.scala 330:37]
+  wire [5:0] B_7 = io_in[5:0]; // @[DES_Pipelined.scala 311:20]
+  wire  hi = B_7[5]; // @[DES_Pipelined.scala 312:27]
+  wire  lo = B_7[0]; // @[DES_Pipelined.scala 312:37]
   wire [1:0] row_7 = {hi,lo}; // @[Cat.scala 30:58]
-  wire [3:0] col_7 = B_7[4:1]; // @[DES_Pipelined.scala 331:23]
-  wire [5:0] B_6 = io_in[11:6]; // @[DES_Pipelined.scala 329:20]
-  wire  hi_1 = B_6[5]; // @[DES_Pipelined.scala 330:27]
-  wire  lo_1 = B_6[0]; // @[DES_Pipelined.scala 330:37]
+  wire [3:0] col_7 = B_7[4:1]; // @[DES_Pipelined.scala 313:23]
+  wire [5:0] B_6 = io_in[11:6]; // @[DES_Pipelined.scala 311:20]
+  wire  hi_1 = B_6[5]; // @[DES_Pipelined.scala 312:27]
+  wire  lo_1 = B_6[0]; // @[DES_Pipelined.scala 312:37]
   wire [1:0] row_6 = {hi_1,lo_1}; // @[Cat.scala 30:58]
-  wire [3:0] col_6 = B_6[4:1]; // @[DES_Pipelined.scala 331:23]
-  wire [5:0] B_5 = io_in[17:12]; // @[DES_Pipelined.scala 329:20]
-  wire  hi_2 = B_5[5]; // @[DES_Pipelined.scala 330:27]
-  wire  lo_2 = B_5[0]; // @[DES_Pipelined.scala 330:37]
+  wire [3:0] col_6 = B_6[4:1]; // @[DES_Pipelined.scala 313:23]
+  wire [5:0] B_5 = io_in[17:12]; // @[DES_Pipelined.scala 311:20]
+  wire  hi_2 = B_5[5]; // @[DES_Pipelined.scala 312:27]
+  wire  lo_2 = B_5[0]; // @[DES_Pipelined.scala 312:37]
   wire [1:0] row_5 = {hi_2,lo_2}; // @[Cat.scala 30:58]
-  wire [3:0] col_5 = B_5[4:1]; // @[DES_Pipelined.scala 331:23]
-  wire [5:0] B_4 = io_in[23:18]; // @[DES_Pipelined.scala 329:20]
-  wire  hi_3 = B_4[5]; // @[DES_Pipelined.scala 330:27]
-  wire  lo_3 = B_4[0]; // @[DES_Pipelined.scala 330:37]
+  wire [3:0] col_5 = B_5[4:1]; // @[DES_Pipelined.scala 313:23]
+  wire [5:0] B_4 = io_in[23:18]; // @[DES_Pipelined.scala 311:20]
+  wire  hi_3 = B_4[5]; // @[DES_Pipelined.scala 312:27]
+  wire  lo_3 = B_4[0]; // @[DES_Pipelined.scala 312:37]
   wire [1:0] row_4 = {hi_3,lo_3}; // @[Cat.scala 30:58]
-  wire [3:0] col_4 = B_4[4:1]; // @[DES_Pipelined.scala 331:23]
-  wire [5:0] B_3 = io_in[29:24]; // @[DES_Pipelined.scala 329:20]
-  wire  hi_4 = B_3[5]; // @[DES_Pipelined.scala 330:27]
-  wire  lo_4 = B_3[0]; // @[DES_Pipelined.scala 330:37]
+  wire [3:0] col_4 = B_4[4:1]; // @[DES_Pipelined.scala 313:23]
+  wire [5:0] B_3 = io_in[29:24]; // @[DES_Pipelined.scala 311:20]
+  wire  hi_4 = B_3[5]; // @[DES_Pipelined.scala 312:27]
+  wire  lo_4 = B_3[0]; // @[DES_Pipelined.scala 312:37]
   wire [1:0] row_3 = {hi_4,lo_4}; // @[Cat.scala 30:58]
-  wire [3:0] col_3 = B_3[4:1]; // @[DES_Pipelined.scala 331:23]
-  wire [5:0] B_2 = io_in[35:30]; // @[DES_Pipelined.scala 329:20]
-  wire  hi_5 = B_2[5]; // @[DES_Pipelined.scala 330:27]
-  wire  lo_5 = B_2[0]; // @[DES_Pipelined.scala 330:37]
+  wire [3:0] col_3 = B_3[4:1]; // @[DES_Pipelined.scala 313:23]
+  wire [5:0] B_2 = io_in[35:30]; // @[DES_Pipelined.scala 311:20]
+  wire  hi_5 = B_2[5]; // @[DES_Pipelined.scala 312:27]
+  wire  lo_5 = B_2[0]; // @[DES_Pipelined.scala 312:37]
   wire [1:0] row_2 = {hi_5,lo_5}; // @[Cat.scala 30:58]
-  wire [3:0] col_2 = B_2[4:1]; // @[DES_Pipelined.scala 331:23]
-  wire [5:0] B_1 = io_in[41:36]; // @[DES_Pipelined.scala 329:20]
-  wire  hi_6 = B_1[5]; // @[DES_Pipelined.scala 330:27]
-  wire  lo_6 = B_1[0]; // @[DES_Pipelined.scala 330:37]
+  wire [3:0] col_2 = B_2[4:1]; // @[DES_Pipelined.scala 313:23]
+  wire [5:0] B_1 = io_in[41:36]; // @[DES_Pipelined.scala 311:20]
+  wire  hi_6 = B_1[5]; // @[DES_Pipelined.scala 312:27]
+  wire  lo_6 = B_1[0]; // @[DES_Pipelined.scala 312:37]
   wire [1:0] row_1 = {hi_6,lo_6}; // @[Cat.scala 30:58]
-  wire [3:0] col_1 = B_1[4:1]; // @[DES_Pipelined.scala 331:23]
-  wire [5:0] B_0 = io_in[47:42]; // @[DES_Pipelined.scala 329:20]
-  wire  hi_7 = B_0[5]; // @[DES_Pipelined.scala 330:27]
-  wire  lo_7 = B_0[0]; // @[DES_Pipelined.scala 330:37]
+  wire [3:0] col_1 = B_1[4:1]; // @[DES_Pipelined.scala 313:23]
+  wire [5:0] B_0 = io_in[47:42]; // @[DES_Pipelined.scala 311:20]
+  wire  hi_7 = B_0[5]; // @[DES_Pipelined.scala 312:27]
+  wire  lo_7 = B_0[0]; // @[DES_Pipelined.scala 312:37]
   wire [1:0] row_0 = {hi_7,lo_7}; // @[Cat.scala 30:58]
-  wire [3:0] col_0 = B_0[4:1]; // @[DES_Pipelined.scala 331:23]
+  wire [3:0] col_0 = B_0[4:1]; // @[DES_Pipelined.scala 313:23]
   wire [3:0] _GEN_1 = 4'h0 == col_6 & 2'h1 == row_6 ? 4'hd : 4'h4; // @[Cat.scala 30:58 Cat.scala 30:58]
   wire [3:0] _GEN_2 = 4'h0 == col_6 & 2'h2 == row_6 ? 4'h1 : _GEN_1; // @[Cat.scala 30:58 Cat.scala 30:58]
   wire [3:0] _GEN_3 = 4'h0 == col_6 & 2'h3 == row_6 ? 4'h6 : _GEN_2; // @[Cat.scala 30:58 Cat.scala 30:58]
@@ -1339,38 +1325,38 @@ module DES_P(
   wire [31:0] _T_45 = {_T_38[30:0], 1'h0}; // @[Bitwise.scala 103:65]
   wire [31:0] _T_47 = _T_45 & 32'haaaaaaaa; // @[Bitwise.scala 103:75]
   wire [31:0] reversed = _T_43 | _T_47; // @[Bitwise.scala 103:39]
-  wire  hi_hi_hi_hi_hi = reversed[15]; // @[DES_Pipelined.scala 483:25]
-  wire  hi_hi_hi_hi_lo = reversed[6]; // @[DES_Pipelined.scala 483:38]
-  wire  hi_hi_hi_lo_hi = reversed[19]; // @[DES_Pipelined.scala 483:50]
-  wire  hi_hi_hi_lo_lo = reversed[20]; // @[DES_Pipelined.scala 483:63]
-  wire  hi_hi_lo_hi_hi = reversed[28]; // @[DES_Pipelined.scala 484:13]
-  wire  hi_hi_lo_hi_lo = reversed[11]; // @[DES_Pipelined.scala 484:26]
-  wire  hi_hi_lo_lo_hi = reversed[27]; // @[DES_Pipelined.scala 484:39]
-  wire  hi_hi_lo_lo_lo = reversed[16]; // @[DES_Pipelined.scala 484:52]
-  wire  hi_lo_hi_hi_hi = reversed[0]; // @[DES_Pipelined.scala 485:13]
-  wire  hi_lo_hi_hi_lo = reversed[14]; // @[DES_Pipelined.scala 485:25]
-  wire  hi_lo_hi_lo_hi = reversed[22]; // @[DES_Pipelined.scala 485:38]
-  wire  hi_lo_hi_lo_lo = reversed[25]; // @[DES_Pipelined.scala 485:51]
-  wire  hi_lo_lo_hi_hi = reversed[4]; // @[DES_Pipelined.scala 486:13]
-  wire  hi_lo_lo_hi_lo = reversed[17]; // @[DES_Pipelined.scala 486:25]
-  wire  hi_lo_lo_lo_hi = reversed[30]; // @[DES_Pipelined.scala 486:38]
-  wire  hi_lo_lo_lo_lo = reversed[9]; // @[DES_Pipelined.scala 486:51]
-  wire  lo_hi_hi_hi_hi = reversed[1]; // @[DES_Pipelined.scala 487:13]
-  wire  lo_hi_hi_hi_lo = reversed[7]; // @[DES_Pipelined.scala 487:25]
-  wire  lo_hi_hi_lo_hi = reversed[23]; // @[DES_Pipelined.scala 487:37]
-  wire  lo_hi_hi_lo_lo = reversed[13]; // @[DES_Pipelined.scala 487:50]
-  wire  lo_hi_lo_hi_hi = reversed[31]; // @[DES_Pipelined.scala 488:13]
-  wire  lo_hi_lo_hi_lo = reversed[26]; // @[DES_Pipelined.scala 488:26]
-  wire  lo_hi_lo_lo_hi = reversed[2]; // @[DES_Pipelined.scala 488:39]
-  wire  lo_hi_lo_lo_lo = reversed[8]; // @[DES_Pipelined.scala 488:51]
-  wire  lo_lo_hi_hi_hi = reversed[18]; // @[DES_Pipelined.scala 489:13]
-  wire  lo_lo_hi_hi_lo = reversed[12]; // @[DES_Pipelined.scala 489:26]
-  wire  lo_lo_hi_lo_hi = reversed[29]; // @[DES_Pipelined.scala 489:39]
-  wire  lo_lo_hi_lo_lo = reversed[5]; // @[DES_Pipelined.scala 489:52]
-  wire  lo_lo_lo_hi_hi = reversed[21]; // @[DES_Pipelined.scala 490:13]
-  wire  lo_lo_lo_hi_lo = reversed[10]; // @[DES_Pipelined.scala 490:26]
-  wire  lo_lo_lo_lo_hi = reversed[3]; // @[DES_Pipelined.scala 490:39]
-  wire  lo_lo_lo_lo_lo = reversed[24]; // @[DES_Pipelined.scala 490:51]
+  wire  hi_hi_hi_hi_hi = reversed[15]; // @[DES_Pipelined.scala 465:25]
+  wire  hi_hi_hi_hi_lo = reversed[6]; // @[DES_Pipelined.scala 465:38]
+  wire  hi_hi_hi_lo_hi = reversed[19]; // @[DES_Pipelined.scala 465:50]
+  wire  hi_hi_hi_lo_lo = reversed[20]; // @[DES_Pipelined.scala 465:63]
+  wire  hi_hi_lo_hi_hi = reversed[28]; // @[DES_Pipelined.scala 466:13]
+  wire  hi_hi_lo_hi_lo = reversed[11]; // @[DES_Pipelined.scala 466:26]
+  wire  hi_hi_lo_lo_hi = reversed[27]; // @[DES_Pipelined.scala 466:39]
+  wire  hi_hi_lo_lo_lo = reversed[16]; // @[DES_Pipelined.scala 466:52]
+  wire  hi_lo_hi_hi_hi = reversed[0]; // @[DES_Pipelined.scala 467:13]
+  wire  hi_lo_hi_hi_lo = reversed[14]; // @[DES_Pipelined.scala 467:25]
+  wire  hi_lo_hi_lo_hi = reversed[22]; // @[DES_Pipelined.scala 467:38]
+  wire  hi_lo_hi_lo_lo = reversed[25]; // @[DES_Pipelined.scala 467:51]
+  wire  hi_lo_lo_hi_hi = reversed[4]; // @[DES_Pipelined.scala 468:13]
+  wire  hi_lo_lo_hi_lo = reversed[17]; // @[DES_Pipelined.scala 468:25]
+  wire  hi_lo_lo_lo_hi = reversed[30]; // @[DES_Pipelined.scala 468:38]
+  wire  hi_lo_lo_lo_lo = reversed[9]; // @[DES_Pipelined.scala 468:51]
+  wire  lo_hi_hi_hi_hi = reversed[1]; // @[DES_Pipelined.scala 469:13]
+  wire  lo_hi_hi_hi_lo = reversed[7]; // @[DES_Pipelined.scala 469:25]
+  wire  lo_hi_hi_lo_hi = reversed[23]; // @[DES_Pipelined.scala 469:37]
+  wire  lo_hi_hi_lo_lo = reversed[13]; // @[DES_Pipelined.scala 469:50]
+  wire  lo_hi_lo_hi_hi = reversed[31]; // @[DES_Pipelined.scala 470:13]
+  wire  lo_hi_lo_hi_lo = reversed[26]; // @[DES_Pipelined.scala 470:26]
+  wire  lo_hi_lo_lo_hi = reversed[2]; // @[DES_Pipelined.scala 470:39]
+  wire  lo_hi_lo_lo_lo = reversed[8]; // @[DES_Pipelined.scala 470:51]
+  wire  lo_lo_hi_hi_hi = reversed[18]; // @[DES_Pipelined.scala 471:13]
+  wire  lo_lo_hi_hi_lo = reversed[12]; // @[DES_Pipelined.scala 471:26]
+  wire  lo_lo_hi_lo_hi = reversed[29]; // @[DES_Pipelined.scala 471:39]
+  wire  lo_lo_hi_lo_lo = reversed[5]; // @[DES_Pipelined.scala 471:52]
+  wire  lo_lo_lo_hi_hi = reversed[21]; // @[DES_Pipelined.scala 472:13]
+  wire  lo_lo_lo_hi_lo = reversed[10]; // @[DES_Pipelined.scala 472:26]
+  wire  lo_lo_lo_lo_hi = reversed[3]; // @[DES_Pipelined.scala 472:39]
+  wire  lo_lo_lo_lo_lo = reversed[24]; // @[DES_Pipelined.scala 472:51]
   wire [7:0] lo_lo = {lo_lo_hi_hi_hi,lo_lo_hi_hi_lo,lo_lo_hi_lo_hi,lo_lo_hi_lo_lo,lo_lo_lo_hi_hi,lo_lo_lo_hi_lo,
     lo_lo_lo_lo_hi,lo_lo_lo_lo_lo}; // @[Cat.scala 30:58]
   wire [15:0] lo = {lo_hi_hi_hi_hi,lo_hi_hi_hi_lo,lo_hi_hi_lo_hi,lo_hi_hi_lo_lo,lo_hi_lo_hi_hi,lo_hi_lo_hi_lo,
@@ -1386,32 +1372,31 @@ module DES_f(
   input  [47:0] io_K,
   output [31:0] io_out
 );
-  wire [31:0] E_io_R; // @[DES_Pipelined.scala 308:17]
-  wire [47:0] E_io_E; // @[DES_Pipelined.scala 308:17]
-  wire [47:0] S_io_in; // @[DES_Pipelined.scala 311:17]
-  wire [31:0] S_io_out; // @[DES_Pipelined.scala 311:17]
-  wire [31:0] P_io_in; // @[DES_Pipelined.scala 314:17]
-  wire [31:0] P_io_out; // @[DES_Pipelined.scala 314:17]
-  DES_E E ( // @[DES_Pipelined.scala 308:17]
+  wire [31:0] E_io_R; // @[DES_Pipelined.scala 290:17]
+  wire [47:0] E_io_E; // @[DES_Pipelined.scala 290:17]
+  wire [47:0] S_io_in; // @[DES_Pipelined.scala 293:17]
+  wire [31:0] S_io_out; // @[DES_Pipelined.scala 293:17]
+  wire [31:0] P_io_in; // @[DES_Pipelined.scala 296:17]
+  wire [31:0] P_io_out; // @[DES_Pipelined.scala 296:17]
+  DES_E E ( // @[DES_Pipelined.scala 290:17]
     .io_R(E_io_R),
     .io_E(E_io_E)
   );
-  DES_S S ( // @[DES_Pipelined.scala 311:17]
+  DES_S S ( // @[DES_Pipelined.scala 293:17]
     .io_in(S_io_in),
     .io_out(S_io_out)
   );
-  DES_P P ( // @[DES_Pipelined.scala 314:17]
+  DES_P P ( // @[DES_Pipelined.scala 296:17]
     .io_in(P_io_in),
     .io_out(P_io_out)
   );
-  assign io_out = P_io_out; // @[DES_Pipelined.scala 316:10]
-  assign E_io_R = io_R; // @[DES_Pipelined.scala 309:10]
-  assign S_io_in = E_io_E ^ io_K; // @[DES_Pipelined.scala 312:21]
-  assign P_io_in = S_io_out; // @[DES_Pipelined.scala 315:11]
+  assign io_out = P_io_out; // @[DES_Pipelined.scala 298:10]
+  assign E_io_R = io_R; // @[DES_Pipelined.scala 291:10]
+  assign S_io_in = E_io_E ^ io_K; // @[DES_Pipelined.scala 294:21]
+  assign P_io_in = S_io_out; // @[DES_Pipelined.scala 297:11]
 endmodule
 module DES_ProcessingElement(
   input         clock,
-  input         reset,
   input         io_out_ready,
   output        io_out_valid,
   output [31:0] io_out_bits_L,
@@ -1431,51 +1416,47 @@ module DES_ProcessingElement(
   reg [31:0] _RAND_2;
   reg [31:0] _RAND_3;
   reg [31:0] _RAND_4;
-  reg [31:0] _RAND_5;
 `endif // RANDOMIZE_REG_INIT
-  wire [27:0] keys_io_C; // @[DES_Pipelined.scala 126:20]
-  wire [27:0] keys_io_D; // @[DES_Pipelined.scala 126:20]
-  wire [27:0] keys_io_C_next; // @[DES_Pipelined.scala 126:20]
-  wire [27:0] keys_io_D_next; // @[DES_Pipelined.scala 126:20]
-  wire [47:0] keys_io_K; // @[DES_Pipelined.scala 126:20]
-  wire [31:0] f_io_R; // @[DES_Pipelined.scala 130:17]
-  wire [47:0] f_io_K; // @[DES_Pipelined.scala 130:17]
-  wire [31:0] f_io_out; // @[DES_Pipelined.scala 130:17]
-  reg  empty; // @[DES_Pipelined.scala 103:22]
-  wire  enable = io_out_ready | empty; // @[DES_Pipelined.scala 105:26]
-  wire  _GEN_0 = enable ? ~io_in_valid : empty; // @[DES_Pipelined.scala 107:16 DES_Pipelined.scala 108:11 DES_Pipelined.scala 103:22]
+  wire [27:0] keys_io_C; // @[DES_Pipelined.scala 114:20]
+  wire [27:0] keys_io_D; // @[DES_Pipelined.scala 114:20]
+  wire [27:0] keys_io_C_next; // @[DES_Pipelined.scala 114:20]
+  wire [27:0] keys_io_D_next; // @[DES_Pipelined.scala 114:20]
+  wire [47:0] keys_io_K; // @[DES_Pipelined.scala 114:20]
+  wire [31:0] f_io_R; // @[DES_Pipelined.scala 118:17]
+  wire [47:0] f_io_K; // @[DES_Pipelined.scala 118:17]
+  wire [31:0] f_io_out; // @[DES_Pipelined.scala 118:17]
   reg [31:0] input_L; // @[Reg.scala 15:16]
   reg [31:0] input_R; // @[Reg.scala 15:16]
   reg [27:0] input_C; // @[Reg.scala 15:16]
   reg [27:0] input_D; // @[Reg.scala 15:16]
   reg  valid; // @[Reg.scala 15:16]
-  wire [27:0] result_D = keys_io_D_next; // @[DES_Pipelined.scala 111:20 DES_Pipelined.scala 137:12]
-  wire [27:0] result_C = keys_io_C_next; // @[DES_Pipelined.scala 111:20 DES_Pipelined.scala 136:12]
-  wire [31:0] result_R = input_L ^ f_io_out; // @[DES_Pipelined.scala 135:23]
-  DES_keys keys ( // @[DES_Pipelined.scala 126:20]
+  wire  enable = io_out_ready | ~valid; // @[DES_Pipelined.scala 102:26]
+  wire [27:0] result_D = keys_io_D_next;
+  wire [27:0] result_C = keys_io_C_next;
+  wire [31:0] result_R = input_L ^ f_io_out; // @[DES_Pipelined.scala 123:23]
+  DES_keys keys ( // @[DES_Pipelined.scala 114:20]
     .io_C(keys_io_C),
     .io_D(keys_io_D),
     .io_C_next(keys_io_C_next),
     .io_D_next(keys_io_D_next),
     .io_K(keys_io_K)
   );
-  DES_f f ( // @[DES_Pipelined.scala 130:17]
+  DES_f f ( // @[DES_Pipelined.scala 118:17]
     .io_R(f_io_R),
     .io_K(f_io_K),
     .io_out(f_io_out)
   );
-  assign io_out_valid = empty ? 1'h0 : valid; // @[DES_Pipelined.scala 115:15 DES_Pipelined.scala 116:18 DES_Pipelined.scala 120:18]
-  assign io_out_bits_L = empty ? 32'h0 : input_R; // @[DES_Pipelined.scala 115:15 DES_Pipelined.scala 118:17 DES_Pipelined.scala 122:17]
-  assign io_out_bits_R = empty ? 32'h0 : result_R; // @[DES_Pipelined.scala 115:15 DES_Pipelined.scala 118:17 DES_Pipelined.scala 122:17]
-  assign io_out_bits_C = empty ? 28'h0 : result_C; // @[DES_Pipelined.scala 115:15 DES_Pipelined.scala 118:17 DES_Pipelined.scala 122:17]
-  assign io_out_bits_D = empty ? 28'h0 : result_D; // @[DES_Pipelined.scala 115:15 DES_Pipelined.scala 118:17 DES_Pipelined.scala 122:17]
-  assign io_in_ready = empty | enable; // @[DES_Pipelined.scala 115:15 DES_Pipelined.scala 117:17 DES_Pipelined.scala 121:17]
-  assign keys_io_C = input_C; // @[DES_Pipelined.scala 127:13]
-  assign keys_io_D = input_D; // @[DES_Pipelined.scala 128:13]
-  assign f_io_R = input_R; // @[DES_Pipelined.scala 131:10]
-  assign f_io_K = keys_io_K; // @[DES_Pipelined.scala 132:10]
+  assign io_out_valid = valid; // @[DES_Pipelined.scala 103:16]
+  assign io_out_bits_L = valid ? input_R : 32'h0; // @[DES_Pipelined.scala 105:15 DES_Pipelined.scala 107:17 DES_Pipelined.scala 110:17]
+  assign io_out_bits_R = valid ? result_R : 32'h0; // @[DES_Pipelined.scala 105:15 DES_Pipelined.scala 107:17 DES_Pipelined.scala 110:17]
+  assign io_out_bits_C = valid ? result_C : 28'h0; // @[DES_Pipelined.scala 105:15 DES_Pipelined.scala 107:17 DES_Pipelined.scala 110:17]
+  assign io_out_bits_D = valid ? result_D : 28'h0; // @[DES_Pipelined.scala 105:15 DES_Pipelined.scala 107:17 DES_Pipelined.scala 110:17]
+  assign io_in_ready = valid ? enable : 1'h1; // @[DES_Pipelined.scala 105:15 DES_Pipelined.scala 106:17 DES_Pipelined.scala 109:17]
+  assign keys_io_C = input_C; // @[DES_Pipelined.scala 115:13]
+  assign keys_io_D = input_D; // @[DES_Pipelined.scala 116:13]
+  assign f_io_R = input_R; // @[DES_Pipelined.scala 119:10]
+  assign f_io_K = keys_io_K; // @[DES_Pipelined.scala 120:10]
   always @(posedge clock) begin
-    empty <= reset | _GEN_0; // @[DES_Pipelined.scala 103:22 DES_Pipelined.scala 103:22]
     if (enable) begin // @[Reg.scala 16:19]
       input_L <= io_in_bits_L; // @[Reg.scala 16:23]
     end
@@ -1529,17 +1510,15 @@ initial begin
     `endif
 `ifdef RANDOMIZE_REG_INIT
   _RAND_0 = {1{`RANDOM}};
-  empty = _RAND_0[0:0];
+  input_L = _RAND_0[31:0];
   _RAND_1 = {1{`RANDOM}};
-  input_L = _RAND_1[31:0];
+  input_R = _RAND_1[31:0];
   _RAND_2 = {1{`RANDOM}};
-  input_R = _RAND_2[31:0];
+  input_C = _RAND_2[27:0];
   _RAND_3 = {1{`RANDOM}};
-  input_C = _RAND_3[27:0];
+  input_D = _RAND_3[27:0];
   _RAND_4 = {1{`RANDOM}};
-  input_D = _RAND_4[27:0];
-  _RAND_5 = {1{`RANDOM}};
-  valid = _RAND_5[0:0];
+  valid = _RAND_4[0:0];
 `endif // RANDOMIZE_REG_INIT
   `endif // RANDOMIZE
 end // initial
@@ -1555,10 +1534,10 @@ module DES_keys_2(
   output [27:0] io_D_next,
   output [47:0] io_K
 );
-  wire [25:0] hi = io_C[25:0]; // @[DES_Pipelined.scala 270:28]
-  wire [1:0] lo = io_C[27:26]; // @[DES_Pipelined.scala 270:39]
-  wire [25:0] hi_1 = io_D[25:0]; // @[DES_Pipelined.scala 271:28]
-  wire [1:0] lo_1 = io_D[27:26]; // @[DES_Pipelined.scala 271:39]
+  wire [25:0] hi = io_C[25:0]; // @[DES_Pipelined.scala 252:28]
+  wire [1:0] lo = io_C[27:26]; // @[DES_Pipelined.scala 252:39]
+  wire [25:0] hi_1 = io_D[25:0]; // @[DES_Pipelined.scala 253:28]
+  wire [1:0] lo_1 = io_D[27:26]; // @[DES_Pipelined.scala 253:39]
   wire [55:0] _T_2 = {hi,lo,hi_1,lo_1}; // @[Cat.scala 30:58]
   wire [31:0] _T_7 = {{16'd0}, _T_2[31:16]}; // @[Bitwise.scala 103:31]
   wire [31:0] _T_9 = {_T_2[15:0], 16'h0}; // @[Bitwise.scala 103:65]
@@ -1618,54 +1597,54 @@ module DES_keys_2(
   wire [7:0] _T_120 = _T_118 & 8'haa; // @[Bitwise.scala 103:75]
   wire [7:0] lo_2 = _T_116 | _T_120; // @[Bitwise.scala 103:39]
   wire [55:0] concat = {hi_2,hi_3,lo_2}; // @[Cat.scala 30:58]
-  wire  hi_hi_hi_hi_hi_hi = concat[13]; // @[DES_Pipelined.scala 291:21]
-  wire  hi_hi_hi_hi_hi_lo = concat[16]; // @[DES_Pipelined.scala 291:32]
-  wire  hi_hi_hi_hi_lo = concat[10]; // @[DES_Pipelined.scala 291:43]
-  wire  hi_hi_hi_lo_hi_hi = concat[23]; // @[DES_Pipelined.scala 291:54]
-  wire  hi_hi_hi_lo_hi_lo = concat[0]; // @[DES_Pipelined.scala 291:65]
-  wire  hi_hi_hi_lo_lo = concat[4]; // @[DES_Pipelined.scala 291:75]
-  wire  hi_hi_lo_hi_hi_hi = concat[2]; // @[DES_Pipelined.scala 292:11]
-  wire  hi_hi_lo_hi_hi_lo = concat[27]; // @[DES_Pipelined.scala 292:21]
-  wire  hi_hi_lo_hi_lo = concat[14]; // @[DES_Pipelined.scala 292:32]
-  wire  hi_hi_lo_lo_hi_hi = concat[5]; // @[DES_Pipelined.scala 292:43]
-  wire  hi_hi_lo_lo_hi_lo = concat[20]; // @[DES_Pipelined.scala 292:53]
-  wire  hi_hi_lo_lo_lo = concat[9]; // @[DES_Pipelined.scala 292:64]
-  wire  hi_lo_hi_hi_hi_hi = concat[22]; // @[DES_Pipelined.scala 293:11]
-  wire  hi_lo_hi_hi_hi_lo = concat[18]; // @[DES_Pipelined.scala 293:22]
-  wire  hi_lo_hi_hi_lo = concat[11]; // @[DES_Pipelined.scala 293:33]
-  wire  hi_lo_hi_lo_hi_hi = concat[3]; // @[DES_Pipelined.scala 293:44]
-  wire  hi_lo_hi_lo_hi_lo = concat[25]; // @[DES_Pipelined.scala 293:54]
-  wire  hi_lo_hi_lo_lo = concat[7]; // @[DES_Pipelined.scala 293:65]
-  wire  hi_lo_lo_hi_hi_hi = concat[15]; // @[DES_Pipelined.scala 294:11]
-  wire  hi_lo_lo_hi_hi_lo = concat[6]; // @[DES_Pipelined.scala 294:22]
-  wire  hi_lo_lo_hi_lo = concat[26]; // @[DES_Pipelined.scala 294:32]
-  wire  hi_lo_lo_lo_hi_hi = concat[19]; // @[DES_Pipelined.scala 294:43]
-  wire  hi_lo_lo_lo_hi_lo = concat[12]; // @[DES_Pipelined.scala 294:54]
-  wire  hi_lo_lo_lo_lo = concat[1]; // @[DES_Pipelined.scala 294:65]
-  wire  lo_hi_hi_hi_hi_hi = concat[40]; // @[DES_Pipelined.scala 295:11]
-  wire  lo_hi_hi_hi_hi_lo = concat[51]; // @[DES_Pipelined.scala 295:22]
-  wire  lo_hi_hi_hi_lo = concat[30]; // @[DES_Pipelined.scala 295:33]
-  wire  lo_hi_hi_lo_hi_hi = concat[36]; // @[DES_Pipelined.scala 295:44]
-  wire  lo_hi_hi_lo_hi_lo = concat[46]; // @[DES_Pipelined.scala 295:55]
-  wire  lo_hi_hi_lo_lo = concat[54]; // @[DES_Pipelined.scala 295:66]
-  wire  lo_hi_lo_hi_hi_hi = concat[29]; // @[DES_Pipelined.scala 296:11]
-  wire  lo_hi_lo_hi_hi_lo = concat[39]; // @[DES_Pipelined.scala 296:22]
-  wire  lo_hi_lo_hi_lo = concat[50]; // @[DES_Pipelined.scala 296:33]
-  wire  lo_hi_lo_lo_hi_hi = concat[44]; // @[DES_Pipelined.scala 296:44]
-  wire  lo_hi_lo_lo_hi_lo = concat[32]; // @[DES_Pipelined.scala 296:55]
-  wire  lo_hi_lo_lo_lo = concat[47]; // @[DES_Pipelined.scala 296:66]
-  wire  lo_lo_hi_hi_hi_hi = concat[43]; // @[DES_Pipelined.scala 297:11]
-  wire  lo_lo_hi_hi_hi_lo = concat[48]; // @[DES_Pipelined.scala 297:22]
-  wire  lo_lo_hi_hi_lo = concat[38]; // @[DES_Pipelined.scala 297:33]
-  wire  lo_lo_hi_lo_hi_hi = concat[55]; // @[DES_Pipelined.scala 297:44]
-  wire  lo_lo_hi_lo_hi_lo = concat[33]; // @[DES_Pipelined.scala 297:55]
-  wire  lo_lo_hi_lo_lo = concat[52]; // @[DES_Pipelined.scala 297:66]
-  wire  lo_lo_lo_hi_hi_hi = concat[45]; // @[DES_Pipelined.scala 298:11]
-  wire  lo_lo_lo_hi_hi_lo = concat[41]; // @[DES_Pipelined.scala 298:22]
-  wire  lo_lo_lo_hi_lo = concat[49]; // @[DES_Pipelined.scala 298:33]
-  wire  lo_lo_lo_lo_hi_hi = concat[35]; // @[DES_Pipelined.scala 298:44]
-  wire  lo_lo_lo_lo_hi_lo = concat[28]; // @[DES_Pipelined.scala 298:55]
-  wire  lo_lo_lo_lo_lo = concat[31]; // @[DES_Pipelined.scala 298:66]
+  wire  hi_hi_hi_hi_hi_hi = concat[13]; // @[DES_Pipelined.scala 273:21]
+  wire  hi_hi_hi_hi_hi_lo = concat[16]; // @[DES_Pipelined.scala 273:32]
+  wire  hi_hi_hi_hi_lo = concat[10]; // @[DES_Pipelined.scala 273:43]
+  wire  hi_hi_hi_lo_hi_hi = concat[23]; // @[DES_Pipelined.scala 273:54]
+  wire  hi_hi_hi_lo_hi_lo = concat[0]; // @[DES_Pipelined.scala 273:65]
+  wire  hi_hi_hi_lo_lo = concat[4]; // @[DES_Pipelined.scala 273:75]
+  wire  hi_hi_lo_hi_hi_hi = concat[2]; // @[DES_Pipelined.scala 274:11]
+  wire  hi_hi_lo_hi_hi_lo = concat[27]; // @[DES_Pipelined.scala 274:21]
+  wire  hi_hi_lo_hi_lo = concat[14]; // @[DES_Pipelined.scala 274:32]
+  wire  hi_hi_lo_lo_hi_hi = concat[5]; // @[DES_Pipelined.scala 274:43]
+  wire  hi_hi_lo_lo_hi_lo = concat[20]; // @[DES_Pipelined.scala 274:53]
+  wire  hi_hi_lo_lo_lo = concat[9]; // @[DES_Pipelined.scala 274:64]
+  wire  hi_lo_hi_hi_hi_hi = concat[22]; // @[DES_Pipelined.scala 275:11]
+  wire  hi_lo_hi_hi_hi_lo = concat[18]; // @[DES_Pipelined.scala 275:22]
+  wire  hi_lo_hi_hi_lo = concat[11]; // @[DES_Pipelined.scala 275:33]
+  wire  hi_lo_hi_lo_hi_hi = concat[3]; // @[DES_Pipelined.scala 275:44]
+  wire  hi_lo_hi_lo_hi_lo = concat[25]; // @[DES_Pipelined.scala 275:54]
+  wire  hi_lo_hi_lo_lo = concat[7]; // @[DES_Pipelined.scala 275:65]
+  wire  hi_lo_lo_hi_hi_hi = concat[15]; // @[DES_Pipelined.scala 276:11]
+  wire  hi_lo_lo_hi_hi_lo = concat[6]; // @[DES_Pipelined.scala 276:22]
+  wire  hi_lo_lo_hi_lo = concat[26]; // @[DES_Pipelined.scala 276:32]
+  wire  hi_lo_lo_lo_hi_hi = concat[19]; // @[DES_Pipelined.scala 276:43]
+  wire  hi_lo_lo_lo_hi_lo = concat[12]; // @[DES_Pipelined.scala 276:54]
+  wire  hi_lo_lo_lo_lo = concat[1]; // @[DES_Pipelined.scala 276:65]
+  wire  lo_hi_hi_hi_hi_hi = concat[40]; // @[DES_Pipelined.scala 277:11]
+  wire  lo_hi_hi_hi_hi_lo = concat[51]; // @[DES_Pipelined.scala 277:22]
+  wire  lo_hi_hi_hi_lo = concat[30]; // @[DES_Pipelined.scala 277:33]
+  wire  lo_hi_hi_lo_hi_hi = concat[36]; // @[DES_Pipelined.scala 277:44]
+  wire  lo_hi_hi_lo_hi_lo = concat[46]; // @[DES_Pipelined.scala 277:55]
+  wire  lo_hi_hi_lo_lo = concat[54]; // @[DES_Pipelined.scala 277:66]
+  wire  lo_hi_lo_hi_hi_hi = concat[29]; // @[DES_Pipelined.scala 278:11]
+  wire  lo_hi_lo_hi_hi_lo = concat[39]; // @[DES_Pipelined.scala 278:22]
+  wire  lo_hi_lo_hi_lo = concat[50]; // @[DES_Pipelined.scala 278:33]
+  wire  lo_hi_lo_lo_hi_hi = concat[44]; // @[DES_Pipelined.scala 278:44]
+  wire  lo_hi_lo_lo_hi_lo = concat[32]; // @[DES_Pipelined.scala 278:55]
+  wire  lo_hi_lo_lo_lo = concat[47]; // @[DES_Pipelined.scala 278:66]
+  wire  lo_lo_hi_hi_hi_hi = concat[43]; // @[DES_Pipelined.scala 279:11]
+  wire  lo_lo_hi_hi_hi_lo = concat[48]; // @[DES_Pipelined.scala 279:22]
+  wire  lo_lo_hi_hi_lo = concat[38]; // @[DES_Pipelined.scala 279:33]
+  wire  lo_lo_hi_lo_hi_hi = concat[55]; // @[DES_Pipelined.scala 279:44]
+  wire  lo_lo_hi_lo_hi_lo = concat[33]; // @[DES_Pipelined.scala 279:55]
+  wire  lo_lo_hi_lo_lo = concat[52]; // @[DES_Pipelined.scala 279:66]
+  wire  lo_lo_lo_hi_hi_hi = concat[45]; // @[DES_Pipelined.scala 280:11]
+  wire  lo_lo_lo_hi_hi_lo = concat[41]; // @[DES_Pipelined.scala 280:22]
+  wire  lo_lo_lo_hi_lo = concat[49]; // @[DES_Pipelined.scala 280:33]
+  wire  lo_lo_lo_lo_hi_hi = concat[35]; // @[DES_Pipelined.scala 280:44]
+  wire  lo_lo_lo_lo_hi_lo = concat[28]; // @[DES_Pipelined.scala 280:55]
+  wire  lo_lo_lo_lo_lo = concat[31]; // @[DES_Pipelined.scala 280:66]
   wire [5:0] lo_lo_lo = {lo_lo_lo_hi_hi_hi,lo_lo_lo_hi_hi_lo,lo_lo_lo_hi_lo,lo_lo_lo_lo_hi_hi,lo_lo_lo_lo_hi_lo,
     lo_lo_lo_lo_lo}; // @[Cat.scala 30:58]
   wire [11:0] lo_lo = {lo_lo_hi_hi_hi_hi,lo_lo_hi_hi_hi_lo,lo_lo_hi_hi_lo,lo_lo_hi_lo_hi_hi,lo_lo_hi_lo_hi_lo,
@@ -1688,7 +1667,6 @@ module DES_keys_2(
 endmodule
 module DES_ProcessingElement_2(
   input         clock,
-  input         reset,
   input         io_out_ready,
   output        io_out_valid,
   output [31:0] io_out_bits_L,
@@ -1708,51 +1686,47 @@ module DES_ProcessingElement_2(
   reg [31:0] _RAND_2;
   reg [31:0] _RAND_3;
   reg [31:0] _RAND_4;
-  reg [31:0] _RAND_5;
 `endif // RANDOMIZE_REG_INIT
-  wire [27:0] keys_io_C; // @[DES_Pipelined.scala 126:20]
-  wire [27:0] keys_io_D; // @[DES_Pipelined.scala 126:20]
-  wire [27:0] keys_io_C_next; // @[DES_Pipelined.scala 126:20]
-  wire [27:0] keys_io_D_next; // @[DES_Pipelined.scala 126:20]
-  wire [47:0] keys_io_K; // @[DES_Pipelined.scala 126:20]
-  wire [31:0] f_io_R; // @[DES_Pipelined.scala 130:17]
-  wire [47:0] f_io_K; // @[DES_Pipelined.scala 130:17]
-  wire [31:0] f_io_out; // @[DES_Pipelined.scala 130:17]
-  reg  empty; // @[DES_Pipelined.scala 103:22]
-  wire  enable = io_out_ready | empty; // @[DES_Pipelined.scala 105:26]
-  wire  _GEN_0 = enable ? ~io_in_valid : empty; // @[DES_Pipelined.scala 107:16 DES_Pipelined.scala 108:11 DES_Pipelined.scala 103:22]
+  wire [27:0] keys_io_C; // @[DES_Pipelined.scala 114:20]
+  wire [27:0] keys_io_D; // @[DES_Pipelined.scala 114:20]
+  wire [27:0] keys_io_C_next; // @[DES_Pipelined.scala 114:20]
+  wire [27:0] keys_io_D_next; // @[DES_Pipelined.scala 114:20]
+  wire [47:0] keys_io_K; // @[DES_Pipelined.scala 114:20]
+  wire [31:0] f_io_R; // @[DES_Pipelined.scala 118:17]
+  wire [47:0] f_io_K; // @[DES_Pipelined.scala 118:17]
+  wire [31:0] f_io_out; // @[DES_Pipelined.scala 118:17]
   reg [31:0] input_L; // @[Reg.scala 15:16]
   reg [31:0] input_R; // @[Reg.scala 15:16]
   reg [27:0] input_C; // @[Reg.scala 15:16]
   reg [27:0] input_D; // @[Reg.scala 15:16]
   reg  valid; // @[Reg.scala 15:16]
-  wire [27:0] result_D = keys_io_D_next; // @[DES_Pipelined.scala 111:20 DES_Pipelined.scala 137:12]
-  wire [27:0] result_C = keys_io_C_next; // @[DES_Pipelined.scala 111:20 DES_Pipelined.scala 136:12]
-  wire [31:0] result_R = input_L ^ f_io_out; // @[DES_Pipelined.scala 135:23]
-  DES_keys_2 keys ( // @[DES_Pipelined.scala 126:20]
+  wire  enable = io_out_ready | ~valid; // @[DES_Pipelined.scala 102:26]
+  wire [27:0] result_D = keys_io_D_next;
+  wire [27:0] result_C = keys_io_C_next;
+  wire [31:0] result_R = input_L ^ f_io_out; // @[DES_Pipelined.scala 123:23]
+  DES_keys_2 keys ( // @[DES_Pipelined.scala 114:20]
     .io_C(keys_io_C),
     .io_D(keys_io_D),
     .io_C_next(keys_io_C_next),
     .io_D_next(keys_io_D_next),
     .io_K(keys_io_K)
   );
-  DES_f f ( // @[DES_Pipelined.scala 130:17]
+  DES_f f ( // @[DES_Pipelined.scala 118:17]
     .io_R(f_io_R),
     .io_K(f_io_K),
     .io_out(f_io_out)
   );
-  assign io_out_valid = empty ? 1'h0 : valid; // @[DES_Pipelined.scala 115:15 DES_Pipelined.scala 116:18 DES_Pipelined.scala 120:18]
-  assign io_out_bits_L = empty ? 32'h0 : input_R; // @[DES_Pipelined.scala 115:15 DES_Pipelined.scala 118:17 DES_Pipelined.scala 122:17]
-  assign io_out_bits_R = empty ? 32'h0 : result_R; // @[DES_Pipelined.scala 115:15 DES_Pipelined.scala 118:17 DES_Pipelined.scala 122:17]
-  assign io_out_bits_C = empty ? 28'h0 : result_C; // @[DES_Pipelined.scala 115:15 DES_Pipelined.scala 118:17 DES_Pipelined.scala 122:17]
-  assign io_out_bits_D = empty ? 28'h0 : result_D; // @[DES_Pipelined.scala 115:15 DES_Pipelined.scala 118:17 DES_Pipelined.scala 122:17]
-  assign io_in_ready = empty | enable; // @[DES_Pipelined.scala 115:15 DES_Pipelined.scala 117:17 DES_Pipelined.scala 121:17]
-  assign keys_io_C = input_C; // @[DES_Pipelined.scala 127:13]
-  assign keys_io_D = input_D; // @[DES_Pipelined.scala 128:13]
-  assign f_io_R = input_R; // @[DES_Pipelined.scala 131:10]
-  assign f_io_K = keys_io_K; // @[DES_Pipelined.scala 132:10]
+  assign io_out_valid = valid; // @[DES_Pipelined.scala 103:16]
+  assign io_out_bits_L = valid ? input_R : 32'h0; // @[DES_Pipelined.scala 105:15 DES_Pipelined.scala 107:17 DES_Pipelined.scala 110:17]
+  assign io_out_bits_R = valid ? result_R : 32'h0; // @[DES_Pipelined.scala 105:15 DES_Pipelined.scala 107:17 DES_Pipelined.scala 110:17]
+  assign io_out_bits_C = valid ? result_C : 28'h0; // @[DES_Pipelined.scala 105:15 DES_Pipelined.scala 107:17 DES_Pipelined.scala 110:17]
+  assign io_out_bits_D = valid ? result_D : 28'h0; // @[DES_Pipelined.scala 105:15 DES_Pipelined.scala 107:17 DES_Pipelined.scala 110:17]
+  assign io_in_ready = valid ? enable : 1'h1; // @[DES_Pipelined.scala 105:15 DES_Pipelined.scala 106:17 DES_Pipelined.scala 109:17]
+  assign keys_io_C = input_C; // @[DES_Pipelined.scala 115:13]
+  assign keys_io_D = input_D; // @[DES_Pipelined.scala 116:13]
+  assign f_io_R = input_R; // @[DES_Pipelined.scala 119:10]
+  assign f_io_K = keys_io_K; // @[DES_Pipelined.scala 120:10]
   always @(posedge clock) begin
-    empty <= reset | _GEN_0; // @[DES_Pipelined.scala 103:22 DES_Pipelined.scala 103:22]
     if (enable) begin // @[Reg.scala 16:19]
       input_L <= io_in_bits_L; // @[Reg.scala 16:23]
     end
@@ -1806,17 +1780,15 @@ initial begin
     `endif
 `ifdef RANDOMIZE_REG_INIT
   _RAND_0 = {1{`RANDOM}};
-  empty = _RAND_0[0:0];
+  input_L = _RAND_0[31:0];
   _RAND_1 = {1{`RANDOM}};
-  input_L = _RAND_1[31:0];
+  input_R = _RAND_1[31:0];
   _RAND_2 = {1{`RANDOM}};
-  input_R = _RAND_2[31:0];
+  input_C = _RAND_2[27:0];
   _RAND_3 = {1{`RANDOM}};
-  input_C = _RAND_3[27:0];
+  input_D = _RAND_3[27:0];
   _RAND_4 = {1{`RANDOM}};
-  input_D = _RAND_4[27:0];
-  _RAND_5 = {1{`RANDOM}};
-  valid = _RAND_5[0:0];
+  valid = _RAND_4[0:0];
 `endif // RANDOMIZE_REG_INIT
   `endif // RANDOMIZE
 end // initial
@@ -1837,7 +1809,6 @@ module DES_Pipelined(
   output [63:0] io_result_bits
 );
   wire  initialPermutation_clock; // @[DES_Pipelined.scala 15:34]
-  wire  initialPermutation_reset; // @[DES_Pipelined.scala 15:34]
   wire  initialPermutation_io_in_ready; // @[DES_Pipelined.scala 15:34]
   wire  initialPermutation_io_in_valid; // @[DES_Pipelined.scala 15:34]
   wire [63:0] initialPermutation_io_in_bits_text; // @[DES_Pipelined.scala 15:34]
@@ -1849,7 +1820,6 @@ module DES_Pipelined(
   wire [27:0] initialPermutation_io_out_bits_C; // @[DES_Pipelined.scala 15:34]
   wire [27:0] initialPermutation_io_out_bits_D; // @[DES_Pipelined.scala 15:34]
   wire  finalPermutation_clock; // @[DES_Pipelined.scala 21:32]
-  wire  finalPermutation_reset; // @[DES_Pipelined.scala 21:32]
   wire  finalPermutation_io_out_ready; // @[DES_Pipelined.scala 21:32]
   wire  finalPermutation_io_out_valid; // @[DES_Pipelined.scala 21:32]
   wire [63:0] finalPermutation_io_out_bits; // @[DES_Pipelined.scala 21:32]
@@ -1858,7 +1828,6 @@ module DES_Pipelined(
   wire [31:0] finalPermutation_io_in_bits_L; // @[DES_Pipelined.scala 21:32]
   wire [31:0] finalPermutation_io_in_bits_R; // @[DES_Pipelined.scala 21:32]
   wire  PEs_0_clock; // @[DES_Pipelined.scala 27:20]
-  wire  PEs_0_reset; // @[DES_Pipelined.scala 27:20]
   wire  PEs_0_io_out_ready; // @[DES_Pipelined.scala 27:20]
   wire  PEs_0_io_out_valid; // @[DES_Pipelined.scala 27:20]
   wire [31:0] PEs_0_io_out_bits_L; // @[DES_Pipelined.scala 27:20]
@@ -1872,7 +1841,6 @@ module DES_Pipelined(
   wire [27:0] PEs_0_io_in_bits_C; // @[DES_Pipelined.scala 27:20]
   wire [27:0] PEs_0_io_in_bits_D; // @[DES_Pipelined.scala 27:20]
   wire  PEs_1_clock; // @[DES_Pipelined.scala 27:20]
-  wire  PEs_1_reset; // @[DES_Pipelined.scala 27:20]
   wire  PEs_1_io_out_ready; // @[DES_Pipelined.scala 27:20]
   wire  PEs_1_io_out_valid; // @[DES_Pipelined.scala 27:20]
   wire [31:0] PEs_1_io_out_bits_L; // @[DES_Pipelined.scala 27:20]
@@ -1886,7 +1854,6 @@ module DES_Pipelined(
   wire [27:0] PEs_1_io_in_bits_C; // @[DES_Pipelined.scala 27:20]
   wire [27:0] PEs_1_io_in_bits_D; // @[DES_Pipelined.scala 27:20]
   wire  PEs_2_clock; // @[DES_Pipelined.scala 27:20]
-  wire  PEs_2_reset; // @[DES_Pipelined.scala 27:20]
   wire  PEs_2_io_out_ready; // @[DES_Pipelined.scala 27:20]
   wire  PEs_2_io_out_valid; // @[DES_Pipelined.scala 27:20]
   wire [31:0] PEs_2_io_out_bits_L; // @[DES_Pipelined.scala 27:20]
@@ -1900,7 +1867,6 @@ module DES_Pipelined(
   wire [27:0] PEs_2_io_in_bits_C; // @[DES_Pipelined.scala 27:20]
   wire [27:0] PEs_2_io_in_bits_D; // @[DES_Pipelined.scala 27:20]
   wire  PEs_3_clock; // @[DES_Pipelined.scala 27:20]
-  wire  PEs_3_reset; // @[DES_Pipelined.scala 27:20]
   wire  PEs_3_io_out_ready; // @[DES_Pipelined.scala 27:20]
   wire  PEs_3_io_out_valid; // @[DES_Pipelined.scala 27:20]
   wire [31:0] PEs_3_io_out_bits_L; // @[DES_Pipelined.scala 27:20]
@@ -1914,7 +1880,6 @@ module DES_Pipelined(
   wire [27:0] PEs_3_io_in_bits_C; // @[DES_Pipelined.scala 27:20]
   wire [27:0] PEs_3_io_in_bits_D; // @[DES_Pipelined.scala 27:20]
   wire  PEs_4_clock; // @[DES_Pipelined.scala 27:20]
-  wire  PEs_4_reset; // @[DES_Pipelined.scala 27:20]
   wire  PEs_4_io_out_ready; // @[DES_Pipelined.scala 27:20]
   wire  PEs_4_io_out_valid; // @[DES_Pipelined.scala 27:20]
   wire [31:0] PEs_4_io_out_bits_L; // @[DES_Pipelined.scala 27:20]
@@ -1928,7 +1893,6 @@ module DES_Pipelined(
   wire [27:0] PEs_4_io_in_bits_C; // @[DES_Pipelined.scala 27:20]
   wire [27:0] PEs_4_io_in_bits_D; // @[DES_Pipelined.scala 27:20]
   wire  PEs_5_clock; // @[DES_Pipelined.scala 27:20]
-  wire  PEs_5_reset; // @[DES_Pipelined.scala 27:20]
   wire  PEs_5_io_out_ready; // @[DES_Pipelined.scala 27:20]
   wire  PEs_5_io_out_valid; // @[DES_Pipelined.scala 27:20]
   wire [31:0] PEs_5_io_out_bits_L; // @[DES_Pipelined.scala 27:20]
@@ -1942,7 +1906,6 @@ module DES_Pipelined(
   wire [27:0] PEs_5_io_in_bits_C; // @[DES_Pipelined.scala 27:20]
   wire [27:0] PEs_5_io_in_bits_D; // @[DES_Pipelined.scala 27:20]
   wire  PEs_6_clock; // @[DES_Pipelined.scala 27:20]
-  wire  PEs_6_reset; // @[DES_Pipelined.scala 27:20]
   wire  PEs_6_io_out_ready; // @[DES_Pipelined.scala 27:20]
   wire  PEs_6_io_out_valid; // @[DES_Pipelined.scala 27:20]
   wire [31:0] PEs_6_io_out_bits_L; // @[DES_Pipelined.scala 27:20]
@@ -1956,7 +1919,6 @@ module DES_Pipelined(
   wire [27:0] PEs_6_io_in_bits_C; // @[DES_Pipelined.scala 27:20]
   wire [27:0] PEs_6_io_in_bits_D; // @[DES_Pipelined.scala 27:20]
   wire  PEs_7_clock; // @[DES_Pipelined.scala 27:20]
-  wire  PEs_7_reset; // @[DES_Pipelined.scala 27:20]
   wire  PEs_7_io_out_ready; // @[DES_Pipelined.scala 27:20]
   wire  PEs_7_io_out_valid; // @[DES_Pipelined.scala 27:20]
   wire [31:0] PEs_7_io_out_bits_L; // @[DES_Pipelined.scala 27:20]
@@ -1970,7 +1932,6 @@ module DES_Pipelined(
   wire [27:0] PEs_7_io_in_bits_C; // @[DES_Pipelined.scala 27:20]
   wire [27:0] PEs_7_io_in_bits_D; // @[DES_Pipelined.scala 27:20]
   wire  PEs_8_clock; // @[DES_Pipelined.scala 27:20]
-  wire  PEs_8_reset; // @[DES_Pipelined.scala 27:20]
   wire  PEs_8_io_out_ready; // @[DES_Pipelined.scala 27:20]
   wire  PEs_8_io_out_valid; // @[DES_Pipelined.scala 27:20]
   wire [31:0] PEs_8_io_out_bits_L; // @[DES_Pipelined.scala 27:20]
@@ -1984,7 +1945,6 @@ module DES_Pipelined(
   wire [27:0] PEs_8_io_in_bits_C; // @[DES_Pipelined.scala 27:20]
   wire [27:0] PEs_8_io_in_bits_D; // @[DES_Pipelined.scala 27:20]
   wire  PEs_9_clock; // @[DES_Pipelined.scala 27:20]
-  wire  PEs_9_reset; // @[DES_Pipelined.scala 27:20]
   wire  PEs_9_io_out_ready; // @[DES_Pipelined.scala 27:20]
   wire  PEs_9_io_out_valid; // @[DES_Pipelined.scala 27:20]
   wire [31:0] PEs_9_io_out_bits_L; // @[DES_Pipelined.scala 27:20]
@@ -1998,7 +1958,6 @@ module DES_Pipelined(
   wire [27:0] PEs_9_io_in_bits_C; // @[DES_Pipelined.scala 27:20]
   wire [27:0] PEs_9_io_in_bits_D; // @[DES_Pipelined.scala 27:20]
   wire  PEs_10_clock; // @[DES_Pipelined.scala 27:20]
-  wire  PEs_10_reset; // @[DES_Pipelined.scala 27:20]
   wire  PEs_10_io_out_ready; // @[DES_Pipelined.scala 27:20]
   wire  PEs_10_io_out_valid; // @[DES_Pipelined.scala 27:20]
   wire [31:0] PEs_10_io_out_bits_L; // @[DES_Pipelined.scala 27:20]
@@ -2012,7 +1971,6 @@ module DES_Pipelined(
   wire [27:0] PEs_10_io_in_bits_C; // @[DES_Pipelined.scala 27:20]
   wire [27:0] PEs_10_io_in_bits_D; // @[DES_Pipelined.scala 27:20]
   wire  PEs_11_clock; // @[DES_Pipelined.scala 27:20]
-  wire  PEs_11_reset; // @[DES_Pipelined.scala 27:20]
   wire  PEs_11_io_out_ready; // @[DES_Pipelined.scala 27:20]
   wire  PEs_11_io_out_valid; // @[DES_Pipelined.scala 27:20]
   wire [31:0] PEs_11_io_out_bits_L; // @[DES_Pipelined.scala 27:20]
@@ -2026,7 +1984,6 @@ module DES_Pipelined(
   wire [27:0] PEs_11_io_in_bits_C; // @[DES_Pipelined.scala 27:20]
   wire [27:0] PEs_11_io_in_bits_D; // @[DES_Pipelined.scala 27:20]
   wire  PEs_12_clock; // @[DES_Pipelined.scala 27:20]
-  wire  PEs_12_reset; // @[DES_Pipelined.scala 27:20]
   wire  PEs_12_io_out_ready; // @[DES_Pipelined.scala 27:20]
   wire  PEs_12_io_out_valid; // @[DES_Pipelined.scala 27:20]
   wire [31:0] PEs_12_io_out_bits_L; // @[DES_Pipelined.scala 27:20]
@@ -2040,7 +1997,6 @@ module DES_Pipelined(
   wire [27:0] PEs_12_io_in_bits_C; // @[DES_Pipelined.scala 27:20]
   wire [27:0] PEs_12_io_in_bits_D; // @[DES_Pipelined.scala 27:20]
   wire  PEs_13_clock; // @[DES_Pipelined.scala 27:20]
-  wire  PEs_13_reset; // @[DES_Pipelined.scala 27:20]
   wire  PEs_13_io_out_ready; // @[DES_Pipelined.scala 27:20]
   wire  PEs_13_io_out_valid; // @[DES_Pipelined.scala 27:20]
   wire [31:0] PEs_13_io_out_bits_L; // @[DES_Pipelined.scala 27:20]
@@ -2054,7 +2010,6 @@ module DES_Pipelined(
   wire [27:0] PEs_13_io_in_bits_C; // @[DES_Pipelined.scala 27:20]
   wire [27:0] PEs_13_io_in_bits_D; // @[DES_Pipelined.scala 27:20]
   wire  PEs_14_clock; // @[DES_Pipelined.scala 27:20]
-  wire  PEs_14_reset; // @[DES_Pipelined.scala 27:20]
   wire  PEs_14_io_out_ready; // @[DES_Pipelined.scala 27:20]
   wire  PEs_14_io_out_valid; // @[DES_Pipelined.scala 27:20]
   wire [31:0] PEs_14_io_out_bits_L; // @[DES_Pipelined.scala 27:20]
@@ -2068,7 +2023,6 @@ module DES_Pipelined(
   wire [27:0] PEs_14_io_in_bits_C; // @[DES_Pipelined.scala 27:20]
   wire [27:0] PEs_14_io_in_bits_D; // @[DES_Pipelined.scala 27:20]
   wire  PEs_15_clock; // @[DES_Pipelined.scala 27:20]
-  wire  PEs_15_reset; // @[DES_Pipelined.scala 27:20]
   wire  PEs_15_io_out_ready; // @[DES_Pipelined.scala 27:20]
   wire  PEs_15_io_out_valid; // @[DES_Pipelined.scala 27:20]
   wire [31:0] PEs_15_io_out_bits_L; // @[DES_Pipelined.scala 27:20]
@@ -2083,7 +2037,6 @@ module DES_Pipelined(
   wire [27:0] PEs_15_io_in_bits_D; // @[DES_Pipelined.scala 27:20]
   DES_InitialPermutation initialPermutation ( // @[DES_Pipelined.scala 15:34]
     .clock(initialPermutation_clock),
-    .reset(initialPermutation_reset),
     .io_in_ready(initialPermutation_io_in_ready),
     .io_in_valid(initialPermutation_io_in_valid),
     .io_in_bits_text(initialPermutation_io_in_bits_text),
@@ -2097,7 +2050,6 @@ module DES_Pipelined(
   );
   DES_FinalPermutation finalPermutation ( // @[DES_Pipelined.scala 21:32]
     .clock(finalPermutation_clock),
-    .reset(finalPermutation_reset),
     .io_out_ready(finalPermutation_io_out_ready),
     .io_out_valid(finalPermutation_io_out_valid),
     .io_out_bits(finalPermutation_io_out_bits),
@@ -2108,7 +2060,6 @@ module DES_Pipelined(
   );
   DES_ProcessingElement PEs_0 ( // @[DES_Pipelined.scala 27:20]
     .clock(PEs_0_clock),
-    .reset(PEs_0_reset),
     .io_out_ready(PEs_0_io_out_ready),
     .io_out_valid(PEs_0_io_out_valid),
     .io_out_bits_L(PEs_0_io_out_bits_L),
@@ -2124,7 +2075,6 @@ module DES_Pipelined(
   );
   DES_ProcessingElement PEs_1 ( // @[DES_Pipelined.scala 27:20]
     .clock(PEs_1_clock),
-    .reset(PEs_1_reset),
     .io_out_ready(PEs_1_io_out_ready),
     .io_out_valid(PEs_1_io_out_valid),
     .io_out_bits_L(PEs_1_io_out_bits_L),
@@ -2140,7 +2090,6 @@ module DES_Pipelined(
   );
   DES_ProcessingElement_2 PEs_2 ( // @[DES_Pipelined.scala 27:20]
     .clock(PEs_2_clock),
-    .reset(PEs_2_reset),
     .io_out_ready(PEs_2_io_out_ready),
     .io_out_valid(PEs_2_io_out_valid),
     .io_out_bits_L(PEs_2_io_out_bits_L),
@@ -2156,7 +2105,6 @@ module DES_Pipelined(
   );
   DES_ProcessingElement_2 PEs_3 ( // @[DES_Pipelined.scala 27:20]
     .clock(PEs_3_clock),
-    .reset(PEs_3_reset),
     .io_out_ready(PEs_3_io_out_ready),
     .io_out_valid(PEs_3_io_out_valid),
     .io_out_bits_L(PEs_3_io_out_bits_L),
@@ -2172,7 +2120,6 @@ module DES_Pipelined(
   );
   DES_ProcessingElement_2 PEs_4 ( // @[DES_Pipelined.scala 27:20]
     .clock(PEs_4_clock),
-    .reset(PEs_4_reset),
     .io_out_ready(PEs_4_io_out_ready),
     .io_out_valid(PEs_4_io_out_valid),
     .io_out_bits_L(PEs_4_io_out_bits_L),
@@ -2188,7 +2135,6 @@ module DES_Pipelined(
   );
   DES_ProcessingElement_2 PEs_5 ( // @[DES_Pipelined.scala 27:20]
     .clock(PEs_5_clock),
-    .reset(PEs_5_reset),
     .io_out_ready(PEs_5_io_out_ready),
     .io_out_valid(PEs_5_io_out_valid),
     .io_out_bits_L(PEs_5_io_out_bits_L),
@@ -2204,7 +2150,6 @@ module DES_Pipelined(
   );
   DES_ProcessingElement_2 PEs_6 ( // @[DES_Pipelined.scala 27:20]
     .clock(PEs_6_clock),
-    .reset(PEs_6_reset),
     .io_out_ready(PEs_6_io_out_ready),
     .io_out_valid(PEs_6_io_out_valid),
     .io_out_bits_L(PEs_6_io_out_bits_L),
@@ -2220,7 +2165,6 @@ module DES_Pipelined(
   );
   DES_ProcessingElement_2 PEs_7 ( // @[DES_Pipelined.scala 27:20]
     .clock(PEs_7_clock),
-    .reset(PEs_7_reset),
     .io_out_ready(PEs_7_io_out_ready),
     .io_out_valid(PEs_7_io_out_valid),
     .io_out_bits_L(PEs_7_io_out_bits_L),
@@ -2236,7 +2180,6 @@ module DES_Pipelined(
   );
   DES_ProcessingElement PEs_8 ( // @[DES_Pipelined.scala 27:20]
     .clock(PEs_8_clock),
-    .reset(PEs_8_reset),
     .io_out_ready(PEs_8_io_out_ready),
     .io_out_valid(PEs_8_io_out_valid),
     .io_out_bits_L(PEs_8_io_out_bits_L),
@@ -2252,7 +2195,6 @@ module DES_Pipelined(
   );
   DES_ProcessingElement_2 PEs_9 ( // @[DES_Pipelined.scala 27:20]
     .clock(PEs_9_clock),
-    .reset(PEs_9_reset),
     .io_out_ready(PEs_9_io_out_ready),
     .io_out_valid(PEs_9_io_out_valid),
     .io_out_bits_L(PEs_9_io_out_bits_L),
@@ -2268,7 +2210,6 @@ module DES_Pipelined(
   );
   DES_ProcessingElement_2 PEs_10 ( // @[DES_Pipelined.scala 27:20]
     .clock(PEs_10_clock),
-    .reset(PEs_10_reset),
     .io_out_ready(PEs_10_io_out_ready),
     .io_out_valid(PEs_10_io_out_valid),
     .io_out_bits_L(PEs_10_io_out_bits_L),
@@ -2284,7 +2225,6 @@ module DES_Pipelined(
   );
   DES_ProcessingElement_2 PEs_11 ( // @[DES_Pipelined.scala 27:20]
     .clock(PEs_11_clock),
-    .reset(PEs_11_reset),
     .io_out_ready(PEs_11_io_out_ready),
     .io_out_valid(PEs_11_io_out_valid),
     .io_out_bits_L(PEs_11_io_out_bits_L),
@@ -2300,7 +2240,6 @@ module DES_Pipelined(
   );
   DES_ProcessingElement_2 PEs_12 ( // @[DES_Pipelined.scala 27:20]
     .clock(PEs_12_clock),
-    .reset(PEs_12_reset),
     .io_out_ready(PEs_12_io_out_ready),
     .io_out_valid(PEs_12_io_out_valid),
     .io_out_bits_L(PEs_12_io_out_bits_L),
@@ -2316,7 +2255,6 @@ module DES_Pipelined(
   );
   DES_ProcessingElement_2 PEs_13 ( // @[DES_Pipelined.scala 27:20]
     .clock(PEs_13_clock),
-    .reset(PEs_13_reset),
     .io_out_ready(PEs_13_io_out_ready),
     .io_out_valid(PEs_13_io_out_valid),
     .io_out_bits_L(PEs_13_io_out_bits_L),
@@ -2332,7 +2270,6 @@ module DES_Pipelined(
   );
   DES_ProcessingElement_2 PEs_14 ( // @[DES_Pipelined.scala 27:20]
     .clock(PEs_14_clock),
-    .reset(PEs_14_reset),
     .io_out_ready(PEs_14_io_out_ready),
     .io_out_valid(PEs_14_io_out_valid),
     .io_out_bits_L(PEs_14_io_out_bits_L),
@@ -2348,7 +2285,6 @@ module DES_Pipelined(
   );
   DES_ProcessingElement PEs_15 ( // @[DES_Pipelined.scala 27:20]
     .clock(PEs_15_clock),
-    .reset(PEs_15_reset),
     .io_out_ready(PEs_15_io_out_ready),
     .io_out_valid(PEs_15_io_out_valid),
     .io_out_bits_L(PEs_15_io_out_bits_L),
@@ -2366,19 +2302,16 @@ module DES_Pipelined(
   assign io_result_valid = finalPermutation_io_out_valid; // @[DES_Pipelined.scala 23:19]
   assign io_result_bits = finalPermutation_io_out_bits; // @[DES_Pipelined.scala 22:18]
   assign initialPermutation_clock = clock;
-  assign initialPermutation_reset = reset;
   assign initialPermutation_io_in_valid = io_in_valid; // @[DES_Pipelined.scala 16:34]
   assign initialPermutation_io_in_bits_text = io_in_bits_text; // @[DES_Pipelined.scala 17:38]
   assign initialPermutation_io_in_bits_key = io_in_bits_key; // @[DES_Pipelined.scala 18:37]
   assign initialPermutation_io_out_ready = PEs_0_io_in_ready; // @[DES_Pipelined.scala 36:39]
   assign finalPermutation_clock = clock;
-  assign finalPermutation_reset = reset;
   assign finalPermutation_io_out_ready = io_result_ready; // @[DES_Pipelined.scala 24:33]
   assign finalPermutation_io_in_valid = PEs_15_io_out_valid; // @[DES_Pipelined.scala 42:36]
   assign finalPermutation_io_in_bits_L = PEs_15_io_out_bits_L; // @[DES_Pipelined.scala 43:37]
   assign finalPermutation_io_in_bits_R = PEs_15_io_out_bits_R; // @[DES_Pipelined.scala 44:37]
   assign PEs_0_clock = clock;
-  assign PEs_0_reset = reset;
   assign PEs_0_io_out_ready = PEs_1_io_in_ready; // @[DES_Pipelined.scala 40:27]
   assign PEs_0_io_in_valid = initialPermutation_io_out_valid; // @[DES_Pipelined.scala 34:26]
   assign PEs_0_io_in_bits_L = initialPermutation_io_out_bits_L; // @[DES_Pipelined.scala 35:25]
@@ -2386,7 +2319,6 @@ module DES_Pipelined(
   assign PEs_0_io_in_bits_C = initialPermutation_io_out_bits_C; // @[DES_Pipelined.scala 35:25]
   assign PEs_0_io_in_bits_D = initialPermutation_io_out_bits_D; // @[DES_Pipelined.scala 35:25]
   assign PEs_1_clock = clock;
-  assign PEs_1_reset = reset;
   assign PEs_1_io_out_ready = PEs_2_io_in_ready; // @[DES_Pipelined.scala 49:27]
   assign PEs_1_io_in_valid = PEs_0_io_out_valid; // @[DES_Pipelined.scala 38:28]
   assign PEs_1_io_in_bits_L = PEs_0_io_out_bits_L; // @[DES_Pipelined.scala 39:27]
@@ -2394,7 +2326,6 @@ module DES_Pipelined(
   assign PEs_1_io_in_bits_C = PEs_0_io_out_bits_C; // @[DES_Pipelined.scala 39:27]
   assign PEs_1_io_in_bits_D = PEs_0_io_out_bits_D; // @[DES_Pipelined.scala 39:27]
   assign PEs_2_clock = clock;
-  assign PEs_2_reset = reset;
   assign PEs_2_io_out_ready = PEs_3_io_in_ready; // @[DES_Pipelined.scala 49:27]
   assign PEs_2_io_in_valid = PEs_1_io_out_valid; // @[DES_Pipelined.scala 47:28]
   assign PEs_2_io_in_bits_L = PEs_1_io_out_bits_L; // @[DES_Pipelined.scala 48:27]
@@ -2402,7 +2333,6 @@ module DES_Pipelined(
   assign PEs_2_io_in_bits_C = PEs_1_io_out_bits_C; // @[DES_Pipelined.scala 48:27]
   assign PEs_2_io_in_bits_D = PEs_1_io_out_bits_D; // @[DES_Pipelined.scala 48:27]
   assign PEs_3_clock = clock;
-  assign PEs_3_reset = reset;
   assign PEs_3_io_out_ready = PEs_4_io_in_ready; // @[DES_Pipelined.scala 49:27]
   assign PEs_3_io_in_valid = PEs_2_io_out_valid; // @[DES_Pipelined.scala 47:28]
   assign PEs_3_io_in_bits_L = PEs_2_io_out_bits_L; // @[DES_Pipelined.scala 48:27]
@@ -2410,7 +2340,6 @@ module DES_Pipelined(
   assign PEs_3_io_in_bits_C = PEs_2_io_out_bits_C; // @[DES_Pipelined.scala 48:27]
   assign PEs_3_io_in_bits_D = PEs_2_io_out_bits_D; // @[DES_Pipelined.scala 48:27]
   assign PEs_4_clock = clock;
-  assign PEs_4_reset = reset;
   assign PEs_4_io_out_ready = PEs_5_io_in_ready; // @[DES_Pipelined.scala 49:27]
   assign PEs_4_io_in_valid = PEs_3_io_out_valid; // @[DES_Pipelined.scala 47:28]
   assign PEs_4_io_in_bits_L = PEs_3_io_out_bits_L; // @[DES_Pipelined.scala 48:27]
@@ -2418,7 +2347,6 @@ module DES_Pipelined(
   assign PEs_4_io_in_bits_C = PEs_3_io_out_bits_C; // @[DES_Pipelined.scala 48:27]
   assign PEs_4_io_in_bits_D = PEs_3_io_out_bits_D; // @[DES_Pipelined.scala 48:27]
   assign PEs_5_clock = clock;
-  assign PEs_5_reset = reset;
   assign PEs_5_io_out_ready = PEs_6_io_in_ready; // @[DES_Pipelined.scala 49:27]
   assign PEs_5_io_in_valid = PEs_4_io_out_valid; // @[DES_Pipelined.scala 47:28]
   assign PEs_5_io_in_bits_L = PEs_4_io_out_bits_L; // @[DES_Pipelined.scala 48:27]
@@ -2426,7 +2354,6 @@ module DES_Pipelined(
   assign PEs_5_io_in_bits_C = PEs_4_io_out_bits_C; // @[DES_Pipelined.scala 48:27]
   assign PEs_5_io_in_bits_D = PEs_4_io_out_bits_D; // @[DES_Pipelined.scala 48:27]
   assign PEs_6_clock = clock;
-  assign PEs_6_reset = reset;
   assign PEs_6_io_out_ready = PEs_7_io_in_ready; // @[DES_Pipelined.scala 49:27]
   assign PEs_6_io_in_valid = PEs_5_io_out_valid; // @[DES_Pipelined.scala 47:28]
   assign PEs_6_io_in_bits_L = PEs_5_io_out_bits_L; // @[DES_Pipelined.scala 48:27]
@@ -2434,7 +2361,6 @@ module DES_Pipelined(
   assign PEs_6_io_in_bits_C = PEs_5_io_out_bits_C; // @[DES_Pipelined.scala 48:27]
   assign PEs_6_io_in_bits_D = PEs_5_io_out_bits_D; // @[DES_Pipelined.scala 48:27]
   assign PEs_7_clock = clock;
-  assign PEs_7_reset = reset;
   assign PEs_7_io_out_ready = PEs_8_io_in_ready; // @[DES_Pipelined.scala 49:27]
   assign PEs_7_io_in_valid = PEs_6_io_out_valid; // @[DES_Pipelined.scala 47:28]
   assign PEs_7_io_in_bits_L = PEs_6_io_out_bits_L; // @[DES_Pipelined.scala 48:27]
@@ -2442,7 +2368,6 @@ module DES_Pipelined(
   assign PEs_7_io_in_bits_C = PEs_6_io_out_bits_C; // @[DES_Pipelined.scala 48:27]
   assign PEs_7_io_in_bits_D = PEs_6_io_out_bits_D; // @[DES_Pipelined.scala 48:27]
   assign PEs_8_clock = clock;
-  assign PEs_8_reset = reset;
   assign PEs_8_io_out_ready = PEs_9_io_in_ready; // @[DES_Pipelined.scala 49:27]
   assign PEs_8_io_in_valid = PEs_7_io_out_valid; // @[DES_Pipelined.scala 47:28]
   assign PEs_8_io_in_bits_L = PEs_7_io_out_bits_L; // @[DES_Pipelined.scala 48:27]
@@ -2450,7 +2375,6 @@ module DES_Pipelined(
   assign PEs_8_io_in_bits_C = PEs_7_io_out_bits_C; // @[DES_Pipelined.scala 48:27]
   assign PEs_8_io_in_bits_D = PEs_7_io_out_bits_D; // @[DES_Pipelined.scala 48:27]
   assign PEs_9_clock = clock;
-  assign PEs_9_reset = reset;
   assign PEs_9_io_out_ready = PEs_10_io_in_ready; // @[DES_Pipelined.scala 49:27]
   assign PEs_9_io_in_valid = PEs_8_io_out_valid; // @[DES_Pipelined.scala 47:28]
   assign PEs_9_io_in_bits_L = PEs_8_io_out_bits_L; // @[DES_Pipelined.scala 48:27]
@@ -2458,7 +2382,6 @@ module DES_Pipelined(
   assign PEs_9_io_in_bits_C = PEs_8_io_out_bits_C; // @[DES_Pipelined.scala 48:27]
   assign PEs_9_io_in_bits_D = PEs_8_io_out_bits_D; // @[DES_Pipelined.scala 48:27]
   assign PEs_10_clock = clock;
-  assign PEs_10_reset = reset;
   assign PEs_10_io_out_ready = PEs_11_io_in_ready; // @[DES_Pipelined.scala 49:27]
   assign PEs_10_io_in_valid = PEs_9_io_out_valid; // @[DES_Pipelined.scala 47:28]
   assign PEs_10_io_in_bits_L = PEs_9_io_out_bits_L; // @[DES_Pipelined.scala 48:27]
@@ -2466,7 +2389,6 @@ module DES_Pipelined(
   assign PEs_10_io_in_bits_C = PEs_9_io_out_bits_C; // @[DES_Pipelined.scala 48:27]
   assign PEs_10_io_in_bits_D = PEs_9_io_out_bits_D; // @[DES_Pipelined.scala 48:27]
   assign PEs_11_clock = clock;
-  assign PEs_11_reset = reset;
   assign PEs_11_io_out_ready = PEs_12_io_in_ready; // @[DES_Pipelined.scala 49:27]
   assign PEs_11_io_in_valid = PEs_10_io_out_valid; // @[DES_Pipelined.scala 47:28]
   assign PEs_11_io_in_bits_L = PEs_10_io_out_bits_L; // @[DES_Pipelined.scala 48:27]
@@ -2474,7 +2396,6 @@ module DES_Pipelined(
   assign PEs_11_io_in_bits_C = PEs_10_io_out_bits_C; // @[DES_Pipelined.scala 48:27]
   assign PEs_11_io_in_bits_D = PEs_10_io_out_bits_D; // @[DES_Pipelined.scala 48:27]
   assign PEs_12_clock = clock;
-  assign PEs_12_reset = reset;
   assign PEs_12_io_out_ready = PEs_13_io_in_ready; // @[DES_Pipelined.scala 49:27]
   assign PEs_12_io_in_valid = PEs_11_io_out_valid; // @[DES_Pipelined.scala 47:28]
   assign PEs_12_io_in_bits_L = PEs_11_io_out_bits_L; // @[DES_Pipelined.scala 48:27]
@@ -2482,7 +2403,6 @@ module DES_Pipelined(
   assign PEs_12_io_in_bits_C = PEs_11_io_out_bits_C; // @[DES_Pipelined.scala 48:27]
   assign PEs_12_io_in_bits_D = PEs_11_io_out_bits_D; // @[DES_Pipelined.scala 48:27]
   assign PEs_13_clock = clock;
-  assign PEs_13_reset = reset;
   assign PEs_13_io_out_ready = PEs_14_io_in_ready; // @[DES_Pipelined.scala 49:27]
   assign PEs_13_io_in_valid = PEs_12_io_out_valid; // @[DES_Pipelined.scala 47:28]
   assign PEs_13_io_in_bits_L = PEs_12_io_out_bits_L; // @[DES_Pipelined.scala 48:27]
@@ -2490,7 +2410,6 @@ module DES_Pipelined(
   assign PEs_13_io_in_bits_C = PEs_12_io_out_bits_C; // @[DES_Pipelined.scala 48:27]
   assign PEs_13_io_in_bits_D = PEs_12_io_out_bits_D; // @[DES_Pipelined.scala 48:27]
   assign PEs_14_clock = clock;
-  assign PEs_14_reset = reset;
   assign PEs_14_io_out_ready = PEs_15_io_in_ready; // @[DES_Pipelined.scala 49:27]
   assign PEs_14_io_in_valid = PEs_13_io_out_valid; // @[DES_Pipelined.scala 47:28]
   assign PEs_14_io_in_bits_L = PEs_13_io_out_bits_L; // @[DES_Pipelined.scala 48:27]
@@ -2498,7 +2417,6 @@ module DES_Pipelined(
   assign PEs_14_io_in_bits_C = PEs_13_io_out_bits_C; // @[DES_Pipelined.scala 48:27]
   assign PEs_14_io_in_bits_D = PEs_13_io_out_bits_D; // @[DES_Pipelined.scala 48:27]
   assign PEs_15_clock = clock;
-  assign PEs_15_reset = reset;
   assign PEs_15_io_out_ready = finalPermutation_io_in_ready; // @[DES_Pipelined.scala 45:27]
   assign PEs_15_io_in_valid = PEs_14_io_out_valid; // @[DES_Pipelined.scala 47:28]
   assign PEs_15_io_in_bits_L = PEs_14_io_out_bits_L; // @[DES_Pipelined.scala 48:27]

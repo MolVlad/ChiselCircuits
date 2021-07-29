@@ -34,12 +34,12 @@
   },
   {
     "class":"firrtl.transforms.generator.DecoupledInputAnnotation",
-    "valid":"io_extraDataPieces_valid",
-    "ready":"io_extraDataPieces_ready",
+    "valid":"io_extraDataNum_valid",
+    "ready":"io_extraDataNum_ready",
     "bits":[
-      "io_extraDataPieces_bits"
+      "io_extraDataNum_bits"
     ],
-    "csvFileDriveBits":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/simulation/MD4FSM/cons/in/extraDataPieces.csv"
+    "csvFileDriveBits":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/simulation/MD4FSM/cons/in/extraDataNum.csv"
   },
   {
     "class":"firrtl.transforms.generator.DecoupledOutputAnnotation",

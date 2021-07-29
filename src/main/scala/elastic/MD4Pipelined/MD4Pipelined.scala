@@ -110,26 +110,20 @@ class MD4ChangeOrderInput extends Module {
     val in = Flipped(out)
   })
 
-  val empty = RegInit(true.B)
   val enable = Wire(Bool())
-  enable := io.out.ready || empty
-
-  when(enable) {
-    empty := !io.in.valid
-  }
-
-  val result = Wire(new MD4OutputData)
+  val result = WireDefault(io.out.bits)
   val input = RegEnable(io.in.bits, enable)
   val valid = RegEnable(io.in.valid, enable)
 
-  when(empty) {
-    io.out.valid := false.B
-    io.in.ready := true.B
-    io.out.bits := 0.U.asTypeOf(io.out.bits)
-  } .otherwise {
-    io.out.valid := valid
+  enable := io.out.ready || !valid
+  io.out.valid := valid
+
+  when(valid) {
     io.in.ready := enable
     io.out.bits := result
+  } .otherwise {
+    io.in.ready := true.B
+    io.out.bits := 0.U.asTypeOf(io.out.bits)
   }
 
   // processing
@@ -166,26 +160,20 @@ class MD4ProcessingElement(round: Int = 1, operation: Int = 1) extends Module {
     val in = Flipped(out)
   })
 
-  val empty = RegInit(true.B)
   val enable = Wire(Bool())
-  enable := io.out.ready || empty
-
-  when(enable) {
-    empty := !io.in.valid
-  }
-
-  val result = Wire(new MD4DataInterPE)
+  val result = WireDefault(io.out.bits)
   val input = RegEnable(io.in.bits, enable)
   val valid = RegEnable(io.in.valid, enable)
 
-  when(empty) {
-    io.out.valid := false.B
-    io.in.ready := true.B
-    io.out.bits := 0.U.asTypeOf(io.out.bits)
-  } .otherwise {
-    io.out.valid := valid
+  enable := io.out.ready || !valid
+  io.out.valid := valid
+
+  when(valid) {
     io.in.ready := enable
     io.out.bits := result
+  } .otherwise {
+    io.in.ready := true.B
+    io.out.bits := 0.U.asTypeOf(io.out.bits)
   }
 
   // computations
@@ -320,28 +308,20 @@ class MD4FinalAddition extends Module {
     })
   })
 
-  val empty = RegInit(true.B)
   val enable = Wire(Bool())
-  enable := io.out.ready || empty
-
-  when(enable) {
-    empty := !io.in.valid
-  }
-
-  val result = Wire(new Bundle {
-    val A = UInt(32.W); val B = UInt(32.W); val C = UInt(32.W); val D = UInt(32.W)
-  })
+  val result = WireDefault(io.out.bits)
   val input = RegEnable(io.in.bits, enable)
   val valid = RegEnable(io.in.valid, enable)
 
-  when(empty) {
-    io.out.valid := false.B
-    io.in.ready := true.B
-    io.out.bits := 0.U.asTypeOf(io.out.bits)
-  } .otherwise {
-    io.out.valid := valid
+  enable := io.out.ready || !valid
+  io.out.valid := valid
+
+  when(valid) {
     io.in.ready := enable
     io.out.bits := result
+  } .otherwise {
+    io.in.ready := true.B
+    io.out.bits := 0.U.asTypeOf(io.out.bits)
   }
 
   // processing
@@ -357,26 +337,20 @@ class MD4ChangeOrderOutput extends Module {
     val in = Flipped(out)
   })
 
-  val empty = RegInit(true.B)
   val enable = Wire(Bool())
-  enable := io.out.ready || empty
-
-  when(enable) {
-    empty := !io.in.valid
-  }
-
-  val result = Wire(UInt(128.W))
+  val result = WireDefault(io.out.bits)
   val input = RegEnable(io.in.bits, enable)
   val valid = RegEnable(io.in.valid, enable)
 
-  when(empty) {
-    io.out.valid := false.B
-    io.in.ready := true.B
-    io.out.bits := 0.U.asTypeOf(io.out.bits)
-  } .otherwise {
-    io.out.valid := valid
+  enable := io.out.ready || !valid
+  io.out.valid := valid
+
+  when(valid) {
     io.in.ready := enable
     io.out.bits := result
+  } .otherwise {
+    io.in.ready := true.B
+    io.out.bits := 0.U.asTypeOf(io.out.bits)
   }
 
   // processing

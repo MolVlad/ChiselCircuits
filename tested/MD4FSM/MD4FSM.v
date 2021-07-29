@@ -292,9 +292,9 @@ module MD4FSM(
   output         io_data_ready,
   input          io_data_valid,
   input  [511:0] io_data_bits,
-  output         io_extraDataPieces_ready,
-  input          io_extraDataPieces_valid,
-  input  [1:0]   io_extraDataPieces_bits,
+  output         io_extraDataNum_ready,
+  input          io_extraDataNum_valid,
+  input  [1:0]   io_extraDataNum_bits,
   input          io_hash_ready,
   output         io_hash_valid,
   output [127:0] io_hash_bits
@@ -342,16 +342,16 @@ module MD4FSM(
   reg [31:0] CC; // @[MD4FSM.scala 17:43]
   reg [31:0] DD; // @[MD4FSM.scala 17:43]
   reg [511:0] X; // @[MD4FSM.scala 18:18]
-  reg [1:0] extraDataPiecesReg; // @[MD4FSM.scala 20:35]
+  reg [1:0] extraDataNumReg; // @[MD4FSM.scala 20:32]
   wire [127:0] _T = {A,B,C,D}; // @[Cat.scala 30:58]
-  wire  _T_2 = stateReg == 3'h0; // @[MD4FSM.scala 45:40]
+  wire  _T_2 = stateReg == 3'h0; // @[MD4FSM.scala 45:37]
   wire  _T_6 = 3'h0 == stateReg; // @[Conditional.scala 37:30]
-  wire [1:0] _T_8 = io_extraDataPieces_bits + 2'h1; // @[MD4FSM.scala 66:57]
+  wire [1:0] _T_8 = io_extraDataNum_bits + 2'h1; // @[MD4FSM.scala 66:51]
   wire [1:0] _GEN_0 = io_data_valid ? 2'h0 : roundReg; // @[MD4FSM.scala 55:29 MD4FSM.scala 56:20 MD4FSM.scala 15:25]
   wire [4:0] _GEN_1 = io_data_valid ? 5'h0 : operReg; // @[MD4FSM.scala 55:29 MD4FSM.scala 57:19 MD4FSM.scala 16:24]
   wire [511:0] _GEN_3 = io_data_valid ? change1_io_out : X; // @[MD4FSM.scala 55:29 MD4FSM.scala 59:13 MD4FSM.scala 18:18]
   wire  _T_9 = 3'h1 == stateReg; // @[Conditional.scala 37:30]
-  wire [1:0] _T_11 = extraDataPiecesReg - 2'h1; // @[MD4FSM.scala 75:50]
+  wire [1:0] _T_11 = extraDataNumReg - 2'h1; // @[MD4FSM.scala 75:44]
   wire  _T_12 = 3'h2 == stateReg; // @[Conditional.scala 37:30]
   wire [4:0] _GEN_2 = operReg % 5'h4; // @[MD4FSM.scala 85:21]
   wire [2:0] _T_13 = _GEN_2[2:0]; // @[MD4FSM.scala 85:21]
@@ -394,7 +394,7 @@ module MD4FSM(
   wire [31:0] _lo_T_1 = B + BB; // @[MD4FSM.scala 142:14]
   wire [31:0] _hi_T_3 = C + CC; // @[MD4FSM.scala 143:14]
   wire [31:0] _lo_T_3 = D + DD; // @[MD4FSM.scala 144:14]
-  wire [2:0] _GEN_66 = extraDataPiecesReg == 2'h0 ? 3'h4 : 3'h1; // @[MD4FSM.scala 145:40 MD4FSM.scala 146:18 MD4FSM.scala 148:18]
+  wire [2:0] _GEN_66 = extraDataNumReg == 2'h0 ? 3'h4 : 3'h1; // @[MD4FSM.scala 145:37 MD4FSM.scala 146:18 MD4FSM.scala 148:18]
   wire  _T_36 = 3'h4 == stateReg; // @[Conditional.scala 37:30]
   wire [2:0] _GEN_67 = io_hash_ready ? 3'h0 : stateReg; // @[MD4FSM.scala 152:27 MD4FSM.scala 153:20 MD4FSM.scala 14:25]
   wire [2:0] _GEN_68 = _T_36 ? _GEN_67 : stateReg; // @[Conditional.scala 39:67 MD4FSM.scala 14:25]
@@ -428,7 +428,7 @@ module MD4FSM(
     .io_out(change2_io_out)
   );
   assign io_data_ready = _T_2 | stateReg == 3'h1; // @[MD4FSM.scala 46:49]
-  assign io_extraDataPieces_ready = stateReg == 3'h0; // @[MD4FSM.scala 45:40]
+  assign io_extraDataNum_ready = stateReg == 3'h0; // @[MD4FSM.scala 45:37]
   assign io_hash_valid = stateReg == 3'h4; // @[MD4FSM.scala 43:29]
   assign io_hash_bits = change2_io_out[127:0]; // @[MD4FSM.scala 44:16]
   assign m_io_a = _T_13 == 3'h0 ? A : _GEN_44; // @[MD4FSM.scala 85:37 MD4FSM.scala 86:16]
@@ -447,7 +447,7 @@ module MD4FSM(
     if (reset) begin // @[MD4FSM.scala 14:25]
       stateReg <= 3'h0; // @[MD4FSM.scala 14:25]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_extraDataPieces_valid) begin // @[MD4FSM.scala 50:38]
+      if (io_extraDataNum_valid) begin // @[MD4FSM.scala 50:35]
         if (io_data_valid) begin // @[MD4FSM.scala 55:29]
           stateReg <= 3'h2; // @[MD4FSM.scala 64:20]
         end else begin
@@ -466,7 +466,7 @@ module MD4FSM(
     if (reset) begin // @[MD4FSM.scala 15:25]
       roundReg <= 2'h0; // @[MD4FSM.scala 15:25]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_extraDataPieces_valid) begin // @[MD4FSM.scala 50:38]
+      if (io_extraDataNum_valid) begin // @[MD4FSM.scala 50:35]
         roundReg <= _GEN_0;
       end
     end else if (_T_9) begin // @[Conditional.scala 39:67]
@@ -477,7 +477,7 @@ module MD4FSM(
     if (reset) begin // @[MD4FSM.scala 16:24]
       operReg <= 5'h0; // @[MD4FSM.scala 16:24]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_extraDataPieces_valid) begin // @[MD4FSM.scala 50:38]
+      if (io_extraDataNum_valid) begin // @[MD4FSM.scala 50:35]
         operReg <= _GEN_1;
       end
     end else if (_T_9) begin // @[Conditional.scala 39:67]
@@ -488,7 +488,7 @@ module MD4FSM(
     if (reset) begin // @[MD4FSM.scala 17:43]
       A <= 32'h0; // @[MD4FSM.scala 17:43]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_extraDataPieces_valid) begin // @[MD4FSM.scala 50:38]
+      if (io_extraDataNum_valid) begin // @[MD4FSM.scala 50:35]
         A <= 32'h67452301; // @[MD4FSM.scala 51:11]
       end
     end else if (!(_T_9)) begin // @[Conditional.scala 39:67]
@@ -501,7 +501,7 @@ module MD4FSM(
     if (reset) begin // @[MD4FSM.scala 17:43]
       B <= 32'h0; // @[MD4FSM.scala 17:43]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_extraDataPieces_valid) begin // @[MD4FSM.scala 50:38]
+      if (io_extraDataNum_valid) begin // @[MD4FSM.scala 50:35]
         B <= 32'hefcdab89; // @[MD4FSM.scala 52:11]
       end
     end else if (!(_T_9)) begin // @[Conditional.scala 39:67]
@@ -514,7 +514,7 @@ module MD4FSM(
     if (reset) begin // @[MD4FSM.scala 17:43]
       C <= 32'h0; // @[MD4FSM.scala 17:43]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_extraDataPieces_valid) begin // @[MD4FSM.scala 50:38]
+      if (io_extraDataNum_valid) begin // @[MD4FSM.scala 50:35]
         C <= 32'h98badcfe; // @[MD4FSM.scala 53:11]
       end
     end else if (!(_T_9)) begin // @[Conditional.scala 39:67]
@@ -527,7 +527,7 @@ module MD4FSM(
     if (reset) begin // @[MD4FSM.scala 17:43]
       D <= 32'h0; // @[MD4FSM.scala 17:43]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_extraDataPieces_valid) begin // @[MD4FSM.scala 50:38]
+      if (io_extraDataNum_valid) begin // @[MD4FSM.scala 50:35]
         D <= 32'h10325476; // @[MD4FSM.scala 54:11]
       end
     end else if (!(_T_9)) begin // @[Conditional.scala 39:67]
@@ -540,7 +540,7 @@ module MD4FSM(
     if (reset) begin // @[MD4FSM.scala 17:43]
       AA <= 32'h0; // @[MD4FSM.scala 17:43]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_extraDataPieces_valid) begin // @[MD4FSM.scala 50:38]
+      if (io_extraDataNum_valid) begin // @[MD4FSM.scala 50:35]
         if (io_data_valid) begin // @[MD4FSM.scala 55:29]
           AA <= 32'h67452301; // @[MD4FSM.scala 60:14]
         end
@@ -553,7 +553,7 @@ module MD4FSM(
     if (reset) begin // @[MD4FSM.scala 17:43]
       BB <= 32'h0; // @[MD4FSM.scala 17:43]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_extraDataPieces_valid) begin // @[MD4FSM.scala 50:38]
+      if (io_extraDataNum_valid) begin // @[MD4FSM.scala 50:35]
         if (io_data_valid) begin // @[MD4FSM.scala 55:29]
           BB <= 32'hefcdab89; // @[MD4FSM.scala 61:14]
         end
@@ -566,7 +566,7 @@ module MD4FSM(
     if (reset) begin // @[MD4FSM.scala 17:43]
       CC <= 32'h0; // @[MD4FSM.scala 17:43]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_extraDataPieces_valid) begin // @[MD4FSM.scala 50:38]
+      if (io_extraDataNum_valid) begin // @[MD4FSM.scala 50:35]
         if (io_data_valid) begin // @[MD4FSM.scala 55:29]
           CC <= 32'h98badcfe; // @[MD4FSM.scala 62:14]
         end
@@ -579,7 +579,7 @@ module MD4FSM(
     if (reset) begin // @[MD4FSM.scala 17:43]
       DD <= 32'h0; // @[MD4FSM.scala 17:43]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_extraDataPieces_valid) begin // @[MD4FSM.scala 50:38]
+      if (io_extraDataNum_valid) begin // @[MD4FSM.scala 50:35]
         if (io_data_valid) begin // @[MD4FSM.scala 55:29]
           DD <= 32'h10325476; // @[MD4FSM.scala 63:14]
         end
@@ -592,25 +592,25 @@ module MD4FSM(
     if (reset) begin // @[MD4FSM.scala 18:18]
       X <= 512'h0; // @[MD4FSM.scala 18:18]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_extraDataPieces_valid) begin // @[MD4FSM.scala 50:38]
+      if (io_extraDataNum_valid) begin // @[MD4FSM.scala 50:35]
         X <= _GEN_3;
       end
     end else if (_T_9) begin // @[Conditional.scala 39:67]
       X <= _GEN_3;
     end
-    if (reset) begin // @[MD4FSM.scala 20:35]
-      extraDataPiecesReg <= 2'h0; // @[MD4FSM.scala 20:35]
+    if (reset) begin // @[MD4FSM.scala 20:32]
+      extraDataNumReg <= 2'h0; // @[MD4FSM.scala 20:32]
     end else if (_T_6) begin // @[Conditional.scala 40:58]
-      if (io_extraDataPieces_valid) begin // @[MD4FSM.scala 50:38]
+      if (io_extraDataNum_valid) begin // @[MD4FSM.scala 50:35]
         if (io_data_valid) begin // @[MD4FSM.scala 55:29]
-          extraDataPiecesReg <= io_extraDataPieces_bits; // @[MD4FSM.scala 58:30]
+          extraDataNumReg <= io_extraDataNum_bits; // @[MD4FSM.scala 58:27]
         end else begin
-          extraDataPiecesReg <= _T_8; // @[MD4FSM.scala 66:30]
+          extraDataNumReg <= _T_8; // @[MD4FSM.scala 66:27]
         end
       end
     end else if (_T_9) begin // @[Conditional.scala 39:67]
       if (io_data_valid) begin // @[MD4FSM.scala 72:27]
-        extraDataPiecesReg <= _T_11; // @[MD4FSM.scala 75:28]
+        extraDataNumReg <= _T_11; // @[MD4FSM.scala 75:25]
       end
     end
   end
@@ -675,7 +675,7 @@ initial begin
   _RAND_11 = {16{`RANDOM}};
   X = _RAND_11[511:0];
   _RAND_12 = {1{`RANDOM}};
-  extraDataPiecesReg = _RAND_12[1:0];
+  extraDataNumReg = _RAND_12[1:0];
 `endif // RANDOMIZE_REG_INIT
   `endif // RANDOMIZE
 end // initial

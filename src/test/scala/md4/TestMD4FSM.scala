@@ -24,10 +24,10 @@ object TestMD4 extends App {
 class TestBenchMD4FSM(dut: MD4FSM) extends PeekPokeTester(dut) {
   poke(dut.io.hash.ready, true.B)
 
-  poke(dut.io.extraDataPieces.valid, true.B)
-  poke(dut.io.extraDataPieces.bits, 0.U)
+  poke(dut.io.extraDataNum.valid, true.B)
+  poke(dut.io.extraDataNum.bits, 0.U)
   step(1)
-  poke(dut.io.extraDataPieces.valid, false.B)
+  poke(dut.io.extraDataNum.valid, false.B)
 
   poke(dut.io.data.valid, true.B)
   poke(dut.io.data.bits, "h61800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800000000000000".U)
@@ -36,10 +36,10 @@ class TestBenchMD4FSM(dut: MD4FSM) extends PeekPokeTester(dut) {
 
   step(100)
 
-  poke(dut.io.extraDataPieces.valid, true.B)
-  poke(dut.io.extraDataPieces.bits, 1.U)
+  poke(dut.io.extraDataNum.valid, true.B)
+  poke(dut.io.extraDataNum.bits, 1.U)
   step(1)
-  poke(dut.io.extraDataPieces.valid, false.B)
+  poke(dut.io.extraDataNum.valid, false.B)
 
   poke(dut.io.data.valid, true.B)
   poke(dut.io.data.bits, "h61303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030".U)
@@ -55,10 +55,10 @@ class TestBenchMD4FSM(dut: MD4FSM) extends PeekPokeTester(dut) {
 
   step(100)
 
-  poke(dut.io.extraDataPieces.valid, true.B)
-  poke(dut.io.extraDataPieces.bits, 0.U)
+  poke(dut.io.extraDataNum.valid, true.B)
+  poke(dut.io.extraDataNum.bits, 0.U)
   step(1)
-  poke(dut.io.extraDataPieces.valid, false.B)
+  poke(dut.io.extraDataNum.valid, false.B)
 
   poke(dut.io.data.valid, true.B)
   poke(dut.io.data.bits, "h6173646b62686f7065716867703b6b6c6a73646667696f68675b65726a673b6b6173646a64666764647364666f6968656673646c6b5d5d80b801000000000000".U)
@@ -67,12 +67,12 @@ class TestBenchMD4FSM(dut: MD4FSM) extends PeekPokeTester(dut) {
 
   step(100)
 
-  poke(dut.io.extraDataPieces.valid, true.B)
-  poke(dut.io.extraDataPieces.bits, 0.U)
+  poke(dut.io.extraDataNum.valid, true.B)
+  poke(dut.io.extraDataNum.bits, 0.U)
   poke(dut.io.data.valid, true.B)
   poke(dut.io.data.bits, "h6173646b62686f7065716867703b6b6c6a73646667696f68675b65726a673b6b6173646a64666764647364666f6968656673646c6b5d5d80b801000000000000".U)
   step(1)
-  poke(dut.io.extraDataPieces.valid, false.B)
+  poke(dut.io.extraDataNum.valid, false.B)
   poke(dut.io.data.valid, false.B)
 
 

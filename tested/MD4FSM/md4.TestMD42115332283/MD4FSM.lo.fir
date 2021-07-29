@@ -402,9 +402,9 @@ circuit MD4FSM :
     output io_data_ready : UInt<1>
     input io_data_valid : UInt<1>
     input io_data_bits : UInt<512>
-    output io_extraDataPieces_ready : UInt<1>
-    input io_extraDataPieces_valid : UInt<1>
-    input io_extraDataPieces_bits : UInt<2>
+    output io_extraDataNum_ready : UInt<1>
+    input io_extraDataNum_valid : UInt<1>
+    input io_extraDataNum_bits : UInt<2>
     input io_hash_ready : UInt<1>
     output io_hash_valid : UInt<1>
     output io_hash_bits : UInt<128>
@@ -437,45 +437,45 @@ circuit MD4FSM :
       reset => (UInt<1>("h0"), DD) @[MD4FSM.scala 17:43]
     reg X : UInt<512>, clock with :
       reset => (UInt<1>("h0"), X) @[MD4FSM.scala 18:18]
-    reg extraDataPiecesReg : UInt<2>, clock with :
-      reset => (UInt<1>("h0"), extraDataPiecesReg) @[MD4FSM.scala 20:35]
+    reg extraDataNumReg : UInt<2>, clock with :
+      reset => (UInt<1>("h0"), extraDataNumReg) @[MD4FSM.scala 20:32]
     node lo = cat(C, D) @[Cat.scala 30:58]
     node hi = cat(A, B) @[Cat.scala 30:58]
     node _T = cat(hi, lo) @[Cat.scala 30:58]
     node _T_1 = eq(stateReg, UInt<3>("h4")) @[MD4FSM.scala 43:29]
-    node _T_2 = eq(stateReg, UInt<3>("h0")) @[MD4FSM.scala 45:40]
+    node _T_2 = eq(stateReg, UInt<3>("h0")) @[MD4FSM.scala 45:37]
     node _T_3 = eq(stateReg, UInt<3>("h0")) @[MD4FSM.scala 46:30]
     node _T_4 = eq(stateReg, UInt<3>("h1")) @[MD4FSM.scala 46:62]
     node _T_5 = or(_T_3, _T_4) @[MD4FSM.scala 46:49]
     node _T_6 = eq(UInt<3>("h0"), stateReg) @[Conditional.scala 37:30]
-    node _T_7 = add(io_extraDataPieces_bits, UInt<1>("h1")) @[MD4FSM.scala 66:57]
-    node _T_8 = tail(_T_7, 1) @[MD4FSM.scala 66:57]
+    node _T_7 = add(io_extraDataNum_bits, UInt<1>("h1")) @[MD4FSM.scala 66:51]
+    node _T_8 = tail(_T_7, 1) @[MD4FSM.scala 66:51]
     node _GEN_0 = mux(io_data_valid, UInt<1>("h0"), roundReg) @[MD4FSM.scala 55:29 MD4FSM.scala 56:20 MD4FSM.scala 15:25]
     node _GEN_1 = mux(io_data_valid, UInt<1>("h0"), operReg) @[MD4FSM.scala 55:29 MD4FSM.scala 57:19 MD4FSM.scala 16:24]
-    node _GEN_2 = mux(io_data_valid, io_extraDataPieces_bits, _T_8) @[MD4FSM.scala 55:29 MD4FSM.scala 58:30 MD4FSM.scala 66:30]
+    node _GEN_2 = mux(io_data_valid, io_extraDataNum_bits, _T_8) @[MD4FSM.scala 55:29 MD4FSM.scala 58:27 MD4FSM.scala 66:27]
     node _GEN_3 = mux(io_data_valid, change1.io_out, X) @[MD4FSM.scala 55:29 MD4FSM.scala 59:13 MD4FSM.scala 18:18]
     node _GEN_4 = mux(io_data_valid, UInt<31>("h67452301"), AA) @[MD4FSM.scala 55:29 MD4FSM.scala 60:14 MD4FSM.scala 17:43]
     node _GEN_5 = mux(io_data_valid, UInt<32>("hefcdab89"), BB) @[MD4FSM.scala 55:29 MD4FSM.scala 61:14 MD4FSM.scala 17:43]
     node _GEN_6 = mux(io_data_valid, UInt<32>("h98badcfe"), CC) @[MD4FSM.scala 55:29 MD4FSM.scala 62:14 MD4FSM.scala 17:43]
     node _GEN_7 = mux(io_data_valid, UInt<29>("h10325476"), DD) @[MD4FSM.scala 55:29 MD4FSM.scala 63:14 MD4FSM.scala 17:43]
     node _GEN_8 = mux(io_data_valid, UInt<3>("h2"), UInt<3>("h1")) @[MD4FSM.scala 55:29 MD4FSM.scala 64:20 MD4FSM.scala 67:20]
-    node _GEN_9 = mux(io_extraDataPieces_valid, UInt<31>("h67452301"), A) @[MD4FSM.scala 50:38 MD4FSM.scala 51:11 MD4FSM.scala 17:43]
-    node _GEN_10 = mux(io_extraDataPieces_valid, UInt<32>("hefcdab89"), B) @[MD4FSM.scala 50:38 MD4FSM.scala 52:11 MD4FSM.scala 17:43]
-    node _GEN_11 = mux(io_extraDataPieces_valid, UInt<32>("h98badcfe"), C) @[MD4FSM.scala 50:38 MD4FSM.scala 53:11 MD4FSM.scala 17:43]
-    node _GEN_12 = mux(io_extraDataPieces_valid, UInt<29>("h10325476"), D) @[MD4FSM.scala 50:38 MD4FSM.scala 54:11 MD4FSM.scala 17:43]
-    node _GEN_13 = mux(io_extraDataPieces_valid, _GEN_0, roundReg) @[MD4FSM.scala 50:38 MD4FSM.scala 15:25]
-    node _GEN_14 = mux(io_extraDataPieces_valid, _GEN_1, operReg) @[MD4FSM.scala 50:38 MD4FSM.scala 16:24]
-    node _GEN_15 = mux(io_extraDataPieces_valid, _GEN_2, extraDataPiecesReg) @[MD4FSM.scala 50:38 MD4FSM.scala 20:35]
-    node _GEN_16 = mux(io_extraDataPieces_valid, _GEN_3, X) @[MD4FSM.scala 50:38 MD4FSM.scala 18:18]
-    node _GEN_17 = mux(io_extraDataPieces_valid, _GEN_4, AA) @[MD4FSM.scala 50:38 MD4FSM.scala 17:43]
-    node _GEN_18 = mux(io_extraDataPieces_valid, _GEN_5, BB) @[MD4FSM.scala 50:38 MD4FSM.scala 17:43]
-    node _GEN_19 = mux(io_extraDataPieces_valid, _GEN_6, CC) @[MD4FSM.scala 50:38 MD4FSM.scala 17:43]
-    node _GEN_20 = mux(io_extraDataPieces_valid, _GEN_7, DD) @[MD4FSM.scala 50:38 MD4FSM.scala 17:43]
-    node _GEN_21 = mux(io_extraDataPieces_valid, _GEN_8, stateReg) @[MD4FSM.scala 50:38 MD4FSM.scala 14:25]
+    node _GEN_9 = mux(io_extraDataNum_valid, UInt<31>("h67452301"), A) @[MD4FSM.scala 50:35 MD4FSM.scala 51:11 MD4FSM.scala 17:43]
+    node _GEN_10 = mux(io_extraDataNum_valid, UInt<32>("hefcdab89"), B) @[MD4FSM.scala 50:35 MD4FSM.scala 52:11 MD4FSM.scala 17:43]
+    node _GEN_11 = mux(io_extraDataNum_valid, UInt<32>("h98badcfe"), C) @[MD4FSM.scala 50:35 MD4FSM.scala 53:11 MD4FSM.scala 17:43]
+    node _GEN_12 = mux(io_extraDataNum_valid, UInt<29>("h10325476"), D) @[MD4FSM.scala 50:35 MD4FSM.scala 54:11 MD4FSM.scala 17:43]
+    node _GEN_13 = mux(io_extraDataNum_valid, _GEN_0, roundReg) @[MD4FSM.scala 50:35 MD4FSM.scala 15:25]
+    node _GEN_14 = mux(io_extraDataNum_valid, _GEN_1, operReg) @[MD4FSM.scala 50:35 MD4FSM.scala 16:24]
+    node _GEN_15 = mux(io_extraDataNum_valid, _GEN_2, extraDataNumReg) @[MD4FSM.scala 50:35 MD4FSM.scala 20:32]
+    node _GEN_16 = mux(io_extraDataNum_valid, _GEN_3, X) @[MD4FSM.scala 50:35 MD4FSM.scala 18:18]
+    node _GEN_17 = mux(io_extraDataNum_valid, _GEN_4, AA) @[MD4FSM.scala 50:35 MD4FSM.scala 17:43]
+    node _GEN_18 = mux(io_extraDataNum_valid, _GEN_5, BB) @[MD4FSM.scala 50:35 MD4FSM.scala 17:43]
+    node _GEN_19 = mux(io_extraDataNum_valid, _GEN_6, CC) @[MD4FSM.scala 50:35 MD4FSM.scala 17:43]
+    node _GEN_20 = mux(io_extraDataNum_valid, _GEN_7, DD) @[MD4FSM.scala 50:35 MD4FSM.scala 17:43]
+    node _GEN_21 = mux(io_extraDataNum_valid, _GEN_8, stateReg) @[MD4FSM.scala 50:35 MD4FSM.scala 14:25]
     node _T_9 = eq(UInt<3>("h1"), stateReg) @[Conditional.scala 37:30]
-    node _T_10 = sub(extraDataPiecesReg, UInt<1>("h1")) @[MD4FSM.scala 75:50]
-    node _T_11 = tail(_T_10, 1) @[MD4FSM.scala 75:50]
-    node _GEN_22 = mux(io_data_valid, _T_11, extraDataPiecesReg) @[MD4FSM.scala 72:27 MD4FSM.scala 75:28 MD4FSM.scala 20:35]
+    node _T_10 = sub(extraDataNumReg, UInt<1>("h1")) @[MD4FSM.scala 75:44]
+    node _T_11 = tail(_T_10, 1) @[MD4FSM.scala 75:44]
+    node _GEN_22 = mux(io_data_valid, _T_11, extraDataNumReg) @[MD4FSM.scala 72:27 MD4FSM.scala 75:25 MD4FSM.scala 20:32]
     node _GEN_23 = mux(io_data_valid, A, AA) @[MD4FSM.scala 72:27 MD4FSM.scala 77:12 MD4FSM.scala 17:43]
     node _GEN_24 = mux(io_data_valid, B, BB) @[MD4FSM.scala 72:27 MD4FSM.scala 78:12 MD4FSM.scala 17:43]
     node _GEN_25 = mux(io_data_valid, C, CC) @[MD4FSM.scala 72:27 MD4FSM.scala 79:12 MD4FSM.scala 17:43]
@@ -550,8 +550,8 @@ circuit MD4FSM :
     node _hi_T_3 = tail(_hi_T_2, 1) @[MD4FSM.scala 143:14]
     node _lo_T_2 = add(D, DD) @[MD4FSM.scala 144:14]
     node _lo_T_3 = tail(_lo_T_2, 1) @[MD4FSM.scala 144:14]
-    node _T_35 = eq(extraDataPiecesReg, UInt<1>("h0")) @[MD4FSM.scala 145:31]
-    node _GEN_66 = mux(_T_35, UInt<3>("h4"), UInt<3>("h1")) @[MD4FSM.scala 145:40 MD4FSM.scala 146:18 MD4FSM.scala 148:18]
+    node _T_35 = eq(extraDataNumReg, UInt<1>("h0")) @[MD4FSM.scala 145:28]
+    node _GEN_66 = mux(_T_35, UInt<3>("h4"), UInt<3>("h1")) @[MD4FSM.scala 145:37 MD4FSM.scala 146:18 MD4FSM.scala 148:18]
     node _T_36 = eq(UInt<3>("h4"), stateReg) @[Conditional.scala 37:30]
     node _GEN_67 = mux(io_hash_ready, UInt<3>("h0"), stateReg) @[MD4FSM.scala 152:27 MD4FSM.scala 153:20 MD4FSM.scala 14:25]
     node _GEN_68 = mux(_T_36, _GEN_67, stateReg) @[Conditional.scala 39:67 MD4FSM.scala 14:25]
@@ -574,7 +574,7 @@ circuit MD4FSM :
     node _GEN_85 = mux(_T_12, _GEN_65, roundReg) @[Conditional.scala 39:67 MD4FSM.scala 15:25]
     node _GEN_86 = mux(_T_9, _GEN_0, _GEN_85) @[Conditional.scala 39:67]
     node _GEN_87 = mux(_T_9, _GEN_1, _GEN_83) @[Conditional.scala 39:67]
-    node _GEN_88 = mux(_T_9, _GEN_22, extraDataPiecesReg) @[Conditional.scala 39:67 MD4FSM.scala 20:35]
+    node _GEN_88 = mux(_T_9, _GEN_22, extraDataNumReg) @[Conditional.scala 39:67 MD4FSM.scala 20:32]
     node _GEN_89 = mux(_T_9, _GEN_3, X) @[Conditional.scala 39:67 MD4FSM.scala 18:18]
     node _GEN_90 = mux(_T_9, _GEN_23, AA) @[Conditional.scala 39:67 MD4FSM.scala 17:43]
     node _GEN_91 = mux(_T_9, _GEN_24, BB) @[Conditional.scala 39:67 MD4FSM.scala 17:43]
@@ -609,7 +609,7 @@ circuit MD4FSM :
     node _GEN_120 = validif(eq(_T_6, UInt<1>("h0")), _GEN_98) @[Conditional.scala 40:58]
     node _GEN_121 = validif(eq(_T_6, UInt<1>("h0")), _GEN_100) @[Conditional.scala 40:58]
     io_data_ready <= _T_5 @[MD4FSM.scala 46:17]
-    io_extraDataPieces_ready <= _T_2 @[MD4FSM.scala 45:28]
+    io_extraDataNum_ready <= _T_2 @[MD4FSM.scala 45:25]
     io_hash_valid <= _T_1 @[MD4FSM.scala 43:17]
     io_hash_bits <= bits(change2.io_out, 127, 0) @[MD4FSM.scala 44:16]
     stateReg <= mux(reset, UInt<3>("h0"), _GEN_116) @[MD4FSM.scala 14:25 MD4FSM.scala 14:25]
@@ -624,7 +624,7 @@ circuit MD4FSM :
     CC <= mux(reset, UInt<32>("h0"), _GEN_114) @[MD4FSM.scala 17:43 MD4FSM.scala 17:43]
     DD <= mux(reset, UInt<32>("h0"), _GEN_115) @[MD4FSM.scala 17:43 MD4FSM.scala 17:43]
     X <= mux(reset, UInt<512>("h0"), _GEN_111) @[MD4FSM.scala 18:18 MD4FSM.scala 18:18]
-    extraDataPiecesReg <= mux(reset, UInt<2>("h0"), _GEN_110) @[MD4FSM.scala 20:35 MD4FSM.scala 20:35]
+    extraDataNumReg <= mux(reset, UInt<2>("h0"), _GEN_110) @[MD4FSM.scala 20:32 MD4FSM.scala 20:32]
     m.clock <= clock
     m.reset <= reset
     m.io_a <= _GEN_117

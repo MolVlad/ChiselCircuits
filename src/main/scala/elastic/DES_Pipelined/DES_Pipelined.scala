@@ -60,26 +60,20 @@ class DES_InitialPermutation extends Module {
     val out = new DecoupledIO(new DES_DataInterPE)
   })
 
-  val empty = RegInit(true.B)
   val enable = Wire(Bool())
-  enable := io.out.ready || empty
-
-  when(enable) {
-    empty := !io.in.valid
-  }
-
-  val result = Wire(new DES_DataInterPE)
+  val result = WireDefault(io.out.bits)
   val input = RegEnable(io.in.bits, enable)
   val valid = RegEnable(io.in.valid, enable)
 
-  when(empty) {
-    io.out.valid := false.B
-    io.in.ready := true.B
-    io.out.bits := 0.U.asTypeOf(io.out.bits)
-  } .otherwise {
-    io.out.valid := valid
+  enable := io.out.ready || !valid
+  io.out.valid := valid
+
+  when(valid) {
     io.in.ready := enable
     io.out.bits := result
+  } .otherwise {
+    io.in.ready := true.B
+    io.out.bits := 0.U.asTypeOf(io.out.bits)
   }
 
   // processing
@@ -100,26 +94,20 @@ class DES_ProcessingElement(round: Int, encrypt: Boolean) extends Module {
     val in = Flipped(out)
   })
 
-  val empty = RegInit(true.B)
   val enable = Wire(Bool())
-  enable := io.out.ready || empty
-
-  when(enable) {
-    empty := !io.in.valid
-  }
-
-  val result = Wire(new DES_DataInterPE)
+  val result = WireDefault(io.out.bits)
   val input = RegEnable(io.in.bits, enable)
   val valid = RegEnable(io.in.valid, enable)
 
-  when(empty) {
-    io.out.valid := false.B
-    io.in.ready := true.B
-    io.out.bits := 0.U.asTypeOf(io.out.bits)
-  } .otherwise {
-    io.out.valid := valid
+  enable := io.out.ready || !valid
+  io.out.valid := valid
+
+  when(valid) {
     io.in.ready := enable
     io.out.bits := result
+  } .otherwise {
+    io.in.ready := true.B
+    io.out.bits := 0.U.asTypeOf(io.out.bits)
   }
 
   // computations
@@ -146,26 +134,20 @@ class DES_FinalPermutation extends Module {
     }))
   })
 
-  val empty = RegInit(true.B)
   val enable = Wire(Bool())
-  enable := io.out.ready || empty
-
-  when(enable) {
-    empty := !io.in.valid
-  }
-
-  val result = Wire(UInt(64.W))
+  val result = WireDefault(io.out.bits)
   val input = RegEnable(io.in.bits, enable)
   val valid = RegEnable(io.in.valid, enable)
 
-  when(empty) {
-    io.out.valid := false.B
-    io.in.ready := true.B
-    io.out.bits := 0.U.asTypeOf(io.out.bits)
-  } .otherwise {
-    io.out.valid := valid
+  enable := io.out.ready || !valid
+  io.out.valid := valid
+
+  when(valid) {
     io.in.ready := enable
     io.out.bits := result
+  } .otherwise {
+    io.in.ready := true.B
+    io.out.bits := 0.U.asTypeOf(io.out.bits)
   }
 
   // processing

@@ -60,10 +60,9 @@ class DES_InitialPermutation extends Module {
     val out = new DecoupledIO(new DES_DataInterPE)
   })
 
-  val result = Wire(new DES_DataInterPE)
-  val input = Wire(new Bundle{val text = UInt(64.W); val key = UInt(64.W)})
-  val data = RegInit(VecInit(Seq.fill(2)(0.U.asTypeOf(new Bundle{val text = UInt(64.W); val key = UInt(64.W)}))))
-
+  val input = WireDefault(io.in.bits)
+  val result = WireDefault(io.out.bits)
+  val data = RegInit(VecInit(Seq.fill(2)(0.U.asTypeOf(io.in.bits))))
   val head = RegInit(false.B)
   val tail = RegInit(false.B)
   val full = RegInit(VecInit(Seq.fill(2)(false.B)))
@@ -104,8 +103,9 @@ class DES_ProcessingElement(round: Int, encrypt: Boolean) extends Module {
     val in = Flipped(out)
   })
 
-  val input, result = Wire(new DES_DataInterPE)
-  val data = RegInit(VecInit(Seq.fill(2)(0.U.asTypeOf(new DES_DataInterPE))))
+  val input = WireDefault(io.in.bits)
+  val result = WireDefault(io.out.bits)
+  val data = RegInit(VecInit(Seq.fill(2)(0.U.asTypeOf(io.in.bits))))
   val head = RegInit(false.B)
   val tail = RegInit(false.B)
   val full = RegInit(VecInit(Seq.fill(2)(false.B)))
@@ -152,10 +152,9 @@ class DES_FinalPermutation extends Module {
     }))
   })
 
-  val result = Wire(UInt(64.W))
-  val input = Wire(new Bundle{val L = UInt(32.W); val R = UInt(32.W)})
-  val data = RegInit(VecInit(Seq.fill(2)(0.U.asTypeOf(new Bundle{val L = UInt(32.W); val R = UInt(32.W)}))))
-
+  val input = WireDefault(io.in.bits)
+  val result = WireDefault(io.out.bits)
+  val data = RegInit(VecInit(Seq.fill(2)(0.U.asTypeOf(io.in.bits))))
   val head = RegInit(false.B)
   val tail = RegInit(false.B)
   val full = RegInit(VecInit(Seq.fill(2)(false.B)))
