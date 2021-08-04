@@ -5,7 +5,7 @@ import chisel3.iotesters._
 import elastic.AES_Pipelined._
 
 object TestInvMixColumn extends App {
-  def module = new InvMixColumn
+  def module = new AES_InvMixColumn
   val name = "InvMixColumn"
   val dirName = "tested/" + name
 
@@ -21,7 +21,7 @@ object TestInvMixColumn extends App {
   )
 }
 
-class TestBenchInvMixColumn(dut: InvMixColumn) extends PeekPokeTester(dut) {
+class TestBenchInvMixColumn(dut: AES_InvMixColumn) extends PeekPokeTester(dut) {
   poke(dut.io.in(0), "h8e".U)
   poke(dut.io.in(1), "h4d".U)
   poke(dut.io.in(2), "ha1".U)

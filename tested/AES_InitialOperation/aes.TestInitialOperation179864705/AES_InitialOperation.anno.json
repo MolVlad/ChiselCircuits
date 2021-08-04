@@ -1,0 +1,27 @@
+[
+  {
+    "class":"firrtl.stage.FirrtlFileAnnotation",
+    "file":"tested/AES_InitialOperation/aes.TestInitialOperation179864705/AES_InitialOperation.lo.fir"
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~AES_InitialOperation|AES_InitialOperation>io_in_ready",
+    "sources":[
+      "~AES_InitialOperation|AES_InitialOperation>io_out_ready"
+    ]
+  },
+  {
+    "class":"firrtl.EmitCircuitAnnotation",
+    "emitter":"firrtl.LowFirrtlEmitter"
+  },
+  {
+    "class":"logger.LogLevelAnnotation",
+    "globalLogLevel":{
+      
+    }
+  },
+  {
+    "class":"firrtl.transforms.BlackBoxTargetDirAnno",
+    "targetDir":"tested/AES_InitialOperation/aes.TestInitialOperation179864705"
+  }
+]

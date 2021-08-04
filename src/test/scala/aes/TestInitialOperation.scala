@@ -4,15 +4,15 @@ import chisel3._
 import chisel3.iotesters._
 import elastic.AES_Pipelined._
 
-object TestSbox extends App {
-  def module = new AES_InvS
-  val name = "Sbox"
+object TestInitialOperation extends App {
+  def module = new AES_InitialOperation
+  val name = "AES_InitialOperation"
   val dirName = "tested/" + name
 
   println("[{(Running test bench)}]")
   chisel3.iotesters.Driver.execute(
     Array("-o", name, "--generate-vcd-output", "on", "--target-dir", dirName),
-    () => module) { c => new TestBenchSbox(c)}
+    () => module) { c => new TestBenchInitialOperation(c)}
 
   println("[{(Generating Verilog file)}]")
   (new chisel3.stage.ChiselStage).emitVerilog(
@@ -21,17 +21,12 @@ object TestSbox extends App {
   )
 }
 
-class TestBenchSbox(dut: AES_InvS) extends PeekPokeTester(dut) {
-  poke(dut.io.in, "h00".U)
-  step(1)
-  poke(dut.io.in, "h42".U)
-  step(1)
-  poke(dut.io.in, "h53".U)
-  step(1)
-  poke(dut.io.in, "hff".U)
-  step(1)
-  poke(dut.io.in, "hac".U)
-  step(1)
+class TestBenchInitialOperation(dut: AES_InitialOperation) extends PeekPokeTester(dut) {
+  step(10)
+
+  poke(dut.io.in.valid, true.B)
+  poke(dut.io.in.bits.text, "h3243f6a8885a308d313198a2e0370734".U)
+  poke(dut.io.in.bits.key, "h2b7e151628aed2a6abf7158809cf4f3c".U)
 
   step(100)
 }

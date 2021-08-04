@@ -1,0 +1,27 @@
+[
+  {
+    "class":"firrtl.stage.FirrtlFileAnnotation",
+    "file":"tested/AES_FinalOperation/aes.TestFinalOperation59478413/AES_FinalOperation.lo.fir"
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~AES_FinalOperation|AES_FinalOperation>io_in_ready",
+    "sources":[
+      "~AES_FinalOperation|AES_FinalOperation>io_out_ready"
+    ]
+  },
+  {
+    "class":"firrtl.EmitCircuitAnnotation",
+    "emitter":"firrtl.LowFirrtlEmitter"
+  },
+  {
+    "class":"logger.LogLevelAnnotation",
+    "globalLogLevel":{
+      
+    }
+  },
+  {
+    "class":"firrtl.transforms.BlackBoxTargetDirAnno",
+    "targetDir":"tested/AES_FinalOperation/aes.TestFinalOperation59478413"
+  }
+]

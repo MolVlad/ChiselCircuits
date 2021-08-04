@@ -3,7 +3,7 @@ package elastic.AES_Pipelined
 import chisel3._
 import chisel3.util._
 
-class AES_Pipelined(encrypt: Boolean) extends Module {
+class AES_Pipelined extends Module {
   val io = IO(new Bundle {
     val in = Flipped(new DecoupledIO(new Bundle {
       val text = UInt(128.W)
@@ -18,13 +18,13 @@ class AES_Pipelined(encrypt: Boolean) extends Module {
   initialPermutation.io.in.bits.key := io.in.bits.key
   io.in.ready := initialPermutation.io.in.ready
 
-  val finalPermutation = Module(new AES_FinalPermutation)
+  val finalPermutation = Module(new AES_FinalOperation)
   io.result.bits := finalPermutation.io.out.bits
   io.result.valid := finalPermutation.io.out.valid
   finalPermutation.io.out.ready := io.result.ready
 
   val PEs = for (i <- 0 until 10) yield {
-    val pe = Module(new AES_ProcessingElement(round = i, encrypt = encrypt))
+    val pe = Module(new AES_ProcessingElement(last = i == 9))
     pe.io := DontCare
     pe
   }
@@ -49,6 +49,34 @@ class AES_Pipelined(encrypt: Boolean) extends Module {
       PEs(i).io.out.ready := PEs(i+1).io.in.ready
     }
   }
+}
+
+
+class AES_ProcessingElement(last: Boolean) extends Module {
+  val io = IO(new Bundle {
+    val out = new DecoupledIO(new AES_DataInterPE)
+    val in = Flipped(out)
+  })
+
+  val enable = Wire(Bool())
+  val result = WireDefault(io.out.bits)
+  val input = RegEnable(io.in.bits, enable)
+  val valid = RegEnable(io.in.valid, enable)
+
+  enable := io.out.ready || !valid
+  io.out.valid := valid
+
+  when(valid) {
+    io.in.ready := enable
+    io.out.bits := result
+  } .otherwise {
+    io.in.ready := true.B
+    io.out.bits := 0.U.asTypeOf(io.out.bits)
+  }
+
+  // computations
+  result.state := input.state
+  result.key := input.key
 }
 
 class AES_InitialOperation extends Module {
@@ -77,40 +105,15 @@ class AES_InitialOperation extends Module {
   }
 
   // processing
-//  for(i <- 0 until 4) {
-//    result.state(i) := io.in.bits.text(32*(i+1)-1, 32*i)
-//    result.key(i) := io.in.bits.key(32*(i+1)-1, 32*i)
-//  }
-}
-
-class AES_ProcessingElement(round: Int, encrypt: Boolean) extends Module {
-  val io = IO(new Bundle {
-    val out = new DecoupledIO(new AES_DataInterPE)
-    val in = Flipped(out)
-  })
-
-  val enable = Wire(Bool())
-  val result = WireDefault(io.out.bits)
-  val input = RegEnable(io.in.bits, enable)
-  val valid = RegEnable(io.in.valid, enable)
-
-  enable := io.out.ready || !valid
-  io.out.valid := valid
-
-  when(valid) {
-    io.in.ready := enable
-    io.out.bits := result
-  } .otherwise {
-    io.in.ready := true.B
-    io.out.bits := 0.U.asTypeOf(io.out.bits)
+  for(i <- 0 until 4) {
+    for(j <- 0 until 4) {
+      result.state(3-i)(3-j) := input.text(32*i+8*(j+1)-1, 32*i+8*j)
+      result.key(3-i)(3-j) := input.key(32*i+8*(j+1)-1, 32*i+8*j)
+    }
   }
-
-  // computations
-  result.state := input.state
-  result.key := input.key
 }
 
-class AES_FinalPermutation extends Module {
+class AES_FinalOperation extends Module {
   val io = IO(new Bundle {
     val out = new DecoupledIO(UInt(128.W))
     val in = Flipped(new DecoupledIO(new AES_DataInterPE))
@@ -133,7 +136,14 @@ class AES_FinalPermutation extends Module {
   }
 
   // processing
-//  result := Cat(input.state(0),input.state(1),input.state(2),input.state(3))
+  result := Cat(input.state(0)(0)^input.key(0)(0),input.state(0)(1)^input.key(0)(1),
+    input.state(0)(2)^input.key(0)(2),input.state(0)(3)^input.key(0)(3),
+    input.state(1)(0)^input.key(1)(0),input.state(1)(1)^input.key(1)(1),
+    input.state(1)(2)^input.key(1)(2),input.state(1)(3)^input.key(1)(3),
+    input.state(2)(0)^input.key(2)(0),input.state(2)(1)^input.key(2)(1),
+    input.state(2)(2)^input.key(2)(2),input.state(2)(3)^input.key(2)(3),
+    input.state(3)(0)^input.key(3)(0),input.state(3)(1)^input.key(3)(1),
+    input.state(3)(2)^input.key(3)(2),input.state(3)(3)^input.key(3)(3))
 }
 
 class AES_DataInterPE extends Bundle {
@@ -183,7 +193,7 @@ class AES_S extends Module {
   io.out := S(io.in(7,4))(io.in(3,0))
 }
 
-class MixColumn extends Module {
+class AES_MixColumn extends Module {
   val io = IO(new Bundle {
     val in = Input(Vec(4, UInt(8.W)))
     val out = Output(Vec(4, UInt(8.W)))
@@ -228,7 +238,7 @@ class MixColumn extends Module {
   io.out(3) := mul2(io.in(0)) ^ io.in(0) ^ io.in(1) ^ io.in(2) ^ mul2(io.in(3))
 }
 
-class InvAES_S extends Module {
+class AES_InvS extends Module {
   val io = IO(new Bundle {
     val in = Input(UInt(8.W))
     val out = Output(UInt(8.W))
@@ -270,7 +280,7 @@ class InvAES_S extends Module {
   io.out := S(io.in(7,4))(io.in(3,0))
 }
 
-class InvMixColumn extends Module {
+class AES_InvMixColumn extends Module {
   val io = IO(new Bundle {
     val in = Input(Vec(4, UInt(8.W)))
     val out = Output(Vec(4, UInt(8.W)))
