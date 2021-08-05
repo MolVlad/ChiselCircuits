@@ -24,7 +24,7 @@ class AES_Pipelined extends Module {
   finalPermutation.io.out.ready := io.result.ready
 
   val PEs = for (i <- 0 until 10) yield {
-    val pe = Module(new AES_ProcessingElement(last = i == 9))
+    val pe = Module(new AES_ProcessingElement(round = i))
     pe.io := DontCare
     pe
   }
@@ -49,34 +49,6 @@ class AES_Pipelined extends Module {
       PEs(i).io.out.ready := PEs(i+1).io.in.ready
     }
   }
-}
-
-
-class AES_ProcessingElement(last: Boolean) extends Module {
-  val io = IO(new Bundle {
-    val out = new DecoupledIO(new AES_DataInterPE)
-    val in = Flipped(out)
-  })
-
-  val enable = Wire(Bool())
-  val result = WireDefault(io.out.bits)
-  val input = RegEnable(io.in.bits, enable)
-  val valid = RegEnable(io.in.valid, enable)
-
-  enable := io.out.ready || !valid
-  io.out.valid := valid
-
-  when(valid) {
-    io.in.ready := enable
-    io.out.bits := result
-  } .otherwise {
-    io.in.ready := true.B
-    io.out.bits := 0.U.asTypeOf(io.out.bits)
-  }
-
-  // computations
-  result.state := input.state
-  result.key := input.key
 }
 
 class AES_InitialOperation extends Module {
@@ -117,7 +89,7 @@ class AES_FinalOperation extends Module {
   val io = IO(new Bundle {
     val out = new DecoupledIO(UInt(128.W))
     val in = Flipped(new DecoupledIO(new AES_DataInterPE))
-    })
+  })
 
   val enable = Wire(Bool())
   val result = WireDefault(io.out.bits)
@@ -146,51 +118,145 @@ class AES_FinalOperation extends Module {
     input.state(3)(2)^input.key(3)(2),input.state(3)(3)^input.key(3)(3))
 }
 
-class AES_DataInterPE extends Bundle {
-  val state = Output(Vec(4,Vec(4, UInt(8.W))))
-  val key = Output(Vec(4,Vec(4, UInt(8.W))))
-}
-
-class AES_S extends Module {
+class AES_ProcessingElement(round: Int) extends Module {
   val io = IO(new Bundle {
-    val in = Input(UInt(8.W))
-    val out = Output(UInt(8.W))
+    val out = new DecoupledIO(new AES_DataInterPE)
+    val in = Flipped(out)
   })
 
-  val S = VecInit(VecInit("h63".U, "h7c".U, "h77".U, "h7b".U, "hf2".U, "h6b".U, "h6f".U, "hc5".U,
-    "h30".U, "h01".U, "h67".U, "h2b".U, "hfe".U, "hd7".U, "hab".U, "h76".U),
-    VecInit("hca".U, "h82".U, "hc9".U, "h7d".U, "hfa".U, "h59".U, "h47".U, "hf0".U,
-      "had".U, "hd4".U, "ha2".U, "haf".U, "h9c".U, "ha4".U, "h72".U, "hc0".U),
-    VecInit("hb7".U, "hfd".U, "h93".U, "h26".U, "h36".U, "h3f".U, "hf7".U, "hcc".U,
-      "h34".U, "ha5".U, "he5".U, "hf1".U, "h71".U, "hd8".U, "h31".U, "h15".U),
-    VecInit("h04".U, "h7c".U, "h23".U, "hc3".U, "h18".U, "h96".U, "h05".U, "h9a".U,
-      "h07".U, "h12".U, "h80".U, "he2".U, "heb".U, "h27".U, "hb2".U, "h75".U),
-    VecInit("h09".U, "h83".U, "h2c".U, "h1a".U, "h1b".U, "h6e".U, "h5a".U, "ha0".U,
-      "h52".U, "h3b".U, "hd6".U, "hb3".U, "h29".U, "he3".U, "h2f".U, "h84".U),
-    VecInit("h53".U, "hd1".U, "h00".U, "hed".U, "h20".U, "hfc".U, "hb1".U, "h5b".U,
-      "h6a".U, "hcb".U, "hbe".U, "h39".U, "h4a".U, "h4c".U, "h58".U, "hcf".U),
-    VecInit("hd0".U, "hef".U, "haa".U, "hfb".U, "h43".U, "h4d".U, "h33".U, "h85".U,
-      "h45".U, "hf9".U, "h02".U, "h7f".U, "h50".U, "h3c".U, "h9f".U, "ha8".U),
-    VecInit("h51".U, "ha3".U, "h40".U, "h8f".U, "h92".U, "h9d".U, "h38".U, "hf5".U,
-      "hbc".U, "hb6".U, "hda".U, "h21".U, "h10".U, "hff".U, "hf3".U, "hd2".U),
-    VecInit("hcd".U, "h0c".U, "h13".U, "hec".U, "h5f".U, "h97".U, "h44".U, "h17".U,
-      "hc4".U, "ha7".U, "h7e".U, "h3d".U, "h64".U, "h5d".U, "h19".U, "h73".U),
-    VecInit("h60".U, "h81".U, "h4f".U, "hdc".U, "h22".U, "h2a".U, "h90".U, "h88".U,
-      "h46".U, "hee".U, "hb8".U, "h14".U, "hde".U, "h5e".U, "h0b".U, "hdb".U),
-    VecInit("he0".U, "h32".U, "h3a".U, "h0a".U, "h49".U, "h06".U, "h24".U, "h5c".U,
-      "hc2".U, "hd3".U, "hac".U, "h62".U, "h91".U, "h95".U, "he4".U, "h79".U),
-    VecInit("he7".U, "hc8".U, "h37".U, "h6d".U, "h8d".U, "hd5".U, "h4e".U, "ha9".U,
-      "h6c".U, "h56".U, "hf4".U, "hea".U, "h65".U, "h7a".U, "hae".U, "h08".U),
-    VecInit("hba".U, "h78".U, "h25".U, "h2e".U, "h1c".U, "ha6".U, "hb4".U, "hc6".U,
-      "he8".U, "hdd".U, "h74".U, "h1f".U, "h4b".U, "hbd".U, "h8b".U, "h8a".U),
-    VecInit("h70".U, "h3e".U, "hb5".U, "h66".U, "h48".U, "h03".U, "hf6".U, "h0e".U,
-      "h61".U, "h35".U, "h57".U, "hb9".U, "h86".U, "hc1".U, "h1d".U, "h9e".U),
-    VecInit("he1".U, "hf8".U, "h98".U, "h11".U, "h69".U, "hd9".U, "h8e".U, "h94".U,
-      "h9b".U, "h1e".U, "h87".U, "he9".U, "hce".U, "h55".U, "h28".U, "hdf".U),
-    VecInit("h8c".U, "ha1".U, "h89".U, "h0d".U, "hbf".U, "he6".U, "h42".U, "h68".U,
-      "h41".U, "h99".U, "h2d".U, "h0f".U, "hb0".U, "h54".U, "hbb".U, "h16".U))
+  val enable = Wire(Bool())
+  val result = WireDefault(io.out.bits)
+  val input = RegEnable(io.in.bits, enable)
+  val valid = RegEnable(io.in.valid, enable)
 
-  io.out := S(io.in(7,4))(io.in(3,0))
+  enable := io.out.ready || !valid
+  io.out.valid := valid
+
+  when(valid) {
+    io.in.ready := enable
+    io.out.bits := result
+  } .otherwise {
+    io.in.ready := true.B
+    io.out.bits := 0.U.asTypeOf(io.out.bits)
+  }
+
+  // computations
+  val sub = Module(new AES_SubBytes)
+  sub.io.in.key := DontCare
+  for(i <- 0 until 4) {
+    for(j <- 0 until 4) {
+      sub.io.in.state(i)(j) := input.state(i)(j) ^ input.key(i)(j)
+    }
+  }
+
+  val shift = Module(new AES_ShiftRows)
+  shift.io.in := sub.io.out
+
+  val mix = Module(new AES_MixColumns)
+  mix.io.in := shift.io.out
+
+  if(round == 9) {
+    result.state := shift.io.out.state
+  } else {
+    result.state := mix.io.out.state
+  }
+
+  val key = Module(new AES_GetNewKey(round = round))
+  key.io.in.state := DontCare
+  key.io.in.key := input.key
+  result.key := key.io.out.key
+}
+
+class AES_GetNewKey(round: Int) extends Module {
+  val io = IO(new Bundle {
+    val out = new AES_DataInterPE
+    val in = Flipped(out)
+  })
+
+  io.out.state := DontCare
+
+  val w0, w1, w2, w3 = Wire(UInt(32.W))
+  w0 := Cat(io.in.key(0)(0), io.in.key(0)(1), io.in.key(0)(2), io.in.key(0)(3))
+  w1 := Cat(io.in.key(1)(0), io.in.key(1)(1), io.in.key(1)(2), io.in.key(1)(3))
+  w2 := Cat(io.in.key(2)(0), io.in.key(2)(1), io.in.key(2)(2), io.in.key(2)(3))
+  w3 := Cat(io.in.key(3)(0), io.in.key(3)(1), io.in.key(3)(2), io.in.key(3)(3))
+
+  val rot = Module(new AES_RotWord)
+  rot.io.in := w3
+
+  val sub = Module(new AES_SubWord)
+  sub.io.in := rot.io.out
+
+  val Rcon = Wire(UInt(32.W))
+  round match {
+    case 0 => Rcon := "h01000000".U
+    case 1 => Rcon := "h02000000".U
+    case 2 => Rcon := "h04000000".U
+    case 3 => Rcon := "h08000000".U
+    case 4 => Rcon := "h10000000".U
+    case 5 => Rcon := "h20000000".U
+    case 6 => Rcon := "h40000000".U
+    case 7 => Rcon := "h80000000".U
+    case 8 => Rcon := "h1b000000".U
+    case 9 => Rcon := "h36000000".U
+  }
+
+  val w5, w6, w7, w8 = Wire(UInt(32.W))
+  w5 := sub.io.out ^ Rcon ^ w0
+  w6 := w5 ^ w1
+  w7 := w6 ^ w2
+  w8 := w7 ^ w3
+
+  for(i <- 0 until 4) {
+    io.out.key(0)(3-i) := w5(8*(i+1)-1,8*i)
+    io.out.key(1)(3-i) := w6(8*(i+1)-1,8*i)
+    io.out.key(2)(3-i) := w7(8*(i+1)-1,8*i)
+    io.out.key(3)(3-i) := w8(8*(i+1)-1,8*i)
+  }
+}
+
+class AES_SubWord extends Module {
+  val io = IO(new Bundle {
+    val out = Output(UInt(32.W))
+    val in = Flipped(out)
+  })
+
+  val PEs = for(i <- 0 until 4) yield {
+    val pe = Module(new AES_S)
+    pe.io.in := io.in((i+1)*8-1,i*8)
+    pe
+  }
+
+  io.out := Cat(PEs(3).io.out, PEs(2).io.out, PEs(1).io.out, PEs(0).io.out)
+}
+
+class AES_RotWord extends Module {
+  val io = IO(new Bundle {
+    val out = Output(UInt(32.W))
+    val in = Flipped(out)
+  })
+
+  io.out := Cat(io.in(23,0), io.in(31,24))
+}
+
+class AES_MixColumns extends Module {
+  val io = IO(new Bundle {
+    val out = new AES_DataInterPE
+    val in = Flipped(out)
+  })
+
+  io.out.key := DontCare
+
+  val PEs = for (i <- 0 until 4) yield {
+    val pe = Module(new AES_MixColumn)
+    pe.io := DontCare
+    pe
+  }
+
+  for(i <- 0 until 4) {
+    PEs(i).io.in := io.in.state(i)
+    io.out.state(i) := PEs(i).io.out
+  }
 }
 
 class AES_MixColumn extends Module {
@@ -236,6 +302,101 @@ class AES_MixColumn extends Module {
   io.out(1) := io.in(0) ^ mul2(io.in(1)) ^ mul2(io.in(2)) ^ io.in(2) ^ io.in(3)
   io.out(2) := io.in(0) ^ io.in(1) ^ mul2(io.in(2)) ^ mul2(io.in(3)) ^ io.in(3)
   io.out(3) := mul2(io.in(0)) ^ io.in(0) ^ io.in(1) ^ io.in(2) ^ mul2(io.in(3))
+}
+
+class AES_ShiftRows extends Module {
+  val io = IO(new Bundle {
+    val out = new AES_DataInterPE
+    val in = Flipped(out)
+  })
+
+  io.out.key := DontCare
+
+  io.out.state(0)(0) := io.in.state(0)(0)
+  io.out.state(1)(0) := io.in.state(1)(0)
+  io.out.state(2)(0) := io.in.state(2)(0)
+  io.out.state(3)(0) := io.in.state(3)(0)
+
+  io.out.state(0)(1) := io.in.state(1)(1)
+  io.out.state(1)(1) := io.in.state(2)(1)
+  io.out.state(2)(1) := io.in.state(3)(1)
+  io.out.state(3)(1) := io.in.state(0)(1)
+
+  io.out.state(0)(2) := io.in.state(2)(2)
+  io.out.state(1)(2) := io.in.state(3)(2)
+  io.out.state(2)(2) := io.in.state(0)(2)
+  io.out.state(3)(2) := io.in.state(1)(2)
+
+  io.out.state(0)(3) := io.in.state(3)(3)
+  io.out.state(1)(3) := io.in.state(0)(3)
+  io.out.state(2)(3) := io.in.state(1)(3)
+  io.out.state(3)(3) := io.in.state(2)(3)
+}
+
+class AES_SubBytes extends Module {
+  val io = IO(new Bundle {
+    val out = new AES_DataInterPE
+    val in = Flipped(out)
+  })
+
+  io.out.key := DontCare
+
+  val PEs = for (i <- 0 until 4) yield {
+    for (j <- 0 until 4) yield {
+      val pe = Module(new AES_S)
+      pe.io := DontCare
+      pe
+    }
+  }
+
+  for(i <- 0 until 4) {
+    for(j <- 0 until 4) {
+      PEs(i)(j).io.in := io.in.state(i)(j)
+      io.out.state(i)(j) := PEs(i)(j).io.out
+    }
+  }
+}
+
+class AES_S extends Module {
+  val io = IO(new Bundle {
+    val in = Input(UInt(8.W))
+    val out = Output(UInt(8.W))
+  })
+
+  val S = VecInit(VecInit("h63".U, "h7c".U, "h77".U, "h7b".U, "hf2".U, "h6b".U, "h6f".U, "hc5".U,
+    "h30".U, "h01".U, "h67".U, "h2b".U, "hfe".U, "hd7".U, "hab".U, "h76".U),
+    VecInit("hca".U, "h82".U, "hc9".U, "h7d".U, "hfa".U, "h59".U, "h47".U, "hf0".U,
+      "had".U, "hd4".U, "ha2".U, "haf".U, "h9c".U, "ha4".U, "h72".U, "hc0".U),
+    VecInit("hb7".U, "hfd".U, "h93".U, "h26".U, "h36".U, "h3f".U, "hf7".U, "hcc".U,
+      "h34".U, "ha5".U, "he5".U, "hf1".U, "h71".U, "hd8".U, "h31".U, "h15".U),
+    VecInit("h04".U, "hc7".U, "h23".U, "hc3".U, "h18".U, "h96".U, "h05".U, "h9a".U,
+      "h07".U, "h12".U, "h80".U, "he2".U, "heb".U, "h27".U, "hb2".U, "h75".U),
+    VecInit("h09".U, "h83".U, "h2c".U, "h1a".U, "h1b".U, "h6e".U, "h5a".U, "ha0".U,
+      "h52".U, "h3b".U, "hd6".U, "hb3".U, "h29".U, "he3".U, "h2f".U, "h84".U),
+    VecInit("h53".U, "hd1".U, "h00".U, "hed".U, "h20".U, "hfc".U, "hb1".U, "h5b".U,
+      "h6a".U, "hcb".U, "hbe".U, "h39".U, "h4a".U, "h4c".U, "h58".U, "hcf".U),
+    VecInit("hd0".U, "hef".U, "haa".U, "hfb".U, "h43".U, "h4d".U, "h33".U, "h85".U,
+      "h45".U, "hf9".U, "h02".U, "h7f".U, "h50".U, "h3c".U, "h9f".U, "ha8".U),
+    VecInit("h51".U, "ha3".U, "h40".U, "h8f".U, "h92".U, "h9d".U, "h38".U, "hf5".U,
+      "hbc".U, "hb6".U, "hda".U, "h21".U, "h10".U, "hff".U, "hf3".U, "hd2".U),
+    VecInit("hcd".U, "h0c".U, "h13".U, "hec".U, "h5f".U, "h97".U, "h44".U, "h17".U,
+      "hc4".U, "ha7".U, "h7e".U, "h3d".U, "h64".U, "h5d".U, "h19".U, "h73".U),
+    VecInit("h60".U, "h81".U, "h4f".U, "hdc".U, "h22".U, "h2a".U, "h90".U, "h88".U,
+      "h46".U, "hee".U, "hb8".U, "h14".U, "hde".U, "h5e".U, "h0b".U, "hdb".U),
+    VecInit("he0".U, "h32".U, "h3a".U, "h0a".U, "h49".U, "h06".U, "h24".U, "h5c".U,
+      "hc2".U, "hd3".U, "hac".U, "h62".U, "h91".U, "h95".U, "he4".U, "h79".U),
+    VecInit("he7".U, "hc8".U, "h37".U, "h6d".U, "h8d".U, "hd5".U, "h4e".U, "ha9".U,
+      "h6c".U, "h56".U, "hf4".U, "hea".U, "h65".U, "h7a".U, "hae".U, "h08".U),
+    VecInit("hba".U, "h78".U, "h25".U, "h2e".U, "h1c".U, "ha6".U, "hb4".U, "hc6".U,
+      "he8".U, "hdd".U, "h74".U, "h1f".U, "h4b".U, "hbd".U, "h8b".U, "h8a".U),
+    VecInit("h70".U, "h3e".U, "hb5".U, "h66".U, "h48".U, "h03".U, "hf6".U, "h0e".U,
+      "h61".U, "h35".U, "h57".U, "hb9".U, "h86".U, "hc1".U, "h1d".U, "h9e".U),
+    VecInit("he1".U, "hf8".U, "h98".U, "h11".U, "h69".U, "hd9".U, "h8e".U, "h94".U,
+      "h9b".U, "h1e".U, "h87".U, "he9".U, "hce".U, "h55".U, "h28".U, "hdf".U),
+    VecInit("h8c".U, "ha1".U, "h89".U, "h0d".U, "hbf".U, "he6".U, "h42".U, "h68".U,
+      "h41".U, "h99".U, "h2d".U, "h0f".U, "hb0".U, "h54".U, "hbb".U, "h16".U))
+
+  io.out := S(io.in(7,4))(io.in(3,0))
 }
 
 class AES_InvS extends Module {
@@ -424,3 +585,7 @@ class AES_InvMixColumn extends Module {
   io.out(3) := mul11(io.in(0)) ^ mul13(io.in(1)) ^ mul9(io.in(2)) ^ mul14(io.in(3))
 }
 
+class AES_DataInterPE extends Bundle {
+  val state = Output(Vec(4,Vec(4, UInt(8.W))))
+  val key = Output(Vec(4,Vec(4, UInt(8.W))))
+}
