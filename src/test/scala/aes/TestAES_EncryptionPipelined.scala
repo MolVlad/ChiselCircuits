@@ -26,11 +26,11 @@ object TestAES_EncryptionPipelined extends App {
   test(module) {c =>
     c.io.in.initSource()
     c.io.in.setSourceClock(c.clock)
-    c.io.result.initSink()
-    c.io.result.setSinkClock(c.clock)
+    c.io.out.initSink()
+    c.io.out.setSinkClock(c.clock)
 
     c.io.in.enqueue(chiselTypeOf(c.io.in.bits).Lit(_.key -> "h30303030303030303030303030303030".U, _.text -> "h6162636465666768696a6b6c6d6e6f70".U))
-    c.io.result.expectDequeue("hd63e32ae28545fa649840e0a80a71d77".U)
+    c.io.out.expectDequeue(chiselTypeOf(c.io.in.bits).Lit(_.key -> "h379853138d43cf2b36790a8da77becb7".U, _.text -> "hd63e32ae28545fa649840e0a80a71d77".U))
 
     fork {
       c.io.in.enqueue(chiselTypeOf(c.io.in.bits).Lit(_.key -> "h31323334353637383930717765727479".U, _.text -> "h617364676a6c3b6b65726e676861736a".U))
@@ -38,16 +38,16 @@ object TestAES_EncryptionPipelined extends App {
       c.io.in.enqueue(chiselTypeOf(c.io.in.bits).Lit(_.key -> "h6a7432393874343937356839696e7639".U, _.text -> "h3334696a67383073646f6e6770336f67".U))
       c.io.in.enqueue(chiselTypeOf(c.io.in.bits).Lit(_.key -> "h2b7e151628aed2a6abf7158809cf4f3c".U, _.text -> "h3243f6a8885a308d313198a2e0370734".U))
     }.fork {
-      c.io.result.expectDequeue("h60abaf8450f1140638346425b0122f2e".U)
-      c.io.result.expectDequeue("haab115ba56924f7c79511427ef2cce3d".U)
-      c.io.result.expectDequeue("he6ac515b3d6d66142356adf5a5502b38".U)
-      c.io.result.expectDequeue("h3925841d02dc09fbdc118597196a0b32".U)
+      c.io.out.expectDequeue(chiselTypeOf(c.io.in.bits).Lit(_.key -> "h79ab839133ba852d1bd971f77fc4f9b2".U, _.text -> "h60abaf8450f1140638346425b0122f2e".U))
+      c.io.out.expectDequeue(chiselTypeOf(c.io.in.bits).Lit(_.key -> "h3bee7b2c6fd149c6e238f3fb5306bf8b".U, _.text -> "haab115ba56924f7c79511427ef2cce3d".U))
+      c.io.out.expectDequeue(chiselTypeOf(c.io.in.bits).Lit(_.key -> "hfa2b3bb1d657e7dbc20d291372b8ae3a".U, _.text -> "he6ac515b3d6d66142356adf5a5502b38".U))
+      c.io.out.expectDequeue(chiselTypeOf(c.io.in.bits).Lit(_.key -> "hd014f9a8c9ee2589e13f0cc8b6630ca6".U, _.text -> "h3925841d02dc09fbdc118597196a0b32".U))
     }.join()
   }
 }
 
 class TestBenchAES_EncryptionPipelined(dut: AES_EncryptionPipelined) extends PeekPokeTester(dut) {
-  poke(dut.io.result.ready, true.B)
+  poke(dut.io.out.ready, true.B)
   poke(dut.io.in.valid, true.B)
 
   poke(dut.io.in.bits.text, "h6162636465666768696a6b6c6d6e6f70".U)

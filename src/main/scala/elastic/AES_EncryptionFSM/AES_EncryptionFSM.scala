@@ -5,11 +5,8 @@ import chisel3.util._
 
 class AES_EncryptionFSM extends Module {
   val io = IO(new Bundle {
-    val in = Flipped(new DecoupledIO(new Bundle {
-      val text = UInt(128.W)
-      val key = UInt(128.W)
-    }))
-    val result = new DecoupledIO(UInt(128.W))
+    val out = new DecoupledIO(new AES_DataOutput)
+    val in = Flipped(out)
   })
 
   val waitingInput :: initialOperation :: computing :: finalOperation :: waitingOutput :: Nil = Enum(5)
@@ -18,11 +15,11 @@ class AES_EncryptionFSM extends Module {
   val textReg = RegInit(0.U.asTypeOf(io.in.bits.text))
   val keyReg = RegInit(0.U.asTypeOf(io.in.bits.key))
   val dataReg = RegInit(0.U.asTypeOf(new AES_DataInterPE))
-  val resultsReg = RegInit(0.U.asTypeOf(io.result.bits))
+  val resultsReg = RegInit(0.U.asTypeOf(io.out.bits))
 
   io.in.ready := stateReg === waitingInput
-  io.result.valid := stateReg === waitingOutput
-  io.result.bits := resultsReg
+  io.out.valid := stateReg === waitingOutput
+  io.out.bits := resultsReg
 
   val initialOp = Module(new AES_InitialOperation)
   initialOp.io := DontCare
@@ -63,7 +60,7 @@ class AES_EncryptionFSM extends Module {
       stateReg := waitingOutput
     }
     is(waitingOutput) {
-      when(io.result.ready) {
+      when(io.out.ready) {
         stateReg := waitingInput
       }
     }
@@ -88,12 +85,12 @@ class AES_InitialOperation extends Module {
 
 class AES_FinalOperation extends Module {
   val io = IO(new Bundle {
-    val out = Output(UInt(128.W))
+    val out = Output(new AES_DataOutput)
     val in = Input(new AES_DataInterPE)
   })
 
   // processing
-  io.out := Cat(io.in.state(0)(0)^io.in.key(0)(0),io.in.state(0)(1)^io.in.key(0)(1),
+  io.out.text := Cat(io.in.state(0)(0)^io.in.key(0)(0),io.in.state(0)(1)^io.in.key(0)(1),
     io.in.state(0)(2)^io.in.key(0)(2),io.in.state(0)(3)^io.in.key(0)(3),
     io.in.state(1)(0)^io.in.key(1)(0),io.in.state(1)(1)^io.in.key(1)(1),
     io.in.state(1)(2)^io.in.key(1)(2),io.in.state(1)(3)^io.in.key(1)(3),
@@ -101,6 +98,11 @@ class AES_FinalOperation extends Module {
     io.in.state(2)(2)^io.in.key(2)(2),io.in.state(2)(3)^io.in.key(2)(3),
     io.in.state(3)(0)^io.in.key(3)(0),io.in.state(3)(1)^io.in.key(3)(1),
     io.in.state(3)(2)^io.in.key(3)(2),io.in.state(3)(3)^io.in.key(3)(3))
+
+  io.out.key := Cat(io.in.key(0)(0),io.in.key(0)(1),io.in.key(0)(2),io.in.key(0)(3),
+    io.in.key(1)(0),io.in.key(1)(1),io.in.key(1)(2),io.in.key(1)(3),
+    io.in.key(2)(0),io.in.key(2)(1),io.in.key(2)(2),io.in.key(2)(3),
+    io.in.key(3)(0),io.in.key(3)(1),io.in.key(3)(2),io.in.key(3)(3))
 }
 
 class AES_ProcessingElement extends Module {
@@ -581,4 +583,9 @@ class AES_InvMixColumn extends Module {
 class AES_DataInterPE extends Bundle {
   val state = Output(Vec(4,Vec(4, UInt(8.W))))
   val key = Output(Vec(4,Vec(4, UInt(8.W))))
+}
+
+class AES_DataOutput extends Bundle {
+  val text = Output(UInt(128.W))
+  val key = Output(UInt(128.W))
 }

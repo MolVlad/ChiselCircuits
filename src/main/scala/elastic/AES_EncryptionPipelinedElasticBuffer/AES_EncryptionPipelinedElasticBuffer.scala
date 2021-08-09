@@ -5,23 +5,19 @@ import chisel3.util._
 
 class AES_EncryptionPipelinedElasticBuffer extends Module {
   val io = IO(new Bundle {
-    val in = Flipped(new DecoupledIO(new Bundle {
-      val text = UInt(128.W)
-      val key = UInt(128.W)
-    }))
-    val result = new DecoupledIO(UInt(128.W))
+    val out = new DecoupledIO(new AES_DataOutput)
+    val in = Flipped(out)
   })
 
-  val initialPermutation = Module(new AES_InitialOperation)
-  initialPermutation.io.in.valid := io.in.valid
-  initialPermutation.io.in.bits.text := io.in.bits.text
-  initialPermutation.io.in.bits.key := io.in.bits.key
-  io.in.ready := initialPermutation.io.in.ready
+  val initialOperation = Module(new AES_InitialOperation)
+  initialOperation.io.in.valid := io.in.valid
+  initialOperation.io.in.bits := io.in.bits
+  io.in.ready := initialOperation.io.in.ready
 
-  val finalPermutation = Module(new AES_FinalOperation)
-  io.result.bits := finalPermutation.io.out.bits
-  io.result.valid := finalPermutation.io.out.valid
-  finalPermutation.io.out.ready := io.result.ready
+  val finalOperation = Module(new AES_FinalOperation)
+  io.out.bits := finalOperation.io.out.bits
+  io.out.valid := finalOperation.io.out.valid
+  finalOperation.io.out.ready := io.out.ready
 
   val PEs = for (i <- 0 until 10) yield {
     val pe = Module(new AES_ProcessingElement(round = i))
@@ -31,18 +27,18 @@ class AES_EncryptionPipelinedElasticBuffer extends Module {
 
   for (i <- 0 until 10) {
     if(i == 0) {
-      PEs(i).io.in.valid := initialPermutation.io.out.valid
-      PEs(i).io.in.bits := initialPermutation.io.out.bits
-      initialPermutation.io.out.ready := PEs(i).io.in.ready
+      PEs(i).io.in.valid := initialOperation.io.out.valid
+      PEs(i).io.in.bits := initialOperation.io.out.bits
+      initialOperation.io.out.ready := PEs(i).io.in.ready
 
       PEs(i+1).io.in.valid := PEs(i).io.out.valid
       PEs(i+1).io.in.bits := PEs(i).io.out.bits
       PEs(i).io.out.ready := PEs(i+1).io.in.ready
     } else if(i == 9) {
-      finalPermutation.io.in.valid := PEs(i).io.out.valid
-      finalPermutation.io.in.bits.state := PEs(i).io.out.bits.state
-      finalPermutation.io.in.bits.key := PEs(i).io.out.bits.key
-      PEs(i).io.out.ready := finalPermutation.io.in.ready
+      finalOperation.io.in.valid := PEs(i).io.out.valid
+      finalOperation.io.in.bits.state := PEs(i).io.out.bits.state
+      finalOperation.io.in.bits.key := PEs(i).io.out.bits.key
+      PEs(i).io.out.ready := finalOperation.io.in.ready
     } else {
       PEs(i+1).io.in.valid := PEs(i).io.out.valid
       PEs(i+1).io.in.bits := PEs(i).io.out.bits
@@ -53,10 +49,7 @@ class AES_EncryptionPipelinedElasticBuffer extends Module {
 
 class AES_InitialOperation extends Module {
   val io = IO(new Bundle {
-    val in = Flipped(new DecoupledIO(new Bundle{
-      val text = UInt(128.W)
-      val key = UInt(128.W)
-    }))
+    val in = Flipped(new DecoupledIO(new AES_DataOutput))
     val out = new DecoupledIO(new AES_DataInterPE)
   })
 
@@ -96,7 +89,7 @@ class AES_InitialOperation extends Module {
 
 class AES_FinalOperation extends Module {
   val io = IO(new Bundle {
-    val out = new DecoupledIO(UInt(128.W))
+    val out = new DecoupledIO(new AES_DataOutput)
     val in = Flipped(new DecoupledIO(new AES_DataInterPE))
   })
 
@@ -126,7 +119,7 @@ class AES_FinalOperation extends Module {
   }
 
   // processing
-  result := Cat(input.state(0)(0)^input.key(0)(0),input.state(0)(1)^input.key(0)(1),
+  result.text := Cat(input.state(0)(0)^input.key(0)(0),input.state(0)(1)^input.key(0)(1),
     input.state(0)(2)^input.key(0)(2),input.state(0)(3)^input.key(0)(3),
     input.state(1)(0)^input.key(1)(0),input.state(1)(1)^input.key(1)(1),
     input.state(1)(2)^input.key(1)(2),input.state(1)(3)^input.key(1)(3),
@@ -134,6 +127,11 @@ class AES_FinalOperation extends Module {
     input.state(2)(2)^input.key(2)(2),input.state(2)(3)^input.key(2)(3),
     input.state(3)(0)^input.key(3)(0),input.state(3)(1)^input.key(3)(1),
     input.state(3)(2)^input.key(3)(2),input.state(3)(3)^input.key(3)(3))
+
+  result.key := Cat(input.key(0)(0),input.key(0)(1),input.key(0)(2),input.key(0)(3),
+    input.key(1)(0),input.key(1)(1),input.key(1)(2),input.key(1)(3),
+    input.key(2)(0),input.key(2)(1),input.key(2)(2),input.key(2)(3),
+    input.key(3)(0),input.key(3)(1),input.key(3)(2),input.key(3)(3))
 }
 
 class AES_ProcessingElement(round: Int) extends Module {
@@ -615,4 +613,9 @@ class AES_InvMixColumn extends Module {
 class AES_DataInterPE extends Bundle {
   val state = Output(Vec(4,Vec(4, UInt(8.W))))
   val key = Output(Vec(4,Vec(4, UInt(8.W))))
+}
+
+class AES_DataOutput extends Bundle {
+  val text = Output(UInt(128.W))
+  val key = Output(UInt(128.W))
 }

@@ -7,11 +7,8 @@ import elastic.AES_EncryptionFSM.{AES_FinalOperation, AES_GetNewKey, AES_Initial
 
 class AES_EncryptionPipelined extends Module {
   val io = IO(new Bundle {
-    val in = Flipped(new DecoupledIO(new Bundle {
-      val text = UInt(128.W)
-      val key = UInt(128.W)
-    }))
-    val result = new DecoupledIO(UInt(128.W))
+    val out = new DecoupledIO(new AES_DataOutput)
+    val in = Flipped(out)
   })
 
   val initialPermutation = Module(new AES_InitialOperation)
@@ -21,9 +18,9 @@ class AES_EncryptionPipelined extends Module {
   io.in.ready := initialPermutation.io.in.ready
 
   val finalPermutation = Module(new AES_FinalOperation)
-  io.result.bits := finalPermutation.io.out.bits
-  io.result.valid := finalPermutation.io.out.valid
-  finalPermutation.io.out.ready := io.result.ready
+  io.out.bits := finalPermutation.io.out.bits
+  io.out.valid := finalPermutation.io.out.valid
+  finalPermutation.io.out.ready := io.out.ready
 
   val PEs = for (i <- 0 until 10) yield {
     val pe = Module(new AES_ProcessingElement(round = i))
@@ -55,11 +52,8 @@ class AES_EncryptionPipelined extends Module {
 
 class AES_InitialOperation extends Module {
   val io = IO(new Bundle {
-    val in = Flipped(new DecoupledIO(new Bundle{
-      val text = UInt(128.W)
-      val key = UInt(128.W)
-    }))
-    val out = new DecoupledIO(new AES_EncryptionFSM.AES_DataInterPE)
+    val in = Flipped(new DecoupledIO(new AES_DataOutput))
+    val out = new DecoupledIO(new AES_DataInterPE)
   })
 
   val enable = Wire(Bool())
@@ -94,8 +88,8 @@ class AES_InitialOperation extends Module {
 
 class AES_FinalOperation extends Module {
   val io = IO(new Bundle {
-    val out = new DecoupledIO(UInt(128.W))
-    val in = Flipped(new DecoupledIO(new AES_EncryptionFSM.AES_DataInterPE))
+    val out = new DecoupledIO(new AES_DataOutput)
+    val in = Flipped(new DecoupledIO(new AES_DataInterPE))
   })
 
   val enable = Wire(Bool())
@@ -120,7 +114,7 @@ class AES_FinalOperation extends Module {
   }
 
   // processing
-  result := Cat(input.state(0)(0)^input.key(0)(0),input.state(0)(1)^input.key(0)(1),
+  result.text := Cat(input.state(0)(0)^input.key(0)(0),input.state(0)(1)^input.key(0)(1),
     input.state(0)(2)^input.key(0)(2),input.state(0)(3)^input.key(0)(3),
     input.state(1)(0)^input.key(1)(0),input.state(1)(1)^input.key(1)(1),
     input.state(1)(2)^input.key(1)(2),input.state(1)(3)^input.key(1)(3),
@@ -128,6 +122,11 @@ class AES_FinalOperation extends Module {
     input.state(2)(2)^input.key(2)(2),input.state(2)(3)^input.key(2)(3),
     input.state(3)(0)^input.key(3)(0),input.state(3)(1)^input.key(3)(1),
     input.state(3)(2)^input.key(3)(2),input.state(3)(3)^input.key(3)(3))
+
+  result.key := Cat(input.key(0)(0),input.key(0)(1),input.key(0)(2),input.key(0)(3),
+    input.key(1)(0),input.key(1)(1),input.key(1)(2),input.key(1)(3),
+    input.key(2)(0),input.key(2)(1),input.key(2)(2),input.key(2)(3),
+    input.key(3)(0),input.key(3)(1),input.key(3)(2),input.key(3)(3))
 }
 
 class AES_ProcessingElement(round: Int) extends Module {
@@ -605,4 +604,9 @@ class AES_InvMixColumn extends Module {
 class AES_DataInterPE extends Bundle {
   val state = Output(Vec(4,Vec(4, UInt(8.W))))
   val key = Output(Vec(4,Vec(4, UInt(8.W))))
+}
+
+class AES_DataOutput extends Bundle {
+  val text = Output(UInt(128.W))
+  val key = Output(UInt(128.W))
 }
