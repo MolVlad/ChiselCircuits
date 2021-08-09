@@ -2,13 +2,13 @@ package aes
 
 import chisel3._
 import chisel3.iotesters._
-import elastic.AES_PipelinedElasticBuffer._
+import elastic.AES_EncryptionPipelinedElasticBuffer._
 import chisel3.tester.RawTester.test
 import chisel3.tester._
 import chisel3.experimental.BundleLiterals._
 
 object TestAES_EncryptionPipelinedElasticBuffer extends App {
-  def module = new AES_PipelinedElasticBuffer
+  def module = new AES_EncryptionPipelinedElasticBuffer
   val name = "AES_EncryptionPipelinedElasticBuffer"
   val dirName = "tested/" + name
 
@@ -46,7 +46,7 @@ object TestAES_EncryptionPipelinedElasticBuffer extends App {
   }
 }
 
-class TestBenchAES_EncryptionPipelinedElasticBuffer(dut: AES_PipelinedElasticBuffer) extends PeekPokeTester(dut) {
+class TestBenchAES_EncryptionPipelinedElasticBuffer(dut: AES_EncryptionPipelinedElasticBuffer) extends PeekPokeTester(dut) {
   poke(dut.io.result.ready, true.B)
   poke(dut.io.in.valid, true.B)
 

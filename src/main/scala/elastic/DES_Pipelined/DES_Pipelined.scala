@@ -62,8 +62,13 @@ class DES_InitialPermutation extends Module {
 
   val enable = Wire(Bool())
   val result = WireDefault(io.out.bits)
-  val input = RegEnable(io.in.bits, enable)
-  val valid = RegEnable(io.in.valid, enable)
+
+  val input = RegInit(0.U.asTypeOf(io.in.bits))
+  val valid = RegInit(false.B)
+  when(enable) {
+    input := io.in.bits
+    valid := io.in.valid
+  }
 
   enable := io.out.ready || !valid
   io.out.valid := valid
@@ -96,8 +101,13 @@ class DES_ProcessingElement(round: Int, encrypt: Boolean) extends Module {
 
   val enable = Wire(Bool())
   val result = WireDefault(io.out.bits)
-  val input = RegEnable(io.in.bits, enable)
-  val valid = RegEnable(io.in.valid, enable)
+
+  val input = RegInit(0.U.asTypeOf(io.in.bits))
+  val valid = RegInit(false.B)
+  when(enable) {
+    input := io.in.bits
+    valid := io.in.valid
+  }
 
   enable := io.out.ready || !valid
   io.out.valid := valid
@@ -136,8 +146,13 @@ class DES_FinalPermutation extends Module {
 
   val enable = Wire(Bool())
   val result = WireDefault(io.out.bits)
-  val input = RegEnable(io.in.bits, enable)
-  val valid = RegEnable(io.in.valid, enable)
+
+  val input = RegInit(0.U.asTypeOf(io.in.bits))
+  val valid = RegInit(false.B)
+  when(enable) {
+    input := io.in.bits
+    valid := io.in.valid
+  }
 
   enable := io.out.ready || !valid
   io.out.valid := valid
