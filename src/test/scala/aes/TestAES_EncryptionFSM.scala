@@ -2,13 +2,13 @@ package aes
 
 import chisel3._
 import chisel3.iotesters._
-import elastic.AES_EncryptionFSM._
+import elastic.AES_FSM._
 import chisel3.tester.RawTester.test
 import chisel3.tester._
 import chisel3.experimental.BundleLiterals._
 
 object TestAES_EncryptionFSM extends App {
-  def module = new AES_EncryptionFSM
+  def module = new AES_FSM
   val name = "AES_EncryptionFSM"
   val dirName = "tested/" + name
 
@@ -46,7 +46,7 @@ object TestAES_EncryptionFSM extends App {
   }
 }
 
-class TestBenchAES_EncryptionFSM(dut: AES_EncryptionFSM) extends PeekPokeTester(dut) {
+class TestBenchAES_EncryptionFSM(dut: AES_FSM) extends PeekPokeTester(dut) {
   poke(dut.io.out.ready, true.B)
   poke(dut.io.in.valid, true.B)
 

@@ -1,1750 +1,3380 @@
 [
   {
     "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~AES_EncryptionPipelined|AES_EncryptionPipelined>io_in_ready",
+    "sink":"~AES_Pipelined|AES_Pipelined>io_in_ready",
     "sources":[
-      "~AES_EncryptionPipelined|AES_EncryptionPipelined>io_out_ready"
+      "~AES_Pipelined|AES_Pipelined>io_out_ready"
     ]
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_0_0:AES_S",
-    "index":0.00641025641025641
+    "original":"~AES_Pipelined|AES_XOR",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/xor:AES_XOR",
+    "index":0.0031645569620253164
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_1",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_0_1:AES_S",
-    "index":0.009615384615384616
+    "original":"~AES_Pipelined|AES_S",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_0_0:AES_S",
+    "index":0.004746835443037975
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_2",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_0_2:AES_S",
-    "index":0.01282051282051282
+    "original":"~AES_Pipelined|AES_S_1",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_0_1:AES_S",
+    "index":0.006329113924050633
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_3",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_0_3:AES_S",
-    "index":0.016025641025641024
+    "original":"~AES_Pipelined|AES_S_2",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_0_2:AES_S",
+    "index":0.007911392405063292
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_4",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_1_0:AES_S",
-    "index":0.019230769230769232
+    "original":"~AES_Pipelined|AES_S_3",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_0_3:AES_S",
+    "index":0.00949367088607595
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_5",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_1_1:AES_S",
-    "index":0.022435897435897436
+    "original":"~AES_Pipelined|AES_S_4",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_1_0:AES_S",
+    "index":0.011075949367088608
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_6",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_1_2:AES_S",
-    "index":0.02564102564102564
+    "original":"~AES_Pipelined|AES_S_5",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_1_1:AES_S",
+    "index":0.012658227848101266
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_7",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_1_3:AES_S",
-    "index":0.028846153846153848
+    "original":"~AES_Pipelined|AES_S_6",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_1_2:AES_S",
+    "index":0.014240506329113924
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_8",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_2_0:AES_S",
-    "index":0.03205128205128205
+    "original":"~AES_Pipelined|AES_S_7",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_1_3:AES_S",
+    "index":0.015822784810126583
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_9",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_2_1:AES_S",
-    "index":0.035256410256410256
+    "original":"~AES_Pipelined|AES_S_8",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_2_0:AES_S",
+    "index":0.01740506329113924
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_10",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_2_2:AES_S",
-    "index":0.038461538461538464
+    "original":"~AES_Pipelined|AES_S_9",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_2_1:AES_S",
+    "index":0.0189873417721519
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_11",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_2_3:AES_S",
-    "index":0.041666666666666664
+    "original":"~AES_Pipelined|AES_S_10",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_2_2:AES_S",
+    "index":0.020569620253164556
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_12",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_3_0:AES_S",
-    "index":0.04487179487179487
+    "original":"~AES_Pipelined|AES_S_11",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_2_3:AES_S",
+    "index":0.022151898734177215
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_13",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_3_1:AES_S",
-    "index":0.04807692307692308
+    "original":"~AES_Pipelined|AES_S_12",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_3_0:AES_S",
+    "index":0.023734177215189875
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_14",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_3_2:AES_S",
-    "index":0.05128205128205128
+    "original":"~AES_Pipelined|AES_S_13",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_3_1:AES_S",
+    "index":0.02531645569620253
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_15",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_3_3:AES_S",
-    "index":0.05448717948717949
+    "original":"~AES_Pipelined|AES_S_14",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_3_2:AES_S",
+    "index":0.02689873417721519
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_SubBytes",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes",
-    "index":0.057692307692307696
+    "original":"~AES_Pipelined|AES_S_15",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes/PEs_3_3:AES_S",
+    "index":0.028481012658227847
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_ShiftRows",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/shift:AES_ShiftRows",
-    "index":0.060897435897435896
+    "original":"~AES_Pipelined|AES_SubBytes",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/sub:AES_SubBytes",
+    "index":0.030063291139240507
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/mix:AES_MixColumns/PEs_0:AES_MixColumn",
-    "index":0.0641025641025641
+    "original":"~AES_Pipelined|AES_ShiftRows",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/shift:AES_ShiftRows",
+    "index":0.03164556962025317
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_1",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/mix:AES_MixColumns/PEs_1:AES_MixColumn",
-    "index":0.0673076923076923
+    "original":"~AES_Pipelined|AES_MixColumn",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/mix:AES_MixColumns/PEs_0:AES_MixColumn",
+    "index":0.03322784810126582
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_2",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/mix:AES_MixColumns/PEs_2:AES_MixColumn",
-    "index":0.07051282051282051
+    "original":"~AES_Pipelined|AES_MixColumn_1",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/mix:AES_MixColumns/PEs_1:AES_MixColumn",
+    "index":0.03481012658227848
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_3",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/mix:AES_MixColumns/PEs_3:AES_MixColumn",
-    "index":0.07371794871794872
+    "original":"~AES_Pipelined|AES_MixColumn_2",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/mix:AES_MixColumns/PEs_2:AES_MixColumn",
+    "index":0.03639240506329114
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumns",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/mix:AES_MixColumns",
-    "index":0.07692307692307693
+    "original":"~AES_Pipelined|AES_MixColumn_3",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/mix:AES_MixColumns/PEs_3:AES_MixColumn",
+    "index":0.0379746835443038
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_RotWord",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/key:AES_GetNewKey/rot:AES_RotWord",
-    "index":0.08012820512820513
+    "original":"~AES_Pipelined|AES_MixColumns",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/mix:AES_MixColumns",
+    "index":0.03955696202531646
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_16",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/key:AES_GetNewKey/sub:AES_SubWord/PEs_0:AES_S",
-    "index":0.08333333333333333
+    "original":"~AES_Pipelined|AES_XOR_1",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/invxor:AES_XOR",
+    "index":0.04113924050632911
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_17",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/key:AES_GetNewKey/sub:AES_SubWord/PEs_1:AES_S",
-    "index":0.08653846153846154
+    "original":"~AES_Pipelined|AES_InvMixColumn",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_18",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/key:AES_GetNewKey/sub:AES_SubWord/PEs_2:AES_S",
-    "index":0.08974358974358974
+    "original":"~AES_Pipelined|AES_InvMixColumn_1",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_19",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/key:AES_GetNewKey/sub:AES_SubWord/PEs_3:AES_S",
-    "index":0.09294871794871795
+    "original":"~AES_Pipelined|AES_InvMixColumn_2",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_SubWord",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_0:AES_ProcessingElement/key:AES_GetNewKey/sub:AES_SubWord",
-    "index":0.09615384615384616
+    "original":"~AES_Pipelined|AES_InvMixColumn_3",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_20",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_0_0:AES_S",
-    "index":0.10576923076923077
+    "original":"~AES_Pipelined|AES_InvMixColumns",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_21",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_0_1:AES_S",
-    "index":0.10897435897435898
+    "original":"~AES_Pipelined|AES_InvShiftRows",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_22",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_0_2:AES_S",
-    "index":0.11217948717948718
+    "original":"~AES_Pipelined|AES_InvS",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_23",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_0_3:AES_S",
-    "index":0.11538461538461539
+    "original":"~AES_Pipelined|AES_InvS_1",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_24",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_1_0:AES_S",
-    "index":0.11858974358974358
+    "original":"~AES_Pipelined|AES_InvS_2",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_25",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_1_1:AES_S",
-    "index":0.12179487179487179
+    "original":"~AES_Pipelined|AES_InvS_3",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_26",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_1_2:AES_S",
+    "original":"~AES_Pipelined|AES_InvS_4",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_5",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_6",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_7",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_8",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_9",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_10",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_11",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_12",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_13",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_14",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_15",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvSubBytes",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_RotWord",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/key:AES_GetNewKey/rot:AES_RotWord",
+    "index":0.07911392405063292
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_16",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/key:AES_GetNewKey/sub:AES_SubWord/PEs_0:AES_S",
+    "index":0.08069620253164557
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_17",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/key:AES_GetNewKey/sub:AES_SubWord/PEs_1:AES_S",
+    "index":0.08227848101265822
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_18",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/key:AES_GetNewKey/sub:AES_SubWord/PEs_2:AES_S",
+    "index":0.08386075949367089
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_19",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/key:AES_GetNewKey/sub:AES_SubWord/PEs_3:AES_S",
+    "index":0.08544303797468354
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_SubWord",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/key:AES_GetNewKey/sub:AES_SubWord",
+    "index":0.08702531645569621
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_RotWord_1",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/invkey:AES_InvGetNewKey/rot:AES_RotWord",
+    "index":0.09018987341772151
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_20",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/invkey:AES_InvGetNewKey/sub:AES_SubWord/PEs_0:AES_S",
+    "index":0.09177215189873418
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_21",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/invkey:AES_InvGetNewKey/sub:AES_SubWord/PEs_1:AES_S",
+    "index":0.09335443037974683
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_22",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/invkey:AES_InvGetNewKey/sub:AES_SubWord/PEs_2:AES_S",
+    "index":0.0949367088607595
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_23",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/invkey:AES_InvGetNewKey/sub:AES_SubWord/PEs_3:AES_S",
+    "index":0.09651898734177215
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_SubWord_1",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_0:AES_ProcessingElement/invkey:AES_InvGetNewKey/sub:AES_SubWord",
+    "index":0.0981012658227848
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_XOR_2",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/xor:AES_XOR",
+    "index":0.10284810126582279
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_24",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_0_0:AES_S",
+    "index":0.10443037974683544
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_25",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_0_1:AES_S",
+    "index":0.1060126582278481
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_26",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_0_2:AES_S",
+    "index":0.10759493670886076
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_27",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_0_3:AES_S",
+    "index":0.10917721518987342
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_28",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_1_0:AES_S",
+    "index":0.11075949367088607
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_29",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_1_1:AES_S",
+    "index":0.11234177215189874
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_30",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_1_2:AES_S",
+    "index":0.11392405063291139
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_31",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_1_3:AES_S",
+    "index":0.11550632911392406
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_32",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_2_0:AES_S",
+    "index":0.11708860759493671
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_33",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_2_1:AES_S",
+    "index":0.11867088607594936
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_34",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_2_2:AES_S",
+    "index":0.12025316455696203
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_35",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_2_3:AES_S",
+    "index":0.12183544303797468
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_36",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_3_0:AES_S",
+    "index":0.12341772151898735
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_37",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_3_1:AES_S",
     "index":0.125
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_27",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_1_3:AES_S",
-    "index":0.1282051282051282
+    "original":"~AES_Pipelined|AES_S_38",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_3_2:AES_S",
+    "index":0.12658227848101267
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_28",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_2_0:AES_S",
-    "index":0.13141025641025642
+    "original":"~AES_Pipelined|AES_S_39",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_3_3:AES_S",
+    "index":0.1281645569620253
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_29",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_2_1:AES_S",
-    "index":0.1346153846153846
+    "original":"~AES_Pipelined|AES_SubBytes_1",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes",
+    "index":0.12974683544303797
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_30",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_2_2:AES_S",
-    "index":0.13782051282051283
+    "original":"~AES_Pipelined|AES_ShiftRows_1",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/shift:AES_ShiftRows",
+    "index":0.13132911392405064
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_31",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_2_3:AES_S",
-    "index":0.14102564102564102
+    "original":"~AES_Pipelined|AES_MixColumn_4",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/mix:AES_MixColumns/PEs_0:AES_MixColumn",
+    "index":0.13291139240506328
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_32",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_3_0:AES_S",
-    "index":0.14423076923076922
+    "original":"~AES_Pipelined|AES_MixColumn_5",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/mix:AES_MixColumns/PEs_1:AES_MixColumn",
+    "index":0.13449367088607594
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_33",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_3_1:AES_S",
-    "index":0.14743589743589744
+    "original":"~AES_Pipelined|AES_MixColumn_6",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/mix:AES_MixColumns/PEs_2:AES_MixColumn",
+    "index":0.1360759493670886
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_34",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_3_2:AES_S",
-    "index":0.15064102564102563
+    "original":"~AES_Pipelined|AES_MixColumn_7",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/mix:AES_MixColumns/PEs_3:AES_MixColumn",
+    "index":0.13765822784810128
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_35",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes/PEs_3_3:AES_S",
-    "index":0.15384615384615385
+    "original":"~AES_Pipelined|AES_MixColumns_1",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/mix:AES_MixColumns",
+    "index":0.13924050632911392
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_SubBytes_1",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/sub:AES_SubBytes",
-    "index":0.15705128205128205
+    "original":"~AES_Pipelined|AES_XOR_3",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/invxor:AES_XOR",
+    "index":0.14082278481012658
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_ShiftRows_1",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/shift:AES_ShiftRows",
-    "index":0.16025641025641027
+    "original":"~AES_Pipelined|AES_InvMixColumn_4",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_4",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/mix:AES_MixColumns/PEs_0:AES_MixColumn",
-    "index":0.16346153846153846
+    "original":"~AES_Pipelined|AES_InvMixColumn_5",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_5",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/mix:AES_MixColumns/PEs_1:AES_MixColumn",
-    "index":0.16666666666666666
+    "original":"~AES_Pipelined|AES_InvMixColumn_6",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_6",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/mix:AES_MixColumns/PEs_2:AES_MixColumn",
-    "index":0.16987179487179488
+    "original":"~AES_Pipelined|AES_InvMixColumn_7",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_7",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/mix:AES_MixColumns/PEs_3:AES_MixColumn",
-    "index":0.17307692307692307
+    "original":"~AES_Pipelined|AES_InvMixColumns_1",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumns_1",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/mix:AES_MixColumns",
-    "index":0.1762820512820513
+    "original":"~AES_Pipelined|AES_InvShiftRows_1",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_RotWord_1",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/key:AES_GetNewKey_1/rot:AES_RotWord",
-    "index":0.1794871794871795
+    "original":"~AES_Pipelined|AES_InvS_16",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_36",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/key:AES_GetNewKey_1/sub:AES_SubWord/PEs_0:AES_S",
-    "index":0.18269230769230768
+    "original":"~AES_Pipelined|AES_InvS_17",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_37",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/key:AES_GetNewKey_1/sub:AES_SubWord/PEs_1:AES_S",
-    "index":0.1858974358974359
+    "original":"~AES_Pipelined|AES_InvS_18",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_38",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/key:AES_GetNewKey_1/sub:AES_SubWord/PEs_2:AES_S",
-    "index":0.1891025641025641
+    "original":"~AES_Pipelined|AES_InvS_19",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_39",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/key:AES_GetNewKey_1/sub:AES_SubWord/PEs_3:AES_S",
-    "index":0.19230769230769232
+    "original":"~AES_Pipelined|AES_InvS_20",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_SubWord_1",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_1:AES_ProcessingElement_1/key:AES_GetNewKey_1/sub:AES_SubWord",
-    "index":0.1955128205128205
+    "original":"~AES_Pipelined|AES_InvS_21",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_40",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_0_0:AES_S",
-    "index":0.20512820512820512
+    "original":"~AES_Pipelined|AES_InvS_22",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_41",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_0_1:AES_S",
-    "index":0.20833333333333334
+    "original":"~AES_Pipelined|AES_InvS_23",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_42",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_0_2:AES_S",
-    "index":0.21153846153846154
+    "original":"~AES_Pipelined|AES_InvS_24",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_43",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_0_3:AES_S",
-    "index":0.21474358974358973
+    "original":"~AES_Pipelined|AES_InvS_25",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_44",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_1_0:AES_S",
-    "index":0.21794871794871795
+    "original":"~AES_Pipelined|AES_InvS_26",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_45",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_1_1:AES_S",
-    "index":0.22115384615384615
+    "original":"~AES_Pipelined|AES_InvS_27",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_46",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_1_2:AES_S",
-    "index":0.22435897435897437
+    "original":"~AES_Pipelined|AES_InvS_28",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_47",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_1_3:AES_S",
-    "index":0.22756410256410256
+    "original":"~AES_Pipelined|AES_InvS_29",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_48",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_2_0:AES_S",
-    "index":0.23076923076923078
+    "original":"~AES_Pipelined|AES_InvS_30",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_49",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_2_1:AES_S",
-    "index":0.23397435897435898
+    "original":"~AES_Pipelined|AES_InvS_31",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_50",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_2_2:AES_S",
-    "index":0.23717948717948717
+    "original":"~AES_Pipelined|AES_InvSubBytes_1",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_51",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_2_3:AES_S",
-    "index":0.2403846153846154
+    "original":"~AES_Pipelined|AES_RotWord_2",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/key:AES_GetNewKey_1/rot:AES_RotWord",
+    "index":0.1787974683544304
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_52",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_3_0:AES_S",
-    "index":0.24358974358974358
+    "original":"~AES_Pipelined|AES_S_40",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/key:AES_GetNewKey_1/sub:AES_SubWord/PEs_0:AES_S",
+    "index":0.18037974683544303
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_53",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_3_1:AES_S",
-    "index":0.2467948717948718
+    "original":"~AES_Pipelined|AES_S_41",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/key:AES_GetNewKey_1/sub:AES_SubWord/PEs_1:AES_S",
+    "index":0.1819620253164557
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_54",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_3_2:AES_S",
-    "index":0.25
+    "original":"~AES_Pipelined|AES_S_42",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/key:AES_GetNewKey_1/sub:AES_SubWord/PEs_2:AES_S",
+    "index":0.18354430379746836
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_55",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_3_3:AES_S",
-    "index":0.2532051282051282
+    "original":"~AES_Pipelined|AES_S_43",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/key:AES_GetNewKey_1/sub:AES_SubWord/PEs_3:AES_S",
+    "index":0.185126582278481
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_SubBytes_2",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes",
-    "index":0.2564102564102564
+    "original":"~AES_Pipelined|AES_SubWord_2",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/key:AES_GetNewKey_1/sub:AES_SubWord",
+    "index":0.18670886075949367
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_ShiftRows_2",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/shift:AES_ShiftRows",
-    "index":0.25961538461538464
+    "original":"~AES_Pipelined|AES_RotWord_3",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/invkey:AES_InvGetNewKey_1/rot:AES_RotWord",
+    "index":0.189873417721519
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_8",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/mix:AES_MixColumns/PEs_0:AES_MixColumn",
-    "index":0.26282051282051283
+    "original":"~AES_Pipelined|AES_S_44",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/invkey:AES_InvGetNewKey_1/sub:AES_SubWord/PEs_0:AES_S",
+    "index":0.19145569620253164
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_9",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/mix:AES_MixColumns/PEs_1:AES_MixColumn",
-    "index":0.266025641025641
+    "original":"~AES_Pipelined|AES_S_45",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/invkey:AES_InvGetNewKey_1/sub:AES_SubWord/PEs_1:AES_S",
+    "index":0.1930379746835443
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_10",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/mix:AES_MixColumns/PEs_2:AES_MixColumn",
-    "index":0.2692307692307692
+    "original":"~AES_Pipelined|AES_S_46",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/invkey:AES_InvGetNewKey_1/sub:AES_SubWord/PEs_2:AES_S",
+    "index":0.19462025316455697
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_11",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/mix:AES_MixColumns/PEs_3:AES_MixColumn",
-    "index":0.2724358974358974
+    "original":"~AES_Pipelined|AES_S_47",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/invkey:AES_InvGetNewKey_1/sub:AES_SubWord/PEs_3:AES_S",
+    "index":0.1962025316455696
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumns_2",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/mix:AES_MixColumns",
-    "index":0.27564102564102566
+    "original":"~AES_Pipelined|AES_SubWord_3",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_1:AES_ProcessingElement_1/invkey:AES_InvGetNewKey_1/sub:AES_SubWord",
+    "index":0.19778481012658228
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_RotWord_2",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/key:AES_GetNewKey_2/rot:AES_RotWord",
-    "index":0.27884615384615385
+    "original":"~AES_Pipelined|AES_XOR_4",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/xor:AES_XOR",
+    "index":0.20253164556962025
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_56",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/key:AES_GetNewKey_2/sub:AES_SubWord/PEs_0:AES_S",
-    "index":0.28205128205128205
+    "original":"~AES_Pipelined|AES_S_48",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_0_0:AES_S",
+    "index":0.20411392405063292
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_57",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/key:AES_GetNewKey_2/sub:AES_SubWord/PEs_1:AES_S",
-    "index":0.28525641025641024
+    "original":"~AES_Pipelined|AES_S_49",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_0_1:AES_S",
+    "index":0.20569620253164558
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_58",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/key:AES_GetNewKey_2/sub:AES_SubWord/PEs_2:AES_S",
-    "index":0.28846153846153844
+    "original":"~AES_Pipelined|AES_S_50",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_0_2:AES_S",
+    "index":0.20727848101265822
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_59",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/key:AES_GetNewKey_2/sub:AES_SubWord/PEs_3:AES_S",
-    "index":0.2916666666666667
+    "original":"~AES_Pipelined|AES_S_51",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_0_3:AES_S",
+    "index":0.2088607594936709
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_SubWord_2",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_2:AES_ProcessingElement_2/key:AES_GetNewKey_2/sub:AES_SubWord",
-    "index":0.2948717948717949
+    "original":"~AES_Pipelined|AES_S_52",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_1_0:AES_S",
+    "index":0.21044303797468356
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_60",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_0_0:AES_S",
-    "index":0.30448717948717946
+    "original":"~AES_Pipelined|AES_S_53",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_1_1:AES_S",
+    "index":0.2120253164556962
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_61",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_0_1:AES_S",
-    "index":0.3076923076923077
+    "original":"~AES_Pipelined|AES_S_54",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_1_2:AES_S",
+    "index":0.21360759493670886
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_62",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_0_2:AES_S",
-    "index":0.3108974358974359
+    "original":"~AES_Pipelined|AES_S_55",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_1_3:AES_S",
+    "index":0.21518987341772153
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_63",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_0_3:AES_S",
-    "index":0.3141025641025641
+    "original":"~AES_Pipelined|AES_S_56",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_2_0:AES_S",
+    "index":0.21677215189873417
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_64",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_1_0:AES_S",
-    "index":0.3173076923076923
+    "original":"~AES_Pipelined|AES_S_57",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_2_1:AES_S",
+    "index":0.21835443037974683
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_65",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_1_1:AES_S",
-    "index":0.32051282051282054
+    "original":"~AES_Pipelined|AES_S_58",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_2_2:AES_S",
+    "index":0.2199367088607595
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_66",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_1_2:AES_S",
-    "index":0.32371794871794873
+    "original":"~AES_Pipelined|AES_S_59",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_2_3:AES_S",
+    "index":0.22151898734177214
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_67",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_1_3:AES_S",
-    "index":0.3269230769230769
+    "original":"~AES_Pipelined|AES_S_60",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_3_0:AES_S",
+    "index":0.2231012658227848
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_68",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_2_0:AES_S",
-    "index":0.3301282051282051
+    "original":"~AES_Pipelined|AES_S_61",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_3_1:AES_S",
+    "index":0.22468354430379747
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_69",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_2_1:AES_S",
-    "index":0.3333333333333333
+    "original":"~AES_Pipelined|AES_S_62",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_3_2:AES_S",
+    "index":0.22626582278481014
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_70",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_2_2:AES_S",
-    "index":0.33653846153846156
+    "original":"~AES_Pipelined|AES_S_63",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes/PEs_3_3:AES_S",
+    "index":0.22784810126582278
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_71",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_2_3:AES_S",
-    "index":0.33974358974358976
+    "original":"~AES_Pipelined|AES_SubBytes_2",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/sub:AES_SubBytes",
+    "index":0.22943037974683544
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_72",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_3_0:AES_S",
-    "index":0.34294871794871795
+    "original":"~AES_Pipelined|AES_ShiftRows_2",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/shift:AES_ShiftRows",
+    "index":0.2310126582278481
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_73",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_3_1:AES_S",
-    "index":0.34615384615384615
+    "original":"~AES_Pipelined|AES_MixColumn_8",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/mix:AES_MixColumns/PEs_0:AES_MixColumn",
+    "index":0.23259493670886075
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_74",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_3_2:AES_S",
-    "index":0.34935897435897434
+    "original":"~AES_Pipelined|AES_MixColumn_9",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/mix:AES_MixColumns/PEs_1:AES_MixColumn",
+    "index":0.23417721518987342
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_75",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_3_3:AES_S",
-    "index":0.3525641025641026
+    "original":"~AES_Pipelined|AES_MixColumn_10",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/mix:AES_MixColumns/PEs_2:AES_MixColumn",
+    "index":0.23575949367088608
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_SubBytes_3",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes",
-    "index":0.3557692307692308
+    "original":"~AES_Pipelined|AES_MixColumn_11",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/mix:AES_MixColumns/PEs_3:AES_MixColumn",
+    "index":0.23734177215189872
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_ShiftRows_3",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/shift:AES_ShiftRows",
-    "index":0.358974358974359
+    "original":"~AES_Pipelined|AES_MixColumns_2",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/mix:AES_MixColumns",
+    "index":0.2389240506329114
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_12",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/mix:AES_MixColumns/PEs_0:AES_MixColumn",
-    "index":0.36217948717948717
+    "original":"~AES_Pipelined|AES_XOR_5",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/invxor:AES_XOR",
+    "index":0.24050632911392406
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_13",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/mix:AES_MixColumns/PEs_1:AES_MixColumn",
-    "index":0.36538461538461536
+    "original":"~AES_Pipelined|AES_InvMixColumn_8",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_14",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/mix:AES_MixColumns/PEs_2:AES_MixColumn",
-    "index":0.3685897435897436
+    "original":"~AES_Pipelined|AES_InvMixColumn_9",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_15",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/mix:AES_MixColumns/PEs_3:AES_MixColumn",
-    "index":0.3717948717948718
+    "original":"~AES_Pipelined|AES_InvMixColumn_10",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumns_3",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/mix:AES_MixColumns",
-    "index":0.375
+    "original":"~AES_Pipelined|AES_InvMixColumn_11",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_RotWord_3",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/key:AES_GetNewKey_3/rot:AES_RotWord",
-    "index":0.3782051282051282
+    "original":"~AES_Pipelined|AES_InvMixColumns_2",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_76",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/key:AES_GetNewKey_3/sub:AES_SubWord/PEs_0:AES_S",
-    "index":0.3814102564102564
+    "original":"~AES_Pipelined|AES_InvShiftRows_2",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_77",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/key:AES_GetNewKey_3/sub:AES_SubWord/PEs_1:AES_S",
-    "index":0.38461538461538464
+    "original":"~AES_Pipelined|AES_InvS_32",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_78",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/key:AES_GetNewKey_3/sub:AES_SubWord/PEs_2:AES_S",
-    "index":0.38782051282051283
+    "original":"~AES_Pipelined|AES_InvS_33",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_79",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/key:AES_GetNewKey_3/sub:AES_SubWord/PEs_3:AES_S",
-    "index":0.391025641025641
+    "original":"~AES_Pipelined|AES_InvS_34",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_SubWord_3",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_3:AES_ProcessingElement_3/key:AES_GetNewKey_3/sub:AES_SubWord",
-    "index":0.3942307692307692
+    "original":"~AES_Pipelined|AES_InvS_35",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_80",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_0_0:AES_S",
-    "index":0.40384615384615385
+    "original":"~AES_Pipelined|AES_InvS_36",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_81",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_0_1:AES_S",
-    "index":0.40705128205128205
+    "original":"~AES_Pipelined|AES_InvS_37",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_82",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_0_2:AES_S",
-    "index":0.41025641025641024
+    "original":"~AES_Pipelined|AES_InvS_38",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_83",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_0_3:AES_S",
-    "index":0.41346153846153844
+    "original":"~AES_Pipelined|AES_InvS_39",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_84",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_1_0:AES_S",
-    "index":0.4166666666666667
+    "original":"~AES_Pipelined|AES_InvS_40",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_85",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_1_1:AES_S",
-    "index":0.4198717948717949
+    "original":"~AES_Pipelined|AES_InvS_41",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_86",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_1_2:AES_S",
-    "index":0.4230769230769231
+    "original":"~AES_Pipelined|AES_InvS_42",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_87",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_1_3:AES_S",
-    "index":0.42628205128205127
+    "original":"~AES_Pipelined|AES_InvS_43",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_88",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_2_0:AES_S",
-    "index":0.42948717948717946
+    "original":"~AES_Pipelined|AES_InvS_44",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_89",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_2_1:AES_S",
-    "index":0.4326923076923077
+    "original":"~AES_Pipelined|AES_InvS_45",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_90",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_2_2:AES_S",
-    "index":0.4358974358974359
+    "original":"~AES_Pipelined|AES_InvS_46",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_91",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_2_3:AES_S",
-    "index":0.4391025641025641
+    "original":"~AES_Pipelined|AES_InvS_47",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_92",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_3_0:AES_S",
-    "index":0.4423076923076923
+    "original":"~AES_Pipelined|AES_InvSubBytes_2",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_93",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_3_1:AES_S",
-    "index":0.44551282051282054
+    "original":"~AES_Pipelined|AES_RotWord_4",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/key:AES_GetNewKey_2/rot:AES_RotWord",
+    "index":0.27848101265822783
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_94",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_3_2:AES_S",
-    "index":0.44871794871794873
+    "original":"~AES_Pipelined|AES_S_64",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/key:AES_GetNewKey_2/sub:AES_SubWord/PEs_0:AES_S",
+    "index":0.2800632911392405
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_95",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_3_3:AES_S",
-    "index":0.4519230769230769
+    "original":"~AES_Pipelined|AES_S_65",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/key:AES_GetNewKey_2/sub:AES_SubWord/PEs_1:AES_S",
+    "index":0.28164556962025317
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_SubBytes_4",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes",
-    "index":0.4551282051282051
+    "original":"~AES_Pipelined|AES_S_66",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/key:AES_GetNewKey_2/sub:AES_SubWord/PEs_2:AES_S",
+    "index":0.28322784810126583
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_ShiftRows_4",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/shift:AES_ShiftRows",
-    "index":0.4583333333333333
+    "original":"~AES_Pipelined|AES_S_67",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/key:AES_GetNewKey_2/sub:AES_SubWord/PEs_3:AES_S",
+    "index":0.2848101265822785
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_16",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/mix:AES_MixColumns/PEs_0:AES_MixColumn",
-    "index":0.46153846153846156
+    "original":"~AES_Pipelined|AES_SubWord_4",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/key:AES_GetNewKey_2/sub:AES_SubWord",
+    "index":0.28639240506329117
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_17",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/mix:AES_MixColumns/PEs_1:AES_MixColumn",
-    "index":0.46474358974358976
+    "original":"~AES_Pipelined|AES_RotWord_5",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/invkey:AES_InvGetNewKey_2/rot:AES_RotWord",
+    "index":0.28955696202531644
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_18",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/mix:AES_MixColumns/PEs_2:AES_MixColumn",
-    "index":0.46794871794871795
+    "original":"~AES_Pipelined|AES_S_68",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/invkey:AES_InvGetNewKey_2/sub:AES_SubWord/PEs_0:AES_S",
+    "index":0.2911392405063291
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_19",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/mix:AES_MixColumns/PEs_3:AES_MixColumn",
-    "index":0.47115384615384615
+    "original":"~AES_Pipelined|AES_S_69",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/invkey:AES_InvGetNewKey_2/sub:AES_SubWord/PEs_1:AES_S",
+    "index":0.2927215189873418
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumns_4",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/mix:AES_MixColumns",
-    "index":0.47435897435897434
+    "original":"~AES_Pipelined|AES_S_70",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/invkey:AES_InvGetNewKey_2/sub:AES_SubWord/PEs_2:AES_S",
+    "index":0.29430379746835444
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_RotWord_4",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/key:AES_GetNewKey_4/rot:AES_RotWord",
-    "index":0.4775641025641026
+    "original":"~AES_Pipelined|AES_S_71",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/invkey:AES_InvGetNewKey_2/sub:AES_SubWord/PEs_3:AES_S",
+    "index":0.2958860759493671
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_96",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/key:AES_GetNewKey_4/sub:AES_SubWord/PEs_0:AES_S",
-    "index":0.4807692307692308
+    "original":"~AES_Pipelined|AES_SubWord_5",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_2:AES_ProcessingElement_2/invkey:AES_InvGetNewKey_2/sub:AES_SubWord",
+    "index":0.2974683544303797
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_97",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/key:AES_GetNewKey_4/sub:AES_SubWord/PEs_1:AES_S",
-    "index":0.483974358974359
+    "original":"~AES_Pipelined|AES_XOR_6",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/xor:AES_XOR",
+    "index":0.3022151898734177
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_98",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/key:AES_GetNewKey_4/sub:AES_SubWord/PEs_2:AES_S",
-    "index":0.48717948717948717
+    "original":"~AES_Pipelined|AES_S_72",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_0_0:AES_S",
+    "index":0.3037974683544304
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_99",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/key:AES_GetNewKey_4/sub:AES_SubWord/PEs_3:AES_S",
-    "index":0.49038461538461536
+    "original":"~AES_Pipelined|AES_S_73",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_0_1:AES_S",
+    "index":0.30537974683544306
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_SubWord_4",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_4:AES_ProcessingElement_4/key:AES_GetNewKey_4/sub:AES_SubWord",
-    "index":0.4935897435897436
+    "original":"~AES_Pipelined|AES_S_74",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_0_2:AES_S",
+    "index":0.3069620253164557
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_100",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_0_0:AES_S",
-    "index":0.5032051282051282
+    "original":"~AES_Pipelined|AES_S_75",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_0_3:AES_S",
+    "index":0.30854430379746833
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_101",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_0_1:AES_S",
-    "index":0.5064102564102564
+    "original":"~AES_Pipelined|AES_S_76",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_1_0:AES_S",
+    "index":0.310126582278481
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_102",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_0_2:AES_S",
-    "index":0.5096153846153846
+    "original":"~AES_Pipelined|AES_S_77",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_1_1:AES_S",
+    "index":0.31170886075949367
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_103",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_0_3:AES_S",
-    "index":0.5128205128205128
+    "original":"~AES_Pipelined|AES_S_78",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_1_2:AES_S",
+    "index":0.31329113924050633
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_104",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_1_0:AES_S",
-    "index":0.5160256410256411
+    "original":"~AES_Pipelined|AES_S_79",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_1_3:AES_S",
+    "index":0.314873417721519
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_105",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_1_1:AES_S",
-    "index":0.5192307692307693
+    "original":"~AES_Pipelined|AES_S_80",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_2_0:AES_S",
+    "index":0.31645569620253167
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_106",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_1_2:AES_S",
-    "index":0.5224358974358975
+    "original":"~AES_Pipelined|AES_S_81",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_2_1:AES_S",
+    "index":0.3180379746835443
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_107",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_1_3:AES_S",
-    "index":0.5256410256410257
+    "original":"~AES_Pipelined|AES_S_82",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_2_2:AES_S",
+    "index":0.31962025316455694
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_108",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_2_0:AES_S",
-    "index":0.5288461538461539
+    "original":"~AES_Pipelined|AES_S_83",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_2_3:AES_S",
+    "index":0.3212025316455696
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_109",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_2_1:AES_S",
-    "index":0.532051282051282
+    "original":"~AES_Pipelined|AES_S_84",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_3_0:AES_S",
+    "index":0.3227848101265823
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_110",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_2_2:AES_S",
-    "index":0.5352564102564102
+    "original":"~AES_Pipelined|AES_S_85",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_3_1:AES_S",
+    "index":0.32436708860759494
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_111",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_2_3:AES_S",
-    "index":0.5384615384615384
+    "original":"~AES_Pipelined|AES_S_86",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_3_2:AES_S",
+    "index":0.3259493670886076
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_112",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_3_0:AES_S",
-    "index":0.5416666666666666
+    "original":"~AES_Pipelined|AES_S_87",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes/PEs_3_3:AES_S",
+    "index":0.3275316455696203
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_113",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_3_1:AES_S",
-    "index":0.5448717948717948
+    "original":"~AES_Pipelined|AES_SubBytes_3",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/sub:AES_SubBytes",
+    "index":0.3291139240506329
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_114",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_3_2:AES_S",
-    "index":0.5480769230769231
+    "original":"~AES_Pipelined|AES_ShiftRows_3",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/shift:AES_ShiftRows",
+    "index":0.33069620253164556
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_115",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_3_3:AES_S",
-    "index":0.5512820512820513
+    "original":"~AES_Pipelined|AES_MixColumn_12",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/mix:AES_MixColumns/PEs_0:AES_MixColumn",
+    "index":0.3322784810126582
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_SubBytes_5",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes",
-    "index":0.5544871794871795
+    "original":"~AES_Pipelined|AES_MixColumn_13",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/mix:AES_MixColumns/PEs_1:AES_MixColumn",
+    "index":0.3338607594936709
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_ShiftRows_5",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/shift:AES_ShiftRows",
-    "index":0.5576923076923077
+    "original":"~AES_Pipelined|AES_MixColumn_14",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/mix:AES_MixColumns/PEs_2:AES_MixColumn",
+    "index":0.33544303797468356
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_20",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/mix:AES_MixColumns/PEs_0:AES_MixColumn",
-    "index":0.5608974358974359
+    "original":"~AES_Pipelined|AES_MixColumn_15",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/mix:AES_MixColumns/PEs_3:AES_MixColumn",
+    "index":0.3370253164556962
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_21",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/mix:AES_MixColumns/PEs_1:AES_MixColumn",
-    "index":0.5641025641025641
+    "original":"~AES_Pipelined|AES_MixColumns_3",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/mix:AES_MixColumns",
+    "index":0.33860759493670883
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_22",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/mix:AES_MixColumns/PEs_2:AES_MixColumn",
-    "index":0.5673076923076923
+    "original":"~AES_Pipelined|AES_XOR_7",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/invxor:AES_XOR",
+    "index":0.3401898734177215
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_23",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/mix:AES_MixColumns/PEs_3:AES_MixColumn",
-    "index":0.5705128205128205
+    "original":"~AES_Pipelined|AES_InvMixColumn_12",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumns_5",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/mix:AES_MixColumns",
-    "index":0.5737179487179487
+    "original":"~AES_Pipelined|AES_InvMixColumn_13",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_RotWord_5",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/key:AES_GetNewKey_5/rot:AES_RotWord",
-    "index":0.5769230769230769
+    "original":"~AES_Pipelined|AES_InvMixColumn_14",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_116",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/key:AES_GetNewKey_5/sub:AES_SubWord/PEs_0:AES_S",
-    "index":0.5801282051282052
+    "original":"~AES_Pipelined|AES_InvMixColumn_15",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_117",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/key:AES_GetNewKey_5/sub:AES_SubWord/PEs_1:AES_S",
-    "index":0.5833333333333334
+    "original":"~AES_Pipelined|AES_InvMixColumns_3",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_118",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/key:AES_GetNewKey_5/sub:AES_SubWord/PEs_2:AES_S",
-    "index":0.5865384615384616
+    "original":"~AES_Pipelined|AES_InvShiftRows_3",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_119",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/key:AES_GetNewKey_5/sub:AES_SubWord/PEs_3:AES_S",
-    "index":0.5897435897435898
+    "original":"~AES_Pipelined|AES_InvS_48",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_SubWord_5",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_5:AES_ProcessingElement_5/key:AES_GetNewKey_5/sub:AES_SubWord",
-    "index":0.592948717948718
+    "original":"~AES_Pipelined|AES_InvS_49",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_120",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_0_0:AES_S",
-    "index":0.6025641025641025
+    "original":"~AES_Pipelined|AES_InvS_50",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_121",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_0_1:AES_S",
-    "index":0.6057692307692307
+    "original":"~AES_Pipelined|AES_InvS_51",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_122",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_0_2:AES_S",
-    "index":0.6089743589743589
+    "original":"~AES_Pipelined|AES_InvS_52",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_123",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_0_3:AES_S",
-    "index":0.6121794871794872
+    "original":"~AES_Pipelined|AES_InvS_53",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_124",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_1_0:AES_S",
-    "index":0.6153846153846154
+    "original":"~AES_Pipelined|AES_InvS_54",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_125",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_1_1:AES_S",
-    "index":0.6185897435897436
+    "original":"~AES_Pipelined|AES_InvS_55",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_126",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_1_2:AES_S",
-    "index":0.6217948717948718
+    "original":"~AES_Pipelined|AES_InvS_56",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_127",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_1_3:AES_S",
+    "original":"~AES_Pipelined|AES_InvS_57",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_58",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_59",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_60",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_61",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_62",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_63",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvSubBytes_3",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_RotWord_6",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/key:AES_GetNewKey_3/rot:AES_RotWord",
+    "index":0.37816455696202533
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_88",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/key:AES_GetNewKey_3/sub:AES_SubWord/PEs_0:AES_S",
+    "index":0.379746835443038
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_89",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/key:AES_GetNewKey_3/sub:AES_SubWord/PEs_1:AES_S",
+    "index":0.3813291139240506
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_90",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/key:AES_GetNewKey_3/sub:AES_SubWord/PEs_2:AES_S",
+    "index":0.3829113924050633
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_91",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/key:AES_GetNewKey_3/sub:AES_SubWord/PEs_3:AES_S",
+    "index":0.38449367088607594
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_SubWord_6",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/key:AES_GetNewKey_3/sub:AES_SubWord",
+    "index":0.3860759493670886
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_RotWord_7",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/invkey:AES_InvGetNewKey_3/rot:AES_RotWord",
+    "index":0.38924050632911394
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_92",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/invkey:AES_InvGetNewKey_3/sub:AES_SubWord/PEs_0:AES_S",
+    "index":0.39082278481012656
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_93",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/invkey:AES_InvGetNewKey_3/sub:AES_SubWord/PEs_1:AES_S",
+    "index":0.3924050632911392
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_94",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/invkey:AES_InvGetNewKey_3/sub:AES_SubWord/PEs_2:AES_S",
+    "index":0.3939873417721519
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_95",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/invkey:AES_InvGetNewKey_3/sub:AES_SubWord/PEs_3:AES_S",
+    "index":0.39556962025316456
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_SubWord_7",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_3:AES_ProcessingElement_3/invkey:AES_InvGetNewKey_3/sub:AES_SubWord",
+    "index":0.3971518987341772
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_XOR_8",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/xor:AES_XOR",
+    "index":0.40189873417721517
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_96",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_0_0:AES_S",
+    "index":0.40348101265822783
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_97",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_0_1:AES_S",
+    "index":0.4050632911392405
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_98",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_0_2:AES_S",
+    "index":0.40664556962025317
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_99",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_0_3:AES_S",
+    "index":0.40822784810126583
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_100",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_1_0:AES_S",
+    "index":0.4098101265822785
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_101",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_1_1:AES_S",
+    "index":0.41139240506329117
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_102",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_1_2:AES_S",
+    "index":0.4129746835443038
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_103",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_1_3:AES_S",
+    "index":0.41455696202531644
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_104",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_2_0:AES_S",
+    "index":0.4161392405063291
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_105",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_2_1:AES_S",
+    "index":0.4177215189873418
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_106",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_2_2:AES_S",
+    "index":0.41930379746835444
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_107",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_2_3:AES_S",
+    "index":0.4208860759493671
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_108",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_3_0:AES_S",
+    "index":0.4224683544303797
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_109",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_3_1:AES_S",
+    "index":0.4240506329113924
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_110",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_3_2:AES_S",
+    "index":0.42563291139240506
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_111",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes/PEs_3_3:AES_S",
+    "index":0.4272151898734177
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_SubBytes_4",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/sub:AES_SubBytes",
+    "index":0.4287974683544304
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_ShiftRows_4",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/shift:AES_ShiftRows",
+    "index":0.43037974683544306
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_MixColumn_16",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/mix:AES_MixColumns/PEs_0:AES_MixColumn",
+    "index":0.4319620253164557
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_MixColumn_17",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/mix:AES_MixColumns/PEs_1:AES_MixColumn",
+    "index":0.43354430379746833
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_MixColumn_18",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/mix:AES_MixColumns/PEs_2:AES_MixColumn",
+    "index":0.435126582278481
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_MixColumn_19",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/mix:AES_MixColumns/PEs_3:AES_MixColumn",
+    "index":0.43670886075949367
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_MixColumns_4",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/mix:AES_MixColumns",
+    "index":0.43829113924050633
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_XOR_9",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/invxor:AES_XOR",
+    "index":0.439873417721519
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvMixColumn_16",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvMixColumn_17",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvMixColumn_18",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvMixColumn_19",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvMixColumns_4",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvShiftRows_4",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_64",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_65",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_66",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_67",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_68",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_69",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_70",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_71",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_72",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_73",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_74",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_75",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_76",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_77",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_78",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_79",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvSubBytes_4",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_RotWord_8",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/key:AES_GetNewKey_4/rot:AES_RotWord",
+    "index":0.4778481012658228
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_112",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/key:AES_GetNewKey_4/sub:AES_SubWord/PEs_0:AES_S",
+    "index":0.47943037974683544
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_113",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/key:AES_GetNewKey_4/sub:AES_SubWord/PEs_1:AES_S",
+    "index":0.4810126582278481
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_114",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/key:AES_GetNewKey_4/sub:AES_SubWord/PEs_2:AES_S",
+    "index":0.4825949367088608
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_115",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/key:AES_GetNewKey_4/sub:AES_SubWord/PEs_3:AES_S",
+    "index":0.48417721518987344
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_SubWord_8",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/key:AES_GetNewKey_4/sub:AES_SubWord",
+    "index":0.48575949367088606
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_RotWord_9",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/invkey:AES_InvGetNewKey_4/rot:AES_RotWord",
+    "index":0.4889240506329114
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_116",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/invkey:AES_InvGetNewKey_4/sub:AES_SubWord/PEs_0:AES_S",
+    "index":0.49050632911392406
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_117",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/invkey:AES_InvGetNewKey_4/sub:AES_SubWord/PEs_1:AES_S",
+    "index":0.4920886075949367
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_118",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/invkey:AES_InvGetNewKey_4/sub:AES_SubWord/PEs_2:AES_S",
+    "index":0.4936708860759494
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_119",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/invkey:AES_InvGetNewKey_4/sub:AES_SubWord/PEs_3:AES_S",
+    "index":0.495253164556962
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_SubWord_9",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_4:AES_ProcessingElement_4/invkey:AES_InvGetNewKey_4/sub:AES_SubWord",
+    "index":0.49683544303797467
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_XOR_10",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/xor:AES_XOR",
+    "index":0.5015822784810127
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_120",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_0_0:AES_S",
+    "index":0.5031645569620253
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_121",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_0_1:AES_S",
+    "index":0.504746835443038
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_122",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_0_2:AES_S",
+    "index":0.5063291139240507
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_123",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_0_3:AES_S",
+    "index":0.5079113924050633
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_124",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_1_0:AES_S",
+    "index":0.509493670886076
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_125",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_1_1:AES_S",
+    "index":0.5110759493670886
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_126",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_1_2:AES_S",
+    "index":0.5126582278481012
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_127",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_1_3:AES_S",
+    "index":0.5142405063291139
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_128",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_2_0:AES_S",
+    "index":0.5158227848101266
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_129",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_2_1:AES_S",
+    "index":0.5174050632911392
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_130",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_2_2:AES_S",
+    "index":0.5189873417721519
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_131",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_2_3:AES_S",
+    "index":0.5205696202531646
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_132",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_3_0:AES_S",
+    "index":0.5221518987341772
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_133",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_3_1:AES_S",
+    "index":0.5237341772151899
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_134",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_3_2:AES_S",
+    "index":0.5253164556962026
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_135",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes/PEs_3_3:AES_S",
+    "index":0.5268987341772152
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_SubBytes_5",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/sub:AES_SubBytes",
+    "index":0.5284810126582279
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_ShiftRows_5",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/shift:AES_ShiftRows",
+    "index":0.5300632911392406
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_MixColumn_20",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/mix:AES_MixColumns/PEs_0:AES_MixColumn",
+    "index":0.5316455696202531
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_MixColumn_21",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/mix:AES_MixColumns/PEs_1:AES_MixColumn",
+    "index":0.5332278481012658
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_MixColumn_22",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/mix:AES_MixColumns/PEs_2:AES_MixColumn",
+    "index":0.5348101265822784
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_MixColumn_23",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/mix:AES_MixColumns/PEs_3:AES_MixColumn",
+    "index":0.5363924050632911
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_MixColumns_5",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/mix:AES_MixColumns",
+    "index":0.5379746835443038
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_XOR_11",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/invxor:AES_XOR",
+    "index":0.5395569620253164
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvMixColumn_20",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvMixColumn_21",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvMixColumn_22",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvMixColumn_23",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvMixColumns_5",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvShiftRows_5",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_80",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_81",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_82",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_83",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_84",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_85",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_86",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_87",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_88",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_89",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_90",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_91",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_92",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_93",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_94",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_95",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvSubBytes_5",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_RotWord_10",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/key:AES_GetNewKey_5/rot:AES_RotWord",
+    "index":0.5775316455696202
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_136",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/key:AES_GetNewKey_5/sub:AES_SubWord/PEs_0:AES_S",
+    "index":0.5791139240506329
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_137",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/key:AES_GetNewKey_5/sub:AES_SubWord/PEs_1:AES_S",
+    "index":0.5806962025316456
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_138",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/key:AES_GetNewKey_5/sub:AES_SubWord/PEs_2:AES_S",
+    "index":0.5822784810126582
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_139",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/key:AES_GetNewKey_5/sub:AES_SubWord/PEs_3:AES_S",
+    "index":0.5838607594936709
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_SubWord_10",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/key:AES_GetNewKey_5/sub:AES_SubWord",
+    "index":0.5854430379746836
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_RotWord_11",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/invkey:AES_InvGetNewKey_5/rot:AES_RotWord",
+    "index":0.5886075949367089
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_140",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/invkey:AES_InvGetNewKey_5/sub:AES_SubWord/PEs_0:AES_S",
+    "index":0.5901898734177216
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_141",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/invkey:AES_InvGetNewKey_5/sub:AES_SubWord/PEs_1:AES_S",
+    "index":0.5917721518987342
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_142",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/invkey:AES_InvGetNewKey_5/sub:AES_SubWord/PEs_2:AES_S",
+    "index":0.5933544303797469
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_143",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/invkey:AES_InvGetNewKey_5/sub:AES_SubWord/PEs_3:AES_S",
+    "index":0.5949367088607594
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_SubWord_11",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_5:AES_ProcessingElement_5/invkey:AES_InvGetNewKey_5/sub:AES_SubWord",
+    "index":0.5965189873417721
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_XOR_12",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/xor:AES_XOR",
+    "index":0.6012658227848101
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_144",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_0_0:AES_S",
+    "index":0.6028481012658228
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_145",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_0_1:AES_S",
+    "index":0.6044303797468354
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_146",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_0_2:AES_S",
+    "index":0.6060126582278481
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_147",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_0_3:AES_S",
+    "index":0.6075949367088608
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_148",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_1_0:AES_S",
+    "index":0.6091772151898734
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_149",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_1_1:AES_S",
+    "index":0.6107594936708861
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_150",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_1_2:AES_S",
+    "index":0.6123417721518988
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_151",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_1_3:AES_S",
+    "index":0.6139240506329114
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_152",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_2_0:AES_S",
+    "index":0.615506329113924
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_153",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_2_1:AES_S",
+    "index":0.6170886075949367
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_154",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_2_2:AES_S",
+    "index":0.6186708860759493
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_155",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_2_3:AES_S",
+    "index":0.620253164556962
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_156",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_3_0:AES_S",
+    "index":0.6218354430379747
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_157",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_3_1:AES_S",
+    "index":0.6234177215189873
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_158",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_3_2:AES_S",
     "index":0.625
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_128",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_2_0:AES_S",
-    "index":0.6282051282051282
+    "original":"~AES_Pipelined|AES_S_159",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_3_3:AES_S",
+    "index":0.6265822784810127
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_129",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_2_1:AES_S",
-    "index":0.6314102564102564
+    "original":"~AES_Pipelined|AES_SubBytes_6",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes",
+    "index":0.6281645569620253
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_130",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_2_2:AES_S",
-    "index":0.6346153846153846
+    "original":"~AES_Pipelined|AES_ShiftRows_6",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/shift:AES_ShiftRows",
+    "index":0.629746835443038
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_131",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_2_3:AES_S",
-    "index":0.6378205128205128
+    "original":"~AES_Pipelined|AES_MixColumn_24",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/mix:AES_MixColumns/PEs_0:AES_MixColumn",
+    "index":0.6313291139240507
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_132",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_3_0:AES_S",
-    "index":0.6410256410256411
+    "original":"~AES_Pipelined|AES_MixColumn_25",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/mix:AES_MixColumns/PEs_1:AES_MixColumn",
+    "index":0.6329113924050633
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_133",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_3_1:AES_S",
-    "index":0.6442307692307693
+    "original":"~AES_Pipelined|AES_MixColumn_26",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/mix:AES_MixColumns/PEs_2:AES_MixColumn",
+    "index":0.634493670886076
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_134",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_3_2:AES_S",
-    "index":0.6474358974358975
+    "original":"~AES_Pipelined|AES_MixColumn_27",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/mix:AES_MixColumns/PEs_3:AES_MixColumn",
+    "index":0.6360759493670886
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_135",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes/PEs_3_3:AES_S",
-    "index":0.6506410256410257
+    "original":"~AES_Pipelined|AES_MixColumns_6",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/mix:AES_MixColumns",
+    "index":0.6376582278481012
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_SubBytes_6",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/sub:AES_SubBytes",
-    "index":0.6538461538461539
+    "original":"~AES_Pipelined|AES_XOR_13",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/invxor:AES_XOR",
+    "index":0.6392405063291139
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_ShiftRows_6",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/shift:AES_ShiftRows",
-    "index":0.657051282051282
+    "original":"~AES_Pipelined|AES_InvMixColumn_24",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_24",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/mix:AES_MixColumns/PEs_0:AES_MixColumn",
-    "index":0.6602564102564102
+    "original":"~AES_Pipelined|AES_InvMixColumn_25",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_25",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/mix:AES_MixColumns/PEs_1:AES_MixColumn",
-    "index":0.6634615384615384
+    "original":"~AES_Pipelined|AES_InvMixColumn_26",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_26",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/mix:AES_MixColumns/PEs_2:AES_MixColumn",
-    "index":0.6666666666666666
+    "original":"~AES_Pipelined|AES_InvMixColumn_27",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_27",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/mix:AES_MixColumns/PEs_3:AES_MixColumn",
-    "index":0.6698717948717948
+    "original":"~AES_Pipelined|AES_InvMixColumns_6",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumns_6",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/mix:AES_MixColumns",
-    "index":0.6730769230769231
+    "original":"~AES_Pipelined|AES_InvShiftRows_6",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_RotWord_6",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/key:AES_GetNewKey_6/rot:AES_RotWord",
-    "index":0.6762820512820513
+    "original":"~AES_Pipelined|AES_InvS_96",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_136",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/key:AES_GetNewKey_6/sub:AES_SubWord/PEs_0:AES_S",
-    "index":0.6794871794871795
+    "original":"~AES_Pipelined|AES_InvS_97",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_137",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/key:AES_GetNewKey_6/sub:AES_SubWord/PEs_1:AES_S",
-    "index":0.6826923076923077
+    "original":"~AES_Pipelined|AES_InvS_98",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_138",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/key:AES_GetNewKey_6/sub:AES_SubWord/PEs_2:AES_S",
-    "index":0.6858974358974359
+    "original":"~AES_Pipelined|AES_InvS_99",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_139",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/key:AES_GetNewKey_6/sub:AES_SubWord/PEs_3:AES_S",
-    "index":0.6891025641025641
+    "original":"~AES_Pipelined|AES_InvS_100",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_SubWord_6",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_6:AES_ProcessingElement_6/key:AES_GetNewKey_6/sub:AES_SubWord",
-    "index":0.6923076923076923
+    "original":"~AES_Pipelined|AES_InvS_101",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_140",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_0_0:AES_S",
-    "index":0.7019230769230769
+    "original":"~AES_Pipelined|AES_InvS_102",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_141",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_0_1:AES_S",
-    "index":0.7051282051282052
+    "original":"~AES_Pipelined|AES_InvS_103",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_142",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_0_2:AES_S",
-    "index":0.7083333333333334
+    "original":"~AES_Pipelined|AES_InvS_104",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_143",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_0_3:AES_S",
-    "index":0.7115384615384616
+    "original":"~AES_Pipelined|AES_InvS_105",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_144",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_1_0:AES_S",
-    "index":0.7147435897435898
+    "original":"~AES_Pipelined|AES_InvS_106",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_145",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_1_1:AES_S",
-    "index":0.717948717948718
+    "original":"~AES_Pipelined|AES_InvS_107",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_146",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_1_2:AES_S",
-    "index":0.7211538461538461
+    "original":"~AES_Pipelined|AES_InvS_108",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_147",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_1_3:AES_S",
-    "index":0.7243589743589743
+    "original":"~AES_Pipelined|AES_InvS_109",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_148",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_2_0:AES_S",
-    "index":0.7275641025641025
+    "original":"~AES_Pipelined|AES_InvS_110",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_149",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_2_1:AES_S",
-    "index":0.7307692307692307
+    "original":"~AES_Pipelined|AES_InvS_111",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_150",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_2_2:AES_S",
-    "index":0.7339743589743589
+    "original":"~AES_Pipelined|AES_InvSubBytes_6",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_151",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_2_3:AES_S",
-    "index":0.7371794871794872
+    "original":"~AES_Pipelined|AES_RotWord_12",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/key:AES_GetNewKey_6/rot:AES_RotWord",
+    "index":0.6772151898734177
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_152",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_3_0:AES_S",
-    "index":0.7403846153846154
+    "original":"~AES_Pipelined|AES_S_160",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/key:AES_GetNewKey_6/sub:AES_SubWord/PEs_0:AES_S",
+    "index":0.6787974683544303
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_153",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_3_1:AES_S",
-    "index":0.7435897435897436
+    "original":"~AES_Pipelined|AES_S_161",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/key:AES_GetNewKey_6/sub:AES_SubWord/PEs_1:AES_S",
+    "index":0.680379746835443
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_154",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_3_2:AES_S",
-    "index":0.7467948717948718
+    "original":"~AES_Pipelined|AES_S_162",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/key:AES_GetNewKey_6/sub:AES_SubWord/PEs_2:AES_S",
+    "index":0.6819620253164557
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_155",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_3_3:AES_S",
-    "index":0.75
+    "original":"~AES_Pipelined|AES_S_163",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/key:AES_GetNewKey_6/sub:AES_SubWord/PEs_3:AES_S",
+    "index":0.6835443037974683
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_SubBytes_7",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes",
-    "index":0.7532051282051282
+    "original":"~AES_Pipelined|AES_SubWord_12",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/key:AES_GetNewKey_6/sub:AES_SubWord",
+    "index":0.685126582278481
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_ShiftRows_7",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/shift:AES_ShiftRows",
-    "index":0.7564102564102564
+    "original":"~AES_Pipelined|AES_RotWord_13",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/invkey:AES_InvGetNewKey_6/rot:AES_RotWord",
+    "index":0.6882911392405063
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_28",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/mix:AES_MixColumns/PEs_0:AES_MixColumn",
-    "index":0.7596153846153846
+    "original":"~AES_Pipelined|AES_S_164",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/invkey:AES_InvGetNewKey_6/sub:AES_SubWord/PEs_0:AES_S",
+    "index":0.689873417721519
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_29",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/mix:AES_MixColumns/PEs_1:AES_MixColumn",
-    "index":0.7628205128205128
+    "original":"~AES_Pipelined|AES_S_165",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/invkey:AES_InvGetNewKey_6/sub:AES_SubWord/PEs_1:AES_S",
+    "index":0.6914556962025317
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_30",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/mix:AES_MixColumns/PEs_2:AES_MixColumn",
-    "index":0.7660256410256411
+    "original":"~AES_Pipelined|AES_S_166",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/invkey:AES_InvGetNewKey_6/sub:AES_SubWord/PEs_2:AES_S",
+    "index":0.6930379746835443
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_31",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/mix:AES_MixColumns/PEs_3:AES_MixColumn",
-    "index":0.7692307692307693
+    "original":"~AES_Pipelined|AES_S_167",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/invkey:AES_InvGetNewKey_6/sub:AES_SubWord/PEs_3:AES_S",
+    "index":0.694620253164557
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumns_7",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/mix:AES_MixColumns",
-    "index":0.7724358974358975
+    "original":"~AES_Pipelined|AES_SubWord_13",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_6:AES_ProcessingElement_6/invkey:AES_InvGetNewKey_6/sub:AES_SubWord",
+    "index":0.6962025316455697
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_RotWord_7",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/key:AES_GetNewKey_7/rot:AES_RotWord",
-    "index":0.7756410256410257
+    "original":"~AES_Pipelined|AES_XOR_14",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/xor:AES_XOR",
+    "index":0.7009493670886076
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_156",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/key:AES_GetNewKey_7/sub:AES_SubWord/PEs_0:AES_S",
-    "index":0.7788461538461539
+    "original":"~AES_Pipelined|AES_S_168",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_0_0:AES_S",
+    "index":0.7025316455696202
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_157",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/key:AES_GetNewKey_7/sub:AES_SubWord/PEs_1:AES_S",
-    "index":0.782051282051282
+    "original":"~AES_Pipelined|AES_S_169",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_0_1:AES_S",
+    "index":0.7041139240506329
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_158",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/key:AES_GetNewKey_7/sub:AES_SubWord/PEs_2:AES_S",
-    "index":0.7852564102564102
+    "original":"~AES_Pipelined|AES_S_170",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_0_2:AES_S",
+    "index":0.7056962025316456
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_159",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/key:AES_GetNewKey_7/sub:AES_SubWord/PEs_3:AES_S",
-    "index":0.7884615384615384
+    "original":"~AES_Pipelined|AES_S_171",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_0_3:AES_S",
+    "index":0.7072784810126582
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_SubWord_7",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_7:AES_ProcessingElement_7/key:AES_GetNewKey_7/sub:AES_SubWord",
-    "index":0.7916666666666666
+    "original":"~AES_Pipelined|AES_S_172",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_1_0:AES_S",
+    "index":0.7088607594936709
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_160",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_0_0:AES_S",
-    "index":0.8012820512820513
+    "original":"~AES_Pipelined|AES_S_173",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_1_1:AES_S",
+    "index":0.7104430379746836
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_161",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_0_1:AES_S",
-    "index":0.8044871794871795
+    "original":"~AES_Pipelined|AES_S_174",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_1_2:AES_S",
+    "index":0.7120253164556962
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_162",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_0_2:AES_S",
-    "index":0.8076923076923077
+    "original":"~AES_Pipelined|AES_S_175",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_1_3:AES_S",
+    "index":0.7136075949367089
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_163",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_0_3:AES_S",
-    "index":0.8108974358974359
+    "original":"~AES_Pipelined|AES_S_176",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_2_0:AES_S",
+    "index":0.7151898734177216
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_164",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_1_0:AES_S",
-    "index":0.8141025641025641
+    "original":"~AES_Pipelined|AES_S_177",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_2_1:AES_S",
+    "index":0.7167721518987342
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_165",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_1_1:AES_S",
-    "index":0.8173076923076923
+    "original":"~AES_Pipelined|AES_S_178",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_2_2:AES_S",
+    "index":0.7183544303797469
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_166",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_1_2:AES_S",
-    "index":0.8205128205128205
+    "original":"~AES_Pipelined|AES_S_179",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_2_3:AES_S",
+    "index":0.7199367088607594
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_167",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_1_3:AES_S",
-    "index":0.8237179487179487
+    "original":"~AES_Pipelined|AES_S_180",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_3_0:AES_S",
+    "index":0.7215189873417721
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_168",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_2_0:AES_S",
-    "index":0.8269230769230769
+    "original":"~AES_Pipelined|AES_S_181",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_3_1:AES_S",
+    "index":0.7231012658227848
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_169",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_2_1:AES_S",
-    "index":0.8301282051282052
+    "original":"~AES_Pipelined|AES_S_182",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_3_2:AES_S",
+    "index":0.7246835443037974
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_170",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_2_2:AES_S",
-    "index":0.8333333333333334
+    "original":"~AES_Pipelined|AES_S_183",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes/PEs_3_3:AES_S",
+    "index":0.7262658227848101
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_171",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_2_3:AES_S",
-    "index":0.8365384615384616
+    "original":"~AES_Pipelined|AES_SubBytes_7",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/sub:AES_SubBytes",
+    "index":0.7278481012658228
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_172",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_3_0:AES_S",
-    "index":0.8397435897435898
+    "original":"~AES_Pipelined|AES_ShiftRows_7",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/shift:AES_ShiftRows",
+    "index":0.7294303797468354
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_173",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_3_1:AES_S",
-    "index":0.842948717948718
+    "original":"~AES_Pipelined|AES_MixColumn_28",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/mix:AES_MixColumns/PEs_0:AES_MixColumn",
+    "index":0.7310126582278481
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_174",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_3_2:AES_S",
-    "index":0.8461538461538461
+    "original":"~AES_Pipelined|AES_MixColumn_29",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/mix:AES_MixColumns/PEs_1:AES_MixColumn",
+    "index":0.7325949367088608
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_175",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_3_3:AES_S",
-    "index":0.8493589743589743
+    "original":"~AES_Pipelined|AES_MixColumn_30",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/mix:AES_MixColumns/PEs_2:AES_MixColumn",
+    "index":0.7341772151898734
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_SubBytes_8",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes",
-    "index":0.8525641025641025
+    "original":"~AES_Pipelined|AES_MixColumn_31",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/mix:AES_MixColumns/PEs_3:AES_MixColumn",
+    "index":0.7357594936708861
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_ShiftRows_8",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/shift:AES_ShiftRows",
-    "index":0.8557692307692307
+    "original":"~AES_Pipelined|AES_MixColumns_7",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/mix:AES_MixColumns",
+    "index":0.7373417721518988
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_32",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/mix:AES_MixColumns/PEs_0:AES_MixColumn",
-    "index":0.8589743589743589
+    "original":"~AES_Pipelined|AES_XOR_15",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/invxor:AES_XOR",
+    "index":0.7389240506329114
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_33",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/mix:AES_MixColumns/PEs_1:AES_MixColumn",
-    "index":0.8621794871794872
+    "original":"~AES_Pipelined|AES_InvMixColumn_28",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_34",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/mix:AES_MixColumns/PEs_2:AES_MixColumn",
-    "index":0.8653846153846154
+    "original":"~AES_Pipelined|AES_InvMixColumn_29",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_35",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/mix:AES_MixColumns/PEs_3:AES_MixColumn",
-    "index":0.8685897435897436
+    "original":"~AES_Pipelined|AES_InvMixColumn_30",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumns_8",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/mix:AES_MixColumns",
-    "index":0.8717948717948718
+    "original":"~AES_Pipelined|AES_InvMixColumn_31",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_RotWord_8",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/key:AES_GetNewKey_8/rot:AES_RotWord",
-    "index":0.875
+    "original":"~AES_Pipelined|AES_InvMixColumns_7",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_176",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/key:AES_GetNewKey_8/sub:AES_SubWord/PEs_0:AES_S",
-    "index":0.8782051282051282
+    "original":"~AES_Pipelined|AES_InvShiftRows_7",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_177",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/key:AES_GetNewKey_8/sub:AES_SubWord/PEs_1:AES_S",
-    "index":0.8814102564102564
+    "original":"~AES_Pipelined|AES_InvS_112",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_178",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/key:AES_GetNewKey_8/sub:AES_SubWord/PEs_2:AES_S",
-    "index":0.8846153846153846
+    "original":"~AES_Pipelined|AES_InvS_113",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_179",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/key:AES_GetNewKey_8/sub:AES_SubWord/PEs_3:AES_S",
-    "index":0.8878205128205128
+    "original":"~AES_Pipelined|AES_InvS_114",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_SubWord_8",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_8:AES_ProcessingElement_8/key:AES_GetNewKey_8/sub:AES_SubWord",
-    "index":0.8910256410256411
+    "original":"~AES_Pipelined|AES_InvS_115",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_180",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_0_0:AES_S",
-    "index":0.9006410256410257
+    "original":"~AES_Pipelined|AES_InvS_116",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_181",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_0_1:AES_S",
-    "index":0.9038461538461539
+    "original":"~AES_Pipelined|AES_InvS_117",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_182",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_0_2:AES_S",
-    "index":0.907051282051282
+    "original":"~AES_Pipelined|AES_InvS_118",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_183",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_0_3:AES_S",
-    "index":0.9102564102564102
+    "original":"~AES_Pipelined|AES_InvS_119",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_184",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_1_0:AES_S",
-    "index":0.9134615384615384
+    "original":"~AES_Pipelined|AES_InvS_120",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_185",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_1_1:AES_S",
-    "index":0.9166666666666666
+    "original":"~AES_Pipelined|AES_InvS_121",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_186",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_1_2:AES_S",
-    "index":0.9198717948717948
+    "original":"~AES_Pipelined|AES_InvS_122",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_187",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_1_3:AES_S",
-    "index":0.9230769230769231
+    "original":"~AES_Pipelined|AES_InvS_123",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_188",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_2_0:AES_S",
-    "index":0.9262820512820513
+    "original":"~AES_Pipelined|AES_InvS_124",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_189",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_2_1:AES_S",
-    "index":0.9294871794871795
+    "original":"~AES_Pipelined|AES_InvS_125",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_190",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_2_2:AES_S",
-    "index":0.9326923076923077
+    "original":"~AES_Pipelined|AES_InvS_126",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_191",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_2_3:AES_S",
-    "index":0.9358974358974359
+    "original":"~AES_Pipelined|AES_InvS_127",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_192",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_3_0:AES_S",
-    "index":0.9391025641025641
+    "original":"~AES_Pipelined|AES_InvSubBytes_7",
+    "index":-1.0
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_193",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_3_1:AES_S",
-    "index":0.9423076923076923
+    "original":"~AES_Pipelined|AES_RotWord_14",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/key:AES_GetNewKey_7/rot:AES_RotWord",
+    "index":0.7768987341772152
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_194",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_3_2:AES_S",
-    "index":0.9455128205128205
+    "original":"~AES_Pipelined|AES_S_184",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/key:AES_GetNewKey_7/sub:AES_SubWord/PEs_0:AES_S",
+    "index":0.7784810126582279
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_195",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_3_3:AES_S",
-    "index":0.9487179487179487
+    "original":"~AES_Pipelined|AES_S_185",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/key:AES_GetNewKey_7/sub:AES_SubWord/PEs_1:AES_S",
+    "index":0.7800632911392406
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_SubBytes_9",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes",
-    "index":0.9519230769230769
+    "original":"~AES_Pipelined|AES_S_186",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/key:AES_GetNewKey_7/sub:AES_SubWord/PEs_2:AES_S",
+    "index":0.7816455696202531
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_ShiftRows_9",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/shift:AES_ShiftRows",
-    "index":0.9551282051282052
+    "original":"~AES_Pipelined|AES_S_187",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/key:AES_GetNewKey_7/sub:AES_SubWord/PEs_3:AES_S",
+    "index":0.7832278481012658
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_36",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/mix:AES_MixColumns/PEs_0:AES_MixColumn",
-    "index":0.9583333333333334
+    "original":"~AES_Pipelined|AES_SubWord_14",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/key:AES_GetNewKey_7/sub:AES_SubWord",
+    "index":0.7848101265822784
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_37",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/mix:AES_MixColumns/PEs_1:AES_MixColumn",
-    "index":0.9615384615384616
+    "original":"~AES_Pipelined|AES_RotWord_15",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/invkey:AES_InvGetNewKey_7/rot:AES_RotWord",
+    "index":0.7879746835443038
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_38",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/mix:AES_MixColumns/PEs_2:AES_MixColumn",
-    "index":0.9647435897435898
+    "original":"~AES_Pipelined|AES_S_188",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/invkey:AES_InvGetNewKey_7/sub:AES_SubWord/PEs_0:AES_S",
+    "index":0.7895569620253164
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumn_39",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/mix:AES_MixColumns/PEs_3:AES_MixColumn",
-    "index":0.967948717948718
+    "original":"~AES_Pipelined|AES_S_189",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/invkey:AES_InvGetNewKey_7/sub:AES_SubWord/PEs_1:AES_S",
+    "index":0.7911392405063291
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_MixColumns_9",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/mix:AES_MixColumns",
-    "index":0.9711538461538461
+    "original":"~AES_Pipelined|AES_S_190",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/invkey:AES_InvGetNewKey_7/sub:AES_SubWord/PEs_2:AES_S",
+    "index":0.7927215189873418
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_RotWord_9",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/key:AES_GetNewKey_9/rot:AES_RotWord",
-    "index":0.9743589743589743
+    "original":"~AES_Pipelined|AES_S_191",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/invkey:AES_InvGetNewKey_7/sub:AES_SubWord/PEs_3:AES_S",
+    "index":0.7943037974683544
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_196",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/key:AES_GetNewKey_9/sub:AES_SubWord/PEs_0:AES_S",
-    "index":0.9775641025641025
+    "original":"~AES_Pipelined|AES_SubWord_15",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_7:AES_ProcessingElement_7/invkey:AES_InvGetNewKey_7/sub:AES_SubWord",
+    "index":0.7958860759493671
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_197",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/key:AES_GetNewKey_9/sub:AES_SubWord/PEs_1:AES_S",
-    "index":0.9807692307692307
+    "original":"~AES_Pipelined|AES_XOR_16",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/xor:AES_XOR",
+    "index":0.8006329113924051
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_198",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/key:AES_GetNewKey_9/sub:AES_SubWord/PEs_2:AES_S",
-    "index":0.9839743589743589
+    "original":"~AES_Pipelined|AES_S_192",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_0_0:AES_S",
+    "index":0.8022151898734177
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_S_199",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/key:AES_GetNewKey_9/sub:AES_SubWord/PEs_3:AES_S",
-    "index":0.9871794871794872
+    "original":"~AES_Pipelined|AES_S_193",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_0_1:AES_S",
+    "index":0.8037974683544303
   },
   {
     "class":"firrtl.transforms.DedupedResult",
-    "original":"~AES_EncryptionPipelined|AES_SubWord_9",
-    "duplicate":"~AES_EncryptionPipelined|AES_EncryptionPipelined/PEs_9:AES_ProcessingElement_9/key:AES_GetNewKey_9/sub:AES_SubWord",
-    "index":0.9903846153846154
+    "original":"~AES_Pipelined|AES_S_194",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_0_2:AES_S",
+    "index":0.805379746835443
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_195",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_0_3:AES_S",
+    "index":0.8069620253164557
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_196",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_1_0:AES_S",
+    "index":0.8085443037974683
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_197",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_1_1:AES_S",
+    "index":0.810126582278481
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_198",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_1_2:AES_S",
+    "index":0.8117088607594937
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_199",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_1_3:AES_S",
+    "index":0.8132911392405063
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_200",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_2_0:AES_S",
+    "index":0.814873417721519
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_201",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_2_1:AES_S",
+    "index":0.8164556962025317
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_202",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_2_2:AES_S",
+    "index":0.8180379746835443
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_203",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_2_3:AES_S",
+    "index":0.819620253164557
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_204",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_3_0:AES_S",
+    "index":0.8212025316455697
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_205",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_3_1:AES_S",
+    "index":0.8227848101265823
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_206",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_3_2:AES_S",
+    "index":0.8243670886075949
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_207",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes/PEs_3_3:AES_S",
+    "index":0.8259493670886076
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_SubBytes_8",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/sub:AES_SubBytes",
+    "index":0.8275316455696202
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_ShiftRows_8",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/shift:AES_ShiftRows",
+    "index":0.8291139240506329
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_MixColumn_32",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/mix:AES_MixColumns/PEs_0:AES_MixColumn",
+    "index":0.8306962025316456
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_MixColumn_33",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/mix:AES_MixColumns/PEs_1:AES_MixColumn",
+    "index":0.8322784810126582
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_MixColumn_34",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/mix:AES_MixColumns/PEs_2:AES_MixColumn",
+    "index":0.8338607594936709
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_MixColumn_35",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/mix:AES_MixColumns/PEs_3:AES_MixColumn",
+    "index":0.8354430379746836
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_MixColumns_8",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/mix:AES_MixColumns",
+    "index":0.8370253164556962
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_XOR_17",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/invxor:AES_XOR",
+    "index":0.8386075949367089
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvMixColumn_32",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvMixColumn_33",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvMixColumn_34",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvMixColumn_35",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvMixColumns_8",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvShiftRows_8",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_128",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_129",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_130",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_131",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_132",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_133",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_134",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_135",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_136",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_137",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_138",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_139",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_140",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_141",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_142",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_143",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvSubBytes_8",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_RotWord_16",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/key:AES_GetNewKey_8/rot:AES_RotWord",
+    "index":0.8765822784810127
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_208",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/key:AES_GetNewKey_8/sub:AES_SubWord/PEs_0:AES_S",
+    "index":0.8781645569620253
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_209",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/key:AES_GetNewKey_8/sub:AES_SubWord/PEs_1:AES_S",
+    "index":0.879746835443038
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_210",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/key:AES_GetNewKey_8/sub:AES_SubWord/PEs_2:AES_S",
+    "index":0.8813291139240507
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_211",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/key:AES_GetNewKey_8/sub:AES_SubWord/PEs_3:AES_S",
+    "index":0.8829113924050633
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_SubWord_16",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/key:AES_GetNewKey_8/sub:AES_SubWord",
+    "index":0.884493670886076
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_RotWord_17",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/invkey:AES_InvGetNewKey_8/rot:AES_RotWord",
+    "index":0.8876582278481012
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_212",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/invkey:AES_InvGetNewKey_8/sub:AES_SubWord/PEs_0:AES_S",
+    "index":0.8892405063291139
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_213",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/invkey:AES_InvGetNewKey_8/sub:AES_SubWord/PEs_1:AES_S",
+    "index":0.8908227848101266
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_214",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/invkey:AES_InvGetNewKey_8/sub:AES_SubWord/PEs_2:AES_S",
+    "index":0.8924050632911392
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_215",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/invkey:AES_InvGetNewKey_8/sub:AES_SubWord/PEs_3:AES_S",
+    "index":0.8939873417721519
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_SubWord_17",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_8:AES_ProcessingElement_8/invkey:AES_InvGetNewKey_8/sub:AES_SubWord",
+    "index":0.8955696202531646
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_XOR_18",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/xor:AES_XOR",
+    "index":0.9003164556962026
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_216",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_0_0:AES_S",
+    "index":0.9018987341772152
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_217",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_0_1:AES_S",
+    "index":0.9034810126582279
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_218",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_0_2:AES_S",
+    "index":0.9050632911392406
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_219",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_0_3:AES_S",
+    "index":0.9066455696202531
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_220",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_1_0:AES_S",
+    "index":0.9082278481012658
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_221",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_1_1:AES_S",
+    "index":0.9098101265822784
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_222",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_1_2:AES_S",
+    "index":0.9113924050632911
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_223",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_1_3:AES_S",
+    "index":0.9129746835443038
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_224",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_2_0:AES_S",
+    "index":0.9145569620253164
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_225",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_2_1:AES_S",
+    "index":0.9161392405063291
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_226",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_2_2:AES_S",
+    "index":0.9177215189873418
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_227",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_2_3:AES_S",
+    "index":0.9193037974683544
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_228",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_3_0:AES_S",
+    "index":0.9208860759493671
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_229",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_3_1:AES_S",
+    "index":0.9224683544303798
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_230",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_3_2:AES_S",
+    "index":0.9240506329113924
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_231",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes/PEs_3_3:AES_S",
+    "index":0.9256329113924051
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_SubBytes_9",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/sub:AES_SubBytes",
+    "index":0.9272151898734177
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_ShiftRows_9",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/shift:AES_ShiftRows",
+    "index":0.9287974683544303
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_MixColumn_36",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/mix:AES_MixColumns/PEs_0:AES_MixColumn",
+    "index":0.930379746835443
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_MixColumn_37",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/mix:AES_MixColumns/PEs_1:AES_MixColumn",
+    "index":0.9319620253164557
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_MixColumn_38",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/mix:AES_MixColumns/PEs_2:AES_MixColumn",
+    "index":0.9335443037974683
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_MixColumn_39",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/mix:AES_MixColumns/PEs_3:AES_MixColumn",
+    "index":0.935126582278481
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_MixColumns_9",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/mix:AES_MixColumns",
+    "index":0.9367088607594937
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_XOR_19",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/invxor:AES_XOR",
+    "index":0.9382911392405063
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvMixColumn_36",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvMixColumn_37",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvMixColumn_38",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvMixColumn_39",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvMixColumns_9",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvShiftRows_9",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_144",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_145",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_146",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_147",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_148",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_149",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_150",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_151",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_152",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_153",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_154",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_155",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_156",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_157",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_158",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvS_159",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_InvSubBytes_9",
+    "index":-1.0
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_RotWord_18",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/key:AES_GetNewKey_9/rot:AES_RotWord",
+    "index":0.9762658227848101
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_232",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/key:AES_GetNewKey_9/sub:AES_SubWord/PEs_0:AES_S",
+    "index":0.9778481012658228
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_233",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/key:AES_GetNewKey_9/sub:AES_SubWord/PEs_1:AES_S",
+    "index":0.9794303797468354
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_234",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/key:AES_GetNewKey_9/sub:AES_SubWord/PEs_2:AES_S",
+    "index":0.9810126582278481
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_235",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/key:AES_GetNewKey_9/sub:AES_SubWord/PEs_3:AES_S",
+    "index":0.9825949367088608
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_SubWord_18",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/key:AES_GetNewKey_9/sub:AES_SubWord",
+    "index":0.9841772151898734
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_RotWord_19",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/invkey:AES_InvGetNewKey_9/rot:AES_RotWord",
+    "index":0.9873417721518988
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_236",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/invkey:AES_InvGetNewKey_9/sub:AES_SubWord/PEs_0:AES_S",
+    "index":0.9889240506329114
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_237",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/invkey:AES_InvGetNewKey_9/sub:AES_SubWord/PEs_1:AES_S",
+    "index":0.990506329113924
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_238",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/invkey:AES_InvGetNewKey_9/sub:AES_SubWord/PEs_2:AES_S",
+    "index":0.9920886075949367
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_S_239",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/invkey:AES_InvGetNewKey_9/sub:AES_SubWord/PEs_3:AES_S",
+    "index":0.9936708860759493
+  },
+  {
+    "class":"firrtl.transforms.DedupedResult",
+    "original":"~AES_Pipelined|AES_SubWord_19",
+    "duplicate":"~AES_Pipelined|AES_Pipelined/PEs_9:AES_ProcessingElement_9/invkey:AES_InvGetNewKey_9/sub:AES_SubWord",
+    "index":0.995253164556962
   },
   {
     "class":"firrtl.EmitCircuitAnnotation",
