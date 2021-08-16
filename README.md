@@ -151,6 +151,8 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - MD4 algorithm with decoupled input/output interfaces. There is one PE inside, data is provided to it in state machine fashion. It can be replaced by pipelined version.
 
+- Python notebook for testing MD4 algorithm: notebooks/md4-md5_testing.ipynb
+
 - Source file: src/main/scala/elastic/MD4FSM/MD4FSM.scala
 
 - Tester file: src/test/scala/md4/TestMD4FSM.scala
@@ -172,6 +174,8 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 ![md4_fsm](/pics/MD4_Pipelined.png)
 
 - Fully pipelined MD4 algorithm, it produces data every clock cycle. Several PEs are connected by chain, each has elastic input/output interfaces. For each PE, new data and input valid are going through registers when output ready is high.
+
+- Python notebook for testing MD4 algorithm: notebooks/md4-md5_testing.ipynb
 
 - Source file: src/main/scala/elastic/MD4Pipelined/MD4Pipelined.scala
 
@@ -195,6 +199,8 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - Fully pipelined MD4 algorithm, it produces data every clock cycle. Several PEs are connected by chain, each has elastic buffer.
 
+- Python notebook for testing MD4 algorithm: notebooks/md4-md5_testing.ipynb
+
 - Source file: src/main/scala/elastic/MD4PipelinedElasticBuffer/MD4PipelinedElasticBuffer.scala
 
 - Tester file: src/test/scala/md4/TestMD4MD4PipelinedElasticBuffer.scala
@@ -211,9 +217,5 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - Simulation input/output directory: simulation/MD4PipelinedElasticBuffer
 
-## Simulator settings
 
-Settings for david_test_generator in https://github.com/epfl-vlsc/jittable-circuits-backend/
-
-![Simulator](/pics/simulator.png)
 
