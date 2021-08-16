@@ -2,19 +2,17 @@ package waterman
 
 import chisel3._
 import chisel3.iotesters._
-import elastic.waterman.DNA.Elements
-import elastic.waterman._
+import elastic.watermanSystolic._
 
 object TestWatermanSystolic extends App {
-  def module = new WatermanSystolic(rowsNumber = 4, columnsNumber = 4)
-//  def module = new WatermanSystolic(rowsNumber = 15, columnsNumber = 21)
+  def module = new WatermanSystolic(rowsNumber = 15, columnsNumber = 21)
   val name = "WatermanSystolic"
   val dirName = "tested/" + name
 
   println("[{(Running test bench)}]")
   chisel3.iotesters.Driver.execute(
     Array("-o", name, "--generate-vcd-output", "on", "--target-dir", dirName),
-    () => module) { c => new TestBenchWatermanSystolicSimple(c)}
+    () => module) { c => new TestBenchWatermanSystolic(c)}
 
   println("[{(Generating Verilog file)}]")
   (new chisel3.stage.ChiselStage).emitVerilog(
@@ -23,56 +21,7 @@ object TestWatermanSystolic extends App {
   )
 }
 
-class TestBenchWatermanSystolicSimple(dut: WatermanSystolic) extends PeekPokeTester(dut) {
-  poke(dut.io.out(0).ready, true.B)
-  poke(dut.io.out(1).ready, true.B)
-  poke(dut.io.out(2).ready, true.B)
-  poke(dut.io.out(3).ready, true.B)
-
-  poke(dut.io.in.valid, true.B)
-  poke(dut.io.in.bits.S(0), Elements.A)
-  poke(dut.io.in.bits.S(1), Elements.G)
-  poke(dut.io.in.bits.S(2), Elements.C)
-  poke(dut.io.in.bits.S(3), Elements.T)
-  poke(dut.io.in.bits.T(0), Elements.A)
-  poke(dut.io.in.bits.T(1), Elements.G)
-  poke(dut.io.in.bits.T(2), Elements.C)
-  poke(dut.io.in.bits.T(3), Elements.A)
-  step(1)
-  poke(dut.io.in.valid, false.B)
-
-  step(15)
-
-  poke(dut.io.in.valid, true.B)
-  poke(dut.io.in.bits.S(0), Elements.A)
-  poke(dut.io.in.bits.S(1), Elements.G)
-  poke(dut.io.in.bits.S(2), Elements.C)
-  poke(dut.io.in.bits.S(3), Elements.T)
-  poke(dut.io.in.bits.T(0), Elements.A)
-  poke(dut.io.in.bits.T(1), Elements.G)
-  poke(dut.io.in.bits.T(2), Elements.C)
-  poke(dut.io.in.bits.T(3), Elements.T)
-  step(1)
-  poke(dut.io.in.valid, false.B)
-
-  step(50)
-
-  poke(dut.io.in.valid, true.B)
-  poke(dut.io.in.bits.S(0), Elements.A)
-  poke(dut.io.in.bits.S(1), Elements.C)
-  poke(dut.io.in.bits.S(2), Elements.T)
-  poke(dut.io.in.bits.S(3), Elements.A)
-  poke(dut.io.in.bits.T(0), Elements.G)
-  poke(dut.io.in.bits.T(1), Elements.A)
-  poke(dut.io.in.bits.T(2), Elements.T)
-  poke(dut.io.in.bits.T(3), Elements.G)
-  step(1)
-  poke(dut.io.in.valid, false.B)
-
-  step(50)
-}
-
-class TestBenchWatermanSystolicHard(dut: WatermanSystolic) extends PeekPokeTester(dut) {
+class TestBenchWatermanSystolic(dut: WatermanSystolic) extends PeekPokeTester(dut) {
   for (i <- 0 until 15) {
     poke(dut.io.out(i).ready, true.B)
   }
