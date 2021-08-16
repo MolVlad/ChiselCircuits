@@ -2,17 +2,17 @@ package dotProduct
 
 import chisel3._
 import chisel3.iotesters._
-import elastic.dotProduct.DotProductDecoupled
+import elastic.dotProduct.DotProduct
 
-object TestDotProductDecoupled extends App {
-  def module = new DotProductDecoupled(N = 4)
-  val name = "DotProductDecoupled"
+object TestDotProduct extends App {
+  def module = new DotProduct(N = 4)
+  val name = "DotProduct"
   val dirName = "tested/" + name
 
   println("[{(Running test bench "+name+")}]")
   chisel3.iotesters.Driver.execute(
     Array("-o", name, "--generate-vcd-output", "on", "--target-dir", dirName),
-    () => module) { c => new TestBenchDotProductDecoupled(c)}
+    () => module) { c => new TestBenchDotProduct(c)}
 
   println("[{(Generating Verilog file)}]")
   (new chisel3.stage.ChiselStage).emitVerilog(
@@ -21,7 +21,7 @@ object TestDotProductDecoupled extends App {
   )
 }
 
-class TestBenchDotProductDecoupled(dut: DotProductDecoupled) extends PeekPokeTester(dut) {
+class TestBenchDotProduct(dut: DotProduct) extends PeekPokeTester(dut) {
   poke(dut.io.out.ready, true.B)
 
   poke(dut.io.in.valid, true.B)

@@ -1,7 +1,7 @@
 [
   {
     "class":"firrtl.stage.FirrtlFileAnnotation",
-    "file":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/tested/Rotation/simple.TestRotation2077595529/Rotation.lo.fir"
+    "file":"/scratch/molodtsov/IdeaProjects/ChiselCircuits/tested/Rotation/simple.TestRotation2077595529/Rotation.lo.fir"
   },
   {
     "class":"firrtl.EmitCircuitAnnotation",
@@ -9,18 +9,18 @@
   },
   {
     "class":"firrtl.transforms.BlackBoxTargetDirAnno",
-    "targetDir":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/tested/Rotation/simple.TestRotation2077595529"
+    "targetDir":"/scratch/molodtsov/IdeaProjects/ChiselCircuits/tested/Rotation/simple.TestRotation2077595529"
   },
   {
     "class":"firrtl.transforms.generator.RandomSimulationAnnotation",
     "randomSeed":123451,
     "numberOfTests":3,
-    "inputDataCSVFileOutputPath":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/simulation/Rotation/rand/in/",
-    "outputDataCSVFileOutputPath":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/simulation/Rotation/rand/out/"
+    "inputDataCSVFileOutputPath":"/scratch/molodtsov/IdeaProjects/ChiselCircuits/simulation/Rotation/rand/in/",
+    "outputDataCSVFileOutputPath":"/scratch/molodtsov/IdeaProjects/ChiselCircuits/simulation/Rotation/rand/out/"
   },
   {
     "class":"firrtl.transforms.generator.ConstrainedSimulationAnnotation",
-    "outputDataCSVFileOutputPath":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/simulation/Rotation/cons/out/",
+    "outputDataCSVFileOutputPath":"/scratch/molodtsov/IdeaProjects/ChiselCircuits/simulation/Rotation/cons/out/",
     "numberOfStepsToReachTimeout":100
   },
   {
@@ -30,7 +30,7 @@
     "bits":[
       "io_in_bits"
     ],
-    "csvFileDriveBits":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/simulation/Rotation/cons/in/test.csv"
+    "csvFileDriveBits":"/scratch/molodtsov/IdeaProjects/ChiselCircuits/simulation/Rotation/cons/in/test.csv"
   },
   {
     "class":"firrtl.transforms.generator.DecoupledOutputAnnotation",

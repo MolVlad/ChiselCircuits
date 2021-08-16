@@ -1,7 +1,7 @@
 [
   {
     "class":"firrtl.stage.FirrtlFileAnnotation",
-    "file":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/tested/DES_DecryptionFSM/des.TestDES_DecryptionFSM458267627/DES_DecryptionFSM.lo.fir"
+    "file":"/scratch/molodtsov/IdeaProjects/ChiselCircuits/tested/DES_DecryptionFSM/des.TestDES_DecryptionFSM458267627/DES_DecryptionFSM.lo.fir"
   },
     {
     "class":"firrtl.EmitCircuitAnnotation",
@@ -9,18 +9,18 @@
   },
   {
     "class":"firrtl.transforms.BlackBoxTargetDirAnno",
-    "targetDir":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/tested/DES_DecryptionFSM/des.TestDES_DecryptionFSM458267627"
+    "targetDir":"/scratch/molodtsov/IdeaProjects/ChiselCircuits/tested/DES_DecryptionFSM/des.TestDES_DecryptionFSM458267627"
   },
   {
     "class":"firrtl.transforms.generator.RandomSimulationAnnotation",
     "randomSeed":123451,
     "numberOfTests":3,
-    "inputDataCSVFileOutputPath":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/simulation/DES_DecryptionFSM/rand/in/",
-    "outputDataCSVFileOutputPath":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/simulation/DES_DecryptionFSM/rand/out/"
+    "inputDataCSVFileOutputPath":"/scratch/molodtsov/IdeaProjects/ChiselCircuits/simulation/DES_DecryptionFSM/rand/in/",
+    "outputDataCSVFileOutputPath":"/scratch/molodtsov/IdeaProjects/ChiselCircuits/simulation/DES_DecryptionFSM/rand/out/"
   },
   {
     "class":"firrtl.transforms.generator.ConstrainedSimulationAnnotation",
-    "outputDataCSVFileOutputPath":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/simulation/DES_DecryptionFSM/cons/out/",
+    "outputDataCSVFileOutputPath":"/scratch/molodtsov/IdeaProjects/ChiselCircuits/simulation/DES_DecryptionFSM/cons/out/",
     "numberOfStepsToReachTimeout":100
   },
   {
@@ -31,7 +31,7 @@
       "io_in_bits_text",
       "io_in_bits_key"
     ],
-    "csvFileDriveBits":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/simulation/DES_DecryptionFSM/cons/in/test.csv"
+    "csvFileDriveBits":"/scratch/molodtsov/IdeaProjects/ChiselCircuits/simulation/DES_DecryptionFSM/cons/in/test.csv"
   },
   {
     "class":"firrtl.transforms.generator.DecoupledOutputAnnotation",

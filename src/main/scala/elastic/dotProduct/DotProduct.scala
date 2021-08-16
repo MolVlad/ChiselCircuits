@@ -3,7 +3,7 @@ package elastic.dotProduct
 import chisel3._
 import chisel3.util._
 
-class DotProductDecoupled(width: Int = 32, N: Int = 8) extends Module {
+class DotProduct(width: Int = 32, N: Int = 8) extends Module {
   val io = IO(new Bundle {
     val in = Flipped(new DecoupledIO(new Bundle {
       val x = Vec(N, SInt(width.W))
