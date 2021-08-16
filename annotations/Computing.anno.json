@@ -1,7 +1,7 @@
 [
   {
     "class":"firrtl.stage.FirrtlFileAnnotation",
-    "file":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/tested/Computing/ComputingTest877422991/Computing.lo.fir"
+    "file":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/tested/Computing/simple.TestComputing1506453487/Computing.lo.fir"
   },
   {
     "class":"firrtl.EmitCircuitAnnotation",
@@ -9,7 +9,7 @@
   },
   {
     "class":"firrtl.transforms.BlackBoxTargetDirAnno",
-    "targetDir":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/tested/Computing/ComputingTest877422991"
+    "targetDir":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/tested/Computing/simple.TestComputing1506453487"
   },
   {
     "class":"firrtl.transforms.generator.RandomSimulationAnnotation",

@@ -1,7 +1,7 @@
 [
   {
     "class":"firrtl.stage.FirrtlFileAnnotation",
-    "file":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/tested/Multiplier/MultiplierTest1837288098/Multiplier.lo.fir"
+    "file":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/tested/Multiplier/simple.TestMultiplier920381798/Multiplier.lo.fir"
   },
   {
     "class":"firrtl.EmitCircuitAnnotation",
@@ -9,7 +9,7 @@
   },
   {
     "class":"firrtl.transforms.BlackBoxTargetDirAnno",
-    "targetDir":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/tested/Multiplier/MultiplierTest1837288098"
+    "targetDir":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/tested/Multiplier/simple.TestMultiplier920381798"
   },
   {
     "class":"firrtl.transforms.generator.RandomSimulationAnnotation",
