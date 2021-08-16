@@ -77,6 +77,8 @@
 
 
 
+## Simulator settings
 
-
+![Simulator](/pics/simulation.png)
+Format: ![Alt Text](url)
 
