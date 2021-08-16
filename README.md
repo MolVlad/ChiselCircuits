@@ -79,6 +79,7 @@
 
 ## Simulator settings
 
-![Simulator](/pics/simulation.png)
-Format: ![Alt Text](url)
+Settings for david_test_generator in https://github.com/epfl-vlsc/jittable-circuits-backend/
+
+![Simulator](/pics/simulator.png)
 
