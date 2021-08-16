@@ -1,7 +1,7 @@
 [
   {
     "class":"firrtl.stage.FirrtlFileAnnotation",
-    "file":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/tested/Rotation/RotationTest1374453051/Rotation.lo.fir"
+    "file":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/tested/Rotation/simple.TestRotation2077595529/Rotation.lo.fir"
   },
   {
     "class":"firrtl.EmitCircuitAnnotation",
@@ -9,7 +9,7 @@
   },
   {
     "class":"firrtl.transforms.BlackBoxTargetDirAnno",
-    "targetDir":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/tested/Rotation/RotationTest1374453051"
+    "targetDir":"/scratch/molodtsov/IdeaProjects/ChiselCurcuits/tested/Rotation/simple.TestRotation2077595529"
   },
   {
     "class":"firrtl.transforms.generator.RandomSimulationAnnotation",
