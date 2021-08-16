@@ -4,7 +4,7 @@
 
 - src/main/scala/elastic/ - contains source Chisel code for implemented circuits
 - src/test/scala/ - contains tests generating .v files and waveforms for implemented circuits
-- tested/ - contains generated .v files, .fir and .vcd for implemented circuits
+- tested/ - contains generated .v, .fir and .vcd for implemented circuits
 - notebooks/ - contains .ipynb notebooks for testing how some algorithms behave
 - annotations/ - contains .anno.json files for simulation
 - simulation/ - contains input and output data of simulation
