@@ -171,7 +171,7 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 ### MD4 Pipelined
 
-![md4_fsm](/pics/MD4_Pipelined.png)
+![md4_pipelined](/pics/MD4_Pipelined.png)
 
 - Fully pipelined MD4 algorithm, it produces data every clock cycle. Several PEs are connected by chain, each has elastic input/output interfaces. For each PE, new data and input valid are going through registers when output ready is high.
 
@@ -195,7 +195,7 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 ### MD4 Pipelined with Elastic Buffers
 
-![md4_fsm](/pics/MD4_Pipelined_ElasticBuffer.png)
+![md4_pipelined_eb](/pics/MD4_Pipelined_ElasticBuffer.png)
 
 - Fully pipelined MD4 algorithm, it produces data every clock cycle. Several PEs are connected by chain, each has elastic buffer.
 
@@ -219,7 +219,7 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 ### DES FSM
 
-![md4_fsm](/pics/DES_FSM.png)
+![des_fsm](/pics/DES_FSM.png)
 
 - DES algorithm with decoupled input/output interfaces. There is one PE inside, data is provided to it in state machine fashion. It can be replaced by pipelined version.
 
@@ -257,14 +257,89 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
   - Simulation input/output directory: simulation/DES_DecryptionFSM
 
+### DES Pipelined
 
+![des_pipelined](/pics/DES_Pipelined.png)
 
+- Fully pipelined DES algorithm, it produces data every clock cycle. Several PEs are connected by chain, each has elastic input/output interfaces. For each PE, new data and input valid are going through registers when output ready is high.
 
+- Description in draw.io: [link](https://drive.google.com/file/d/1bCJpjtndiDAI2TwOutxtzAH3EaMUsVlG/view?usp=sharing)
 
+- Python notebook for testing DES algorithm: notebooks/des_testing.ipynb
+
+- Source file: src/main/scala/elastic/DES_Pipelined/DES_Pipelined.scala, encryption/decryption mode is controlled by parameter "encrypt"
+
+- Encryption (parameter "encrypt = true")
+
+  - Tester file: src/test/scala/des/TestDES_EncryptionPipelined.scala
+
+  - Generated Verilog code: tested/DES_EncryptionPipelined/DES_EncryptionPipelined.v
+
+  - File with waveforms: tested/DES_EncryptionPipelined/des.TestDES_EncryptionPipelined539217567/DES_EncryptionPipelined.vcd
+
+  - FIR file: tested/DES_EncryptionPipelined/des.TestDES_EncryptionPipelined539217567/DES_EncryptionPipelined.lo.fir
+
+  - Annotation file: annotations/DES_EncryptionPipelined.anno.json
+
+  - Simulation input/output directory: simulation/DES_EncryptionPipelined
+
+- Decryption (parameter "encrypt = false")
+
+  - Tester file: src/test/scala/des/TestDES_DecryptionPipelined.scala
+
+  - Generated Verilog code: tested/DES_DecryptionPipelined/DES_DecryptionPipelined.v
+
+  - File with waveforms: tested/DES_DecryptionPipelined/des.TestDES_DecryptionPipelined1837930601/DES_DecryptionPipelined.vcd
+
+  - FIR file: tested/DES_DecryptionPipelined/des.TestDES_DecryptionPipelined1837930601/DES_DecryptionPipelined.lo.fir
+
+  - Annotation file: annotations/DES_DecryptionPipelined.anno.json
+
+  - Simulation input/output directory: simulation/DES_DecryptionPipelined
+
+### DES Pipelined with Elastic Buffers
+
+![des_pipelined_eb](/pics/DES_Pipelined_ElasticBuffer.png)
+
+- Fully pipelined DES algorithm, it produces data every clock cycle. Several PEs are connected by chain, each has elastic buffer.
+
+- Description in draw.io: [link](https://drive.google.com/file/d/1ftyiThqYystGDlD5wh7KOv0j-q5tSUoY/view?usp=sharing)
+
+- Python notebook for testing DES algorithm: notebooks/des_testing.ipynb
+
+- Source file: src/main/scala/elastic/DES_PipelinedElasticBuffer/DES_PipelinedElasticBuffer.scala, encryption/decryption mode is controlled by parameter "encrypt"
+
+- Encryption (parameter "encrypt = true")
+
+  - Tester file: src/test/scala/des/TestDES_EncryptionPipelinedElasticBuffer.scala
+
+  - Generated Verilog code: tested/DES_EncryptionPipelinedElasticBuffer/DES_EncryptionPipelinedElasticBuffer.v
+
+  - File with waveforms: tested/DES_EncryptionPipelinedElasticBuffer/des.TestDES_EncryptionPipelinedElasticBuffer1941163556/DES_EncryptionPipelinedElasticBuffer.vcd
+
+  - FIR file: tested/DES_EncryptionPipelinedElasticBuffer/des.TestDES_EncryptionPipelinedElasticBuffer1941163556/DES_EncryptionPipelinedElasticBuffer.lo.fir
+
+  - Annotation file: annotations/DES_EncryptionPipelinedElasticBuffer.anno.json
+
+  - Simulation input/output directory: simulation/DES_EncryptionPipelinedElasticBuffer
+
+- Decryption (parameter "encrypt = false")
+
+  - Tester file: src/test/scala/des/TestDES_DecryptionPipelinedElasticBuffer.scala
+
+  - Generated Verilog code: tested/DES_DecryptionPipelinedElasticBuffer/DES_DecryptionPipelinedElasticBuffer.v
+
+  - File with waveforms: tested/DES_DecryptionPipelinedElasticBuffer/des.TestDES_DecryptionPipelinedElasticBuffer1600652620/DES_DecryptionPipelinedElasticBuffer.vcd
+
+  - FIR file: tested/DES_DecryptionPipelinedElasticBuffer/des.TestDES_DecryptionPipelinedElasticBuffer1600652620/DES_DecryptionPipelinedElasticBuffer.lo.fir
+
+  - Annotation file: annotations/DES_DecryptionPipelinedElasticBuffer.anno.json
+
+  - Simulation input/output directory: simulation/DES_DecryptionPipelinedElasticBuffer
 
 ### AES FSM
 
-![md4_fsm](/pics/AES_FSM.png)
+![aes_fsm](/pics/AES_FSM.png)
 
 - AES algorithm with decoupled input/output interfaces. There is one PE inside, data is provided to it in state machine fashion. It can be replaced by pipelined version.
 
@@ -301,3 +376,83 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
   - Annotation file: annotations/AES_DecryptionFSM.anno.json
 
   - Simulation input/output directory: simulation/AES_DecryptionFSM
+
+### AES Pipelined
+
+![aes_pipelined](/pics/AES_Pipelined.png)
+
+- Fully pipelined AES algorithm, it produces data every clock cycle. Several PEs are connected by chain, each has elastic input/output interfaces. For each PE, new data and input valid are going through registers when output ready is high.
+
+- Description in draw.io: [link](https://drive.google.com/file/d/1RcMFO86cWR91zgyWpx92epilgOiUe32V/view?usp=sharing)
+
+- Python notebook for testing AES algorithm: notebooks/aes_testing.ipynb
+
+- Source file: src/main/scala/elastic/AES_Pipelined/AES_Pipelined.scala, encryption/decryption mode is controlled by parameter "encrypt"
+
+- Encryption (parameter "encrypt = true")
+
+  - Tester file: src/test/scala/aes/TestAES_EncryptionPipelined.scala
+
+  - Generated Verilog code: tested/AES_EncryptionPipelined/AES_EncryptionPipelined.v
+
+  - File with waveforms: tested/AES_EncryptionPipelined/aes.TestAES_EncryptionPipelined1053211738/AES_EncryptionPipelined.vcd
+
+  - FIR file: tested/AES_EncryptionPipelined/aes.TestAES_EncryptionPipelined1053211738/AES_EncryptionPipelined.lo.fir
+
+  - Annotation file: annotations/AES_EncryptionPipelined.anno.json
+
+  - Simulation input/output directory: simulation/AES_EncryptionPipelined
+
+- Decryption (parameter "encrypt = false")
+
+  - Tester file: src/test/scala/aes/TestAES_DecryptionPipelined.scala
+
+  - Generated Verilog code: tested/AES_DecryptionPipelined/AES_DecryptionPipelined.v
+
+  - File with waveforms: tested/AES_DecryptionPipelined/des.TestAES_DecryptionPipelined936211586/AES_DecryptionPipelined.vcd
+
+  - FIR file: tested/AES_DecryptionPipelined/des.TestAES_DecryptionPipelined936211586/AES_DecryptionPipelined.lo.fir
+
+  - Annotation file: annotations/AES_DecryptionPipelined.anno.json
+
+  - Simulation input/output directory: simulation/AES_DecryptionPipelined
+
+### AES Pipelined with Elastic Buffers
+
+![aes_pipelined_eb](/pics/AES_Pipelined_ElasticBuffer.png)
+
+- Fully pipelined AES algorithm, it produces data every clock cycle. Several PEs are connected by chain, each has elastic buffer.
+
+- Description in draw.io: [link](https://drive.google.com/file/d/1DnzecNL4Bhfi0aIFdRfpH1dfxbCUuQUF/view?usp=sharing)
+
+- Python notebook for testing AES algorithm: notebooks/aes_testing.ipynb
+
+- Source file: src/main/scala/elastic/AES_PipelinedElasticBuffer/AES_PipelinedElasticBuffer.scala, encryption/decryption mode is controlled by parameter "encrypt"
+
+- Encryption (parameter "encrypt = true")
+
+  - Tester file: src/test/scala/aes/TestAES_EncryptionPipelinedElasticBuffer.scala
+
+  - Generated Verilog code: tested/AES_EncryptionPipelinedElasticBuffer/AES_EncryptionPipelinedElasticBuffer.v
+
+  - File with waveforms: tested/AES_EncryptionPipelinedElasticBuffer/aes.TestAES_EncryptionPipelinedElasticBuffer2085811091/AES_EncryptionPipelinedElasticBuffer.vcd
+
+  - FIR file: tested/AES_EncryptionPipelinedElasticBuffer/aes.TestAES_EncryptionPipelinedElasticBuffer2085811091/AES_EncryptionPipelinedElasticBuffer.lo.fir
+
+  - Annotation file: annotations/AES_EncryptionPipelinedElasticBuffer.anno.json
+
+  - Simulation input/output directory: simulation/AES_EncryptionPipelinedElasticBuffer
+
+- Decryption (parameter "encrypt = false")
+
+  - Tester file: src/test/scala/aes/TestAES_DecryptionPipelinedElasticBuffer.scala
+
+  - Generated Verilog code: tested/AES_DecryptionPipelinedElasticBuffer/AES_DecryptionPipelinedElasticBuffer.v
+
+  - File with waveforms: tested/AES_DecryptionPipelinedElasticBuffer/aes.TestAES_DecryptionPipelinedElasticBuffer1868645269/AES_DecryptionPipelinedElasticBuffer.vcd
+
+  - FIR file: tested/AES_DecryptionPipelinedElasticBuffer/aes.TestAES_DecryptionPipelinedElasticBuffer1868645269/AES_DecryptionPipelinedElasticBuffer.lo.fir
+
+  - Annotation file: annotations/AES_DecryptionPipelinedElasticBuffer.anno.json
+
+  - Simulation input/output directory: simulation/AES_DecryptionPipelinedElasticBuffer
