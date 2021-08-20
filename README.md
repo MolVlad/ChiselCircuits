@@ -19,11 +19,11 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - N cyclic shifts of M bits register. Elastic input/output interfaces. Can be replaced by one shift.
 
+- Description in draw.io: [link](https://drive.google.com/file/d/1ZJaClURfavJDERpspQ7ucHhV-1-SBw-p/view?usp=sharing)
+
 - Source file: src/main/scala/elastic/simple/Rotation.scala
 
 - Tester file: src/test/scala/simple/TestRotation.scala
-
-- Description in draw.io: [link](https://drive.google.com/file/d/1ZJaClURfavJDERpspQ7ucHhV-1-SBw-p/view?usp=sharing)
 
 - Generated Verilog code: tested/Rotation/Rotation.v
 
@@ -41,11 +41,11 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - N iterations of the same computations on (x,y) input vector. Elastic input/output interfaces. Can be replaced by one iteration of resulting computation.
 
+- Description in draw.io: [link](https://drive.google.com/file/d/1KCATx1qMiwqr44wRrVnU7MRL8tNAJyF0/view?usp=sharing)
+
 - Source file: src/main/scala/elastic/simple/Computing.scala
 
 - Tester file: src/test/scala/simple/TestComputing.scala
-
-- Description in draw.io: [link](https://drive.google.com/file/d/1KCATx1qMiwqr44wRrVnU7MRL8tNAJyF0/view?usp=sharing)
 
 - Generated Verilog code: tested/Computing/Computing.v
 
@@ -63,11 +63,11 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - 2N bits x 2N bits multiplier through one NxN multiplier. Elastic input/output interfaces. Can be replaced by one 2Nx2N multiplier.
 
+- Description in draw.io: [link](https://drive.google.com/file/d/1ZOu5aroX90wGEzHSHMdpd5KaGDYEAWZi/view?usp=sharing)
+
 - Source file: src/main/scala/elastic/simple/Multiplier.scala
 
 - Tester file: src/test/scala/simple/TestMultiplier.scala
-
-- Description in draw.io: [link](https://drive.google.com/file/d/1ZOu5aroX90wGEzHSHMdpd5KaGDYEAWZi/view?usp=sharing)
 
 - Generated Verilog code: tested/Multiplier/Multiplier.v
 
@@ -85,11 +85,11 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - Dot product with decoupled processing element (PE) inside. Elastic input/output interfaces. Can be replaced by the same with non-decoupled PE.
 
+- Description in draw.io: [link](https://drive.google.com/file/d/1ma7tVbVkCrrIjvRdquVK7UjK_EdOL_Qn/view?usp=sharing)
+
 - Source file: src/main/scala/elastic/dotProduct/DotProduct.scala
 
 - Tester file: src/test/scala/dotProduct/TestDotProduct.scala
-
-- Description in draw.io: [link](https://drive.google.com/file/d/1ma7tVbVkCrrIjvRdquVK7UjK_EdOL_Qn/view?usp=sharing)
 
 - Generated Verilog code: tested/DotProduct/DotProduct.v
 
@@ -107,11 +107,11 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - Smith-Waterman algorithm with decoupled input/output interfaces. There is one PE inside, data is provided to it in state machine fashion. It can be replaced by pipelined version.
 
+- Description in draw.io: [link](https://drive.google.com/file/d/1K2xo2UY3slTuP70wcAS1ndhKzJ4cuQF_/view?usp=sharing)
+
 - Source file: src/main/scala/elastic/watermanFSM/WatermanFSM.scala
 
 - Tester file: src/test/scala/waterman/TestWatermanFSM.scala
-
-- Description in draw.io: [link](https://drive.google.com/file/d/1K2xo2UY3slTuP70wcAS1ndhKzJ4cuQF_/view?usp=sharing)
 
 - Generated Verilog code: tested/WatermanFSM/WatermanFSM.v
 
@@ -129,11 +129,11 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - Smith-Waterman algorithm with decoupled input/output interfaces. There are several PE inside, each PE has decoupled interfaces which introduce additional delays. These PEs can be replaced by those with non-decoupled interfaces.
 
+- Description in draw.io: [link](https://drive.google.com/file/d/1VzJwCw8k09dzeBKJI_lbo1gNZ5CLUY8N/view?usp=sharing)
+
 - Source file: src/main/scala/elastic/watermanSystolic/WatermanSystolic.scala
 
 - Tester file: src/test/scala/waterman/WatermanSystolic.scala
-
-- Description in draw.io: [link](https://drive.google.com/file/d/1VzJwCw8k09dzeBKJI_lbo1gNZ5CLUY8N/view?usp=sharing)
 
 - Generated Verilog code: tested/WatermanSystolic/WatermanSystolic.v
 
@@ -151,13 +151,13 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - MD4 algorithm with decoupled input/output interfaces. There is one PE inside, data is provided to it in state machine fashion. It can be replaced by pipelined version.
 
+- Description in draw.io: [link](https://drive.google.com/file/d/1asGKA9Lv1CrF5sAAwIt1P0GEh06kBszr/view?usp=sharing)
+
 - Python notebook for testing MD4 algorithm: notebooks/md4-md5_testing.ipynb
 
 - Source file: src/main/scala/elastic/MD4FSM/MD4FSM.scala
 
 - Tester file: src/test/scala/md4/TestMD4FSM.scala
-
-- Description in draw.io: [link](https://drive.google.com/file/d/1asGKA9Lv1CrF5sAAwIt1P0GEh06kBszr/view?usp=sharing)
 
 - Generated Verilog code: tested/MD4FSM/MD4FSM.v
 
@@ -175,13 +175,13 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - Fully pipelined MD4 algorithm, it produces data every clock cycle. Several PEs are connected by chain, each has elastic input/output interfaces. For each PE, new data and input valid are going through registers when output ready is high.
 
+- Description in draw.io: [link](https://drive.google.com/file/d/188H2ymluxmOLU3NYcowvTezDm3KV12Ll/view?usp=sharing)
+
 - Python notebook for testing MD4 algorithm: notebooks/md4-md5_testing.ipynb
 
 - Source file: src/main/scala/elastic/MD4Pipelined/MD4Pipelined.scala
 
 - Tester file: src/test/scala/md4/TestMD4MD4Pipelined.scala
-
-- Description in draw.io: [link](https://drive.google.com/file/d/188H2ymluxmOLU3NYcowvTezDm3KV12Ll/view?usp=sharing)
 
 - Generated Verilog code: tested/MD4Pipelined/MD4Pipelined.v
 
@@ -199,13 +199,13 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - Fully pipelined MD4 algorithm, it produces data every clock cycle. Several PEs are connected by chain, each has elastic buffer.
 
+- Description in draw.io: [link](https://drive.google.com/file/d/1STAYhhtQKTaDKzMzF8fTS9iIDfUcato1/view?usp=sharing)
+
 - Python notebook for testing MD4 algorithm: notebooks/md4-md5_testing.ipynb
 
 - Source file: src/main/scala/elastic/MD4PipelinedElasticBuffer/MD4PipelinedElasticBuffer.scala
 
 - Tester file: src/test/scala/md4/TestMD4MD4PipelinedElasticBuffer.scala
-
-- Description in draw.io: [link](https://drive.google.com/file/d/1STAYhhtQKTaDKzMzF8fTS9iIDfUcato1/view?usp=sharing)
 
 - Generated Verilog code: tested/MD4PipelinedElasticBuffer/MD4PipelinedElasticBuffer.v
 
@@ -217,5 +217,87 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - Simulation input/output directory: simulation/MD4PipelinedElasticBuffer
 
+### DES FSM
+
+![md4_fsm](/pics/DES_FSM.png)
+
+- DES algorithm with decoupled input/output interfaces. There is one PE inside, data is provided to it in state machine fashion. It can be replaced by pipelined version.
+
+- Description in draw.io: [link](https://drive.google.com/file/d/1qyi094yXwJSNWcT84F3N5_Lw9e3XAwLY/view?usp=sharing)
+
+- Python notebook for testing DES algorithm: notebooks/des_testing.ipynb
+
+- Source file: src/main/scala/elastic/DES_FSM/DES_FSM.scala, encryption/decryption mode is controlled by parameter "encrypt"
+
+- Encryption (parameter "encrypt = true")
+
+  - Tester file: src/test/scala/des/TestDES_EncryptionFSM.scala
+
+  - Generated Verilog code: tested/DES_EncryptionFSM/DES_EncryptionFSM.v
+
+  - File with waveforms: tested/DES_EncryptionFSM/des.TestDES_EncryptionFSM1678657633/DES_EncryptionFSM.vcd
+
+  - FIR file: tested/DES_EncryptionFSM/des.TestDES_EncryptionFSM1678657633/DES_EncryptionFSM.lo.fir
+
+  - Annotation file: annotations/DES_EncryptionFSM.anno.json
+
+  - Simulation input/output directory: simulation/DES_EncryptionFSM
+
+- Decryption (parameter "encrypt = false")
+
+  - Tester file: src/test/scala/des/TestDES_DecryptionFSM.scala
+
+  - Generated Verilog code: tested/DES_DecryptionFSM/DES_DecryptionFSM.v
+
+  - File with waveforms: tested/DES_DecryptionFSM/des.TestDES_DecryptionFSM458267627/DES_DecryptionFSM.vcd
+
+  - FIR file: tested/DES_DecryptionFSM/des.TestDES_DecryptionFSM458267627/DES_DecryptionFSM.lo.fir
+
+  - Annotation file: annotations/DES_DecryptionFSM.anno.json
+
+  - Simulation input/output directory: simulation/DES_DecryptionFSM
 
 
+
+
+
+
+### AES FSM
+
+![md4_fsm](/pics/AES_FSM.png)
+
+- AES algorithm with decoupled input/output interfaces. There is one PE inside, data is provided to it in state machine fashion. It can be replaced by pipelined version.
+
+- Description in draw.io: [link](https://drive.google.com/file/d/1Aurpc6aTFGVBySETfzVmbtWjTzm3DWRI/view?usp=sharing)
+
+- Python notebook for testing AES algorithm: notebooks/aes_testing.ipynb
+
+- Source file: src/main/scala/elastic/AES_FSM/AES_FSM.scala, encryption/decryption mode is controlled by parameter "encrypt"
+
+- Encryption (parameter "encrypt = true")
+
+  - Tester file: src/test/scala/aes/TestAES_EncryptionFSM.scala
+
+  - Generated Verilog code: tested/AES_EncryptionFSM/AES_EncryptionFSM.v
+
+  - File with waveforms: tested/AES_EncryptionFSM/aes.TestAES_EncryptionFSM1339290024/AES_EncryptionFSM.vcd
+
+  - FIR file: tested/AES_EncryptionFSM/aes.TestAES_EncryptionFSM1339290024/AES_EncryptionFSM.lo.fir
+
+  - Annotation file: annotations/AES_EncryptionFSM.anno.json
+
+  - Simulation input/output directory: simulation/AES_EncryptionFSM
+
+- Decryption (parameter "encrypt = false")
+
+  - Tester file: src/test/scala/aes/TestAES_DecryptionFSM.scala
+
+  - Generated Verilog code: tested/AES_DecryptionFSM/AES_DecryptionFSM.v
+
+  - File with waveforms: tested/AES_DecryptionFSM/aes.TestAES_DecryptionFSM1039530880/AES_DecryptionFSM.vcd
+
+  - FIR file: tested/AES_DecryptionFSM/aes.TestAES_DecryptionFSM1039530880/AES_DecryptionFSM.lo.fir
+
+  - Annotation file: annotations/AES_DecryptionFSM.anno.json
+
+  - Simulation input/output directory: simulation/AES_DecryptionFSM
