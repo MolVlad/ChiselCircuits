@@ -7,16 +7,19 @@ import chisel3.tester.RawTester.test
 import chisel3.tester._
 import chisel3.experimental.BundleLiterals._
 
+// Test for module DES_FSM in decryption mode. Generates waveforms, verilog code and fir file
 object TestDES_DecryptionFSM extends App {
-  def module = new DES_FSM(encrypt = false)
-  val name = "DES_DecryptionFSM"
-  val dirName = "tested/" + name
+  def module = new DES_FSM(encrypt = false) // define calling module for convenience, encrypt = false => decryption
+  val name = "DES_DecryptionFSM" // name of output files
+  val dirName = "tested/" + name // directory of output files
 
+  // execute test bench for generating waveforms
   println("[{(Running test bench)}]")
   chisel3.iotesters.Driver.execute(
     Array("-o", name, "--generate-vcd-output", "on", "--target-dir", dirName),
     () => module) { c => new TestBenchDES_DecryptionFSM(c)}
 
+  // generate verilog code
   println("[{(Generating Verilog file)}]")
   (new chisel3.stage.ChiselStage).emitVerilog(
     module,
@@ -24,6 +27,7 @@ object TestDES_DecryptionFSM extends App {
   )
 }
 
+// test bench with poke functions for generating waveforms
 class TestBenchDES_DecryptionFSM(dut: DES_FSM) extends PeekPokeTester(dut) {
   poke(dut.io.result.ready, true.B)
 

@@ -4,16 +4,19 @@ import chisel3._
 import chisel3.iotesters._
 import elastic.simple.Rotation
 
+// Test for module Rotation. Generates waveforms, verilog code and fir file
 object TestRotation extends App {
-  def module = new Rotation(8)
-  val name = "Rotation"
-  val dirName = "tested/" + name
+  def module = new Rotation(8) // define calling module for convenience
+  val name = "Rotation" // name of output files
+  val dirName = "tested/" + name // directory of output files
 
+  // execute test bench for generating waveforms
   println("[{(Running test bench)}]")
   chisel3.iotesters.Driver.execute(
     Array("-o", name, "--generate-vcd-output", "on", "--target-dir", dirName),
     () => module) { c => new TestBenchRotation(c)}
 
+  // generate verilog code
   println("[{(Generating Verilog file)}]")
   (new chisel3.stage.ChiselStage).emitVerilog(
     module,
@@ -21,6 +24,7 @@ object TestRotation extends App {
   )
 }
 
+// test bench with poke functions for generating waveforms
 class TestBenchRotation(dut: Rotation) extends PeekPokeTester(dut) {
   poke(dut.io.out.ready, true.B)
 

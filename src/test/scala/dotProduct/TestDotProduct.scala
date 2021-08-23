@@ -4,16 +4,19 @@ import chisel3._
 import chisel3.iotesters._
 import elastic.dotProduct.DotProduct
 
+// Test for module DotProduct. Generates waveforms, verilog code and fir file
 object TestDotProduct extends App {
-  def module = new DotProduct(N = 4)
-  val name = "DotProduct"
-  val dirName = "tested/" + name
+  def module = new DotProduct(N = 4) // define calling module for convenience
+  val name = "DotProduct" // name of output files
+  val dirName = "tested/" + name // directory of output files
 
+  // execute test bench for generating waveforms
   println("[{(Running test bench "+name+")}]")
   chisel3.iotesters.Driver.execute(
     Array("-o", name, "--generate-vcd-output", "on", "--target-dir", dirName),
     () => module) { c => new TestBenchDotProduct(c)}
 
+  // generate verilog code
   println("[{(Generating Verilog file)}]")
   (new chisel3.stage.ChiselStage).emitVerilog(
     module,
@@ -21,6 +24,7 @@ object TestDotProduct extends App {
   )
 }
 
+// test bench with poke functions for generating waveforms
 class TestBenchDotProduct(dut: DotProduct) extends PeekPokeTester(dut) {
   poke(dut.io.out.ready, true.B)
 

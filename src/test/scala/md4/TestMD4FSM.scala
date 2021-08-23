@@ -4,16 +4,19 @@ import chisel3._
 import chisel3.iotesters._
 import elastic.MD4FSM._
 
+// Test for module TestMD4. Generates waveforms, verilog code and fir file
 object TestMD4 extends App {
-  def module = new MD4FSM
-  val name = "MD4FSM"
-  val dirName = "tested/" + name
+  def module = new MD4FSM // define calling module for convenience
+  val name = "MD4FSM" // name of output files
+  val dirName = "tested/" + name // directory of output files
 
+  // execute test bench for generating waveforms
   println("[{(Running test bench)}]")
   chisel3.iotesters.Driver.execute(
     Array("-o", name, "--generate-vcd-output", "on", "--target-dir", dirName),
     () => module) { c => new TestBenchMD4FSM(c)}
 
+  // generate verilog code
   println("[{(Generating Verilog file)}]")
   (new chisel3.stage.ChiselStage).emitVerilog(
     module,
@@ -21,6 +24,7 @@ object TestMD4 extends App {
   )
 }
 
+// test bench with poke functions for generating waveforms
 class TestBenchMD4FSM(dut: MD4FSM) extends PeekPokeTester(dut) {
   poke(dut.io.hash.ready, true.B)
 

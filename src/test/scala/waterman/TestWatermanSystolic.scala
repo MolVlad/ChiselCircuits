@@ -4,16 +4,19 @@ import chisel3._
 import chisel3.iotesters._
 import elastic.watermanSystolic._
 
+// Test for module WatermanSystolic. Generates waveforms, verilog code and fir file
 object TestWatermanSystolic extends App {
-  def module = new WatermanSystolic(rowsNumber = 15, columnsNumber = 21)
-  val name = "WatermanSystolic"
-  val dirName = "tested/" + name
+  def module = new WatermanSystolic(rowsNumber = 15, columnsNumber = 21) // define calling module for convenience
+  val name = "WatermanSystolic" // name of output files
+  val dirName = "tested/" + name // directory of output files
 
+  // execute test bench for generating waveforms
   println("[{(Running test bench)}]")
   chisel3.iotesters.Driver.execute(
     Array("-o", name, "--generate-vcd-output", "on", "--target-dir", dirName),
     () => module) { c => new TestBenchWatermanSystolic(c)}
 
+  // generate verilog code
   println("[{(Generating Verilog file)}]")
   (new chisel3.stage.ChiselStage).emitVerilog(
     module,
@@ -21,6 +24,7 @@ object TestWatermanSystolic extends App {
   )
 }
 
+// test bench with poke functions for generating waveforms
 class TestBenchWatermanSystolic(dut: WatermanSystolic) extends PeekPokeTester(dut) {
   for (i <- 0 until 15) {
     poke(dut.io.out(i).ready, true.B)

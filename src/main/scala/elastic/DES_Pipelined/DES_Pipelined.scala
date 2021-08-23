@@ -3,7 +3,11 @@ package elastic.DES_Pipelined
 import chisel3._
 import chisel3.util._
 
-class DES_Pipelined(encrypt: Boolean) extends Module {
+// Fully pipelined DES algorithm, it produces data every clock cycle. Several PEs are connected by chain
+// For each PE, new data and input valid are going through registers when output ready is high
+// parameter encrypt: true - encryption, false - decryption
+class DES_Pipelined(encrypt: Boolean = true) extends Module {
+  // Elastic input/output interfaces
   val io = IO(new Bundle {
     val in = Flipped(new DecoupledIO(new Bundle {
       val text = UInt(64.W)
@@ -12,38 +16,48 @@ class DES_Pipelined(encrypt: Boolean) extends Module {
     val result = new DecoupledIO(UInt(64.W))
   })
 
+  // first module in chain, directly connected to top module inputs, needed for initial permutation of input data
+  // output of this module is connected to the input of the first PE
   val initialPermutation = Module(new DES_InitialPermutation)
   initialPermutation.io.in.valid := io.in.valid
   initialPermutation.io.in.bits.text := io.in.bits.text
   initialPermutation.io.in.bits.key := io.in.bits.key
   io.in.ready := initialPermutation.io.in.ready
 
+  // last module in chain, directly connected to top module outputs, needed for changing byte order of input
+  // input of this module is connected to the last PE
   val finalPermutation = Module(new DES_FinalPermutation)
   io.result.bits := finalPermutation.io.out.bits
   io.result.valid := finalPermutation.io.out.valid
   finalPermutation.io.out.ready := io.result.ready
 
+  // vector of 16 PEs (processing elements), each element is unique, specified by parameter round
   val PEs = for (i <- 0 until 16) yield {
     val pe = Module(new DES_ProcessingElement(round = i, encrypt = encrypt))
     pe.io := DontCare
     pe
   }
 
+  // connection of the PEs in chain
   for (i <- 0 until 16) {
-    if(i == 0) {
+    if(i == 0) { // first pe
+      // first pe input is connected to initialPermutation module's output
       PEs(i).io.in.valid := initialPermutation.io.out.valid
       PEs(i).io.in.bits := initialPermutation.io.out.bits
       initialPermutation.io.out.ready := PEs(i).io.in.ready
 
+      // first pe output is connected to the next pe input
       PEs(i+1).io.in.valid := PEs(i).io.out.valid
       PEs(i+1).io.in.bits := PEs(i).io.out.bits
       PEs(i).io.out.ready := PEs(i+1).io.in.ready
-    } else if(i == 15) {
+    } else if(i == 15) { // last pe
+      // last pe input is connected to finalPermutation module's input
       finalPermutation.io.in.valid := PEs(i).io.out.valid
       finalPermutation.io.in.bits.L := PEs(i).io.out.bits.L
       finalPermutation.io.in.bits.R := PEs(i).io.out.bits.R
       PEs(i).io.out.ready := finalPermutation.io.in.ready
-    } else {
+    } else { // just ordinary pe somewhere in the middle (not the first, not the last)
+      // just connect its output to the input of the next one
       PEs(i+1).io.in.valid := PEs(i).io.out.valid
       PEs(i+1).io.in.bits := PEs(i).io.out.bits
       PEs(i).io.out.ready := PEs(i+1).io.in.ready
@@ -51,90 +65,139 @@ class DES_Pipelined(encrypt: Boolean) extends Module {
   }
 }
 
+// initial permutation for DES algorithm
 class DES_InitialPermutation extends Module {
   val io = IO(new Bundle {
     val in = Flipped(new DecoupledIO(new Bundle{
       val text = UInt(64.W)
       val key = UInt(64.W)
     }))
-    val out = new DecoupledIO(new DES_DataInterPE)
+    val out = new DecoupledIO(new DES_DataInterPE) // DES_DataInterPE - data type for data transferred between PEs
   })
 
-  val enable = Wire(Bool())
-  val result = WireDefault(io.out.bits)
+  /*
+  ------------------------------------------------
+  -------------- Boilerplate code ----------------
+  ------------------------------------------------
+  ------- Pipelining with valid propagation ------
+  ------------------------------------------------
+  */
 
-  val input = RegInit(0.U.asTypeOf(io.in.bits))
-  val valid = RegInit(false.B)
+  val enable = Wire(Bool()) // enable signal of registers with data
+  val result = WireDefault(io.out.bits) // this wire should be assigned to computation result
+
+  // registers for valid and data with enable port
+  val input = RegInit(0.U.asTypeOf(io.in.bits)) // this register contains actual data and should be used for computations
+  val valid = RegInit(false.B) // register to show that stored data is valid
+
+  // update values when enable
   when(enable) {
     input := io.in.bits
     valid := io.in.valid
   }
 
-  enable := io.out.ready || !valid
-  io.out.valid := valid
+  enable := io.out.ready || !valid // enable is high when output is ready or data is invalid
+  io.out.valid := valid // output is valid when register valid is high
 
   when(valid) {
+    // output enable as input ready and result as output bits when valid is high
     io.in.ready := enable
     io.out.bits := result
   } .otherwise {
+    // otherwise output zeros
     io.in.ready := true.B
     io.out.bits := 0.U.asTypeOf(io.out.bits)
   }
 
-  // processing
+  /*
+  ------------------------------------------------
+  ----------------- Processing -------------------
+  ------------------------------------------------
+  ------ Usage: result = computations(input) -----
+  ------------------------------------------------
+  */
+
+  // module for initial permutation of text to create L and R words
   val ip = Module(new IP).io
   ip.text := input.text
   result.L := ip.L
   result.R := ip.R
 
+  // module for initial permutation of key to create C and D words
   val pc_1 = Module(new PC_1).io
   pc_1.key := input.key
   result.C := pc_1.C
   result.D := pc_1.D
 }
 
+// processing element for main part of DES algorithm
 class DES_ProcessingElement(round: Int, encrypt: Boolean) extends Module {
   val io = IO(new Bundle {
-    val out = new DecoupledIO(new DES_DataInterPE)
+    val out = new DecoupledIO(new DES_DataInterPE) // DES_DataInterPE - data type for data transferred between PEs
     val in = Flipped(out)
   })
 
-  val enable = Wire(Bool())
-  val result = WireDefault(io.out.bits)
+  /*
+  ------------------------------------------------
+  -------------- Boilerplate code ----------------
+  ------------------------------------------------
+  ------- Pipelining with valid propagation ------
+  ------------------------------------------------
+  */
 
-  val input = RegInit(0.U.asTypeOf(io.in.bits))
-  val valid = RegInit(false.B)
+  val enable = Wire(Bool()) // enable signal of registers with data
+  val result = WireDefault(io.out.bits) // this wire should be assigned to computation result
+
+  // registers for valid and data with enable port
+  val input = RegInit(0.U.asTypeOf(io.in.bits)) // this register contains actual data and should be used for computations
+  val valid = RegInit(false.B) // register to show that stored data is valid
+
+  // update values when enable
   when(enable) {
     input := io.in.bits
     valid := io.in.valid
   }
 
-  enable := io.out.ready || !valid
-  io.out.valid := valid
+  enable := io.out.ready || !valid // enable is high when output is ready or data is invalid
+  io.out.valid := valid // output is valid when register valid is high
 
   when(valid) {
+    // output enable as input ready and result as output bits when valid is high
     io.in.ready := enable
     io.out.bits := result
   } .otherwise {
+    // otherwise output zeros
     io.in.ready := true.B
     io.out.bits := 0.U.asTypeOf(io.out.bits)
   }
 
-  // computations
+  /*
+  ------------------------------------------------
+  ----------------- Processing -------------------
+  ------------------------------------------------
+  ------ Usage: result = computations(input) -----
+  ------------------------------------------------
+  */
+
+  // module for generating key for the next round
+  // provide current round as a parameter for this module
   val keys = Module(new DES_keys(round, encrypt = encrypt))
-  keys.io.C := input.C
-  keys.io.D := input.D
+  keys.io.C := input.C // provide C word as input
+  keys.io.D := input.D // provide D word as input
 
+  // module for computing f function of DES algorithm
   val f = Module(new DES_f)
-  f.io.R := input.R
-  f.io.K := keys.io.K
+  f.io.R := input.R // provide R word as input
+  f.io.K := keys.io.K // provide K output of keys module as another input
 
-  result.L := input.R
-  result.R := input.L ^ f.io.out
-  result.C := keys.io.C_next
-  result.D := keys.io.D_next
+  // assign output of keys and f modules to the output of this module
+  result.L := input.R // next L is R
+  result.R := input.L ^ f.io.out // next R is L xor output of f module
+  result.C := keys.io.C_next // next C is C field of keys module's output
+  result.D := keys.io.D_next // next D is D field of keys module's output
 }
 
+// final permutation for DES algorithm
 class DES_FinalPermutation extends Module {
   val io = IO(new Bundle {
     val out = new DecoupledIO(UInt(64.W))
@@ -144,31 +207,52 @@ class DES_FinalPermutation extends Module {
     }))
   })
 
-  val enable = Wire(Bool())
-  val result = WireDefault(io.out.bits)
+  /*
+  ------------------------------------------------
+  -------------- Boilerplate code ----------------
+  ------------------------------------------------
+  ------- Pipelining with valid propagation ------
+  ------------------------------------------------
+  */
 
-  val input = RegInit(0.U.asTypeOf(io.in.bits))
-  val valid = RegInit(false.B)
+  val enable = Wire(Bool()) // enable signal of registers with data
+  val result = WireDefault(io.out.bits) // this wire should be assigned to computation result
+
+  // registers for valid and data with enable port
+  val input = RegInit(0.U.asTypeOf(io.in.bits)) // this register contains actual data and should be used for computations
+  val valid = RegInit(false.B) // register to show that stored data is valid
+
+  // update values when enable
   when(enable) {
     input := io.in.bits
     valid := io.in.valid
   }
 
-  enable := io.out.ready || !valid
-  io.out.valid := valid
+  enable := io.out.ready || !valid // enable is high when output is ready or data is invalid
+  io.out.valid := valid // output is valid when register valid is high
 
   when(valid) {
+    // output enable as input ready and result as output bits when valid is high
     io.in.ready := enable
     io.out.bits := result
   } .otherwise {
+    // otherwise output zeros
     io.in.ready := true.B
     io.out.bits := 0.U.asTypeOf(io.out.bits)
   }
 
-  // processing
-  val concat = Wire(UInt(64.W))
-  concat := Reverse(Cat(input.R, input.L))
+  /*
+  ------------------------------------------------
+  ----------------- Processing -------------------
+  ------------------------------------------------
+  ------ Usage: result = computations(input) -----
+  ------------------------------------------------
+  */
 
+  val concat = Wire(UInt(64.W)) // define wire for further use
+  concat := Reverse(Cat(input.R, input.L)) // reverse order of concatenation R and L
+
+  // construct output from concat wire in the way defined by DES standard
   result := Cat(concat(39),concat(7),concat(47),concat(15),concat(55),concat(23),concat(63),concat(31),
     concat(38),concat(6),concat(46),concat(14),concat(54),concat(22),concat(62),concat(30),
     concat(37),concat(5),concat(45),concat(13),concat(53),concat(21),concat(61),concat(29),
@@ -179,6 +263,7 @@ class DES_FinalPermutation extends Module {
     concat(32),concat(0),concat(40),concat(8),concat(48),concat(16),concat(56),concat(24))
 }
 
+// IP function of DES algorithm
 class IP extends Module {
   val io = IO(new Bundle {
     val text = Input(UInt(64.W))
@@ -186,8 +271,10 @@ class IP extends Module {
     val R = Output(UInt(32.W))
   })
 
-  val reversed = Wire(UInt(64.W))
-  reversed := Reverse(io.text)
+  val reversed = Wire(UInt(64.W)) // create wire for further use
+  reversed := Reverse(io.text) // reversed order of bits in io.text
+
+  // construct L and R from reversed in the way defined by DES standard
 
   io.L := Cat(reversed(57),reversed(49),reversed(41),reversed(33),reversed(25),reversed(17),reversed(9),reversed(1),
     reversed(59),reversed(51),reversed(43),reversed(35),reversed(27),reversed(19),reversed(11),reversed(3),
@@ -200,6 +287,7 @@ class IP extends Module {
     reversed(62),reversed(54),reversed(46),reversed(38),reversed(30),reversed(22),reversed(14),reversed(6))
 }
 
+// PC_1 function of DES algorithm
 class PC_1 extends Module {
   val io = IO(new Bundle {
     val key = Input(UInt(64.W))
@@ -207,8 +295,10 @@ class PC_1 extends Module {
     val D = Output(UInt(28.W))
   })
 
-  val reversed = Wire(UInt(64.W))
-  reversed := Reverse(io.key)
+  val reversed = Wire(UInt(64.W)) // define wire for further use
+  reversed := Reverse(io.key) // reversed order of bits in io.key
+
+  // construct C and D from reversed in the way defined by DES standard
 
   io.C := Cat(reversed(56),reversed(48),reversed(40),reversed(32),reversed(24),reversed(16),reversed(8),
     reversed(0),reversed(57),reversed(49),reversed(41),reversed(33),reversed(25),reversed(17),
@@ -221,6 +311,7 @@ class PC_1 extends Module {
     reversed(20),reversed(12),reversed(4),reversed(27),reversed(19),reversed(11),reversed(3))
 }
 
+// generate key for the next round
 class DES_keys(round: Int, encrypt: Boolean) extends Module {
   val io = IO(new Bundle {
     val C = Input(UInt(28.W))
@@ -230,11 +321,14 @@ class DES_keys(round: Int, encrypt: Boolean) extends Module {
     val K = Output(UInt(48.W))
   })
 
-  var r = round
+  var r = round  // variable corresponding to the number of round
+
+  // take into account decryption: reverse operations for key transform if it's necessary
   if (!encrypt) {
     r = 16 - r
   }
 
+  // variable corresponding to the value of cyclic shift and depending on the value of r
   val s = r match {
     case 0 => 1
     case 1 => 1
@@ -255,11 +349,13 @@ class DES_keys(round: Int, encrypt: Boolean) extends Module {
     case 16 => 0
   }
 
+  // define wires for further use
   val C_rotated = Wire(UInt(28.W))
   val D_rotated = Wire(UInt(28.W))
   val concat = Wire(UInt(56.W))
 
-  if (encrypt) {
+  // perform cyclic shift
+  if (encrypt) { // in forward direction for encryption
     if(s == 1) {
       C_rotated := Cat(io.C(26,0),io.C(27))
       D_rotated := Cat(io.D(26,0),io.D(27))
@@ -267,7 +363,7 @@ class DES_keys(round: Int, encrypt: Boolean) extends Module {
       C_rotated := Cat(io.C(25,0),io.C(27,26))
       D_rotated := Cat(io.D(25,0),io.D(27,26))
     }
-  } else {
+  } else { // in reversed direction for decryption
     if(s == 1) {
       C_rotated := Cat(io.C(0),io.C(27,1))
       D_rotated := Cat(io.D(0),io.D(27,1))
@@ -280,11 +376,14 @@ class DES_keys(round: Int, encrypt: Boolean) extends Module {
     }
   }
 
-
+  // assign values transferred to the next round
   io.C_next := C_rotated
   io.D_next := D_rotated
+
+  // concatenate C and D after transformation, reverse its order and assign to concat wire for further use
   concat := Reverse(Cat(C_rotated, D_rotated))
 
+  // construct key for current round from concat in the way described in DES standard
   io.K := Cat(concat(13),concat(16),concat(10),concat(23),concat(0),concat(4),
     concat(2),concat(27),concat(14),concat(5),concat(20),concat(9),
     concat(22),concat(18),concat(11),concat(3),concat(25),concat(7),
@@ -295,6 +394,7 @@ class DES_keys(round: Int, encrypt: Boolean) extends Module {
     concat(45),concat(41),concat(49),concat(35),concat(28),concat(31))
 }
 
+// computing f function of DES algorithm
 class DES_f extends Module {
   val io = IO(new Bundle {
     val R = Input(UInt(32.W))
@@ -302,31 +402,43 @@ class DES_f extends Module {
     val out = Output(UInt(32.W))
   })
 
+  // perform E permutation of R input
   val E = Module(new DES_E)
   E.io.R := io.R
 
+  // put the result of E permutation xor'ed with K to S-boxes
   val S = Module(new DES_S)
   S.io.in := E.io.E ^ io.K
 
+  // put the output of S-boxes to the block with P permutations
   val P = Module(new DES_P)
   P.io.in := S.io.out
-  io.out := P.io.out
+  io.out := P.io.out // output of P permutations is the output of this module
 }
 
+// S-box for DES algorithm
 class DES_S extends Module {
   val io = IO(new Bundle {
     val in = Input(UInt(48.W))
     val out = Output(UInt(32.W))
   })
 
+  // vector of wires for splitting input bits into groups of 6 bits
   val B = Wire(Vec(8, UInt(6.W)))
+
+  // vector of wires for defining row and col from each group of 6 bits
   val row = Wire(Vec(8, UInt(2.W)))
   val col = Wire(Vec(8, UInt(4.W)))
-  for (i <- 0 until 8) {
-    B(7-i) := io.in(6*(i+1)-1,6*i)
-    row(7-i) := Cat(B(7-i)(5),B(7-i)(0))
-    col(7-i) := B(7-i)(4,1)
+
+  for (i <- 0 until 8) { // for each group
+    B(7-i) := io.in(6*(i+1)-1,6*i) // extract 6 bits from input data and store it in corresponding register in B vector
+    row(7-i) := Cat(B(7-i)(5),B(7-i)(0)) // extract 2 bits for row from corresponding group of 6 six bits
+    col(7-i) := B(7-i)(4,1) // extract 4 bits for column from corresponding group of 6 six bits
   }
+
+  // -------------------------------
+  // S-boxes defined in DES standard
+  // -------------------------------
 
   val S1 = VecInit(VecInit(14.U(4.W), 0.U(4.W), 4.U(4.W), 15.U(4.W)),
     VecInit(4.U(4.W), 15.U(4.W), 1.U(4.W), 12.U(4.W)),
@@ -464,19 +576,22 @@ class DES_S extends Module {
     VecInit(12.U(4.W), 9.U(4.W), 5.U(4.W), 6.U(4.W)),
     VecInit(7.U(4.W), 2.U(4.W), 8.U(4.W), 11.U(4.W)))
 
+  // construct the result from col and row vectors using S-boxes
   io.out := Cat(S1(col(0))(row(0)),S2(col(1))(row(1)),S3(col(2))(row(2)),S4(col(3))(row(3)),
     S5(col(4))(row(4)),S6(col(5))(row(5)),S7(col(6))(row(6)),S8(col(7))(row(7)))
 }
 
+// P permutation for DES algorithm
 class DES_P extends Module {
   val io = IO(new Bundle {
     val in = Input(UInt(32.W))
     val out = Output(UInt(32.W))
   })
 
-  val reversed = Wire(UInt(32.W))
-  reversed := Reverse(io.in)
+  val reversed = Wire(UInt(32.W)) // define 32bits wire for further use
+  reversed := Reverse(io.in) // assign this wire to io.in with reversed order of bits
 
+  // construct the result from reversed in the way defined in DES standard
   io.out := Cat(reversed(15),reversed(6),reversed(19),reversed(20),
     reversed(28),reversed(11),reversed(27),reversed(16),
     reversed(0),reversed(14),reversed(22),reversed(25),
@@ -487,15 +602,17 @@ class DES_P extends Module {
     reversed(21),reversed(10),reversed(3),reversed(24))
 }
 
+// E permutation for DES algorithm
 class DES_E extends Module {
   val io = IO(new Bundle {
     val R = Input(UInt(32.W))
     val E = Output(UInt(48.W))
   })
 
-  val reversed = Wire(UInt(32.W))
-  reversed := Reverse(io.R)
+  val reversed = Wire(UInt(32.W)) // define 32bits wire
+  reversed := Reverse(io.R) // assign this wire to io.R with reversed order of bits
 
+  // construct the result from reversed in the way defined in DES standard
   io.E := Cat(reversed(31),reversed(0),reversed(1),reversed(2),reversed(3),reversed(4),
     reversed(3),reversed(4),reversed(5),reversed(6),reversed(7),reversed(8),
     reversed(7),reversed(8),reversed(9),reversed(10),reversed(11),reversed(12),
@@ -506,6 +623,7 @@ class DES_E extends Module {
     reversed(27),reversed(28),reversed(29),reversed(30),reversed(31),reversed(0))
 }
 
+// data type for data transferred between PEs
 class DES_DataInterPE extends Bundle {
   val L = Output(UInt(32.W))
   val R = Output(UInt(32.W))

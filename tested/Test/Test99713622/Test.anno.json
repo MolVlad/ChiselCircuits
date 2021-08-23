@@ -1,0 +1,37 @@
+[
+  {
+    "class":"firrtl.stage.FirrtlFileAnnotation",
+    "file":"tested/Test/Test99713622/Test.lo.fir"
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Test|Test>io_out1",
+    "sources":[
+      "~Test|Test>io_data"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Test|Test>io_out2",
+    "sources":[
+      "~Test|Test>io_B",
+      "~Test|Test>io_A",
+      "~Test|Test>io_output_valid",
+      "~Test|Test>io_input_ready"
+    ]
+  },
+  {
+    "class":"firrtl.EmitCircuitAnnotation",
+    "emitter":"firrtl.LowFirrtlEmitter"
+  },
+  {
+    "class":"logger.LogLevelAnnotation",
+    "globalLogLevel":{
+      
+    }
+  },
+  {
+    "class":"firrtl.transforms.BlackBoxTargetDirAnno",
+    "targetDir":"tested/Test/Test99713622"
+  }
+]

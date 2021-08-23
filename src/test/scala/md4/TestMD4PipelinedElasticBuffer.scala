@@ -4,16 +4,19 @@ import chisel3._
 import chisel3.iotesters._
 import elastic.MD4PipelinedElasticBuffer._
 
+// Test for module MD4PipelinedElasticBuffer. Generates waveforms, verilog code and fir file
 object TestMD4PipelinedElasticBuffer extends App {
-  def module = new MD4PipelinedElasticBuffer
-  val name = "MD4PipelinedElasticBuffer"
-  val dirName = "tested/" + name
+  def module = new MD4PipelinedElasticBuffer // define calling module for convenience
+  val name = "MD4PipelinedElasticBuffer" // name of output files
+  val dirName = "tested/" + name // directory of output files
 
+  // execute test bench for generating waveforms
   println("[{(Running test bench)}]")
   chisel3.iotesters.Driver.execute(
     Array("-o", name, "--generate-vcd-output", "on", "--target-dir", dirName),
     () => module) { c => new TestBenchMD4PipelinedElasticBuffer(c)}
 
+  // generate verilog code
   println("[{(Generating Verilog file)}]")
   (new chisel3.stage.ChiselStage).emitVerilog(
     module,
@@ -21,6 +24,7 @@ object TestMD4PipelinedElasticBuffer extends App {
   )
 }
 
+// test bench with poke functions for generating waveforms
 class TestBenchMD4PipelinedElasticBuffer(dut: MD4PipelinedElasticBuffer) extends PeekPokeTester(dut) {
   step(10)
   poke(dut.io.hash.ready, true.B)

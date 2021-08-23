@@ -4,16 +4,19 @@ import chisel3._
 import chisel3.iotesters._
 import elastic.watermanFSM._
 
+// Test for module WatermanFSM. Generates waveforms, verilog code and fir file
 object TestWatermanFSM extends App {
-  def module = new WatermanFSM(rowsNumber = 15, columnsNumber = 21)
-  val name = "WatermanFSM"
-  val dirName = "tested/" + name
+  def module = new WatermanFSM(rowsNumber = 15, columnsNumber = 21) // define calling module for convenience
+  val name = "WatermanFSM" // name of output files
+  val dirName = "tested/" + name // directory of output files
 
+  // execute test bench for generating waveforms
   println("[{(Running test bench)}]")
   chisel3.iotesters.Driver.execute(
     Array("-o", name, "--generate-vcd-output", "on", "--target-dir", dirName),
     () => module) { c => new TestBenchWatermanFSM(c)}
 
+  // generate verilog code
   println("[{(Generating Verilog file)}]")
   (new chisel3.stage.ChiselStage).emitVerilog(
     module,
@@ -21,6 +24,7 @@ object TestWatermanFSM extends App {
   )
 }
 
+// test bench with poke functions for generating waveforms
 class TestBenchWatermanFSM(dut: WatermanFSM) extends PeekPokeTester(dut) {
   poke(dut.io.out.ready, true.B)
 

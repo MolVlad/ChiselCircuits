@@ -3,44 +3,58 @@ package elastic.AES_Pipelined
 import chisel3._
 import chisel3.util._
 
+// Fully pipelined AES algorithm, it produces data every clock cycle. Several PEs are connected by chain
+// For each PE, new data and input valid are going through registers when output ready is high
+// parameter encrypt: true - encryption, false - decryption
 class AES_Pipelined(encrypt: Boolean = true) extends Module {
+  // Elastic input/output interfaces
   val io = IO(new Bundle {
-    val out = new DecoupledIO(new AES_DataOutput)
+    val out = new DecoupledIO(new AES_DataOutput) // AES_DataOutput - data type for input and output
     val in = Flipped(out)
   })
 
+  // first module in chain, directly connected to top module inputs, needed for initial permutation of input data
+  // output of this module is connected to the input of the first PE
   val initialPermutation = Module(new AES_InitialOperation)
   initialPermutation.io.in.valid := io.in.valid
   initialPermutation.io.in.bits.text := io.in.bits.text
   initialPermutation.io.in.bits.key := io.in.bits.key
   io.in.ready := initialPermutation.io.in.ready
 
+  // last module in chain, directly connected to top module outputs, needed for changing byte order of input
+  // input of this module is connected to the last PE
   val finalPermutation = Module(new AES_FinalOperation)
   io.out.bits := finalPermutation.io.out.bits
   io.out.valid := finalPermutation.io.out.valid
   finalPermutation.io.out.ready := io.out.ready
 
+  // vector of 10 PEs (processing elements), each element is unique, specified by parameter round
   val PEs = for (i <- 0 until 10) yield {
     val pe = Module(new AES_ProcessingElement(round = i, encrypt = encrypt))
     pe.io := DontCare
     pe
   }
 
+  // connection of the PEs in chain
   for (i <- 0 until 10) {
-    if(i == 0) {
+    if(i == 0) { // first pe
+      // first pe input is connected to initialPermutation module's output
       PEs(i).io.in.valid := initialPermutation.io.out.valid
       PEs(i).io.in.bits := initialPermutation.io.out.bits
       initialPermutation.io.out.ready := PEs(i).io.in.ready
 
+      // first pe output is connected to the next pe input
       PEs(i+1).io.in.valid := PEs(i).io.out.valid
       PEs(i+1).io.in.bits := PEs(i).io.out.bits
       PEs(i).io.out.ready := PEs(i+1).io.in.ready
-    } else if(i == 9) {
+    } else if(i == 9) { // last pe
+      // last pe input is connected to finalPermutation module's input
       finalPermutation.io.in.valid := PEs(i).io.out.valid
       finalPermutation.io.in.bits.state := PEs(i).io.out.bits.state
       finalPermutation.io.in.bits.key := PEs(i).io.out.bits.key
       PEs(i).io.out.ready := finalPermutation.io.in.ready
-    } else {
+    } else { // just ordinary pe somewhere in the middle (not the first, not the last)
+      // just connect its output to the input of the next one
       PEs(i+1).io.in.valid := PEs(i).io.out.valid
       PEs(i+1).io.in.bits := PEs(i).io.out.bits
       PEs(i).io.out.ready := PEs(i+1).io.in.ready
@@ -48,34 +62,56 @@ class AES_Pipelined(encrypt: Boolean = true) extends Module {
   }
 }
 
+// initial operation for AES algorithm
 class AES_InitialOperation extends Module {
   val io = IO(new Bundle {
     val in = Flipped(new DecoupledIO(new AES_DataOutput))
     val out = new DecoupledIO(new AES_DataInterPE)
   })
 
-  val enable = Wire(Bool())
-  val result = WireDefault(io.out.bits)
+  /*
+  ------------------------------------------------
+  -------------- Boilerplate code ----------------
+  ------------------------------------------------
+  ------- Pipelining with valid propagation ------
+  ------------------------------------------------
+  */
 
-  val input = RegInit(0.U.asTypeOf(io.in.bits))
-  val valid = RegInit(false.B)
+  val enable = Wire(Bool()) // enable signal of registers with data
+  val result = WireDefault(io.out.bits) // this wire should be assigned to computation result
+
+  // registers for valid and data with enable port
+  val input = RegInit(0.U.asTypeOf(io.in.bits)) // this register contains actual data and should be used for computations
+  val valid = RegInit(false.B) // register to show that stored data is valid
+
+  // update values when enable
   when(enable) {
     input := io.in.bits
     valid := io.in.valid
   }
 
-  enable := io.out.ready || !valid
-  io.out.valid := valid
+  enable := io.out.ready || !valid // enable is high when output is ready or data is invalid
+  io.out.valid := valid // output is valid when register valid is high
 
   when(valid) {
+    // output enable as input ready and result as output bits when valid is high
     io.in.ready := enable
     io.out.bits := result
   } .otherwise {
+    // otherwise output zeros
     io.in.ready := true.B
     io.out.bits := 0.U.asTypeOf(io.out.bits)
   }
 
-  // processing
+  /*
+  ------------------------------------------------
+  ----------------- Processing -------------------
+  ------------------------------------------------
+  ------ Usage: result = computations(input) -----
+  ------------------------------------------------
+  */
+
+  // transform two 128 bit words into two 4x4 matrices with bytes
   for(i <- 0 until 4) {
     for(j <- 0 until 4) {
       result.state(3-i)(3-j) := input.text(32*i+8*(j+1)-1, 32*i+8*j)
@@ -84,34 +120,56 @@ class AES_InitialOperation extends Module {
   }
 }
 
+// final operation for AES algorithm
 class AES_FinalOperation extends Module {
   val io = IO(new Bundle {
     val out = new DecoupledIO(new AES_DataOutput)
     val in = Flipped(new DecoupledIO(new AES_DataInterPE))
   })
 
-  val enable = Wire(Bool())
-  val result = WireDefault(io.out.bits)
+  /*
+  ------------------------------------------------
+  -------------- Boilerplate code ----------------
+  ------------------------------------------------
+  ------- Pipelining with valid propagation ------
+  ------------------------------------------------
+  */
 
-  val input = RegInit(0.U.asTypeOf(io.in.bits))
-  val valid = RegInit(false.B)
+  val enable = Wire(Bool()) // enable signal of registers with data
+  val result = WireDefault(io.out.bits) // this wire should be assigned to computation result
+
+  // registers for valid and data with enable port
+  val input = RegInit(0.U.asTypeOf(io.in.bits)) // this register contains actual data and should be used for computations
+  val valid = RegInit(false.B) // register to show that stored data is valid
+
+  // update values when enable
   when(enable) {
     input := io.in.bits
     valid := io.in.valid
   }
 
-  enable := io.out.ready || !valid
-  io.out.valid := valid
+  enable := io.out.ready || !valid // enable is high when output is ready or data is invalid
+  io.out.valid := valid // output is valid when register valid is high
 
   when(valid) {
+    // output enable as input ready and result as output bits when valid is high
     io.in.ready := enable
     io.out.bits := result
   } .otherwise {
+    // otherwise output zeros
     io.in.ready := true.B
     io.out.bits := 0.U.asTypeOf(io.out.bits)
   }
 
-  // processing
+  /*
+  ------------------------------------------------
+  ----------------- Processing -------------------
+  ------------------------------------------------
+  ------ Usage: result = computations(input) -----
+  ------------------------------------------------
+  */
+
+  // make xor of two input matrices (key and state) and transform the resulting 4x4 matrix with bytes into 128 bit word
   result.text := Cat(input.state(0)(0)^input.key(0)(0),input.state(0)(1)^input.key(0)(1),
     input.state(0)(2)^input.key(0)(2),input.state(0)(3)^input.key(0)(3),
     input.state(1)(0)^input.key(1)(0),input.state(1)(1)^input.key(1)(1),
@@ -121,94 +179,129 @@ class AES_FinalOperation extends Module {
     input.state(3)(0)^input.key(3)(0),input.state(3)(1)^input.key(3)(1),
     input.state(3)(2)^input.key(3)(2),input.state(3)(3)^input.key(3)(3))
 
+  // transform 4x4 matrix with bytes into 128 bit word
   result.key := Cat(input.key(0)(0),input.key(0)(1),input.key(0)(2),input.key(0)(3),
     input.key(1)(0),input.key(1)(1),input.key(1)(2),input.key(1)(3),
     input.key(2)(0),input.key(2)(1),input.key(2)(2),input.key(2)(3),
     input.key(3)(0),input.key(3)(1),input.key(3)(2),input.key(3)(3))
 }
 
+// processing element for main part of AES algorithm
 class AES_ProcessingElement(round: Int, encrypt: Boolean) extends Module {
   val io = IO(new Bundle {
     val out = new DecoupledIO(new AES_DataInterPE)
     val in = Flipped(out)
   })
 
-  val enable = Wire(Bool())
-  val result = WireDefault(io.out.bits)
+  /*
+  ------------------------------------------------
+  -------------- Boilerplate code ----------------
+  ------------------------------------------------
+  ------- Pipelining with valid propagation ------
+  ------------------------------------------------
+  */
 
-  val input = RegInit(0.U.asTypeOf(io.in.bits))
-  val valid = RegInit(false.B)
+  val enable = Wire(Bool()) // enable signal of registers with data
+  val result = WireDefault(io.out.bits) // this wire should be assigned to computation result
+
+  // registers for valid and data with enable port
+  val input = RegInit(0.U.asTypeOf(io.in.bits)) // this register contains actual data and should be used for computations
+  val valid = RegInit(false.B) // register to show that stored data is valid
+
+  // update values when enable
   when(enable) {
     input := io.in.bits
     valid := io.in.valid
   }
 
-  enable := io.out.ready || !valid
-  io.out.valid := valid
+  enable := io.out.ready || !valid // enable is high when output is ready or data is invalid
+  io.out.valid := valid // output is valid when register valid is high
 
   when(valid) {
+    // output enable as input ready and result as output bits when valid is high
     io.in.ready := enable
     io.out.bits := result
   } .otherwise {
+    // otherwise output zeros
     io.in.ready := true.B
     io.out.bits := 0.U.asTypeOf(io.out.bits)
   }
 
-  // computations
+  /*
+  ------------------------------------------------
+  ----------------- Processing -------------------
+  ------------------------------------------------
+  ------ Usage: result = computations(input) -----
+  ------------------------------------------------
+  */
+
+  // module for xor'ing two matrices: key and state
   val xor = Module(new AES_XOR)
   xor.io.in.key := DontCare
   xor.io.in.state := input.state
   xor.io.in.key := input.key
 
+  // module for changing bytes in the word
   val sub = Module(new AES_SubBytes)
   sub.io.in.key := DontCare
-  sub.io.in.state := xor.io.out.state
+  sub.io.in.state := xor.io.out.state // input is output of xor module
 
+  // module for shifting rows
   val shift = Module(new AES_ShiftRows)
-  shift.io.in := sub.io.out
+  shift.io.in := sub.io.out // input is output of sub module
 
+  // module for mixing columns
   val mix = Module(new AES_MixColumns)
-  mix.io.in := shift.io.out
+  mix.io.in := shift.io.out // input is output of shift module
 
+  // module for inversed xor (just xor) of two matrices: key and state
   val invxor = Module(new AES_XOR)
   invxor.io.in.key := DontCare
   invxor.io.in.state := input.state
   invxor.io.in.key := input.key
 
+  // module for inversed mixing columns
   val invmix = Module(new AES_InvMixColumns)
   invmix.io.in := xor.io.out
 
+  // module for inversed shift
   val invshift = Module(new AES_InvShiftRows)
-  if(round == 0) {
-    invshift.io.in := invxor.io.out
-  } else {
-    invshift.io.in := invmix.io.out
+  if(round == 0) { // if it is the first round
+    invshift.io.in := invxor.io.out // input is the output of invxor module
+  } else { // if it is not the first round
+    invshift.io.in := invmix.io.out // input is the output of invshift module
   }
 
+  // module for inversed changing of bytes with S-boxes
   val invsub = Module(new AES_InvSubBytes)
-  invsub.io.in := invshift.io.out
+  invsub.io.in := invshift.io.out // input is the output of invsub module
 
+  // module to transform the key for the next round
+  // input is key and current round
   val key = Module(new AES_GetNewKey(round = round))
   key.io.in.state := DontCare
   key.io.in.key := input.key
 
+  // module to transform the key for the previous round
+  // input is key and current round
   val invkey = Module(new AES_InvGetNewKey(round = round))
   invkey.io.in.state := DontCare
   invkey.io.in.key := input.key
 
-  if(encrypt) {
-    result.key := key.io.out.key
-    if(round == 9) {
-      result.state := shift.io.out.state
-    } else {
-      result.state := mix.io.out.state
+  if(encrypt) { // if it is encryption
+    result.key := key.io.out.key // output key is the next key received from key module
+    if(round == 9) { // if it is the last round
+      result.state := shift.io.out.state // output state if the output of shift module
+    } else { // if it is not the last round
+      result.state := mix.io.out.state // output state if the output of mix module
     }
-  } else {
-    result.key := invkey.io.out.key
-    result.state := invsub.io.out.state
+  } else { // if it is decryption
+    result.key := invkey.io.out.key// output key is the previous key received from invkey module
+    result.state := invsub.io.out.state // output state is the state from invsub module
   }
 }
 
+// generate next key
 class AES_GetNewKey(round: Int) extends Module {
   val io = IO(new Bundle {
     val out = new AES_DataInterPE
@@ -217,20 +310,23 @@ class AES_GetNewKey(round: Int) extends Module {
 
   io.out.state := DontCare
 
+  // construct words from key matrix
   val w0, w1, w2, w3 = Wire(UInt(32.W))
   w0 := Cat(io.in.key(0)(0), io.in.key(0)(1), io.in.key(0)(2), io.in.key(0)(3))
   w1 := Cat(io.in.key(1)(0), io.in.key(1)(1), io.in.key(1)(2), io.in.key(1)(3))
   w2 := Cat(io.in.key(2)(0), io.in.key(2)(1), io.in.key(2)(2), io.in.key(2)(3))
   w3 := Cat(io.in.key(3)(0), io.in.key(3)(1), io.in.key(3)(2), io.in.key(3)(3))
 
+  // module for word rotation
   val rot = Module(new AES_RotWord)
   rot.io.in := w3
 
+  // module for changing bytes in the word
   val sub = Module(new AES_SubWord)
-  sub.io.in := rot.io.out
+  sub.io.in := rot.io.out // input is the output of rot module
 
-  val Rcon = Wire(UInt(32.W))
-  round match {
+  val Rcon = Wire(UInt(32.W)) // define wire for Rcon constant
+  round match { // choose Rcon depending on the round
     case 0 => Rcon := "h01000000".U
     case 1 => Rcon := "h02000000".U
     case 2 => Rcon := "h04000000".U
@@ -243,12 +339,14 @@ class AES_GetNewKey(round: Int) extends Module {
     case 9 => Rcon := "h36000000".U
   }
 
+  // define and compute the next words
   val w4, w5, w6, w7 = Wire(UInt(32.W))
   w4 := sub.io.out ^ Rcon ^ w0
   w5 := w4 ^ w1
   w6 := w5 ^ w2
   w7 := w6 ^ w3
 
+  // construct output matrix from these words
   for(i <- 0 until 4) {
     io.out.key(0)(3-i) := w4(8*(i+1)-1,8*i)
     io.out.key(1)(3-i) := w5(8*(i+1)-1,8*i)
@@ -257,6 +355,7 @@ class AES_GetNewKey(round: Int) extends Module {
   }
 }
 
+// generate previous key
 class AES_InvGetNewKey(round: Int) extends Module {
   val io = IO(new Bundle {
     val out = new AES_DataInterPE
@@ -265,14 +364,15 @@ class AES_InvGetNewKey(round: Int) extends Module {
 
   io.out.state := DontCare
 
+  // construct words from key matrix
   val w4, w5, w6, w7 = Wire(UInt(32.W))
   w4 := Cat(io.in.key(0)(0), io.in.key(0)(1), io.in.key(0)(2), io.in.key(0)(3))
   w5 := Cat(io.in.key(1)(0), io.in.key(1)(1), io.in.key(1)(2), io.in.key(1)(3))
   w6 := Cat(io.in.key(2)(0), io.in.key(2)(1), io.in.key(2)(2), io.in.key(2)(3))
   w7 := Cat(io.in.key(3)(0), io.in.key(3)(1), io.in.key(3)(2), io.in.key(3)(3))
 
-  val Rcon = Wire(UInt(32.W))
-  9 - round match {
+  val Rcon = Wire(UInt(32.W))// define wire for Rcon constant
+  9 - round match { // choose Rcon depending on the round
     case 0 => Rcon := "h01000000".U
     case 1 => Rcon := "h02000000".U
     case 2 => Rcon := "h04000000".U
@@ -285,19 +385,28 @@ class AES_InvGetNewKey(round: Int) extends Module {
     case 9 => Rcon := "h36000000".U
   }
 
-  val w0, w1, w2, w3, temp = Wire(UInt(32.W))
+  // define temporary variable
+  val temp = Wire(UInt(32.W))
+
+  // define and compute previous words
+  val w0, w1, w2, w3 = Wire(UInt(32.W))
   w3 := w7 ^ w6
   w2 := w6 ^ w5
   w1 := w5 ^ w4
   w0 := w4 ^ temp
 
+  // module for word rotation
   val rot = Module(new AES_RotWord)
-  rot.io.in := w3
+  rot.io.in := w3 // input is w3
 
+  // module for changing bytes with S-boxes
   val sub = Module(new AES_SubWord)
-  sub.io.in := rot.io.out
+  sub.io.in := rot.io.out // input is the output of rot module
+
+  // compute temporary variable
   temp := Rcon ^ sub.io.out
 
+  // construct output matrix from previous words
   for(i <- 0 until 4) {
     io.out.key(0)(3-i) := w0(8*(i+1)-1,8*i)
     io.out.key(1)(3-i) := w1(8*(i+1)-1,8*i)
@@ -306,6 +415,7 @@ class AES_InvGetNewKey(round: Int) extends Module {
   }
 }
 
+// module for xor'ing two matrices: key and state
 class AES_XOR extends Module {
   val io = IO(new Bundle {
     val out = Output(new AES_DataInterPE)
@@ -321,21 +431,25 @@ class AES_XOR extends Module {
   }
 }
 
+// change word's bytes with S-boxes
 class AES_SubWord extends Module {
   val io = IO(new Bundle {
     val out = Output(UInt(32.W))
     val in = Flipped(out)
   })
 
+  // create matrix of PEs for changing bytes
   val PEs = for(i <- 0 until 4) yield {
     val pe = Module(new AES_S)
-    pe.io.in := io.in((i+1)*8-1,i*8)
+    pe.io.in := io.in((i+1)*8-1,i*8) // change each byte in the input word with these PEs
     pe
   }
 
+  // result is the concatenation of outputs of PEs
   io.out := Cat(PEs(3).io.out, PEs(2).io.out, PEs(1).io.out, PEs(0).io.out)
 }
 
+// rotate word
 class AES_RotWord extends Module {
   val io = IO(new Bundle {
     val out = Output(UInt(32.W))
@@ -345,6 +459,7 @@ class AES_RotWord extends Module {
   io.out := Cat(io.in(23,0), io.in(31,24))
 }
 
+// rotate word in the opposite direction
 class AES_InvRotWord extends Module {
   val io = IO(new Bundle {
     val out = Output(UInt(32.W))
@@ -354,6 +469,7 @@ class AES_InvRotWord extends Module {
   io.out := Cat(io.in(7,0), io.in(31,8))
 }
 
+// perform mix column operation on state matrix
 class AES_MixColumns extends Module {
   val io = IO(new Bundle {
     val out = new AES_DataInterPE
@@ -362,18 +478,21 @@ class AES_MixColumns extends Module {
 
   io.out.key := DontCare
 
+  // create vector of PEs for each single column (4 in total)
   val PEs = for (i <- 0 until 4) yield {
     val pe = Module(new AES_MixColumn)
     pe.io := DontCare
     pe
   }
 
+  // connect each input state's column to the input of corresponding PE and output of this PE to corresponding output state's column
   for(i <- 0 until 4) {
     PEs(i).io.in := io.in.state(i)
     io.out.state(i) := PEs(i).io.out
   }
 }
 
+// perform inversed mix column operation on state matrix
 class AES_InvMixColumns extends Module {
   val io = IO(new Bundle {
     val out = new AES_DataInterPE
@@ -382,24 +501,28 @@ class AES_InvMixColumns extends Module {
 
   io.out.key := DontCare
 
+  // create vector of PEs for each single column (4 in total)
   val PEs = for (i <- 0 until 4) yield {
     val pe = Module(new AES_InvMixColumn)
     pe.io := DontCare
     pe
   }
 
+  // connect each input state's column to the input of corresponding PE and output of this PE to corresponding output state's column
   for(i <- 0 until 4) {
     PEs(i).io.in := io.in.state(i)
     io.out.state(i) := PEs(i).io.out
   }
 }
 
+// perform mix column operation on one column
 class AES_MixColumn extends Module {
   val io = IO(new Bundle {
     val in = Input(Vec(4, UInt(8.W)))
     val out = Output(Vec(4, UInt(8.W)))
   })
 
+  // table of multiplication number by 2
   val mul2 = VecInit("h00".U, "h02".U, "h04".U, "h06".U, "h08".U, "h0a".U, "h0c".U, "h0e".U,
     "h10".U, "h12".U, "h14".U, "h16".U, "h18".U, "h1a".U, "h1c".U, "h1e".U,
     "h20".U, "h22".U, "h24".U, "h26".U, "h28".U, "h2a".U, "h2c".U, "h2e".U,
@@ -433,18 +556,21 @@ class AES_MixColumn extends Module {
     "hfb".U, "hf9".U, "hff".U, "hfd".U, "hf3".U, "hf1".U, "hf7".U, "hf5".U,
     "heb".U, "he9".U, "hef".U, "hed".U, "he3".U, "he1".U, "he7".U, "he5".U)
 
+  // compute mixed column according to AES algorithm
   io.out(0) := mul2(io.in(0)) ^ mul2(io.in(1)) ^ io.in(1) ^ io.in(2) ^ io.in(3)
   io.out(1) := io.in(0) ^ mul2(io.in(1)) ^ mul2(io.in(2)) ^ io.in(2) ^ io.in(3)
   io.out(2) := io.in(0) ^ io.in(1) ^ mul2(io.in(2)) ^ mul2(io.in(3)) ^ io.in(3)
   io.out(3) := mul2(io.in(0)) ^ io.in(0) ^ io.in(1) ^ io.in(2) ^ mul2(io.in(3))
 }
 
+// perform inversed mix column operation on one column
 class AES_InvMixColumn extends Module {
   val io = IO(new Bundle {
     val in = Input(Vec(4, UInt(8.W)))
     val out = Output(Vec(4, UInt(8.W)))
   })
 
+  // table of multiplication number by 9
   val mul9 = VecInit("h00".U, "h09".U, "h12".U, "h1b".U, "h24".U, "h2d".U, "h36".U, "h3f".U,
     "h48".U, "h41".U, "h5a".U, "h53".U, "h6c".U, "h65".U, "h7e".U, "h77".U,
     "h90".U, "h99".U, "h82".U, "h8b".U, "hb4".U, "hbd".U, "ha6".U, "haf".U,
@@ -478,6 +604,7 @@ class AES_InvMixColumn extends Module {
     "h31".U, "h38".U, "h23".U, "h2a".U, "h15".U, "h1c".U, "h07".U, "h0e".U,
     "h79".U, "h70".U, "h6b".U, "h62".U, "h5d".U, "h54".U, "h4f".U, "h46".U)
 
+  // table of multiplication number by 11
   val mul11 = VecInit("h00".U, "h0b".U, "h16".U, "h1d".U, "h2c".U, "h27".U, "h3a".U, "h31".U,
     "h58".U, "h53".U, "h4e".U, "h45".U, "h74".U, "h7f".U, "h62".U, "h69".U,
     "hb0".U, "hbb".U, "ha6".U, "had".U, "h9c".U, "h97".U, "h8a".U, "h81".U,
@@ -511,6 +638,7 @@ class AES_InvMixColumn extends Module {
     "hca".U, "hc1".U, "hdc".U, "hd7".U, "he6".U, "hed".U, "hf0".U, "hfb".U,
     "h92".U, "h99".U, "h84".U, "h8f".U, "hbe".U, "hb5".U, "ha8".U, "ha3".U)
 
+  // table of multiplication number by 13
   val mul13 = VecInit("h00".U, "h0d".U, "h1a".U, "h17".U, "h34".U, "h39".U, "h2e".U, "h23".U,
     "h68".U, "h65".U, "h72".U, "h7f".U, "h5c".U, "h51".U, "h46".U, "h4b".U,
     "hd0".U, "hdd".U, "hca".U, "hc7".U, "he4".U, "he9".U, "hfe".U, "hf3".U,
@@ -544,6 +672,7 @@ class AES_InvMixColumn extends Module {
     "hdc".U, "hd1".U, "hc6".U, "hcb".U, "he8".U, "he5".U, "hf2".U, "hff".U,
     "hb4".U, "hb9".U, "hae".U, "ha3".U, "h80".U, "h8d".U, "h9a".U, "h97".U)
 
+  // table of multiplication number by 14
   val mul14 = VecInit("h00".U, "h0e".U, "h1c".U, "h12".U, "h38".U, "h36".U, "h24".U, "h2a".U,
     "h70".U, "h7e".U, "h6c".U, "h62".U, "h48".U, "h46".U, "h54".U, "h5a".U,
     "he0".U, "hee".U, "hfc".U, "hf2".U, "hd8".U, "hd6".U, "hc4".U, "hca".U,
@@ -577,12 +706,14 @@ class AES_InvMixColumn extends Module {
     "hd7".U, "hd9".U, "hcb".U, "hc5".U, "hef".U, "he1".U, "hf3".U, "hfd".U,
     "ha7".U, "ha9".U, "hbb".U, "hb5".U, "h9f".U, "h91".U, "h83".U, "h8d".U)
 
+  // compute inversed mixed column according to AES algorithm
   io.out(0) := mul14(io.in(0)) ^ mul11(io.in(1)) ^ mul13(io.in(2)) ^ mul9(io.in(3))
   io.out(1) := mul9(io.in(0)) ^ mul14(io.in(1)) ^ mul11(io.in(2)) ^ mul13(io.in(3))
   io.out(2) := mul13(io.in(0)) ^ mul9(io.in(1)) ^ mul14(io.in(2)) ^ mul11(io.in(3))
   io.out(3) := mul11(io.in(0)) ^ mul13(io.in(1)) ^ mul9(io.in(2)) ^ mul14(io.in(3))
 }
 
+// perform shift of rows
 class AES_ShiftRows extends Module {
   val io = IO(new Bundle {
     val out = new AES_DataInterPE
@@ -612,6 +743,7 @@ class AES_ShiftRows extends Module {
   io.out.state(3)(3) := io.in.state(2)(3)
 }
 
+// perform inversed shift of rows
 class AES_InvShiftRows extends Module {
   val io = IO(new Bundle {
     val out = new AES_DataInterPE
@@ -641,6 +773,7 @@ class AES_InvShiftRows extends Module {
   io.out.state(3)(3) := io.in.state(0)(3)
 }
 
+// module for changing bytes using S-box
 class AES_SubBytes extends Module {
   val io = IO(new Bundle {
     val out = new AES_DataInterPE
@@ -649,6 +782,7 @@ class AES_SubBytes extends Module {
 
   io.out.key := DontCare
 
+  // create matrix of PEs for changing one byte with S-box
   val PEs = for (i <- 0 until 4) yield {
     for (j <- 0 until 4) yield {
       val pe = Module(new AES_S)
@@ -657,14 +791,16 @@ class AES_SubBytes extends Module {
     }
   }
 
+  // for each pe
   for(i <- 0 until 4) {
     for(j <- 0 until 4) {
-      PEs(i)(j).io.in := io.in.state(i)(j)
-      io.out.state(i)(j) := PEs(i)(j).io.out
+      PEs(i)(j).io.in := io.in.state(i)(j) // connect corresponding byte in input state to input byte in pe
+      io.out.state(i)(j) := PEs(i)(j).io.out // connect corresponding byte in output state to output byte in pe
     }
   }
 }
 
+// module for inverse changing bytes using S-box
 class AES_InvSubBytes extends Module {
   val io = IO(new Bundle {
     val out = new AES_DataInterPE
@@ -673,6 +809,7 @@ class AES_InvSubBytes extends Module {
 
   io.out.key := DontCare
 
+  // create matrix of PEs for changing one byte with inversed S-box
   val invPEs = for (i <- 0 until 4) yield {
     for (j <- 0 until 4) yield {
       val pe = Module(new AES_InvS)
@@ -681,14 +818,17 @@ class AES_InvSubBytes extends Module {
     }
   }
 
+  // for each pe
   for(i <- 0 until 4) {
     for(j <- 0 until 4) {
       invPEs(i)(j).io.in := io.in.state(i)(j)
-      io.out.state(i)(j) := invPEs(i)(j).io.out
+      // connect corresponding byte in input state to input byte in pe
+      io.out.state(i)(j) := invPEs(i)(j).io.out // connect corresponding byte in output state to output byte in pe
     }
   }
 }
 
+// change one byte with S-box
 class AES_S extends Module {
   val io = IO(new Bundle {
     val in = Input(UInt(8.W))
@@ -731,6 +871,7 @@ class AES_S extends Module {
   io.out := S(io.in(7,4))(io.in(3,0))
 }
 
+// change one byte with inversed S-box
 class AES_InvS extends Module {
   val io = IO(new Bundle {
     val in = Input(UInt(8.W))
@@ -773,12 +914,15 @@ class AES_InvS extends Module {
   io.out := S(io.in(7,4))(io.in(3,0))
 }
 
+// data type for data transferred between PEs
 class AES_DataInterPE extends Bundle {
   val state = Output(Vec(4,Vec(4, UInt(8.W))))
   val key = Output(Vec(4,Vec(4, UInt(8.W))))
 }
 
+// data type for input and output
 class AES_DataOutput extends Bundle {
   val text = Output(UInt(128.W))
   val key = Output(UInt(128.W))
 }
+

@@ -7,31 +7,39 @@ import chisel3.tester.RawTester.test
 import chisel3.tester._
 import chisel3.experimental.BundleLiterals._
 
+// Test for module AES_Pipelined in decryption mode. Generates waveforms, verilog code and fir file
 object TestAES_DecryptionPipelined extends App {
-  def module = new AES_Pipelined(encrypt = false)
-  val name = "AES_DecryptionPipelined"
-  val dirName = "tested/" + name
+  def module = new AES_Pipelined(encrypt = false) // define calling module for convenience, encrypt = false => decryption
+  val name = "AES_DecryptionPipelined" // name of output files
+  val dirName = "tested/" + name // directory of output files
 
+  // execute test bench for generating waveforms
   println("[{(Running test bench)}]")
   chisel3.iotesters.Driver.execute(
     Array("-o", name, "--generate-vcd-output", "on", "--target-dir", dirName),
     () => module) { c => new TestBenchAES_DecryptionPipelined(c)}
 
+  // generate verilog code
   println("[{(Generating Verilog file)}]")
   (new chisel3.stage.ChiselStage).emitVerilog(
     module,
     Array("-o", name, "--target-dir", dirName, "-foaf", name)
   )
 
+  // tester
   test(module) {c =>
+    // boilerplate code
     c.io.in.initSource()
     c.io.in.setSourceClock(c.clock)
     c.io.out.initSink()
     c.io.out.setSinkClock(c.clock)
 
+    // put input data when input ready is high
     c.io.in.enqueue(chiselTypeOf(c.io.in.bits).Lit(_.key -> "h379853138d43cf2b36790a8da77becb7".U, _.text -> "hd63e32ae28545fa649840e0a80a71d77".U))
+    // take output data when output valid is high and compare this with true value
     c.io.out.expectDequeue(chiselTypeOf(c.io.in.bits).Lit(_.key -> "h30303030303030303030303030303030".U, _.text -> "h6162636465666768696a6b6c6d6e6f70".U))
 
+    // two threads: one for putting data when input ready is high, another for taking result when output valid is high
     fork {
       c.io.in.enqueue(chiselTypeOf(c.io.in.bits).Lit(_.key -> "h79ab839133ba852d1bd971f77fc4f9b2".U, _.text -> "h60abaf8450f1140638346425b0122f2e".U))
       c.io.in.enqueue(chiselTypeOf(c.io.in.bits).Lit(_.key -> "h3bee7b2c6fd149c6e238f3fb5306bf8b".U, _.text -> "haab115ba56924f7c79511427ef2cce3d".U))
@@ -46,6 +54,7 @@ object TestAES_DecryptionPipelined extends App {
   }
 }
 
+// test bench with poke functions for generating waveforms
 class TestBenchAES_DecryptionPipelined(dut: AES_Pipelined) extends PeekPokeTester(dut) {
   poke(dut.io.out.ready, true.B)
   poke(dut.io.in.valid, true.B)
