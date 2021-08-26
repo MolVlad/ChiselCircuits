@@ -8,8 +8,7 @@
 - notebooks/ - contains .ipynb notebooks for testing how some algorithms behave
 - annotations/ - contains .anno.json files for simulation
 - simulation/ - contains input and output data of simulation
-
-Descriptions in draw.io are available [here](https://drive.google.com/file/d/188H2ymluxmOLU3NYcowvTezDm3KV12Ll/view?usp=sharing)
+- descriptions/ - contains circuit descriptions in draw.io
 
 ## Implemented circuits
 
@@ -19,7 +18,7 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - N cyclic shifts of M bits register. Elastic input/output interfaces. Can be replaced by one shift.
 
-- Description in draw.io: [link](https://drive.google.com/file/d/1ZJaClURfavJDERpspQ7ucHhV-1-SBw-p/view?usp=sharing)
+- Description in draw.io: [link](descriptions/rotation.drawio)
 
 - Source file: src/main/scala/elastic/simple/Rotation.scala
 
@@ -41,7 +40,7 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - N iterations of the same computations on (x,y) input vector. Elastic input/output interfaces. Can be replaced by one iteration of resulting computation.
 
-- Description in draw.io: [link](https://drive.google.com/file/d/1KCATx1qMiwqr44wRrVnU7MRL8tNAJyF0/view?usp=sharing)
+- Description in draw.io: [link](descriptions/computing.drawio)
 
 - Source file: src/main/scala/elastic/simple/Computing.scala
 
@@ -63,7 +62,7 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - 2N bits x 2N bits multiplier through one NxN multiplier. Elastic input/output interfaces. Can be replaced by one 2Nx2N multiplier.
 
-- Description in draw.io: [link](https://drive.google.com/file/d/1ZOu5aroX90wGEzHSHMdpd5KaGDYEAWZi/view?usp=sharing)
+- Description in draw.io: [link](descriptions/multiplier.drawio)
 
 - Source file: src/main/scala/elastic/simple/Multiplier.scala
 
@@ -85,7 +84,7 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - Dot product with decoupled processing element (PE) inside. Elastic input/output interfaces. Can be replaced by the same with non-decoupled PE.
 
-- Description in draw.io: [link](https://drive.google.com/file/d/1ma7tVbVkCrrIjvRdquVK7UjK_EdOL_Qn/view?usp=sharing)
+- Description in draw.io: [link](descriptions/dot_product.drawio)
 
 - Source file: src/main/scala/elastic/dotProduct/DotProduct.scala
 
@@ -107,7 +106,7 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - Smith-Waterman algorithm with decoupled input/output interfaces. There is one PE inside, data is provided to it in state machine fashion. It can be replaced by pipelined version.
 
-- Description in draw.io: [link](https://drive.google.com/file/d/1K2xo2UY3slTuP70wcAS1ndhKzJ4cuQF_/view?usp=sharing)
+- Description in draw.io: [link](descriptions/smith-waterman_FSM.drawio)
 
 - Source file: src/main/scala/elastic/watermanFSM/WatermanFSM.scala
 
@@ -129,7 +128,7 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - Smith-Waterman algorithm with decoupled input/output interfaces. There are several PE inside, each PE has decoupled interfaces which introduce additional delays. These PEs can be replaced by those with non-decoupled interfaces.
 
-- Description in draw.io: [link](https://drive.google.com/file/d/1VzJwCw8k09dzeBKJI_lbo1gNZ5CLUY8N/view?usp=sharing)
+- Description in draw.io: [link](descriptions/smith-waterman_systolic.drawio)
 
 - Source file: src/main/scala/elastic/watermanSystolic/WatermanSystolic.scala
 
@@ -151,7 +150,7 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - MD4 algorithm with decoupled input/output interfaces. There is one PE inside, data is provided to it in state machine fashion. It can be replaced by pipelined version.
 
-- Description in draw.io: [link](https://drive.google.com/file/d/1asGKA9Lv1CrF5sAAwIt1P0GEh06kBszr/view?usp=sharing)
+- Description in draw.io: [link](descriptions/MD4_FSM.drawio)
 
 - Python notebook for testing MD4 algorithm: notebooks/md4-md5_testing.ipynb
 
@@ -175,7 +174,7 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - Fully pipelined MD4 algorithm, it produces data every clock cycle. Several PEs are connected by chain, each has elastic input/output interfaces. For each PE, new data and input valid are going through registers when output ready is high.
 
-- Description in draw.io: [link](https://drive.google.com/file/d/188H2ymluxmOLU3NYcowvTezDm3KV12Ll/view?usp=sharing)
+- Description in draw.io: [link](descriptions/MD4_Pipelined.drawio)
 
 - Python notebook for testing MD4 algorithm: notebooks/md4-md5_testing.ipynb
 
@@ -199,7 +198,7 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - Fully pipelined MD4 algorithm, it produces data every clock cycle. Several PEs are connected by chain, each has elastic buffer.
 
-- Description in draw.io: [link](https://drive.google.com/file/d/1STAYhhtQKTaDKzMzF8fTS9iIDfUcato1/view?usp=sharing)
+- Description in draw.io: [link](descriptions/MD4_Pipelined_ElasticBuffer.drawio)
 
 - Python notebook for testing MD4 algorithm: notebooks/md4-md5_testing.ipynb
 
@@ -223,7 +222,7 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - DES algorithm with decoupled input/output interfaces. There is one PE inside, data is provided to it in state machine fashion. It can be replaced by pipelined version.
 
-- Description in draw.io: [link](https://drive.google.com/file/d/1qyi094yXwJSNWcT84F3N5_Lw9e3XAwLY/view?usp=sharing)
+- Description in draw.io: [link](descriptions/DES_FSM.drawio)
 
 - Python notebook for testing DES algorithm: notebooks/des_testing.ipynb
 
@@ -263,7 +262,7 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - Fully pipelined DES algorithm, it produces data every clock cycle. Several PEs are connected by chain, each has elastic input/output interfaces. For each PE, new data and input valid are going through registers when output ready is high.
 
-- Description in draw.io: [link](https://drive.google.com/file/d/1bCJpjtndiDAI2TwOutxtzAH3EaMUsVlG/view?usp=sharing)
+- Description in draw.io: [link](descriptions/DES_Pipelined.drawio)
 
 - Python notebook for testing DES algorithm: notebooks/des_testing.ipynb
 
@@ -303,7 +302,7 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - Fully pipelined DES algorithm, it produces data every clock cycle. Several PEs are connected by chain, each has elastic buffer.
 
-- Description in draw.io: [link](https://drive.google.com/file/d/1ftyiThqYystGDlD5wh7KOv0j-q5tSUoY/view?usp=sharing)
+- Description in draw.io: [link](descriptions/DES_Pipelined_ElasticBuffer.drawio)
 
 - Python notebook for testing DES algorithm: notebooks/des_testing.ipynb
 
@@ -343,7 +342,7 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - AES algorithm with decoupled input/output interfaces. There is one PE inside, data is provided to it in state machine fashion. It can be replaced by pipelined version.
 
-- Description in draw.io: [link](https://drive.google.com/file/d/1Aurpc6aTFGVBySETfzVmbtWjTzm3DWRI/view?usp=sharing)
+- Description in draw.io: [link](descriptions/AES_FSM.drawio)
 
 - Python notebook for testing AES algorithm: notebooks/aes_testing.ipynb
 
@@ -383,7 +382,7 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - Fully pipelined AES algorithm, it produces data every clock cycle. Several PEs are connected by chain, each has elastic input/output interfaces. For each PE, new data and input valid are going through registers when output ready is high.
 
-- Description in draw.io: [link](https://drive.google.com/file/d/1RcMFO86cWR91zgyWpx92epilgOiUe32V/view?usp=sharing)
+- Description in draw.io: [link](descriptions/AES_Pipelined.drawio)
 
 - Python notebook for testing AES algorithm: notebooks/aes_testing.ipynb
 
@@ -423,7 +422,7 @@ Descriptions in draw.io are available [here](https://drive.google.com/file/d/188
 
 - Fully pipelined AES algorithm, it produces data every clock cycle. Several PEs are connected by chain, each has elastic buffer.
 
-- Description in draw.io: [link](https://drive.google.com/file/d/1DnzecNL4Bhfi0aIFdRfpH1dfxbCUuQUF/view?usp=sharing)
+- Description in draw.io: [link](descriptions/AES_Pipelined_ElasticBuffer.drawio)
 
 - Python notebook for testing AES algorithm: notebooks/aes_testing.ipynb
 
